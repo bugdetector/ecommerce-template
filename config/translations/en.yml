@@ -229,7 +229,7 @@ postalcode: 'Postal Code'
 default: Default
 email_verify_error: 'Your e-mail not verified. Please check your e-mail.'
 email_verified: 'Email Verified'
-after_register_welcome_message: '<h1 align="center">Welcome to A To Z</h1><p align="center"><span style="text-align: left;">A verification email has been sent to <b>%s</b>. Please click the link in the email to verify your account, </span></p><p align="center"><span style="text-align: left;">Thank you. </span></p><p align="center"><span style="text-align: left;">If you have not yet received and email click&nbsp;</span><a href="#resend" style="color: rgb(7, 33, 39); text-decoration-line: underline; background-color: rgb(255, 255, 255);">here</a><span style="text-align: left;">&nbsp;to have resent.</span></p>'
+after_register_welcome_message: '<h1 align="center">Welcome</h1><p align="center"><span style="text-align: left;">A verification email has been sent to <b>%s</b>. Please click the link in the email to verify your account, </span></p><p align="center"><span style="text-align: left;">Thank you. </span></p><p align="center"><span style="text-align: left;">If you have not yet received and email click&nbsp;</span><a href="#resend" style="color: rgb(7, 33, 39); text-decoration-line: underline; background-color: rgb(255, 255, 255);">here</a><span style="text-align: left;">&nbsp;to have resent.</span></p>'
 send_mail: 'Send Mail'
 verification_mail_resend: '<p>Verification mail resend successfully.<br></p>'
 email_verify_success: '<h2 align="center">Your email verified successfully.<br></h2>'

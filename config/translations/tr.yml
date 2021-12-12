@@ -229,7 +229,7 @@ postalcode: 'Posta Kodu'
 default: Varsayılan
 email_verify_error: 'E-postanız henüz onaylanmadı.Lütfen e-postanızı kontrol edin.'
 email_verified: 'E-posta Doğrulandı'
-after_register_welcome_message: '<h1 align="center">A To Z''e hoşgeldiniz</h1><p align="center">Hesabınızı onaylamanız için <b>%s </b>adresine bir e-posta gönderdik. Hesabınızı onaylamak için e-postadaki linke tıklayınız.</p><p align="center">Teşekkürler.</p><p align="center">E-posta almadıysanız <a href="#resend" target="_blank">buraya</a> tıklayarak tekrar göndermeyi deneyin.<br></p>'
+after_register_welcome_message: '<h1 align="center">Hoşgeldiniz</h1><p align="center">Hesabınızı onaylamanız için <b>%s </b>adresine bir e-posta gönderdik. Hesabınızı onaylamak için e-postadaki linke tıklayınız.</p><p align="center">Teşekkürler.</p><p align="center">E-posta almadıysanız <a href="#resend" target="_blank">buraya</a> tıklayarak tekrar göndermeyi deneyin.<br></p>'
 send_mail: 'E-posta Gönder'
 verification_mail_resend: '<p>Onay e-postası başarıyla yeniden gönderildi.<br></p>'
 email_verify_success: '<h2 align="center">E-postanız başarıyla doğrulandı.<br></h2>'

@@ -8,8 +8,8 @@ email_verification:
   tr: '<p>Merhaba %s,<br><br>Lütfen aşagıdaki linke tıklayarak e-postanızı onaylayın.<br></p><p><a href="%s" target="_blank">%s</a><br></p>'
 order_sent:
   key: order_sent
-  en: '<p>Hi %s,</p><p>Thank you for your order #%s. Please find order details attached.</p><p>Your order will be dispatched as soon as possible.</p><p>In the event of any unforeseen issues or delays, we shall promptly let you know.</p><p>Have a nice day.</p><p>A to Z Sales Team</p><p>Thanks.</p>'
-  tr: '<p>Merhaba %s,</p><p>Siparişiniz #%s için teşekkür ederiz. Ekte siparişiniz ile ilgili detayları bulabilirsiniz.</p><p>Siparişiniz en kısa sürede kargoya verilecektir.</p><p>İyi Günler.</p><p>A to Z Sales Team<br></p><p>Teşekkürler.</p>'
+  en: '<p>Hi %s,</p><p>Thank you for your order #%s. Please find order details attached.</p><p>Your order will be dispatched as soon as possible.</p><p>In the event of any unforeseen issues or delays, we shall promptly let you know.</p><p>Have a nice day.</p><p>Sales Team</p><p>Thanks.</p>'
+  tr: '<p>Merhaba %s,</p><p>Siparişiniz #%s için teşekkür ederiz. Ekte siparişiniz ile ilgili detayları bulabilirsiniz.</p><p>Siparişiniz en kısa sürede kargoya verilecektir.</p><p>İyi Günler.</p><p>Sales Team<br></p><p>Teşekkürler.</p>'
 enquiry_sent:
   key: enquiry_sent
   en: '<p>%s sent a new enquiry. Enquiry details listed below.</p><p><b>Product:</b> %s - %s</p><p><b>Quantity:</b> %s</p><p><b>Description:</b> To see click <a href="%s">here</a>.</p><p><b>User account number:</b> %s</p><p><b>User email:</b>&nbsp; %s</p>'
@@ -28,9 +28,9 @@ new_user_linked:
   tr: ' '
 order_canceled:
   key: order_canceled
-  en: '<p>Hi %s,</p><p>Your order #%s has been canceled on %s.</p><p>Have a nice day.</p><p>A to Z Sales Team</p><p>Thanks.</p>'
-  tr: '<p>Merhaba %s,</p><p>Siparişiniz #%s, %s tarihinde iptal edildi.</p><p>İyi Günler.</p><p>A to Z Sales Team<br></p><p>Teşekkürler.</p>'
+  en: '<p>Hi %s,</p><p>Your order #%s has been canceled on %s.</p><p>Have a nice day.</p><p>Sales Team</p><p>Thanks.</p>'
+  tr: '<p>Merhaba %s,</p><p>Siparişiniz #%s, %s tarihinde iptal edildi.</p><p>İyi Günler.</p><p>Sales Team<br></p><p>Teşekkürler.</p>'
 payment_request_mail:
   key: payment_request_mail
-  en: '<p>Hello %s,</p><p>Please <a href="%s"><font color="#6badde">click</font></a> on the link to make a payment for your order no <b>#%d</b>.</p><p>Have a nice day.</p><p>A to Z Sales Team</p><p>Thanks.</p>'
-  tr: '<p>Hello %s,</p><p>Please&nbsp;<a href="http://localhost/AtoZ/public_html/admin/table/insert/%s"><font color="#6badde">click</font></a>&nbsp;on the link to make a payment for your order no&nbsp;<span style="font-weight: bolder;">#%d</span>.</p><p>Have a nice day.</p><p>A to Z Sales Team</p><p>Thanks.</p>'
+  en: '<p>Hello %s,</p><p>Please <a href="%s"><font color="#6badde">click</font></a> on the link to make a payment for your order no <b>#%d</b>.</p><p>Have a nice day.</p><p>Sales Team</p><p>Thanks.</p>'
+  tr: '<p>Hello %s,</p><p>Please&nbsp;<a href="http://localhost/AtoZ/public_html/admin/table/insert/%s"><font color="#6badde">click</font></a>&nbsp;on the link to make a payment for your order no&nbsp;<span style="font-weight: bolder;">#%d</span>.</p><p>Have a nice day.</p><p>Sales Team</p><p>Thanks.</p>'
