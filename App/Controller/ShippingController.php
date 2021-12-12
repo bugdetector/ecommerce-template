@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Basket\Basket;
+use App\Entity\CustomUser;
 use App\Form\ShippingForm;
 use App\Theme\CustomTheme;
 use Src\Entity\Translation;
@@ -25,6 +26,9 @@ class ShippingController extends CustomTheme
             $userBasket = Basket::getUserBasket();
             $userBasket->type->setValue(Basket::TYPE_DELIVERY);
             $userBasket->save();
+            $user = \CoreDB::currentUser();
+            $user->shipping_option->setValue(CustomUser::SHIPPING_OPTION_DELIVERY);
+            $user->save();
             \CoreDB::goTo(
                 @$_SERVER["HTTP_REFERER"] ?: MainpageController::getUrl()
             );
