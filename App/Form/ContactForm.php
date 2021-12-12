@@ -5,9 +5,11 @@ namespace App\Form;
 use Src\Entity\Translation;
 use Src\Entity\Variable;
 use Src\Form\Form;
+use Src\Form\Widget\CaptchaWidget;
 use Src\Form\Widget\FormWidget;
 use Src\Form\Widget\InputWidget;
 use Src\Form\Widget\TextareaWidget;
+use Src\Lib\CaptchaService;
 use Src\Views\TextElement;
 
 class ContactForm extends Form
@@ -56,6 +58,12 @@ class ContactForm extends Form
         );
 
         $this->addField(
+            CaptchaWidget::create("captcha")
+            ->setLabel(Translation::getTranslation("captcha"))
+            ->addAttribute("required", "true")
+        );
+
+        $this->addField(
             InputWidget::create("send")
             ->setType("submit")
             ->setValue(Translation::getTranslation("send_mail"))
@@ -82,6 +90,9 @@ class ContactForm extends Form
         }
         if (!filter_var($this->request["email"], FILTER_VALIDATE_EMAIL)) {
             $this->setError("email", Translation::getTranslation("enter_valid_mail"));
+        }
+        if (!CaptchaService::validateCaptcha($this->request["captcha"])) {
+            $this->setError("captcha", Translation::getTranslation("wrong_captcha"));
         }
         return empty($this->errors);
     }

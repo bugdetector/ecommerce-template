@@ -590,3 +590,5 @@ authorized_branch: 'Authorized branch'
 compress_all_image_files: 'Compress all image files'
 _files_compressed: '%d files compressed.'
 login_or_register_to_get_best_prices: "To get best prices from %s \r\n<a href='%s' class='btn btn-outline-warning btn-sm text-white'>Login</a> or \r\n<a href='%s' class='btn btn-outline-warning btn-sm text-white'>Register</a>"
+captcha: 'Security Code'
+wrong_captcha: 'You entered wrong security code.'
