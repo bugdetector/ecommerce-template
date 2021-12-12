@@ -110,3 +110,7 @@ currency_icon:
   key: currency_icon
   value: ₺
   type: text
+use_postcode_list:
+  key: use_postcode_list
+  value: '0'
+  type: checkbox
