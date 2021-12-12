@@ -272,7 +272,7 @@ my_orders: Siparişlerim
 view: Görüntüle
 list_price: 'Liste Fiyatı'
 thank_you_for_order: 'Siparişiniz için teşekkür ederiz.'
-payment_thanks_message: '₺%s ödemeniz için teşekkür ederiz.'
+payment_thanks_message: '£%s ödemeniz için teşekkür ederiz.'
 issues: Konular
 priority: Öncelik
 status: Durum
@@ -360,7 +360,7 @@ new_user_registered: 'Yeni Kullanıcı Kaydoldu'
 all_products: 'Tüm Ürünler'
 cookie_accept_message: "<p>Bu site size daha iyi deneyim sağlamak amacıyla çerezleri kullanmaktadır. Eğer çerez kullanımını kabul ediyorsanız gezinmeye devam edebilirsiniz. Çerez politikası ile ilgili daha fazla bilgi için <a href=\"/page/privacy-policy\">tıklayın</a>.</p>\r\n<button id=\"accept-cookie\" class=\"btn btn-success\">Kabul Et</button>"
 allow_cookies: 'Çerezlere İzin Verin'
-spend_another_warning: 'Ücretsiz teslimat için ₺<span class="for-free-delivery">%s</span> daha harcamanız gerekiyor.'
+spend_another_warning: 'Ücretsiz teslimat için £<span class="for-free-delivery">%s</span> daha harcamanız gerekiyor.'
 registration_date: 'Üye Olduğu Tarih'
 pay_optional_at_checkout: 'Ödeme Adımında Sonra Ödeme Seçeneği'
 pay_and_send_order: 'Öde ve Siparişi Ver'
@@ -459,7 +459,7 @@ paid_amount: 'Ödenen Tutar'
 add_to_active_order_warning: 'Şu anda aktif %d siparişiniz var. Sepetinizdeki ögeleri aktif siparişlerinizden birine eklemeyi tercih edebilir ya da yeni bir sipariş oluşturabilirsiniz. Siparişinizi eklemek için <a href="#" id="merge-detail">buraya</a> tıklayın.'
 active_order_choose: 'Aktif sipariş(ler)iniz aşağıda listelenmiştir. Sepetinizdeki ögeleri aktif siparişinize eklemek için lütfen birisini seçin ve "Birleştir" butonuna basın.'
 merge: Birleştir
-merge_warning: '<p>Birleştirme detayları aşağıda listelenmiştir:</p><p>%s</p><p>Teslimat: ₺%.2f</p><p>KDV: ₺%.2f</p><p>Ara toplam: ₺%.2f</p><p>Toplam: ₺%.2f</p><p>Fiyat Farkı: ₺%.2f</p>'
+merge_warning: '<p>Birleştirme detayları aşağıda listelenmiştir:</p><p>%s</p><p>Teslimat: £%.2f</p><p>KDV: £%.2f</p><p>Ara toplam: £%.2f</p><p>Toplam: £%.2f</p><p>Fiyat Farkı: £%.2f</p>'
 continue_to_merge: 'Birleştirmeye devam et'
 optional_pay_not_available: 'Seçimli ödeme kullanılabilir değil.'
 order_merge_success: 'Sipariş ögeleri başarıyla eklendi.'

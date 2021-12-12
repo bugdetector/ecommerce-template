@@ -272,7 +272,7 @@ my_orders: 'My Orders'
 view: View
 list_price: 'List Price'
 thank_you_for_order: 'Thank you for your order.'
-payment_thanks_message: 'Thank you for your payment of ₺%s.'
+payment_thanks_message: 'Thank you for your payment of £%s.'
 issues: Issues
 priority: Priority
 status: Status
@@ -360,7 +360,7 @@ new_user_registered: 'New User Registered'
 all_products: 'All Products'
 cookie_accept_message: "We use cookies to help you get the best experience from our website and enables us to show you products relevant to you. Continue browsing if you agree to our use of cookies. To see our <a href=\"/page/privacy-policy\" class=\"text-primary\">cookie policy and find out more.</a>\r\n<br> \r\n<button id=\"accept-cookie\" class=\"btn btn-success\">Accept</button>"
 allow_cookies: 'Allow Cookies'
-spend_another_warning: 'Spend another ₺<span class="for-free-delivery">%s</span> to get free delivery.</span></span>'
+spend_another_warning: 'Spend another £<span class="for-free-delivery">%s</span> to get free delivery.</span></span>'
 registration_date: 'Registration Date'
 pay_optional_at_checkout: 'Pay Optional at Checkout'
 pay_and_send_order: 'Pay and Order'
@@ -459,7 +459,7 @@ paid_amount: 'Paid Amount'
 add_to_active_order_warning: 'You have %d active order(s) at the moment. You can add these items to one of your active order(s) or you can proceed to create new order. Click <a href="#" id="merge-detail">here</a> if you want add to this order.'
 active_order_choose: 'Your active order(s) listed below. Please select one of them and click "Add Order" to add items to your active order.'
 merge: 'Add Order'
-merge_warning: '<p><span style="font-size: 1rem;">Add order&nbsp;</span>details listed below:</p><p>%s</p><p>Delivery: ₺%.2f</p><p>VAT: ₺%.2f</p><p>Subtotal: ₺%.2f</p><p>Total: ₺%.2f</p><p>Price difference: ₺%.2f</p>'
+merge_warning: '<p><span style="font-size: 1rem;">Add order&nbsp;</span>details listed below:</p><p>%s</p><p>Delivery: £%.2f</p><p>VAT: £%.2f</p><p>Subtotal: £%.2f</p><p>Total: £%.2f</p><p>Price difference: £%.2f</p>'
 continue_to_merge: 'Continue to add order'
 optional_pay_not_available: 'Optinal payment not available.'
 order_merge_success: 'Oder items added successfully.'
