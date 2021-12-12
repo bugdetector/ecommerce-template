@@ -1,0 +1,172 @@
+table_name: products
+table_comment: 'Caontains all products.'
+fields:
+  stockcode:
+    type: short_text
+    length: '255'
+    column_name: stockcode
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: true
+    default: null
+    comment: 'User input stockcode.'
+  title:
+    type: short_text
+    length: '255'
+    column_name: title
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Title of product.'
+  alt_desc:
+    type: long_text
+    column_name: alt_desc
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Alternative product description.'
+  category:
+    type: table_reference
+    reference_table: product_categories
+    column_name: category
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Product category.'
+  is_variable:
+    type: checkbox
+    column_name: is_variable
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'If checked a selectbox shown under product card to select variation.'
+  description:
+    type: long_text
+    column_name: description
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Product description. Please use Description Attachments section to add new image or file in the description.'
+  vat:
+    type: float
+    column_name: vat
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'VAT percentage'
+  published:
+    type: checkbox
+    column_name: published
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Is product published.'
+  special_price_not_available:
+    type: checkbox
+    column_name: special_price_not_available
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'If checked special price won''t applied.'
+  is_special_product:
+    type: checkbox
+    column_name: is_special_product
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Special products are not shown on catalogue. They list on special products page. Prices not shown "Enquire" button placed instead. '
+  is_private_product:
+    type: checkbox
+    column_name: is_private_product
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Is this product is private and has one or many owner.'
+  minimum_order_count:
+    type: integer
+    length: null
+    column_name: minimum_order_count
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Minimum order count that this item can be checkout.'
+  maximum_order_count:
+    type: integer
+    length: null
+    column_name: maximum_order_count
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Maximum order that this item can be ordered in a day.'
+  url_alias:
+    type: short_text
+    length: '500'
+    column_name: url_alias
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: true
+    default: null
+    comment: ''
+  exclude_stock:
+    type: checkbox
+    column_name: exclude_stock
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'If checked this product stock quantity is not important for next day collection.'
+  weight:
+    type: integer
+    length: null
+    column_name: weight
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: "Weight used ordering.\r\n(Old system: sprice9 column)"
+  sprice_valid_from:
+    type: date
+    column_name: sprice_valid_from
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Sprice is valid after this day. Including selected.'
+  sprice_valid_to:
+    type: date
+    column_name: sprice_valid_to
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Sprice is valid before this day. Including selected.'

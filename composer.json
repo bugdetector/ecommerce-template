@@ -4,7 +4,12 @@
         "squizlabs/php_codesniffer": "*",
         "phpmailer/phpmailer": "^6.1",
         "symfony/yaml": "^5.1",
-        "symfony/console": "^5.1"
+        "symfony/console": "^5.1",
+        "shuchkin/simplexlsx": "^0.8.19",
+        "spipu/html2pdf": "^5.2",
+        "sentry/sdk": "^3.1",
+        "mstfsnc/nestpay": "~1.0.2",
+        "cweagans/composer-patches": "~1.0"
     },
     "autoload": {
         "psr-4": {
@@ -12,5 +17,13 @@
         "Src\\" : "Kernel/Src/",
         "App\\" : "App/"
         }
+    },
+    "extra": {
+        "patches": {
+            "mstfsnc/nestpay": {
+            "Payment fix":"patches/3d_pay_hosting.patch"
+            }
+        }
     }
+    
 }

@@ -1,0 +1,89 @@
+{% extends "page.twig" %}
+{% block title %}
+	<div class="mb-4">
+		<a href="javascript:history.back()" class="btn btn-outline-info">
+			<i class="fa fa-chevron-left mr-2"></i>
+			{{ t("back") }}
+		</a>
+	</div>
+	<div class="d-sm-flex align-items-center justify-content-between mb-4 text-center">
+		<h1 class="h3 mb-0 text-primary">{{ controller.title }}</h1>
+	</div>
+{% endblock %}
+{% block content %}
+	<div class="row" id="checkout-page">
+		<div class="col-xl-8">
+			{{ controller.printMessages() }}
+			{{ controller.echoContent()|raw }}
+		</div>
+		<div class="col-xl-4 mt-xl-2 mt-sm-0">
+			<div class="card p-2 mt-lg-0 mt-sm-2 text-right">
+				<div>
+					<label class="text-primary font-weight-bold">
+						{{ t("subtotal") }}
+						:
+					</label>
+					<b class="text-info">
+						{{ variable("currency_icon").value }}<span class="basket-subtotal">{{ controller.basket.subtotal.value|number_format(2, '.', ',') }}</span>
+					</b>
+				</div>
+				<div>
+					<label class="text-primary font-weight-bold">
+						{{ t("delivery") }}
+						:
+					</label>
+					<b class="text-info">
+						{{ variable("currency_icon").value }}<span class="delivery-value">{{ controller.basket.delivery.value|number_format(2, '.', ',') }}</span>
+					</b>
+				</div>
+				<div>
+					<label class="text-primary font-weight-bold">
+						{{ t("vat") }}																																																																																																																												                        :
+					</label>
+					<b class="text-info">
+						{{ variable("currency_icon").value }}<span class="vat-value">{{ controller.basket.vat.value|number_format(2, '.', ',') }}</span>
+					</b>
+				</div>
+				{% if controller.basket.applied_voucher_code.value %}
+					<div>
+						<label class="text-primary font-weight-bold">
+							{{ t("voucher_code_discount") }}																																																																																																																													                        :
+						</label>
+						<b class="text-info">
+							{{ variable("currency_icon").value }}<span class="vat-value">{{ controller.basket.voucher_code_discount.value|number_format(2, '.', ',') }}</span>
+						</b>
+					</div>
+				{% endif %}
+				<h2>
+					<label class="text-primary font-weight-bold">
+						{{ t("total") }}
+						:
+					</label>
+					<b class="text-info">
+						{{ variable("currency_icon").value }}<span class="basket-total-value">{{ controller.basket.total.value|number_format(2, '.', ',') }}</span>
+					</b>
+				</h2>
+				{% if controller.basket.paid_amount.value %}
+					<h3>
+						<label class="text-primary font-weight-bold">
+							{{ t("paid_amount") }}
+							:
+						</label>
+						<b class="text-info">
+							{{ variable("currency_icon").value }}<span>{{ controller.basket.paid_amount.value|number_format(2, '.', ',') }}</span>
+						</b>
+					</h3>
+				{% endif %}
+				{% if controller.vatPercentage == 0 %}
+					<div class="alert alert-warning text-left">
+						<i class="fa fa-exclamation-triangle"></i>
+						{{ t("abroad_delivery_and_tax_warning") }}
+					</div>
+				{% endif %}
+				
+				{{ controller.form|raw }}
+			</div>
+		</div>
+	</div>
+	{{ controller.recommendList }}
+</div>{% endblock %}

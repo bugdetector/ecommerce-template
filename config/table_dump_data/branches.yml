@@ -1,0 +1,11 @@
+Central:
+  name: Central
+  address: Adress
+  town: Town
+  county: County
+  postalcode: postcode
+  country: '231'
+  opening_hours: '<p>Opening Hours</p>'
+  weight: '0'
+  email: email
+  phone: phone

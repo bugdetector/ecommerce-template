@@ -1,0 +1,155 @@
+.navbar-brand{
+    background-size: 70%;
+    @media screen and (max-width: 767px) {
+        background-size: 60%;
+        position: absolute;
+        left: calc(38vw - 27px);
+    }
+}
+
+.card-height-200 {
+    height: 205px !important;
+}
+
+.item-name {
+    font-size: 12px !important;
+}
+
+.quick-add-item {
+    text-decoration: none !important;
+    span{
+        font-weight: bold;
+        font-size: 0.775rem;
+    }
+}
+
+.my-price-text {
+    font-size: 13px !important;
+}
+
+
+.category-filter .collapse-item .nav-link {
+    color: rgba(0, 0, 0, 0.74) !important;
+    @media screen and (max-width: 768px) {
+        font-size: large;
+    }
+}
+
+.text-heart {
+    color: rgb(245, 202, 61) !important;
+}
+
+.text-basket {
+    color: rgb(19, 87, 104);
+}
+
+.scroll-to-top{
+    z-index: 1;
+}
+
+@media (max-width: 768px){
+    .user-dropdown .dropdown-item > i{
+        font-size: x-large !important;
+        width: 30px;
+    }
+}
+#content-wrapper{
+    margin-top: 70px;
+}
+.csl-theme #content-wrapper{
+    margin-top: 46px;
+}
+.container-fluid{
+    padding-top: 10px;
+}
+@media (max-width: 767px){
+
+    body.sidebar-toggled{
+        overflow: hidden;
+    }
+
+    .csl-theme #content-wrapper{
+        margin-top: 85px;
+    }   
+
+    .csl-theme .sidebar{
+        min-height: calc(100vh - 110px);
+        max-height: calc(100vh - 110px);
+    }
+
+    .sidebar{
+        width: 100%;
+        position: fixed;
+        height: 100%;
+        min-height: calc(100vh - 71px);
+        max-height: calc(100vh - 71px);
+        overflow-y: scroll;
+        .sidebar-dummy{
+            padding-bottom: 50vh;
+        }
+         .nav-item, .nav-link{
+            width: 100% !important;
+            display: block;
+            text-align: left !important;
+
+            i {
+                font-size: 0.85rem !important;
+                margin-right: 0.25rem !important;
+            }
+
+            span {
+                font-size: 0.85rem !important;
+                display: inline !important;
+            }
+
+            .collapse {
+                position: initial;
+            }
+        }
+    }
+
+    .sidebar-brand-text{
+        display: inline ;
+    }
+}
+
+#sidebarToggle {
+    display: none;
+}
+
+.bootstrap-select .dropdown-menu{
+    max-height: 50vh;
+    overflow: auto;
+}
+
+@media(min-width: 768px){
+    #content-wrapper .container-fluid{
+        max-width: calc(100vw - 100px);
+    }
+}
+
+footer{
+    background: rgba(44,50,121,1.00);
+    .footer-logo{
+        width: 250px;
+    }
+    hr {
+        border: 0;
+        height: 3px;
+        background: rgb(211, 211, 211);
+        margin-left: 0;
+        width: 50%;
+    }
+    a{
+        color: white;
+        text-transform: capitalize;
+    }
+    img{
+        width: 150px;
+    }
+    .fab{
+        font-size: 1.8em;
+        color: rgb(255, 255, 255);
+        margin-left: 8px;
+    }
+}

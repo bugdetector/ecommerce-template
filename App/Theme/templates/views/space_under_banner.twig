@@ -1,0 +1,20 @@
+<div class="container mb-3 px-md-5 mt-5">
+	<div class="row justify-content-center">
+		{% for space in view.spaces %}
+            <div class="col-md-3 col-sm-12 mb-3">
+                <div class="card p-2 h-100">
+                    <img class="card-img-top img-fluid" style="height: 100px; object-fit: contain;" src="{{ space.getFileUrlForField("image") }}" alt="{{ space.title }}">
+                    <div class="card-body">
+                        <a href="{{
+                            space.url.getValue() ?: (
+                                space.attachment.getValue() ? space.getFileUrlForField("attachment") :
+                                "#"
+                            )
+
+                         }}" class="btn btn-link stretched-link text-decoration-none p-0">{{ space.text }}</a>
+                    </div>
+                </div>
+            </div>
+		{% endfor %}
+	</div>
+</div>

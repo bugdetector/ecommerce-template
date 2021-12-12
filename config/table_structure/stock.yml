@@ -1,0 +1,33 @@
+table_name: stock
+table_comment: 'Contains stock in branches. Merge table between branches and products.'
+fields:
+  branch:
+    type: table_reference
+    reference_table: branches
+    column_name: branch
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Branch reference.'
+  product:
+    type: table_reference
+    reference_table: products
+    column_name: product
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Product reference.'
+  quantity:
+    type: integer
+    length: null
+    column_name: quantity
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Available quantity in stock.'

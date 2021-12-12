@@ -1,0 +1,73 @@
+{% if view.data %}
+
+	<div class="card mb-2">
+		<h5 class="card-header text-primary font-weight-bold">
+			{{ view.title }}
+		</h5>
+		<div class="card-body">
+			<div class="swiper-container product-list-container" data-place="{{ view.getListPlace() }}" data-slides-per-view="auto" data-space-between="10" data-free-mode="true" data-centered-slides="true" data-navigation='{"nextEl": ".swiper-button-next","prevEl":".swiper-button-prev"}' data-pagination='{"el":".swiper-pagination", "clickable":true}' data-autoplay='{"delay":"1500", "disableOnInteraction": true}' data-loop="true">
+				<div class="swiper-wrapper">
+					{% set clickUrl = view.getClickUrl() %}
+					{% for product in view.data %}
+						<div class="swiper-slide mb-5 col-lg-4 col-xl-3 h-100">
+							<div class="basket-item">
+								<div class="card pb-3">
+									<a href="{{ clickUrl ?: constant("BASE_URL") ~ "/products/product/" ~ product.url_alias }}" data-item="{{product.ID}}" class="text-center text-decoration-none product-item">
+										<div class="mx-auto item-image-wrapper">
+											<img src="{{ product.getCoverImageUrl() }}" alt="{{ product.title }}"/>
+											<div>
+												<small>{{ product.stockcode }}</small>
+											</div>
+										</div>
+										<h5 class="text-primary font-weight-bold item-name" style="height: 30px">
+											{{ product.title }}
+										</h5>
+										{% for type, priceInfo in product.getPrices() %}
+											{% set offer = priceInfo.offer|number_format(2, '.', ',') %}
+											{% set list_price = priceInfo.list_price|number_format(2, '.', ',') %}
+											<div class="font-weight-bold text-info mb-2">
+												{{ t(type) }}:
+												{% if list_price != offer %}
+													<del class="text-danger">{{ variable("currency_icon").value }}{{ list_price }}</del>
+												{% endif %}
+												{{ variable("currency_icon").value }}<span>{{ offer }}</span>
+											</div>
+										{% endfor %}
+										{% if not clickUrl %}
+											<div class="card-footer bg-gradient-info">
+												<a href="#" class="text-white text-decoration-none add-basket-control {{ not view.isLoggedIn() ? " nonlogin-add-to-basket" }}">
+													{% if view.isLoggedIn() %}
+														<input type="number" value="{{ 1 }}" class="quantity d-none" data-item="{{ product.ID }}" min="1">
+														<a href="#" class="save-quantity refresh-after-add no-edit text-white" data-item="{{ product.ID }}">
+															<i class="fa fa-shopping-basket"></i>
+															{{ t("add_to_basket") }}
+														</a>
+													{% else %}
+														<i class="fa fa-shopping-basket"></i>
+														{{ t("add_to_basket") }}
+													{% endif %}
+												</a>
+											</div>
+										{% endif %}
+									</a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+				<div class="swiper-button-next text-primary"></div>
+				<div class="swiper-button-prev text-primary"></div>
+				<div class="swiper-pagination"></div>
+			</div>
+			{% if clickUrl %}
+
+				<a href="{{ clickUrl }}" class="btn btn-primary float-right">
+					{{ t("view_all") }}
+					<i class="fa fa-chevron-right"></i>
+				</a>
+
+			{% endif %}
+
+		</div>
+	</div>
+{% endif %}

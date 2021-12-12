@@ -1,2 +1,6 @@
 Admin:
   role: Admin
+Manager:
+  role: Manager
+'Order Manager':
+  role: 'Order Manager'

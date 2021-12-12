@@ -63,3 +63,19 @@ if (!IS_CLI) {
         ]
     );
 }
+
+
+/**
+ * Enter SENTRY_DSN where get it from sentry 
+ * Ex:
+ * https://example@example.ingest.sentry.io/example
+ */
+define("SENTRY_DSN", false);
+
+define("PAYMENT_CLIENT", "App\Lib\IsBankClient");
+define("OMNIPAY_USERNAME", "username");
+define("OMNIPAY_STOREKEY", "storekey");
+define("OMNIPAY_CLIENT_ID", "clientid");
+define("OMNIPAY_PASSWORD", "password");
+define("OMNIPAY_FIRMNAME", "firmname");
+define("OMNIPAY_CURRENCY", "TRY");

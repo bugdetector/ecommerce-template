@@ -1,0 +1,32 @@
+table_name: promotion_list
+table_comment: 'List of promoted products and promotion details.'
+fields:
+  promoted_product:
+    type: table_reference
+    reference_table: products
+    column_name: promoted_product
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  promotion_price:
+    type: float
+    column_name: promotion_price
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Promoted price.'
+  promoprice_break:
+    type: integer
+    length: null
+    column_name: promoprice_break
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Promoted price available after promoprice_break count items add to basket.'

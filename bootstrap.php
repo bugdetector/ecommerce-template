@@ -21,6 +21,11 @@ try{
         }
         define("BASE_URL", $_SERVER["REQUEST_SCHEME"]."://".$host.SITE_ROOT);
         session_start();
+        
+        if( defined("ENVIROMENT") && defined("SENTRY_DSN") && SENTRY_DSN && ENVIROMENT != "development"){
+            Sentry\init(['dsn' => SENTRY_DSN ]);
+        }
+
         CoreDB\Kernel\Router::getInstance()->route();
     }
 }catch(DatabaseInstallationException $ex){

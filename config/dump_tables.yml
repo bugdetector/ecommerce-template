@@ -2,3 +2,6 @@ roles: role
 variables: key
 emails: key
 viewable_queries: key
+countries: code
+branches: name
+days: ID

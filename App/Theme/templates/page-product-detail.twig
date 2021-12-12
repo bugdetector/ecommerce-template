@@ -1,0 +1,144 @@
+{% extends "page.twig" %}
+{% block title %}
+	<div class="mb-4">
+		<a href="javascript:history.back()" class="btn btn-outline-info">
+			<i class="fa fa-chevron-left mr-2"></i>
+			{{ t("back") }}
+		</a>
+	</div>
+	<div class="d-sm-flex align-items-center justify-content-between mb-4 text-center">
+		<h1 class="h3 mb-0 text-primary">{{ controller.title }}</h1>
+	</div>
+	<a href="{{ constant("BASE_URL") ~ "/products" }}" class="ml-2">{{ t("all") }}</a>
+	{% for category in controller.product.getBreadCrumb() %}
+		/
+		<a href="{{ constant("BASE_URL") ~ "/products?category=" ~ category.ID }}">{{ category.name }}</a>
+	{% endfor %}
+{% endblock %}
+{% block content %}
+	{% set onoffer = false %}
+	{% for type, priceInfo in controller.product.getPrices() %}
+		{% set offer = priceInfo.offer|number_format(2, '.', ',') %}
+		{% set list_price = priceInfo.list_price|number_format(2, '.', ',') %}
+		{% if list_price != offer %}
+			{% set onoffer = true %}
+		{% endif %}
+	{% endfor %}
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card p-2">
+				{{ controller.printMessages() }}
+				<div class="row product-item basket-item" data-item="{{controller.product.ID}}">
+					<div class="col-md-4 item-image-wrapper">
+						{% if onoffer %}
+							<div class="card-header bg-gradient-warning text-center">
+								<div class="text-white">
+									<i class="fa fa-star"></i>
+									{{ t("on_offer") }}
+								</div>
+								<small class="badge badge-danger">
+									{{ t("offer_expires") }}:
+									{{ controller.product.sprice_valid_to.getValue()|date("d F Y") }}
+								</small>
+							</div>
+						{% endif %}
+						{% set images = controller.product.getImages() %}
+						{% if images and images|length > 1 %}
+							<div class="swiper-container swiper" id="product-swiper" data-speed="2000" data-loop="true" data-autoplay='{"delay": 2000}' data-pagination='{"el":".swiper-pagination", "clickable":true}' data-navigation='{"nextEl": "#js-next1", "prevEl": "#js-prev1"}'>
+								<div class="swiper-wrapper">
+									{% for index, image in images %}
+										<a class="swiper-slide"  href="{{ image.getUrl() }}" data-fancybox="gallery">
+											<img src="{{ image.getUrl() }}" alt="{{ controller.product.title }}" class="img-fluid w-100 rounded" title="{{ controller.product.title }}">
+										</a>
+									{% endfor %}
+								</div>
+								<!-- pagination -->
+								<div class="swiper-pagination"></div>
+								<!-- navigation buttons -->
+								<div id="js-prev1" class="swiper-button-prev"></div>
+								<div id="js-next1" class="swiper-button-next"></div>
+							</div>
+						{% else %}
+						<a href="{{ controller.product.getCoverImageUrl() }}" data-fancybox="gallery">
+							<img src="{{ controller.product.getCoverImageUrl() }}" class="w-100" alt="{{ controller.product.title }}"/>
+						</a>
+						{% endif %}
+					</div>
+					<div class="col-md-8">
+						<span class="d-none item-name">{{ controller.product.title }}</span>
+						<small class="text-primary font-weight-bold">
+							{{ t("stockcode") }}:
+							{{ controller.product.stockcode }}
+							{% if controller.logged_in %}
+								<div class="btn px-2 float-right {{ controller.isFavorite ? " text-heart" : " text-gray-500" }} item-favorite" data-item="{{ controller.product.ID }}">
+									<i class="fa fa-star"></i>
+								</div>
+							{% endif %}
+						</small>
+						{% for type, priceInfo in controller.product.getPrices() %}
+							{% set offer = priceInfo.offer|number_format(2, '.', ',') %}
+							{% set list_price = priceInfo.list_price|number_format(2, '.', ',') %}
+							<h3 class="text-info mb-2">
+								{{ t(type) }}:
+								{% if list_price != offer %}
+									<del class="text-danger">{{ variable("currency_icon").value }}{{ list_price }}</del>
+								{% endif %}
+								{{ variable("currency_icon").value }}<span class="my-price" data-item="{{ row.ID }}" data-my-price="{{ offer }}">{{ offer }}</span>
+							</h3>
+						{% endfor %}
+						{% if controller.logged_in %}
+							{% if not controller.product.is_special_product.value %}
+								{% if controller.product.is_variable.getValue() %}
+									<div class="row">
+										<div class="col-12 mb-3">
+											{{ controller.variationSelect }}
+										</div>
+									</div>
+								{% endif %}
+								<div class="card-footer bg-gradient-info">
+									<a href="#" class="text-white text-decoration-none add-basket-control">
+										<input type="number" value="{{controller.basketProduct.quantity.getValue() ?: 1 }}" class="quantity d-none" data-item="{{ controller.product.ID }}" min="1">
+										<a href="#" class="save-quantity no-edit text-white" data-item="{{ controller.product.ID }}">
+											<i class="fa fa-shopping-basket"></i>
+											{{ t("add_to_basket") }}
+										</a>
+									</a>
+								</div>
+							{% else %}
+								<a href="#" class="btn btn-primary enquire" data-item="{{ controller.product.ID }}">
+									<i class="fa fa-info"></i>
+									{{ controller.isEnquirementExist ? t("already_enquired") : t("enquire") }}
+								</a>
+							{% endif %}
+						{% else %}
+							<div class="card-footer bg-gradient-info">
+								<a href="#" class="text-white text-decoration-none add-basket-control {{ not view.logged_in ? " nonlogin-add-to-basket" }}">
+									<i class="fa fa-shopping-basket"></i>
+									{{ t("add_to_basket") }}
+								</a>
+							</div>
+						{% endif %}
+						<p>{{ controller.product.description|raw }}</p>
+						<div id="accordion">
+							{% for index, product_info in controller.product.product_info.getValue() %}
+								<div class="card">
+									<div class="card-header">
+										<a class="card-link font-weight-bold" data-toggle="collapse" href="#collapse{{ index }}">
+											{{ product_info.title|raw }}
+											<i class="fas fa-caret-square-down"></i>
+										</a>
+									</div>
+									<div id="collapse{{ index }}" class="collapse {{ index == 0 ? " show" : " " }}" data-parent="#accordion">
+										<div class="card-body">
+											{{ product_info.description|raw }}
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+table_name: customers
+table_comment: 'Customers.csv file imported values.'
+fields:
+  company_name:
+    type: short_text
+    length: '255'
+    column_name: company_name
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  name:
+    type: short_text
+    length: '255'
+    column_name: name
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  email:
+    type: short_text
+    length: '255'
+    column_name: email
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  account_number:
+    type: short_text
+    length: '255'
+    column_name: account_number
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Unique account number'
+  address:
+    type: text
+    column_name: address
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: Address
+  town:
+    type: short_text
+    length: '255'
+    column_name: town
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  county:
+    type: short_text
+    length: '255'
+    column_name: county
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  postalcode:
+    type: short_text
+    length: '255'
+    column_name: postalcode
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  phone:
+    type: short_text
+    length: '255'
+    column_name: phone
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  mobile:
+    type: short_text
+    length: '255'
+    column_name: mobile
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''

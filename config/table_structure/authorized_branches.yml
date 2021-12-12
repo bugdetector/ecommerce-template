@@ -1,0 +1,23 @@
+table_name: authorized_branches
+table_comment: 'Merge table between branches and users. If role selected Order manager user will be able to see order in authorized branches.'
+fields:
+  user:
+    type: table_reference
+    reference_table: users
+    column_name: user
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'User reference.'
+  branch:
+    type: table_reference
+    reference_table: branches
+    column_name: branch
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Branch reference.'

@@ -1,0 +1,23 @@
+table_name: users_linked_account
+table_comment: 'Contains linked accounts.'
+fields:
+  master_account:
+    type: table_reference
+    reference_table: users
+    column_name: master_account
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Master table.'
+  sub_account:
+    type: table_reference
+    reference_table: users
+    column_name: sub_account
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Referenced account.'

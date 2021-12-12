@@ -1,0 +1,23 @@
+table_name: postcode_days
+table_comment: 'Merge table between postcode and days table. Postcode''s available delivery days.'
+fields:
+  postcode:
+    type: table_reference
+    reference_table: postcode
+    column_name: postcode
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Postcode reference.'
+  day:
+    type: table_reference
+    reference_table: days
+    column_name: day
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Day reference.'

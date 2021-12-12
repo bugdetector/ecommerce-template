@@ -1,0 +1,23 @@
+table_name: search_api
+table_comment: 'Contains words for search prediction and weight.'
+fields:
+  word:
+    type: short_text
+    length: '500'
+    column_name: word
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: true
+    default: null
+    comment: 'Search word.'
+  search_count:
+    type: integer
+    length: null
+    column_name: search_count
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Count that word has been searched.'

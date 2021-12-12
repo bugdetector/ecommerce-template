@@ -1,0 +1,111 @@
+table_name: user_address
+table_comment: 'Stores users address data.'
+fields:
+  account_number:
+    type: short_text
+    length: '255'
+    column_name: account_number
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Unique account number'
+  company_name:
+    type: short_text
+    length: '500'
+    column_name: company_name
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: ''
+  user:
+    type: table_reference
+    reference_table: users
+    column_name: user
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  address:
+    type: text
+    column_name: address
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: ''
+  town:
+    type: short_text
+    length: '255'
+    column_name: town
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: ''
+  postalcode:
+    type: short_text
+    length: '255'
+    column_name: postalcode
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: ''
+  county:
+    type: short_text
+    length: '255'
+    column_name: county
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: ''
+  country:
+    type: table_reference
+    reference_table: countries
+    column_name: country
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Country reference.'
+  phone:
+    type: short_text
+    length: '20'
+    column_name: phone
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  mobile:
+    type: short_text
+    length: '20'
+    column_name: mobile
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  default:
+    type: checkbox
+    column_name: default
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''

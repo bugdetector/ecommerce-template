@@ -1,0 +1,41 @@
+table_name: countries
+table_comment: 'Country list all arount world. Also contains tax percentage and other values specific to all countries.'
+fields:
+  name:
+    type: short_text
+    length: '255'
+    column_name: name
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: true
+    default: null
+    comment: 'Country name'
+  code:
+    type: short_text
+    length: '255'
+    column_name: code
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: true
+    default: null
+    comment: 'Country code'
+  tax_percentage:
+    type: float
+    column_name: tax_percentage
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Country specific tax percentage'
+  delivery_price:
+    type: float
+    column_name: delivery_price
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''

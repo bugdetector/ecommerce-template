@@ -693,6 +693,7 @@
   display: none; }
 
 .note-editor.note-frame.fullscreen {
+  top: 4.4rem;
   width: calc(100% - 6.5rem) !important;
   left: 6.5rem; }
 

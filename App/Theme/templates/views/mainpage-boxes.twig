@@ -1,0 +1,21 @@
+<div class="container mb-3 px-md-5 mt-5">
+	<div class="row justify-content-center">
+		{% for box in view.boxes %}
+			<div class="{{box.size.getValue() ?: "col-md-4"}} mt-3">
+				<div class="card h-100 view overlay mainpage-box">
+					{% if box.image.getValue() %}
+						<img class="card-img-top img-fluid" style="object-fit: contain;" src="{{ box.getFileUrlForField("image") }}" alt="{{ box.title }}">
+					{% endif %}
+					<div class="card-body">
+						<h5 class="card-title text-wrap">{{ box.title }}</h5>
+						<hr style=" width: 25%; background: {{ box.line_color.getValue() }}; border-width: 4px; margin: inherit; margin-bottom: 5px;"/>
+						<p>{{box.text|raw}}</p>
+						<a href="{{ box.url.getValue() ?: ( box.attachment.getValue() ? box.getFileUrlForField("attachment") : "#" ) }}" class="btn btn-primary active stretched-link" role=" button" aria-pressed=" true">{{
+                                box.button_text.getValue() ?: t("find_out_more")
+                            }}</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>

@@ -1,0 +1,50 @@
+table_name: payment_log
+table_comment: 'Payment responses log.'
+fields:
+  order:
+    type: table_reference
+    reference_table: basket
+    column_name: order
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Order reference.'
+  amount:
+    type: float
+    column_name: amount
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Paid amount'
+  transaction_ref:
+    type: short_text
+    length: '255'
+    column_name: transaction_ref
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Transaction reference.'
+  is_success:
+    type: checkbox
+    column_name: is_success
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Payment is successful.'
+  response:
+    type: long_text
+    column_name: response
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Response in JSON format.'

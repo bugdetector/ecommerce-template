@@ -1,0 +1,61 @@
+table_name: payment_methods
+table_comment: 'User payment methods.'
+fields:
+  user:
+    type: table_reference
+    reference_table: users
+    column_name: user
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'User reference.'
+  card_number:
+    type: short_text
+    length: '255'
+    column_name: card_number
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: true
+    default: null
+    comment: 'Card number.'
+  card_holder:
+    type: short_text
+    length: '255'
+    column_name: card_holder
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Card holder name.'
+  card_expire:
+    type: date
+    column_name: card_expire
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Card expiry date.'
+  card_cvv:
+    type: short_text
+    length: '255'
+    column_name: card_cvv
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Card cvv.'
+  verified:
+    type: checkbox
+    column_name: verified
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Is verified.'

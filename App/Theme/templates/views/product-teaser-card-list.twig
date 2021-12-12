@@ -1,0 +1,91 @@
+{% include "views/product-view-style-toggle.twig" %}
+<div class='{{ view.classes|join(" ") }}' {{ view.renderAttributes()|raw }}>
+	{% for product_index, row in view.data %}
+		{% set offer = row.price|number_format(2, '.', ',') %}
+		{% set firstPrice = row.price_list|first %}
+		{% set listprice = firstPrice.price|number_format(2, '.', ',') %}
+		<div class="w-100 card shadow-lg my-2 basket-item basket-list-item">
+			{% if row.on_offer %}
+				<div class="card-header bg-gradient-warning text-white">
+					<div>
+						<i class="fa fa-star"></i>
+						{{ t("on_offer") }}
+						<small class="badge badge-danger">
+							{{ t("offer_expires") }}:
+							{{ view.product.sprice_valid_to|date("d F Y") }}
+						</small>
+					</div>
+				</div>
+			{% endif %}
+			<div class="card-body">
+				<div class="row px-1 product-item" data-item="{{row.ID}}">
+					{% set images = row.product.getImages() %}
+					{% if images and images|length > 1 %}
+						<div class="col-6 col-sm-3 col-md-2">
+							<div class="swiper-container swiper" id="product-swiper-{{product_index}}" data-speed="2000" data-loop="true" data-autoplay='{"delay": 2000}' data-pagination='{"el":".swiper-pagination", "clickable":true}' data-navigation='{"nextEl": "#js-next1", "prevEl": "#js-prev1"}'>
+								<div class="swiper-wrapper">
+									{% for index, image in images %}
+										<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ row.url_alias }}" class="swiper-slide">
+											<img src="{{ image.getUrl() }}" alt="{{ row.product.title }}" class="img-fluid w-100 rounded" title="{{ row.product.title }}">
+										</a>
+									{% endfor %}
+								</div>
+								<!-- pagination -->
+								<div class="swiper-pagination"></div>
+								<!-- navigation buttons -->
+								<div id="js-prev1" class="swiper-button-prev"></div>
+								<div id="js-next1" class="swiper-button-next"></div>
+							</div>
+						</div>
+					{% else %}
+						<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ row.url_alias }}" class="col-6 col-sm-3 col-md-2 item-image-wrapper">
+							<img src="{{ row.product.getCoverImageUrl() }}" class="w-100" alt="{{ row.product.title }}"/>
+						</a>
+					{% endif %}
+					<div class="col-6 col-sm-6 col-md-3 mt-2 p-2">
+						{% if view.listOptionField != "bespoke_card_list_option" %}
+							<div class="btn float-right {{ row.favorite ? " text-heart" : " text-gray-500" }} item-favorite" data-item="{{ row.ID }}">
+								<i class="fa fa-star"></i>
+							</div>
+						{% endif %}
+						<div>
+							<small>{{ row.product.stockcode }}</small>
+						</div>
+						<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ row.url_alias }}" class="text-decoration-none">
+							<h5 class="text-primary font-weight-bold item-name">
+								{{ row.title }}
+							</h5>
+						</a>
+						<div class="font-weight-bold text-info">
+							{% for type, priceInfo in row.prices %}
+								{% set offer = priceInfo.offer|number_format(2, '.', ',') %}
+								{% set list_price = priceInfo.list_price|number_format(2, '.', ',') %}
+								<div class="font-weight-bold text-info my-price-text mb-2">
+									{{ t(type) }}:
+									{% if list_price != offer %}
+										<del class="text-danger">{{ variable("currency_icon").value }}{{ list_price }}</del>
+									{% endif %}
+									{{ variable("currency_icon").value }}<span class="my-price" data-item="{{ row.ID }}" data-my-price="{{ offer }}">{{ offer }}</span>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-4 col-12 pt-3">
+						{% if row.is_variable %}
+							{{ row.variation_select }}
+						{% endif %}
+						<div class="card-footer bg-gradient-info rounded-pill text-center w-sm-50">
+							<a href="#" class="text-white text-decoration-none add-basket-control {{ not view.logged_in ? " nonlogin-add-to-basket" }}">
+								<input type="number" value="{{ row.quantity ?: 1 }}" class="quantity d-none" data-item="{{ row.ID }}" min="1">
+								<a href="#" class="save-quantity no-edit text-white" data-item="{{ row.ID }}">
+									<i class="fa fa-shopping-basket"></i>
+									{{ t("add_to_basket") }}
+								</a>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>

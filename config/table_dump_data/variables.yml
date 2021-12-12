@@ -1,14 +1,14 @@
 site_name:
   key: site_name
-  value: CoreDB
+  value: 'Core E-commerce'
   type: text
 hash_salt:
   key: hash_salt
-  value: null
+  value: Hh2VZAz7jSiDuDkVC/f2zjlvJJTfETNv1VMlaYvRprD/SmGFG3TLWoDoEjEds7ftAaA=
   type: hidden
 email_address:
   key: email_address
-  value: null
+  value: support@example.com
   type: text
 email_password:
   key: email_password
@@ -16,21 +16,97 @@ email_password:
   type: hidden
 email_smtp_host:
   key: email_smtp_host
-  value: smtp.gmail.com
+  value: smtp.google.com
   type: text
 email_smtp_port:
   key: email_smtp_port
-  value: '465'
+  value: '587'
   type: integer
 email_smtp_secure:
   key: email_smtp_secure
-  value: ssl
+  value: tls
   type: text
 email_username:
   key: email_username
-  value: CoreDB
+  value: 'Core E-Commerce'
+  type: text
+minimum_order_price:
+  key: minimum_order_price
+  value: '100'
+  type: float
+payment_report_email:
+  key: payment_report_email
+  value: info@example.com
   type: text
 test_email_send_address:
   key: test_email_send_address
+  value: bakiyucel38@gmail.com
+  type: text
+minimum_private_order_count:
+  key: minimum_private_order_count
+  value: '10'
+  type: integer
+minimum_enquirement_count:
+  key: minimum_enquirement_count
+  value: '10'
+  type: integer
+general_enquiries_phone:
+  key: general_enquiries_phone
+  value: 05XXXXXXXXX
+  type: text
+cron_key:
+  key: cron_key
   value: null
+  type: text
+collection_max_payment:
+  key: collection_max_payment
+  value: '100'
+  type: float
+general_enquiries_email:
+  key: general_enquiries_email
+  value: info@example.com
+  type: text
+facebook_url:
+  key: facebook_url
+  value: null
+  type: text
+instagram_url:
+  key: instagram_url
+  value: null
+  type: text
+twitter_url:
+  key: twitter_url
+  value: null
+  type: text
+linkedin_url:
+  key: linkedin_url
+  value: null
+  type: text
+meta_description:
+  key: meta_description
+  value: null
+  type: text
+meta_keywords:
+  key: meta_keywords
+  value: null
+  type: text
+collection_order_enabled:
+  key: collection_order_enabled
+  value: '0'
+  type: checkbox
+google_tag_manager_id:
+  key: google_tag_manager_id
+  value: UA-123456789-1
+  type: text
+sales_report_mail:
+  key: sales_report_mail
+  value: sales@example.com
+  type: text
+default_country_code:
+  key: default_country_code
+  value: TR
+  type: text
+currency_icon:
+  key: currency_icon
+  value: ₺
   type: text

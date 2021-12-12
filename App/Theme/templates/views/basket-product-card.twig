@@ -1,0 +1,63 @@
+<div class='{{ view.classes|join(" ") }}' {{ view.renderAttributes()|raw }}>
+	<div class="row px-2">
+		<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ view.product.url_alias }}" class="col-6 col-sm-3 col-md-2 image-wrapper p-2">
+			<img src="{{ view.product.getCoverImageUrl() }}" height="100px">
+		</a>
+		<div class="col-6 col-sm-6 col-md-3 mt-1 p-2">
+			<div>
+				<small>{{ view.product.stockcode }}</small>
+			</div>
+			<h5 class="text-primary font-weight-bold item-name">
+				<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ view.product.url_alias }}">
+					{{ view.product.title }}
+					{{ view.variantName ? " - " ~ view.variantName : "" }}
+				</a>
+			</h5>
+			<div class="font-weight-bold">{{ t("price") }}:
+				<span class="text-info">{{ variable("currency_icon").value }}
+					<text class="my-price" data-item="{{ view.product.ID }}">{{ view.basketProduct.item_per_price.value|number_format(2, '.', ',') }}</text>
+				</span>
+			</div>
+		</div>
+		<div class="col-md-4 pt-3">
+			<label class="text-primary font-weight-bold">
+				{{ t("quantity") }}
+			</label>
+			{% if view.controlEnabled %}
+				<br>
+				<button type='button' class='btn btn-sm btn-danger drop-from-basket' data-item='{{view.product.ID }}' data-variant='{{ view.basketProduct.variant }}'>
+					<i class='fa fa-trash'></i>
+				</button>
+				<div class='btn-group my-2'>
+					<button type='button' class='btn btn-sm btn-info quantity-down' data-item='{{view.product.ID }}' data-variant='{{ view.basketProduct.variant }}'>
+						<i class='fa fa-minus'></i>
+					</button>
+					<input type='number' class='btn btn-sm btn-primary quantity' data-item='{{view.product.ID }}' data-variant='{{ view.basketProduct.variant }}' value='{{view.basketProduct.quantity }}' readonly/>
+					<button type='button' class='btn btn-sm btn-info quantity-up' data-item='{{view.product.ID }}' data-variant='{{ view.basketProduct.variant }}'>
+						<i class='fa fa-plus'></i>
+					</button>
+				</div>
+			{% else %}
+				<input type="text" class="form-control quantity" disabled data-item="{{ view.product.ID }}" value="{{ view.basketProduct.quantity }}" data-variant="{{ view.basketProduct.variant }}">
+			{% endif %}
+
+		</div>
+		<div class="col-md-3 pt-3">
+			<div>
+				<label class="text-primary font-weight-bold">
+					{{ t("vat") }}
+				</label>
+				<b class="item-vat" data-item="{{ view.product.ID }}" data-variant="{{ view.basketProduct.variant }}">{{ variable("currency_icon").value }}
+					{{ view.basketProduct.item_vat.value|number_format(2, '.', ',') }}</b>
+			</div>
+			<div>
+				<label class="text-primary font-weight-bold">
+					{{ t("subtotal") }}
+					:
+				</label>
+				<b class="total-value" data-item="{{ view.product.ID }}" data-variant="{{ view.basketProduct.variant }}">{{ variable("currency_icon").value }}
+					{{ view.basketProduct.total_price.value|number_format(2, '.', ',') }}</b>
+			</div>
+		</div>
+	</div>
+</div>

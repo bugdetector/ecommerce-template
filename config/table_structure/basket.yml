@@ -1,0 +1,248 @@
+table_name: basket
+table_comment: 'Stores data about user''s basket.'
+fields:
+  order_id:
+    type: integer
+    length: null
+    column_name: order_id
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Order Id'
+  user:
+    type: table_reference
+    reference_table: users
+    column_name: user
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  item_count:
+    type: integer
+    length: null
+    column_name: item_count
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: ''
+  subtotal:
+    type: float
+    column_name: subtotal
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Total price without taxes.'
+  total:
+    type: float
+    column_name: total
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Total price with taxes.'
+  delivery:
+    type: float
+    column_name: delivery
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  vat:
+    type: float
+    column_name: vat
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Vat tax price. (KDV tutarı.)'
+  paid_online:
+    type: checkbox
+    column_name: paid_online
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  is_ordered:
+    type: checkbox
+    column_name: is_ordered
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  ref:
+    type: short_text
+    length: '255'
+    column_name: ref
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  order_notes:
+    type: text
+    column_name: order_notes
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  order_time:
+    type: datetime
+    column_name: order_time
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  transaction_id:
+    type: short_text
+    length: '500'
+    column_name: transaction_id
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  paid_amount:
+    type: float
+    column_name: paid_amount
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  private_products_excluded:
+    type: checkbox
+    column_name: private_products_excluded
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Is private products excluded when checkout.'
+  type:
+    type: enumarated_list
+    values:
+      delivery: delivery
+      collection: collection
+    column_name: type
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Ordered as delivery or collection.'
+  branch:
+    type: table_reference
+    reference_table: branches
+    column_name: branch
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Collection branch.'
+  is_checked_out:
+    type: checkbox
+    column_name: is_checked_out
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Basket is checked out.'
+  checkout_time:
+    type: datetime
+    column_name: checkout_time
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  delivery_date:
+    type: datetime
+    column_name: delivery_date
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Delivery date.'
+  stock_effected:
+    type: checkbox
+    column_name: stock_effected
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Is stock effected on checkout.'
+  is_canceled:
+    type: checkbox
+    column_name: is_canceled
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Order is canceled.'
+  cancel_time:
+    type: datetime
+    column_name: cancel_time
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'When order is canceled.'
+  applied_voucher_code:
+    type: table_reference
+    reference_table: voucher_codes
+    column_name: applied_voucher_code
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Applied voucher code reference if exists.'
+  voucher_code_discount:
+    type: float
+    column_name: voucher_code_discount
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Applied voucher code total discount.'
+  dealer:
+    type: table_reference
+    reference_table: users
+    column_name: dealer
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'User referance'

@@ -1,0 +1,90 @@
+{% extends "forms/form.twig" %}
+
+{% block fields %}
+	{{ form.fields.form_id }}
+	{{ form.fields.form_build_id }}
+	{{ form.fields.form_token }}
+
+	<div id="accordion">
+		{% if form.paymentMethods %}
+			<div class="card">
+				<div class="card-header bg-gradient-info position-relative">
+					<h5 class="mb-0">
+						<label class="btn btn-link font-weight-bold text-white stretched-link" data-toggle="collapse" data-target="#savedCreditCards">
+							<input type="radio" name="payment_option" value="saved_credit_card" checked />
+							{{ t("pay_with_saved_credit_card") }}
+						</label>
+					</h5>
+				</div>
+
+				<div id="savedCreditCards" class="collapse show" data-parent="#accordion">
+					<div class="card-body">
+						{% for paymentMethod in form.paymentMethods %}
+							<div class='card mt-2'>
+								<label class="card-body btn btn-light text-gray-900 saved-card">
+									<div class="d-flex justify-content-between">
+										<input type="radio" class="d-none saved_card" name="saved_card" value="{{ paymentMethod.ID }}">
+										{{ paymentMethod.card_holder }}
+										<div class='font-weight-bold'>
+											{{ paymentMethod.obfuscateCardNumber() }}
+											<input type="hidden" class="card-number" value="{{ paymentMethod.obfuscateCardNumber() }}">
+										</div>
+										<i class='card-icon' style='font-size: 50px;'></i>
+										<a href='#' class='text-danger text-decoration-none remove-card' data-card-id='{{ paymentMethod.ID }}'>
+											{{ t("remove_card") }}
+										</a>
+									</div>
+								</label>
+							</div>
+						{% endfor %}
+						<div class="d-flex justify-content-end mt-3">
+							{{ form.fields.pay_with_saved_credit_card }}
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+
+		<div class="card">
+			<div class="card-header bg-gradient-info position-relative">
+				<h5 class="mb-0">
+					<label class="btn btn-link collapsed font-weight-bold text-white stretched-link" data-toggle="collapse" data-target="#creditCardPayment">
+						<input type="radio" name="payment_option" value="credit_card"/>
+						{{ t("pay_with_credit_card") }}
+					</label>
+				</h5>
+			</div>
+			<div id="creditCardPayment" class="collapse {{ not form.paymentMethods ? "show" }}" data-parent="#accordion">
+				<div class="card-body">
+					<div class="d-flex justify-content-center container text-white mt-5">
+						<div class="card credit-card p-2 px-3 py-3">
+							<div class="d-flex justify-content-end align-items-end" id="card-type-image">
+								<i class='fa fa-credit-card'></i>
+							</div>
+							<div class="mt-3 d-flex flex-wrap">
+								{{ form.fields.card_number }}
+							</div>
+							<div class="d-flex flex-wrap justify-content-between mt-3 mb-3">
+								<div class="d-flex">
+									<div class="mr-1">
+										{{ form.fields.card_holder }}
+									</div>
+									<div class="mr-1">
+										{{ form.fields.card_expire }}
+									</div>
+									<div>
+										{{ form.fields.card_cvv }}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="d-flex justify-content-between mt-3">
+						{{ form.fields.save_my_card }}
+						{{ form.fields.pay }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

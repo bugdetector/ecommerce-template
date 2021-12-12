@@ -6,6 +6,27 @@ users:
       selfKey: "user_id"
       foreignKey: "role_id"
       createIfNotExist: false
+  oneToOne:
+    address:
+      foreignKey: "user"
+  oneToMany:
+    additional_delivery_address:
+      foreignKey: "user"
+    linked_account:
+      foreignKey: "master_account"
+    authorized_branch:
+      foreignKey: user
+linked_account:
+  class: App\Entity\UserLinkedAccount
+authorized_branch:
+  class: App\Entity\AuthorizedBranch
+page:
+  class: App\Entity\Page\Page
+  oneToMany:
+    page_attachment:
+      foreignKey: "page"
+page_attachment:
+  class: App\Entity\Page\PageAttachment
 roles:
   class: Src\Entity\Role
 translations:
@@ -16,3 +37,104 @@ viewable_queries:
   class: Src\Entity\ViewableQueries
 variables:
   class: Src\Entity\Variable
+products:
+  class: App\Entity\Product\Product
+  oneToMany:
+    product_description_attachment:
+      foreignKey: "product"
+    product_info:
+      foreignKey: "product"
+    product_variant: 
+      foreignKey: "product"
+    stock: 
+      foreignKey: "product"
+    price:
+      foreignKey: "product"
+    private_product_owner:
+      foreignKey: "product"
+    product_picture:
+      foreignKey: "product"
+category:
+  class: App\Entity\Product\ProductCategory
+price:
+  class: App\Entity\Product\ProductPrice
+custom_users:
+  class: App\Entity\CustomUser
+address:
+  class: App\Entity\UserAddress  
+additional_delivery_address:
+  class: App\Entity\UserAdditionalAddress
+orders:
+  class: App\Entity\Basket\Basket
+  oneToOne:
+    order_address:
+      foreignKey: "order"
+    billing_address:
+      foreignKey: "order"
+  oneToMany:
+    order_item:
+      foreignKey: "basket"
+order_address:
+  class: App\Entity\Basket\OrderAddress
+billing_address:
+  class: App\Entity\Basket\BillingAddress
+order_item: 
+  class: App\Entity\Basket\BasketProduct
+banner:
+  class: App\Entity\Banner
+  oneToOne:
+    banner_box:
+      foreignKey: banner
+  oneToMany:
+    banner_product:
+      foreignKey: "banner"
+banner_box:
+  class: App\Entity\View\BannerBox
+product_variant:
+  class: App\Entity\Product\ProductVariant
+private_product_owner:
+  class: App\Entity\Product\PrivateProductOwner
+enquirement:
+  class: App\Entity\Product\Enquirement
+variation_option:
+  class: App\Entity\Product\VariationOption
+blog:
+  class: App\Entity\Blog
+  oneToMany:
+    blog_attachment:
+      foreignKey: "blog"
+blog_attachment:
+  class: App\Entity\BlogAttachment
+product_info:
+  class: App\Entity\Product\ProductInfo
+stock:
+ class: App\Entity\Product\Stock
+postcode:
+  class: App\Entity\Postcode\Postcode
+  manyToMany:
+    day:
+      mergeTable: "postcode_days"
+      selfKey: "postcode"
+      foreignKey: "day"
+      createIfNotExist: false
+day:
+  class: App\Entity\Postcode\Day
+payment_method:
+  class: App\Entity\PaymentMethod
+space_under_banner:
+  class: App\Entity\View\SpaceUnderBanner
+mainpage_box:
+  class: App\Entity\View\MainpageBox
+banner_product:
+  class: App\Entity\BannerProduct
+product_picture:
+  class: App\Entity\Product\ProductPicture
+product_description_attachment:
+  class: App\Entity\Product\ProductDescriptionAttachment
+voucher_code:
+  class: App\Entity\Basket\VoucherCode
+  oneToMany:
+    voucher_codes_user:
+      foreignKey: "voucher_code"
+voucher_codes_user:
+  class: App\Entity\Basket\VoucherCodesUser

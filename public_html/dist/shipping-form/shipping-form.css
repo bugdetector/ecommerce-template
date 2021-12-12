@@ -1,0 +1,40 @@
+.shipping .card {
+  min-height: 100vh; }
+
+@media (max-width: 768px) {
+  .shipping .card {
+    min-height: inherit; } }
+
+.shipping img {
+  height: 100%;
+  width: 100%; }
+
+/*
+flip card
+*/
+.card-flip > div {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: transform 300ms;
+  transition-timing-function: linear;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex; }
+
+.card-front {
+  transform: rotateY(0deg); }
+
+.card-back {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0; }
+
+.card-flip.flipped .card-front {
+  transform: rotateY(-180deg); }
+
+.card-flip.flipped .card-back {
+  transform: rotateY(0deg); }
+
+
+/*# sourceMappingURL=shipping-form.css.map*/

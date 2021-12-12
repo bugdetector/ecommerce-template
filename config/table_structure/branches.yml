@@ -1,0 +1,101 @@
+table_name: branches
+table_comment: 'Contains compay branches data.'
+fields:
+  name:
+    type: short_text
+    length: '255'
+    column_name: name
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: true
+    default: null
+    comment: 'Branch name.'
+  address:
+    type: text
+    column_name: address
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Branch''s address.'
+  town:
+    type: short_text
+    length: '255'
+    column_name: town
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Branch''s town.'
+  county:
+    type: short_text
+    length: '255'
+    column_name: county
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Branch''s county.'
+  postalcode:
+    type: short_text
+    length: '255'
+    column_name: postalcode
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Branch''s postalcode.'
+  country:
+    type: table_reference
+    reference_table: countries
+    column_name: country
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Branch''s Country'
+  opening_hours:
+    type: long_text
+    column_name: opening_hours
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Opening hours of branch.'
+  weight:
+    type: integer
+    length: null
+    column_name: weight
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Order weight.'
+  email:
+    type: short_text
+    length: '255'
+    column_name: email
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Branch''s mail.'
+  phone:
+    type: short_text
+    length: '255'
+    column_name: phone
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Branch''s phone.'

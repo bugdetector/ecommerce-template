@@ -319,55 +319,55 @@
 // Sidebar Dark
 .sidebar-dark {
   .sidebar-brand {
-    color: $white;
+    color: $black;
   }
   hr.sidebar-divider {
-    border-top: 1px solid fade-out($white, 0.85);
+    border-top: 1px solid fade-out($black, 0.85);
   }
   .sidebar-heading {
-    color: fade-out($white, 0.6);
+    color: fade-out($black, 0.6);
   }
   .nav-item {
     .nav-link {
-      color: fade-out($white, 0.2);
+      color: fade-out($black, 0.2);
       i {
-        color: fade-out($white, 0.7);
+        color: fade-out($black, 0.7);
       }
       &:active,
       &:focus,
       &:hover {
-        color: $white;
+        color: $black;
         i {
-          color: $white;
+          color: $black;
         }
       }
       // Accordion
       &[data-toggle="collapse"]::after {
-        color: fade-out($white, 0.5);
+        color: fade-out($black, 1.0);
       }
     }
     &.active {
       .nav-link {
-        color: $white;
+        color: $black;
         i {
-          color: $white;
+          color: $black;
         }
       }
     }
   }
   // Color the sidebar toggler
   #sidebarToggle {
-    background-color: fade-out($white, 0.8);
+    background-color: fade-out($black, 0.8);
     &::after {
-      color: fade-out($white, 0.5);
+      color: fade-out($black, 0.5);
     }
     &:hover {
-      background-color: fade-out($white, 0.75);
+      background-color: fade-out($black, 0.75);
     }
   }
   &.toggled {
     #sidebarToggle::after {
-      color: fade-out($white, 0.5);
+      color: fade-out($black, 0.5);
     }
   }
 }

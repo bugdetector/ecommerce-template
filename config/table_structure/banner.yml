@@ -1,0 +1,53 @@
+table_name: banner
+table_comment: 'Contains banner data.'
+fields:
+  title:
+    type: short_text
+    length: '255'
+    column_name: title
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: true
+    default: null
+    comment: 'Banner title.'
+  desktop_image:
+    type: file
+    reference_table: files
+    column_name: desktop_image
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Image that shown on desktop.'
+  mobile_image:
+    type: file
+    reference_table: files
+    column_name: mobile_image
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Image that shown on mobile.'
+  url:
+    type: short_text
+    length: '1000'
+    column_name: url
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Url that banner redirects when clicked. Leave empty if you want to use banner product list.'
+  weight:
+    type: integer
+    length: null
+    column_name: weight
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''

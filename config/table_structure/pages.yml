@@ -1,0 +1,32 @@
+table_name: pages
+table_comment: 'Contains static page data.'
+fields:
+  title:
+    type: short_text
+    length: '255'
+    column_name: title
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Page title.'
+  url_alias:
+    type: short_text
+    length: '255'
+    column_name: url_alias
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Url alias pattern for this page.'
+  body:
+    type: long_text
+    column_name: body
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Body HTML for page.'

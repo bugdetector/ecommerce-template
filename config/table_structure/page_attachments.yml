@@ -1,0 +1,23 @@
+table_name: page_attachments
+table_comment: 'Contains page attachments.'
+fields:
+  page:
+    type: table_reference
+    reference_table: pages
+    column_name: page
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Page reference.'
+  attachment:
+    type: file
+    reference_table: files
+    column_name: attachment
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Attachment file'

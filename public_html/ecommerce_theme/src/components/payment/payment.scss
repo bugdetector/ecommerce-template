@@ -1,0 +1,30 @@
+$cardColor : #29347b;
+.card.credit-card {
+    width: 395px;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-clip: border-box;
+    background-color: $cardColor;
+    border-radius: 7px;
+
+    #card-type-image{
+        height: 40px;
+        font-size: 3rem;
+    }
+
+    label{
+        color: white !important;
+    }
+    input{
+        color: white;
+        background-color: #454fbb;
+        border: none;
+        &::placeholder {
+            color: white;
+        }
+    }
+}
+
+.saved-card{
+    border-width: 5px;
+}

@@ -22,7 +22,7 @@ access_denied: 'Access Denied'
 email: E-mail
 save: Save
 current_pass: 'Current Password'
-password_again: 'Password (again)'
+password_again: 'Confirm Password'
 username_exist: 'An user with same username exist.'
 password_validation_error: 'The password must be at least 8 characters long and must contain uppercase letter, lowercase letter, punctuation and number. '
 created_at: 'Created Date'
@@ -181,25 +181,412 @@ value: Value
 variables: 'Configuration variables'
 mainpage: 'Main page'
 config_file_write_error: 'Config file (config/config.php) is not writable. Please give write permission before continue to config file or create your own file and use command line.'
-add_new_entity: 'Add New %s'
-username_or_email: 'Username or email'
-upload_an_image: 'Please upload an image file.'
-originally_send_to: '<p>This message originally send to: %s<br></p>'
-record_remove_accept_field: 'Are you sure want to remove %s?'
-record_remove_accept_entity: '<p>Are you sure want to remove this %s?</p>'
-status: Status
-temporary: Temporary
-permanent: Permanent
-files_deleted: '%d files deleted.'
-clear_temporary_files: 'Clear temporary files'
+products: Products
+stockcode: 'Stock code'
+quantity: Quantity
+add_new_product: 'Add New Product'
+image: Image
+price: Price
+product_count: 'Product Count'
+categories: Categories
 item_name: 'Item Name'
 add_new_node: 'Add New Item'
 add_subitem: 'Add Sub Item<br>'
 new_node: 'New Item'
 node_remove_warning: '<p>This action will remove this item and all sub items.<br></p><p>Please save your changes before continue.<br></p><p>Are you sure want to delete?<br></p>'
+product_lists: Promotions
+spotlight: Spotlight
+hotbuy: Hotbuy
+please_select_menu: 'Please select a menu.'
+add_to_basket: 'Add To Basket'
+category: Category
+'Ordering made easy': 'Ordering made easy'
+previous: Previous
+next: Next
+browse: Browse
+favorites: Favourites
+promotions: Promotions
+total: Total
+checkout: Checkout
+subtotal: Subtotal
+delivery: Delivery
+delivery_address: 'Delivery Address'
+your_ref_optional: 'Your Ref (Optional)'
+order_notes: 'Order notes'
+continue_shopping: 'Continue Shopping'
+my_price: 'My Price'
+dont_have_account: 'Don''t have an account?'
+register: Register
+have_account: 'Have an account?'
+address: Address
+add_new_entity: 'Add New %s'
+username_or_email: 'Username or email'
+custom_users: User
+company_name: 'Company Name'
+town: Town
+country: Country
+postalcode: 'Postal Code'
+default: Default
+email_verify_error: 'Your e-mail not verified. Please check your e-mail.'
+email_verified: 'Email Verified'
+after_register_welcome_message: '<h1 align="center">Welcome to A To Z</h1><p align="center"><span style="text-align: left;">A verification email has been sent to <b>%s</b>. Please click the link in the email to verify your account, </span></p><p align="center"><span style="text-align: left;">Thank you. </span></p><p align="center"><span style="text-align: left;">If you have not yet received and email click&nbsp;</span><a href="#resend" style="color: rgb(7, 33, 39); text-decoration-line: underline; background-color: rgb(255, 255, 255);">here</a><span style="text-align: left;">&nbsp;to have resent.</span></p>'
+send_mail: 'Send Mail'
+verification_mail_resend: '<p>Verification mail resend successfully.<br></p>'
+email_verify_success: '<h2 align="center">Your email verified successfully.<br></h2>'
+email_verification: 'Email Verification'
+send_order: 'Send Order'
+orders: Orders
+order_address: 'Order Address'
+item_count: 'Item Count'
+order_item: 'Order Item'
+ref: Reference
+vat: VAT
+product: Product
+item_per_price: 'Item Per Price'
+total_price: 'Total Price'
+account_number: 'Account Number'
+is_billing_address: 'Billing Address?'
+order_time: 'Order Date'
+billing_address: 'Billing Address'
+back: Back
+order_success: 'Order has been successfully sent.'
+order_sent: 'Order Received'
+pay_now: 'Pay Now'
+upload_an_image: 'Please upload an image file.'
+upload_import_file: 'Upload an excel file to import'
+upload_file_description: '<p></p><p></p><p>Excel file that will be import must provide following requirements</p><p>&nbsp;&nbsp;&nbsp;&nbsp; 1.Filename format must <b><font color="#FF0000">xlsx</font></b>. <br></p><p>&nbsp;&nbsp;&nbsp;&nbsp; 2. Contains following columns. These colums are mandatory and cannot contain any empty cell. Title column is mandatory if product is new, for update title column is not mandatory.&nbsp;<br></p><table class="table table-bordered"><tbody><tr><td><font color="#FF9C00"><font color="#FF0000"><b>Stockcode</b></font><br></font></td><td><font color="#FF0000"><b>Title</b></font><br></td><td><font color="#FF0000"><b>List Price</b></font><br></td></tr></tbody></table>&nbsp;&nbsp;&nbsp;&nbsp; 3. Columns below are optional.<p></p><p>&nbsp; &nbsp; &nbsp; &nbsp;Bespoke: If this product is bespoke 1, otherwise 0.</p><p>&nbsp; &nbsp; &nbsp; &nbsp;Special: If this product is special 1, otherwise 0.</p><p>&nbsp; &nbsp; &nbsp; &nbsp;Published:&nbsp;<span style="font-size: 1rem;">If this product is published 1, otherwise 0.</span></p><p>&nbsp; &nbsp; &nbsp; &nbsp;Minimum Order: Minimum order count that this item can checkout, otherwise default applied.</p><p>&nbsp; &nbsp; &nbsp; &nbsp;Variable: is this product app has variations 1, otherwise 0.</p><table class="table table-bordered"><tbody><tr><td><font color="#ff9c00"><b>Bespoke</b></font></td><td><font color="#ff9c00"><b style="background-color: rgb(255, 255, 255);">Minimum Order</b></font></td><td><font color="#ff9c00"><b>Published</b></font></td><td><font color="#ff9c00"><b>Special</b></font></td><td><b><font color="#ff9c00">Variable</font></b></td></tr></tbody></table><p><br></p><p>&nbsp; &nbsp; &nbsp;4. After these columns additional price columns can be replaced. These are optional and can contain empty cells.<br></p><p></p><table class="table table-bordered"><tbody><tr><td><b>2</b><br></td><td><b>5</b><br></td><td><b>10</b><br></td><td><b>20</b><br></td><td><b>n....</b><br></td></tr></tbody></table><p><br></p><p></p>'
+count_item_imported: '%s item imported.'
+shipping_agent: 'Shipping Agent'
+driver: Driver
+courier: Courier
+published: Published
+special_price_available: 'Special price'
+order_confirmed: 'Order Confirmation'
+download: Download
+order_status: 'Order Status'
+pending: 'Pending Confirmation'
+confirmed: Confirmed
+add_new_address: 'Add New Address'
+myaccount: 'My Account'
+my_orders: 'My Orders'
+view: View
+list_price: 'List Price'
+thank_you_for_order: 'Thank you for your order.'
+payment_thanks_message: 'Thank you for your payment of ₺%s.'
+issues: Issues
+priority: Priority
+status: Status
+created_by: 'Created By'
+bug: Bug
+improvement: Improvement
+new-feature: 'New Feauture'
+critical: Critical
+todo: 'To do'
+progressing: Progressing
+on-test: 'On test'
+deployed: Deployed
+add_new_user: 'Add new user'
+desktop_image: 'Desktop Image'
+mobile_image: 'Mobile image'
+url: URL
+catalog: Catalogue
+originally_send_to: '<p>This message originally send to: %s<br></p>'
+there_is_no_item_in_your_basket: 'Your basket is empty.'
+confirm_order: 'Confirm Order'
+order_confirmed_admin_message: 'Order confirmed. User has been notified by e-mail.'
+paid_online: 'Paid Online'
+record_remove_accept_field: 'Are you sure want to remove %s?'
+empty_basket: 'Empty Basket'
+empty_basket_confirm: 'Are you sure want to clean all items in your basket?'
+basket_cleaned: 'All items in your basket removed.'
+special_price_not_available: 'Don''t apply D-Category price'
+product_variant: 'Product Variant'
+variant: Variant
+is_special_product: 'Non-Stock Item'
+private_product_owner: 'Private Product Owner'
+owner: Owner
+is_private_product: 'My Specials?'
+private_products: 'My Specials'
+special_products: 'Special Products'
+enquire: Enquire
+minimum_private_error: 'Before proceeding to the payment step, you must add at least %s products : %s'
+exclude_private_products: 'Exclude My Special products'
+include_private_products: 'Include My Special products'
+more: More
+sundries: Sundries
+open: Open
+closed: Closed
+enquiry: Enquiry
+enquiry_description: 'Please enter description'
+minimum_item_error: 'You must add at least %s items.'
+enquiry_saved: '<p>Your enquiry sent successfully.<br></p>'
+enquiry_exist_warning: 'You have already enquired this product. You can update your enquiry.'
+already_enquired: 'Already Enquired'
+waiting_enquirys: 'Waiting Enquirys'
+send_request: 'Send Request'
+your_basket_empty: 'It seems there is no item in your basket. Please add some items before checkout.'
+record_remove_accept_entity: '<p>Are you sure want to remove this %s?</p>'
+bespoke_warning: 'For My Special products the delivery time is 4 weeks. If you included sundries with this order, sundries will also be sent 4 weeks later.'
+user_remove_accept_has_order: 'This user has orders. Are you sure you want to delete it anyway?'
+product_added_favorites: '<b>%s</b> added to favourites.'
+product_removed_favorites: '<b>%s</b> removed from favourites.'
+minimum_order_count: 'Minimum order count'
+sundries_delivery_confirm: '<p>All products will deliver 4 weeks later. Are you sure?</p>'
+county: County
+abroad_delivery_and_tax_warning: 'Price does not include delivery, collection only!'
+additional_delivery_address: 'Additional Delivery Address'
+is_variable: 'Has this product have variations?'
+variation_option: 'Variation options'
+page: Pages
+registered_address: 'Registered Address'
+basket: Basket
+collection_address: 'Collection Address'
+download_app: 'Download our App'
+blog: Blog
+content: Content
+add_new_blog: 'Add New Blog'
+cover_image: 'Cover Image'
+read_more: 'Read More'
+temporary: Temporary
+permanent: Permanent
+files_deleted: '%d files deleted.'
+clear_temporary_files: 'Clear temporary files'
+'Is this product is private and has one or many owner.': 'This is a private product. It can have one or many owners.'
+discount: Discount
+start_date: 'Start Date'
+end_date: 'End Date'
+promoted_price: 'Promoted Price'
+new_user_registered: 'New User Registered'
+all_products: 'All Products'
+cookie_accept_message: "We use cookies to help you get the best experience from our website and enables us to show you products relevant to you. Continue browsing if you agree to our use of cookies. To see our <a href=\"/page/privacy-policy\" class=\"text-primary\">cookie policy and find out more.</a>\r\n<br> \r\n<button id=\"accept-cookie\" class=\"btn btn-success\">Accept</button>"
+allow_cookies: 'Allow Cookies'
+spend_another_warning: 'Spend another ₺<span class="for-free-delivery">%s</span> to get free delivery.</span></span>'
+registration_date: 'Registration Date'
+pay_optional_at_checkout: 'Pay Optional at Checkout'
+pay_and_send_order: 'Pay and Order'
+order_again: 'Order Again'
+order_id: 'Order Id'
+payment_failed: 'Payment failed'
+try_again: 'Try Again'
+hello: Hello
+total_orders: 'Total Orders'
+total_sales: 'Total Sales'
+last_users_joined: 'Last Users Joined'
+average: Average
+blog_attachment: Attachment
 close: Close
+users_waiting_approval: 'Users Waiting Approval'
+marketing: Marketing
+open_baskets: 'Open Baskets'
+today_orders: 'Orders Today'
+this_month_orders: 'Orders This Month'
+last_month_orders: 'Orders Last Month'
+contact_us: 'Contact Us'
+yearly: Yearly
+monthly: Monthly
+weekly: Weekly
+daily: Daily
+hourly: Hourly
+custom: Custom
+product_info: 'Product Info'
+opening_hours: 'Opening Hours'
+maximum_order_count: 'Maximum Order Count'
+exclude_stock: 'Exclude Stock'
+alt_desc: 'Alternative Description'
+price_type: 'Price Type'
+collection: Collection
+file_columns_missing: 'There is missing mandatory columns in file.'
+title_missing: 'Title missing: %s'
+change_password: 'Change Password'
+recent_orders: 'Recent Orders'
+recent_order_description: 'View all your recent orders, reorder and make payment'
+account_settings: 'Account Settings'
+account_settings_description: 'Change address, change password and account details'
+account: Account
+top_sellers: 'Top Sellers'
+delivery_days: 'Delivery Days'
+contact_form: 'Contact Form'
+become_a_customer: 'Become A Customer'
+about_us: 'About Us'
+privacy_policy: 'Privacy Policy'
+terms_and_conditions: 'Terms &amp; Conditions'
+how_to: 'How To'
+customer_care: 'Customer Care'
+our_website: 'Our Website'
+explore_more: 'Explore More'
+approve_error: null
+mobile: Mobile
+linked_account: 'Linked Account'
+select_collection_or_delivery: 'Select Collection or Delivery'
+choose_store: 'Choose Store'
+change_shipping_option: 'Change Shipping Option'
+sub_account: 'Sub Account'
+offer: Offer
+search_result_empty: 'No results were found with the search word. Did you mean: %s'
+on_offer: 'On Offer'
+card_number: 'Card Number'
+card_holder: 'Card Holder'
+card_expire: Expire
+payment: Payment
+general_enquiries_email: 'General Enquiries Email'
+general_enquiries_phone: 'General Enquiries Telephone'
+message: Message
+contactus_info: 'Please message us with any issue''s, credit or returns, suggestions, new product requests or any other queries.'
+_is_required: '%s is required.'
+message_sent_success: 'Your message sent successfully. Thanks.'
+weight: Weight
+sprice_valid_from: 'Sprice Valid From'
+sprice_valid_to: 'Sprice Valid To'
+offer_expires: 'Offer Expires'
+clearance: Clearance
+latest_offers: 'Latest Offers'
+minimum_order_price: 'Minimum order price'
+postcode_table_info: 'Below is the list of all postcodes and you can search using the search fields below the table. Charges only apply if minimum delivery is not met.'
+maximum_order_warning: 'You can order only %d %s in a day.'
+stock_available_warning: 'Only %d %s available in stock.'
+minimum_order_warning: 'You must order minimum %d %s in an order.'
+enter_valid_card_number: 'Please enter a valid card number.'
+payment_test_mode: 'System is working in test mode. You can enter dummy credit card information. Card number: 5406675406675403, Expiry: 12/2022, CVV: 000'
+no_stock: 'There is no stock available for product %s.'
+branch: Branch
+please_select_date: 'Please select date'
+stock: Stock
+please_select_valid_day: 'Please select a valid day.'
+collection_date: 'Collection Date'
+delivery_date: 'Due Date'
+product_ordered: 'This product has been ordered by at least one user. This product can''t be deleted but it can be unpublished. Please try to unpublish this product.'
+paid_amount: 'Paid Amount'
+add_to_active_order_warning: 'You have %d active order(s) at the moment. You can add these items to one of your active order(s) or you can proceed to create new order. Click <a href="#" id="merge-detail">here</a> if you want add to this order.'
+active_order_choose: 'Your active order(s) listed below. Please select one of them and click "Add Order" to add items to your active order.'
+merge: 'Add Order'
+merge_warning: '<p><span style="font-size: 1rem;">Add order&nbsp;</span>details listed below:</p><p>%s</p><p>Delivery: ₺%.2f</p><p>VAT: ₺%.2f</p><p>Subtotal: ₺%.2f</p><p>Total: ₺%.2f</p><p>Price difference: ₺%.2f</p>'
+continue_to_merge: 'Continue to add order'
+optional_pay_not_available: 'Optinal payment not available.'
+order_merge_success: 'Oder items added successfully.'
+cancel_order: 'Cancel Order'
+cancel_order_promt: 'Are you sure want to cancel this order?'
+order_canceled: 'Order canceled'
+is_canceled: Canceled
+update_stock: 'Update Stock'
+stock_upload_file_description: '<p>Excel file that will be import must provide following requirements</p><p>&nbsp;&nbsp;&nbsp;&nbsp; 1.Filename format must&nbsp;<span style="font-weight: bolder;"><font color="#FF0000">csv</font></span>.<br></p><p>&nbsp;&nbsp;&nbsp;&nbsp; 2. Contains following columns. These colums are mandatory and cannot contain any empty cell.<br></p><table class="table table-bordered" style="width: 756.656px;"><tbody><tr><td><font color="#ff0000"><b>sku</b></font></td><td><font color="#FF0000"><span style="font-weight: bolder;">Code</span></font><br></td><td><font color="#FF0000"><span style="font-weight: bolder;">Avail (01)</span></font><br></td><td><span style="color: rgb(255, 0, 0); font-weight: 700;">Avail (03)</span><br></td><td><span style="color: rgb(255, 0, 0); font-weight: 700;">Avail (04)</span><br></td><td><span style="color: rgb(255, 0, 0); font-weight: 700;">Avail (05)</span><br></td></tr></tbody></table>'
+stockcode_not_found: 'Product with stockcode %s not found.'
+select_for_account: 'Select for account'
+register_account: 'Register account'
+completed: Completed
+enter_doornumber_and_postalcode: 'Enter door number and postcode below.'
+doornumber: 'Door Number'
+submit: Submit
+found_accounts: 'Number of accounts found: %d. Please choose.'
+search_again: 'Search Again'
+accounts: Accounts
+email_not_exist: 'E-mail not exist'
+no_email_found_please_enter: 'No email found. Please enter your email address below.'
+please_enter_new_email: '<p>If this account belongs to you click <a href="%s">here</a> to reset password.</p><p>If this is not your email address please enter new account details below:</p>'
+account_number_info: 'Where is account number?'
+pay_at: 'Pay At %s'
+please_enter_quantity: 'Please enter quantity'
+new_email_added: 'New email added to account %s.<br>'
+shop_category: 'Shop Category'
+shop_category_description: 'If you don’t fall into any of these categories please pick one that is closest one to your trade.'
+choose: Choose
+payment_method: 'Payment Method'
+card_cvv: CVV
+verified: Verified
+pay_with_saved_credit_card: 'Pay With Saved Credit Card'
+pay_with_credit_card: 'Pay With Credit Card'
+save_my_card: 'Save my card for future payments'
+remove_card: 'Remove Card'
+card_remove_success: 'Card Removed'
+please_select_a_card: 'Please select a card.'
+resend: Resend
+account_not_activated: '<p>This account has not been activated yet. You activate this account by entering full e-mail address and a password which you will use when logging into website.<br></p>'
+activate_account: 'Activate Account'
+account_already_activated: 'This account has already been activated.<br>'
+email_is_not_correct: 'E-mail address is not correct.<br>'
+space_under_banner: 'Space Under Banner'
+attachment: Attachment
+mainpage_box: 'Mainpage Box'
+recent_items: 'Recent Items'
+earliest_delivey_time: 'Earliest Delivey Time'
+add_to_active_order_warning_one_item: 'You have 1 active order for date %s. Click <a href="#" id="merge-detail">here</a>&nbsp;if you want add to this order.'
+banner_product: 'Banner Product'
+view_all: 'View All'
+added_to_basket: '<b>%s</b> added to basket.'
+need_update: 'Need Update'
+page_attachment: 'Page Attachment'
+resend_orders: 'Resend Orders'
+shipping_option: 'Shipping Option'
+shipping_branch: 'Shipping Store'
+shipping_address: 'Shipping Account'
+most_searched_words: 'Most Searched Words'
+count: Count
+word: Word
+item_vat: 'Item Vat'
+is_hidden: 'Is hidden?'
+export_users_to_csv: 'Export Users To CSV'
+if_not_company_type_your_name: 'If not a company, type your name.'
+call: Call
+sales: Sales
+web_support: 'Web Support'
+show_stock: 'Show Stock'
+change_account_number: 'Change Account Number'
+new_account_number: 'New Account Number'
+old_account_number: 'Old Account Number'
+change: Change
+account_number_not_found: 'Account number not found.'
+create_order: 'Create order'
+due_to: 'Due Date'
+please_select_a_branch: 'Please select a branch.'
+product_picture: 'Product Picture'
+have_you_forgotten: 'Have you forgotten?'
 login_as_user: 'Login as user'
 cannot_login_as_another_admin_user: 'Cannot login as another admin user.'
-choose: Choose
+set: Set
+not_set: 'Not set'
+stock_last_updated: 'Stock Last Updated'
+product_description_attachment: 'Description Attachment'
+cancel_time: 'Cancel Time'
+voucher_codes: 'Voucher Codes'
+code: Code
+discount_percentage: 'Discount Percentage'
+always_available: 'Alvays Available'
+voucher_code: 'Voucher Code'
+voucher_code_discount: 'Voucher code discount'
+button_text: 'Button text'
+find_out_more: 'Find out more'
+statistics: Statistics
+product_tracker: 'Product Tracker'
+line_color: 'Line Color'
+place: Place
+size: Size
+under_latest_offers: 'Under latest offers'
+under_top_sellers: 'Under top sellers'
+payment_request_mail_sent_successfully: 'Payment request mail sent successfully.'
+banner_box: 'Banner Box'
+position: Position
+left: Left
+right: Right
+center: Center
+background_color: 'Background color'
+button_color: 'Buton color'
+item_added_using_product_list: '%d item(s) has been added using product list.'
+are_you_sure_want_to_send_payment_request: 'Are you sure want to send payment request mail?'
+voucher_codes_user: 'Voucher Code Users'
+percentage: Percentage
+exact_discount: 'Exact discount'
+voucher_code_applied: 'Voucher code %s applied.'
+dealer: Dealer
+assign_to_me: 'Assign to me'
+unassign: Unassign
+archived_baskets: 'Archived Baskets'
+last_modified_message: 'Last modified: %s'
+comment: Comment
+comment_last_modified_date: 'Comment last modified date'
+comment_last_modified_by: 'Comment last modified by'
+please_choose: Choose...
+delivery_charge: 'Delivery Charge'
+delivery_charge_description: 'Delivery charge if minimum delivery amount not meet.'
+authorized_branch: 'Authorized branch'
 compress_all_image_files: 'Compress all image files'
 _files_compressed: '%d files compressed.'
+login_or_register_to_get_best_prices: "To get best prices from %s \r\n<a href='%s' class='btn btn-outline-warning btn-sm text-white'>Login</a> or \r\n<a href='%s' class='btn btn-outline-warning btn-sm text-white'>Register</a>"

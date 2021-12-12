@@ -1,0 +1,61 @@
+table_name: product_lists
+table_comment: 'Contains product lists.'
+fields:
+  product:
+    type: table_reference
+    reference_table: products
+    column_name: product
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: true
+    default: null
+    comment: ''
+  list:
+    type: enumarated_list
+    values:
+      discount: discount
+    column_name: list
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Available product lists.'
+  start_date:
+    type: date
+    column_name: start_date
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Start date of promotion.'
+  end_date:
+    type: date
+    column_name: end_date
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'End date of promotion.'
+  promoted_price:
+    type: float
+    column_name: promoted_price
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Prometed price'
+  weight:
+    type: integer
+    length: null
+    column_name: weight
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Used for ordering.'

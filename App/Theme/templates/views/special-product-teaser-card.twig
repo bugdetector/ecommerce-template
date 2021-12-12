@@ -1,0 +1,22 @@
+<div class='{{ view.classes|join(" ") }}' {{ view.renderAttributes()|raw }}>
+	{% for row in view.data %}
+		<div class="col-lg-4 col-xl-3 p-2 align-self-stretch basket-item">
+			<div class="text-center card shadow p-2 h-100 d-block">
+				<div class="btn px-2 float-right {{ row.favorite ? " text-heart" : " text-gray-500" }} item-favorite" data-item="{{ row.ID }}">
+					<i class="fa fa-heart"></i>
+				</div>
+				<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ row.url_alias }}" data-item="{{row.ID}}" class="text-decoration-none product-item">
+					<div class="mx-auto item-image-wrapper">
+						<img src="{{ row.product.getCoverImageUrl() }}"/>
+					</div>
+					<h5 class="text-primary font-weight-bold item-name" style="height: 50px">{{ row.title }}</h5>
+				</a>
+				<div class="mt-1">
+					<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ row.url_alias }}" class="btn btn-primary enquire" data-item="{{row.ID}}">
+                      <i class="fa fa-info"></i> {{ t("more") }} 
+                    </a>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>

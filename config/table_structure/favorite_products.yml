@@ -1,0 +1,23 @@
+table_name: favorite_products
+table_comment: 'Stores products which saved as favorites by user.'
+fields:
+  product:
+    type: table_reference
+    reference_table: products
+    column_name: product
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Product whic is favorite.'
+  user:
+    type: table_reference
+    reference_table: users
+    column_name: user
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'User whose is favorited.'

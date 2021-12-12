@@ -1,0 +1,23 @@
+table_name: variation_options
+table_comment: 'Available variation options.'
+fields:
+  title:
+    type: short_text
+    length: '255'
+    column_name: title
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Variation name shown on selectbox.'
+  weight:
+    type: integer
+    length: null
+    column_name: weight
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''

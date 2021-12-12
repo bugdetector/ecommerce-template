@@ -99,7 +99,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_fontawesome_free_css_fontawesome_min_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_css_fontawesome_min_css__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _fortawesome_fontawesome_free_css_solid_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-free/css/solid.min.css */ "./node_modules/@fortawesome/fontawesome-free/css/solid.min.css");
 /* harmony import */ var _fortawesome_fontawesome_free_css_solid_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_css_solid_min_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_fontawesome_free_css_brands_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/fontawesome-free/css/brands.min.css */ "./node_modules/@fortawesome/fontawesome-free/css/brands.min.css");
+/* harmony import */ var _fortawesome_fontawesome_free_css_brands_min_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_css_brands_min_css__WEBPACK_IMPORTED_MODULE_2__);
 
+
+/***/ }),
+
+/***/ "./node_modules/@fortawesome/fontawesome-free/css/brands.min.css":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/css/brands.min.css ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 

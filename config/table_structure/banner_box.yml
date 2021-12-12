@@ -1,0 +1,104 @@
+table_name: banner_box
+table_comment: 'Contains data about boxes on banner.'
+fields:
+  active:
+    type: checkbox
+    column_name: active
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'If checked this record shown on banner, If not checked not shown.'
+  position:
+    type: enumarated_list
+    values:
+      left: left
+      right: right
+      center: center
+    column_name: position
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Position of card.'
+  banner:
+    type: table_reference
+    reference_table: banner
+    column_name: banner
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  title:
+    type: short_text
+    length: '255'
+    column_name: title
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Title of record'
+  text:
+    type: long_text
+    column_name: text
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'HTML text'
+  line_color:
+    type: short_text
+    length: '255'
+    column_name: line_color
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Line color of this box.'
+  url:
+    type: short_text
+    length: '255'
+    column_name: url
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Url to redirect when click.'
+  button_text:
+    type: short_text
+    length: '255'
+    column_name: button_text
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'If empty "Find out more" will be applied.'
+  background_color:
+    type: short_text
+    length: '255'
+    column_name: background_color
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Card background color.'
+  button_color:
+    type: short_text
+    length: '255'
+    column_name: button_color
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Button color.'

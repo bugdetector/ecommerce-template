@@ -1,0 +1,164 @@
+{% extends "forms/form.twig" %}
+
+{% block fields %}
+	{{ form.fields["form_id"] }}
+	{{ form.fields["form_build_id"] }}
+	{{ form.fields["form_token"] }}
+	<div class="col-md-8">
+		{% if not form.order.ID.getValue() %}
+			<div class="mb-3">
+				{{ form.fields["orders[type]"] }}
+				<div id="branch-selection">
+					{{ form.fields["orders[branch]"] }}
+				</div>
+				{{ form.fields["orders[delivery_date]"] }}
+				{{ form.getAccountWidget() }}
+			</div>
+		{% endif %}
+        <div class="collapsible-widget-group" id="input_orders[order_item][]" data-entity="order_item">
+		{% for item in form.fields["orders[order_item][]"].fieldGroup.fields %}
+			<div class="card shadow my-3">
+			{% set product = form.getProductById(item.content.fields[0].value) %}
+				<div class="row px-2">
+					<div class="d-flex p-2 w-100">
+						<img src="{{ product.getCoverImageUrl() }}" class="mr-3" style ="width:150px; ">
+						<div class='w-100'>{{ item.content.fields[0].setDescription("") }}</div>
+					</div>
+					<div class="col-lg-3 col-md-4 p-2">
+						{{ item.content.fields[2] }}
+					</div>
+					<div class="col-lg-3 col-md-4 p-2">
+						{{ item.content.fields[3].addAttribute("disabled", "true") }}
+					</div>
+					{% if not form.order.is_ordered.value %}
+					<div class="col-lg-3 col-md-4 p-2">
+						{{ item.content.fields[5] }}
+					</div>
+					{% endif %}
+				</div>
+			</div>
+		{% endfor %}
+        </div>
+
+        <a href="#" class="btn btn-primary add-new-entity" 
+        data-entity="{{ form.fields["orders[order_item][]"].entityName }}" 
+        data-name="{{ form.fields["orders[order_item][]"].newFieldName }}" 
+        data-hidden-fields="{{ form.fields["orders[order_item][]"].hiddenFields|json_encode }}">
+            <i class="fa fa-plus"></i>
+            {{ t("add_new_node") }}
+        </a>
+	</div>
+	<div class="col-md-4 mt-lg-3 mt-md-2 mt-sm-0">
+		<div class="card p-2 mt-lg-0 mt-sm-2 text-right">
+			<div>
+				<label class="text-primary font-weight-bold">
+					{{ t("account_number") }}
+					:
+				</label>
+				<b>
+					<span class="text-info">{{ form.order.order_address.getValue()[0]["account_number"]}}</span>
+				</b>
+			</div>
+			{% if form.order.is_ordered.value %}
+			<div>
+				<label class="text-primary font-weight-bold">
+					{{ t("order_time") }}
+					:
+				</label>
+				<b>
+					<span class="text-info">{{ form.fields["orders[order_time]"].value|date("d F Y H:i:s")}}</span>
+				</b>
+			</div>
+			<div>
+				<label class="text-primary font-weight-bold">
+					{{ t("type") }}
+					:
+				</label>
+				<b>
+					<span class="text-info">{{ t(form.fields["orders[type]"].value) }}</span>
+				</b>
+			</div>
+			{% if form.order.type.getValue() == "collection" %}
+				<div>
+					<label class="text-primary font-weight-bold">
+						{{ t("branch") }}
+						:
+					</label>
+					<b>
+						<span class="text-info">{{ t(form.branch.name.value ) }}</span>
+					</b>
+				</div>
+			{% endif %}
+				<div>
+					<label class="text-primary font-weight-bold">
+						{{ t("delivery_date") }}
+						:
+					</label>
+					<b>
+						<span class="text-info">{{ t(form.order.delivery_date.value|date("d-m-Y") ) }}</span>
+					</b>
+				</div>
+			{% endif %}
+			<div>
+				<label class="text-primary font-weight-bold">
+					{{ t("item_count") }}
+					:
+				</label>
+				<b>
+					<span class="text-info">{{ form.order.item_count.value}}</span>
+				</b>
+			</div>
+			<div>
+				<label class="text-primary font-weight-bold">
+					{{ t("subtotal") }}
+					:
+				</label>
+				<b>
+
+					<span class="basket-subtotal text-info">{{ variable("currency_icon").value }}{{ form.fields["orders[subtotal]"].value|number_format(2, '.', ',') }}</span>
+				</b>
+			</div>
+			<div>
+				<label class="text-primary font-weight-bold">
+					{{ t("delivery") }}
+					:
+				</label>
+				<b>
+
+					<span class="delivery-value text-info">{{ variable("currency_icon").value }}{{ form.fields["orders[delivery]"].value|number_format(2, '.', ',') }}</span>
+				</b>
+			</div>
+			<div>
+				<label class="text-primary font-weight-bold">
+					{{ t("vat") }}
+					{{ controller.vatPercentage }}%
+																																																																																																																																												                        :
+				</label>
+				<b>
+
+					<span class="vat-value text-info">{{ variable("currency_icon").value }}{{ form.fields["orders[vat]"].value|number_format(2, '.', ',') }}</span>
+				</b>
+			</div>
+			<h2>
+				<label class="text-primary font-weight-bold">
+					{{ t("total") }}
+					:
+				</label>
+				<b>
+
+					<span class="basket-total-value text-info">{{ variable("currency_icon").value }}{{ form.fields["orders[total]"].value|number_format(2, '.', ',') }}</span>
+				</b>
+			</h2>
+			<div class="text-left">
+				{{ form.fields["orders[ref]"] }}
+				{{ form.fields["orders[order_notes]"] }}
+				{% if form.order.ID.getValue() %}
+					{{ form.fields["orders[order_address][]"] }}
+					{{ form.fields["orders[billing_address][]"] }}
+					{{ form.paymentLogView }}
+				{% endif %}
+				{{ form.fields[0] }}
+			</div>
+		</div>
+	</div>
+{% endblock %}

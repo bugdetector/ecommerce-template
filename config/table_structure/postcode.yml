@@ -1,0 +1,31 @@
+table_name: postcode
+table_comment: ' Contains delivery days, minimum delivery, delivery charge prices data of postcode.'
+fields:
+  postcode:
+    type: short_text
+    length: '255'
+    column_name: postcode
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: true
+    default: null
+    comment: 'Postcode value.'
+  minimum_order_price:
+    type: float
+    column_name: minimum_order_price
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'If basket total is under minimum order price, delivery charge will applied.'
+  delivery:
+    type: float
+    column_name: delivery
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Delivery charge.'

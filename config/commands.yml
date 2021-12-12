@@ -1,6 +1,9 @@
 - Src\Command\ConfigurationExportCommand
 - Src\Command\ConfigurationImportCommand
 - Src\Command\AddAdminUserCommand
+- App\Command\ClearProductsCommand
 - Src\Command\ClearTemporaryFilesCommand
 - Src\Command\ClearCacheCommand
 - Src\Command\CompressImageFilesCommand
+- App\Command\UpdateProductUrlAliasCommand
+- App\Command\SearchWordsGenerateCommand

@@ -2,3 +2,7 @@
 # Example
 # - App\Entity\Blog
 # - App\Entity\Page
+
+- App\Entity\Page\Page
+- App\Entity\Blog
+- App\Entity\Product\Product

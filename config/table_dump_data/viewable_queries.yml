@@ -1,1 +1,120 @@
-{  }
+admin_product_list:
+  title: 'Administration Products List'
+  description: 'List products as table and search products.'
+  key: admin_product_list
+  filters: '[]'
+  result_fields: '{"3":{"table":"products","column":"ID"},"0":{"table":"products","column":"stockcode"},"1":{"table":"products","column":"title"},"4":{"table":"products","column":"published"},"5":{"table":"products","column":"exclude_stock"},"6":{"table":"products","column":"is_special_product"}}'
+  paging_limit: '100'
+  order_by: '[{"table":"products","column":"created_at","orderdirection":"DESC"}]'
+  result_view_template: table
+  card_template_class: null
+products_list:
+  title: 'Products List'
+  description: 'Products list on mainpage'
+  key: products_list
+  filters: '[{"table":"products","column":"is_private_product","comparation":"=","compare_value":"0"},{"table":"products","column":"is_special_product","comparation":"=","compare_value":"0"}]'
+  result_fields: '[{"table":"products","column":"ID"},{"table":"products","column":"title"},{"table":"products","column":"description"},{"table":"products","column":"published"},{"table":"products","column":"is_variable"},{"table":"products","column":"url_alias"}]'
+  paging_limit: '24'
+  order_by: '[{"table":"products","column":"weight","orderdirection":"DESC"}]'
+  result_view_template: custom_card
+  card_template_class: App\Views\ProductTeaserCard
+order_list:
+  title: 'Orders List'
+  description: 'List of orders.'
+  key: order_list
+  filters: '[{"table":"basket","column":"is_ordered","comparation":"=","compare_value":"1"}]'
+  result_fields: '[{"table":"basket","column":"order_id"},{"table":"basket","column":"ID"},{"table":"basket","column":"type"},{"table":"basket","column":"branch"},{"table":"order_address","column":"company_name"},{"table":"order_address","column":"account_number"},{"table":"users","column":"comment"},{"table":"order_address","column":"postalcode"},{"table":"basket","column":"total"},{"table":"order_address","column":"address"},{"table":"basket","column":"order_time"},{"table":"basket","column":"delivery_date"},{"table":"basket","column":"ID"},{"table":"basket","column":"paid_online"},{"table":"basket","column":"paid_amount"},{"table":"basket","column":"is_canceled"},{"table":"basket","column":"cancel_time"},{"table":"basket","column":"user"},{"table":"users","column":"comment_last_modified_by"},{"table":"users","column":"comment_last_modified_date"}]'
+  paging_limit: '100'
+  order_by: '[{"table":"basket","column":"last_updated","orderdirection":"DESC"}]'
+  result_view_template: table
+  card_template_class: null
+my_orders_list:
+  title: 'My Orders List'
+  description: 'List of my orders.'
+  key: my_orders_list
+  filters: '[{"table":"basket","column":"is_ordered","comparation":"=","compare_value":"1"}]'
+  result_fields: '{"0":{"table":"basket","column":"ID"},"11":{"table":"basket","column":"ref"},"1":{"table":"basket","column":"total"},"2":{"table":"basket","column":"order_time"},"3":{"table":"basket","column":"paid_online"},"4":{"table":"basket","column":"order_id"},"6":{"table":"basket","column":"delivery_date"},"7":{"table":"basket","column":"total"},"8":{"table":"basket","column":"paid_amount"},"9":{"table":"basket","column":"type"},"10":{"table":"basket","column":"is_canceled"}}'
+  paging_limit: '10'
+  order_by: '[{"table":"basket","column":"order_time","orderdirection":"DESC"}]'
+  result_view_template: custom_card
+  card_template_class: App\Views\OrderCard
+private_products_list:
+  title: 'Private Products List'
+  description: 'Private products list shown on favourites'
+  key: private_products_list
+  filters: '[{"table":"products","column":"is_private_product","comparation":"=","compare_value":"1"}]'
+  result_fields: '{"1":{"table":"products","column":"ID"},"0":{"table":"products","column":"title"},"6":{"table":"products","column":"description"},"7":{"table":"products","column":"published"},"8":{"table":"products","column":"is_variable"},"9":{"table":"products","column":"url_alias"}}'
+  paging_limit: '24'
+  order_by: '[{"table":"products","column":"title","orderdirection":"DESC"}]'
+  result_view_template: custom_card
+  card_template_class: App\Views\BespokeProductTeaserCard
+special_products_list:
+  title: 'Special Product List'
+  description: 'Special product list shown on special products page'
+  key: special_products_list
+  filters: '[{"table":"products","column":"published","comparation":"=","compare_value":"1"},{"table":"products","column":"is_special_product","comparation":"=","compare_value":"1"}]'
+  result_fields: '{"0":{"table":"products","column":"ID"},"2":{"table":"products","column":"title"},"4":{"table":"products","column":"url_alias"}}'
+  paging_limit: '24'
+  order_by: '[{"table":"products","column":"title","orderdirection":"ASC"}]'
+  result_view_template: custom_card
+  card_template_class: App\Views\SpecialProductTeaserCard
+blog_page_query:
+  title: 'Blog List Page Query'
+  description: 'Selects and previews Blog cards in blogs page.'
+  key: blog_page_query
+  filters: '[{"table":"blogs","column":"published","comparation":"=","compare_value":"1"}]'
+  result_fields: '{"0":{"table":"blogs","column":"*"},"2":{"table":"files","column":"file_path"},"3":{"table":"files","column":"file_name"}}'
+  paging_limit: '12'
+  order_by: '[{"table":"blogs","column":"created_at","orderdirection":"DESC"}]'
+  result_view_template: custom_card
+  card_template_class: App\Views\BlogCard
+open_baskets:
+  title: 'Open Baskets Query'
+  description: 'List of open baskets.'
+  key: open_baskets
+  filters: '[{"table":"basket","column":"is_ordered","comparation":"=","compare_value":"0"},{"table":"basket","column":"subtotal","comparation":">","compare_value":"0"}]'
+  result_fields: '{"0":{"table":"basket","column":"ID"},"7":{"table":"order_address","column":"account_number"},"2":{"table":"users","column":"email"},"3":{"table":"order_address","column":"company_name"},"6":{"table":"basket","column":"type"},"8":{"table":"basket","column":"user"},"10":{"table":"users","column":"comment"},"9":{"table":"basket","column":"dealer"},"5":{"table":"basket","column":"last_updated"},"11":{"table":"users","column":"comment_last_modified_by"},"12":{"table":"users","column":"comment_last_modified_date"}}'
+  paging_limit: '100'
+  order_by: '[{"table":"basket","column":"last_updated","orderdirection":"DESC"}]'
+  result_view_template: table
+  card_template_class: null
+postcode:
+  title: 'Postcode query'
+  description: 'Delivery days postcode query.'
+  key: postcode
+  filters: '[]'
+  result_fields: '{"0":{"table":"postcode","column":"postcode"},"2":{"table":"postcode","column":"minimum_order_price"},"3":{"table":"postcode","column":"delivery"}}'
+  paging_limit: '100'
+  order_by: '[{"table":"postcode","column":"ID","orderdirection":"ASC"}]'
+  result_view_template: table
+  card_template_class: null
+stock_query:
+  title: 'Stock Query'
+  description: 'Stock Table Query'
+  key: stock_query
+  filters: '[]'
+  result_fields: '{"0":{"table":"stock","column":"ID"},"2":{"table":"products","column":"stockcode"},"3":{"table":"products","column":"title"},"4":{"table":"branches","column":"name"}}'
+  paging_limit: '100'
+  order_by: '[{"table":"products","column":"stockcode","orderdirection":"ASC"}]'
+  result_view_template: table
+  card_template_class: null
+product_finder_query:
+  title: 'Product Finder Query'
+  description: 'Product finder query for finding products.'
+  key: product_finder_query
+  filters: '[{"table":"products","column":"published","comparation":"=","compare_value":"1"}]'
+  result_fields: '[{"table":"products","column":"ID"},{"table":"products","column":"stockcode"},{"table":"products","column":"title"},{"table":"product_categories","column":"name"}]'
+  paging_limit: '100'
+  order_by: '[{"table":"products","column":"stockcode","orderdirection":"ASC"}]'
+  result_view_template: table
+  card_template_class: null
+account_finder_query:
+  title: 'Account Finder Query'
+  description: 'Account finder query for finding accounts.'
+  key: account_finder_query
+  filters: '[{"table":"user_address","column":"account_number","comparation":"!=","compare_value":""},{"table":"users","column":"active","comparation":"=","compare_value":"1"}]'
+  result_fields: '[{"table":"user_address","column":"ID"},{"table":"user_address","column":"account_number"},{"table":"user_address","column":"company_name"},{"table":"users","column":"name"},{"table":"users","column":"surname"},{"table":"users","column":"email"},{"table":"users","column":"phone"}]'
+  paging_limit: '100'
+  order_by: '[{"table":"user_address","column":"account_number","orderdirection":"ASC"}]'
+  result_view_template: table
+  card_template_class: null

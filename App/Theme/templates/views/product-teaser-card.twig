@@ -1,0 +1,85 @@
+{% if view.logged_in %}
+	{% include "views/product-view-style-toggle.twig" %}
+{% endif %}
+<div class='{{ view.classes|join(" ") }}' {{ view.renderAttributes()|raw }}>
+	{% for row in view.data %}
+		{% set offer = row.price|number_format(2, '.', ',') %}
+		<div class="col-lg-4 col-xl-3 p-2 align-self-stretch basket-item">
+			<div class="text-center card shadow h-100 rounded-lg">
+				{% if row.on_offer %}
+					<div class="card-header bg-gradient-warning text-white">
+						<div>
+							<i class="fa fa-star"></i>
+							{{ t("on_offer") }}
+						</div>
+						<small class="badge badge-danger">
+							{{ t("offer_expires") }}:
+							{{ row.product.sprice_valid_to.getValue()|date("d F Y") }}
+						</small>
+					</div>
+				{% endif %}
+				<div class="card-body">
+					{% if view.listOptionField != "bespoke_card_list_option" and view.logged_in %}
+						<div class="btn px-2 float-right {{ row.favorite ? " text-heart" : " text-gray-500" }} item-favorite" data-item="{{ row.ID }}">
+							<i class="fa fa-star"></i>
+						</div>
+					{% endif %}
+					<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ row.url_alias }}" data-item="{{row.ID}}" class="text-decoration-none product-item">
+						<div class="mx-auto item-image-wrapper">
+							{% set images = row.product.getImages() %}
+							{% if images and images|length > 1 %}
+								<div class="swiper-container swiper w-100" id="product-swiper-{{product_index}}" data-speed="2000" data-loop="true" data-autoplay='{"delay": 2000}' data-pagination='{"el":".swiper-pagination", "clickable":true}' data-navigation='{"nextEl": "#js-next1", "prevEl": "#js-prev1"}'>
+									<div class="swiper-wrapper">
+										{% for index, image in images %}
+											<div class="swiper-slide">
+												<img src="{{ image.getUrl() }}" alt="{{ row.product.title }}" class="img-fluid w-100 rounded" title="{{ row.product.title }}">
+											</div>
+										{% endfor %}
+									</div>
+									<!-- pagination -->
+									<div class="swiper-pagination"></div>
+									<!-- navigation buttons -->
+									<div id="js-prev1" class="swiper-button-prev"></div>
+									<div id="js-next1" class="swiper-button-next"></div>
+								</div>
+							{% else %}
+								<div>
+									<img src="{{ row.product.getCoverImageUrl() }}" class="w-100" alt="{{ row.product.title }}"/>
+								</div>
+							{% endif %}
+							<div>
+								<small>{{ row.product.stockcode }}</small>
+							</div>
+						</div>
+						<h5 class="text-primary font-weight-bold item-name" style="height: 60px">{{ row.title }}</h5>
+						{% for type, priceInfo in row.prices %}
+							{% set offer = priceInfo.offer|number_format(2, '.', ',') %}
+							{% set list_price = priceInfo.list_price|number_format(2, '.', ',') %}
+							<div class="font-weight-bold text-info my-price-text mb-2">
+								{{ t(type) }}:
+								{% if list_price != offer %}
+									<del class="text-danger">{{ variable("currency_icon").value }}{{ list_price }}</del>
+								{% endif %}
+								{{ variable("currency_icon").value }}<span class="my-price" data-item="{{ row.ID }}" data-my-price="{{ offer }}">{{ offer }}</span>
+							</div>
+						{% endfor %}
+					</a>
+				</div>
+				<div class="card-footer bg-gradient-info">
+					<a href="#" class="text-white text-decoration-none add-basket-control {{ not view.logged_in ? " nonlogin-add-to-basket" }}">
+						{% if view.logged_in %}
+							<input type="number" value="{{ row.quantity ?: 1 }}" class="quantity d-none" data-item="{{ row.ID }}" min="1">
+							<a href="#" class="save-quantity no-edit text-white" data-item="{{ row.ID }}">
+								<i class="fa fa-shopping-basket"></i>
+								{{ t("add_to_basket") }}
+							</a>
+						{% else %}
+							<i class="fa fa-shopping-basket"></i>
+							{{ t("add_to_basket") }}
+						{% endif %}
+					</a>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>

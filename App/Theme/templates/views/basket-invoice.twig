@@ -1,0 +1,108 @@
+<style>
+    .table_wrapper th {
+        background-color: #e6d8d8;
+    }
+    table td,
+    table th {
+        padding: 5px;
+        width: 65px;
+    }
+    p {
+        padding-left: 10px;
+        padding: 5px;
+    }
+    img{
+        width: 30%;
+        margin-left: 35%;
+        margin-bottom: 20px;
+    }
+    table.w-50-table td{
+        width: 325px;
+    }
+</style>
+<page>
+    <img src="{{ "assets/logo.png" }}"/>
+    <table class="w-50-table">
+        <tr>
+            <td>
+                <b>{{ t("order_id") }}:</b> #{{ view.basket.order_id }}
+            </td>
+            <td>
+                <b>{{ t("Cart Id") }}:</b> #{{ view.basket.ID }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>{{ t("account_number") }}:</b> {{ view.orderAddress.account_number }}
+            </td>
+            <td>
+                <b>{{ t("order_time") }}:</b> {{ view.basket.order_time|date("d F Y h:i:s") }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>{{ t("ref") }}:</b> 
+                {{ view.basket.ref.value }}
+            </td>
+            <td>
+                <b>{{ t("delivery_date") }}:</b> {{ view.basket.delivery_date|date("d F Y") }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>{{ t("company_name") }}:</b> 
+                {{ view.orderAddress.company_name }}
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>{{ t("billing_address") }}:</b> {{ view.billingAddress }}
+            </td>
+            <td>
+                <b>{{  view.basket.type.value == "collection" ? t("collection_address") : t("delivery_address") }}:</b> 
+                {{ view.basket.type.value == "collection"  ? view.orderBranch : view.orderAddress }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>{{ t("phone") }}:</b> 
+                {% if view.orderAddress.phone|first != 0 %}0{% endif %}{{ view.orderAddress.phone }}
+                <br>
+                {% if view.orderAddress.mobile|first != 0 %}0{% endif %}{{ view.orderAddress.mobile }}
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>{{ t("email") }}:</b> {{ view.user.email }}
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+
+    {% if view.basket.order_notes.value %}
+        <p>
+            <b>{{ t("order_notes") }}:</b> 
+            {{ view.basket.order_notes.value }}
+        </p>
+    {% endif %}
+
+    <p>
+        {{ view.basketProductDataTable }}
+    </p>
+
+    <p style="text-align: right; margin-right: 30px; line-height: 25px;">
+        <b>{{ t("subtotal") }} :</b> {{ variable("currency_icon").value }} {{ view.basket.subtotal.value|number_format(2, '.', ',') }} <br>
+        <b>{{ t("delivery") }} :</b> {{ variable("currency_icon").value }} {{ view.basket.delivery.value|number_format(2, '.', ',') }} <br>
+        <b>{{ t("VAT") }} :</b> {{ variable("currency_icon").value }} {{ view.basket.vat.value|number_format(2, '.', ',') }} <br>
+        {% if view.basket.applied_voucher_code.value %}
+            <b>{{ t("voucher_code_discount") }} :</b> {{ variable("currency_icon").value }} {{ view.basket.voucher_code_discount.value|number_format(2, '.', ',') }} <br>
+		{% endif %}
+        <b>{{ t("total") }} :</b> {{ variable("currency_icon").value }} {{ view.basket.total.value|number_format(2, '.', ',') }}
+    </p>
+</page>

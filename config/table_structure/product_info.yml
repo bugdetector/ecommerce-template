@@ -1,0 +1,32 @@
+table_name: product_info
+table_comment: 'Contains extra information about product.'
+fields:
+  product:
+    type: table_reference
+    reference_table: products
+    column_name: product
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Product reference.'
+  title:
+    type: short_text
+    length: '255'
+    column_name: title
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Info title'
+  description:
+    type: long_text
+    column_name: description
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Info description.'

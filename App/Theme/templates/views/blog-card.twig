@@ -1,0 +1,31 @@
+<div class='{{ view.addClass("row").classes|join(" ") }}' {{ view.renderAttributes()|raw }}>
+	{% for row in view.data %}
+		<div class="col-12 p-2 align-self-stretch basket-item">
+			<div class="card h-100">
+				<div class="card-body">
+					<a href="{{ constant("BASE_URL") }}/blogs/blog/{{ row.url_alias }}">
+						<h5 class="card-title text-primary font-weight-bold">{{ row.title }}</h5>
+					</a>
+					<div class="row">
+						<div class="col-md-2">
+						{% if row.file_path %}
+							<img 
+							class="card-img-top" 
+							src="{{ constant("BASE_URL") }}/files/uploaded/{{ row.file_path }}" alt="{{ row.file_name }}">
+						{% endif %}
+						</div>
+						<div class="col-md-10">
+							<p class="card-text">{{ row.content|striptags|replace({'&nbsp;' : ' '})|slice(0, 750) ~ "..." }}</p>
+							<a href="{{ constant("BASE_URL") }}/blogs/blog/{{ row.url_alias }}" class="btn btn-primary">
+								{{ t("read_more") }} ...
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">{{ t("created_at") }}: {{ row.created_at|date("m/d/Y") }}</small>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div>

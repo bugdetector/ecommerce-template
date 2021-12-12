@@ -1,0 +1,23 @@
+table_name: voucher_codes_user
+table_comment: 'Marge table voucher code and user.'
+fields:
+  user:
+    type: table_reference
+    reference_table: users
+    column_name: user
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'User reference.'
+  voucher_code:
+    type: table_reference
+    reference_table: voucher_codes
+    column_name: voucher_code
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Voucher code reference.'

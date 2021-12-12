@@ -1,0 +1,59 @@
+{% extends "page.twig" %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card p-2">
+				{{ controller.printMessages()|raw }}
+				{{ controller.echoContent()|raw }}
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card p-2 text-right">
+				<div>
+					<label class="text-primary font-weight-bold">
+						{{ t("subtotal") }}
+						:
+					</label>
+					<b class="text-info">
+						{{ variable("currency_icon").value }}
+						<span class="basket-subtotal">{{ controller.basket.subtotal.value|number_format(2, '.', ',') }}</span>
+					</b>
+				</div>
+				<div>
+					<label class="text-primary font-weight-bold">
+						{{ t("delivery") }}
+						:
+					</label>
+					<b class="text-info">
+						{{ variable("currency_icon").value }}
+						<span class="delivery-value">{{ controller.basket.delivery.value|number_format(2, '.', ',') }}</span>
+					</b>
+				</div>
+				<div>
+					<label class="text-primary font-weight-bold">
+						{{ t("vat") }}
+						{{ controller.vatPercentage }}%
+																																																																																																																																									                        :
+					</label>
+					<b class="text-info">
+						{{ variable("currency_icon").value }}
+						<span class="vat-value">{{ controller.basket.vat.value|number_format(2, '.', ',') }}</span>
+					</b>
+				</div>
+				<h2>
+					<label class="text-primary font-weight-bold">
+						{{ t("total") }}
+						:
+					</label>
+					<b class="text-info">
+						{{ variable("currency_icon").value }}
+						<span class="basket-total-value">{{ controller.basket.total.value|number_format(2, '.', ',') }}</span>
+					</b>
+				</h2>
+				{{ controller.basketInfo|raw }}
+			</div>
+		</div>
+	</div>
+{% endblock %}

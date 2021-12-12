@@ -22,7 +22,7 @@ access_denied: 'Erişim Engellendi'
 email: E-posta
 save: Kaydet
 current_pass: 'Geçerli Şifre'
-password_again: 'Şifre (tekrar)'
+password_again: 'Şifreyi Onayla'
 username_exist: 'Bu kullanıcı adıyla bir kullanıcı bulunuyor.'
 password_validation_error: 'Şifre en az 8 karakter uzunluğunda olmalı. Büyük harf, küçük harf, noktalama işareti ve rakam bulundurmalı.'
 created_at: 'Oluşturulma Tarihi'
@@ -181,25 +181,412 @@ value: Değer
 variables: 'Yapılandırma değerleri'
 mainpage: 'Ana Sayfa'
 config_file_write_error: 'Yapılandırma dosyası (config/config.php) yazılabilir değil. Lütfen devam etmeden önce yapılandırma dosyasına yazma izni verin ya da elle dosyayı oluşturduktan sonra komut satırını kullanarak yükelemyi tamamlayın.'
-add_new_entity: 'Yeni %s Ekle'
-username_or_email: 'Kullanıcı adı ya da e-posta'
-upload_an_image: 'Lütfen bir resim dosyası yükleyin.'
-originally_send_to: '<p>Bu mesaj aslında şu kişiye gönderildi: %s</p>'
-record_remove_accept_field: '%s kaldırmak istediğinize emin misiniz?'
-record_remove_accept_entity: '<p>Bu %s ögesini silmek istediğinize emin misiniz?</p>'
-status: Durum
-temporary: Geçici
-permanent: Kalıcı
-files_deleted: '%d dosya silindi.'
-clear_temporary_files: 'Geçici dosyaları temizle'
+products: Ürünler
+stockcode: 'Stok kodu'
+quantity: Nicelik
+add_new_product: 'Yeni Ürün Ekle'
+image: Görsel
+price: Fiyat
+product_count: 'Ürün sayısı'
+categories: Kategoriler
 item_name: 'Öge Adı'
 add_new_node: 'Yeni Öge Ekle'
 add_subitem: 'Alt Öge Ekle<br>'
 new_node: 'Yeni Öge'
 node_remove_warning: '<p>Bu işlem bu öge ve tüm alt ögelerini siler.</p><p>Lütfen devam etmeden önce değişiklikleriniz kaydedin.<br></p><p>Silmek istediğinize emin misiniz?<br></p>'
+product_lists: Promosyonlar
+spotlight: Sahne
+hotbuy: 'Hızlı satım'
+please_select_menu: 'Lütfen bir menü seçiniz.'
+add_to_basket: 'Sepete Ekle'
+category: Kategori
+'Ordering made easy': 'Sipariş vermek kolaylaştı'
+previous: Önceki
+next: Sonraki
+browse: Gözat
+favorites: Favoriler
+promotions: Promosyonlar
+total: Toplam
+checkout: Ödeme
+subtotal: 'Ara toplam'
+delivery: Teslimat
+delivery_address: 'Teslimat adresi'
+your_ref_optional: 'Referansınız (Seçimli)'
+order_notes: 'Sipariş Notları'
+continue_shopping: 'Alışverişe devam et'
+my_price: Fiyatım
+dont_have_account: 'Hesabınız yok mu?'
+register: 'Üye Ol'
+have_account: 'Hesabınız var mı?'
+address: Adres
+add_new_entity: 'Yeni %s Ekle'
+username_or_email: 'Kullanıcı adı ya da e-posta'
+custom_users: Kullanıcı
+company_name: 'Şirket Adı'
+town: Şehir
+country: Ülke
+postalcode: 'Posta Kodu'
+default: Varsayılan
+email_verify_error: 'E-postanız henüz onaylanmadı.Lütfen e-postanızı kontrol edin.'
+email_verified: 'E-posta Doğrulandı'
+after_register_welcome_message: '<h1 align="center">A To Z''e hoşgeldiniz</h1><p align="center">Hesabınızı onaylamanız için <b>%s </b>adresine bir e-posta gönderdik. Hesabınızı onaylamak için e-postadaki linke tıklayınız.</p><p align="center">Teşekkürler.</p><p align="center">E-posta almadıysanız <a href="#resend" target="_blank">buraya</a> tıklayarak tekrar göndermeyi deneyin.<br></p>'
+send_mail: 'E-posta Gönder'
+verification_mail_resend: '<p>Onay e-postası başarıyla yeniden gönderildi.<br></p>'
+email_verify_success: '<h2 align="center">E-postanız başarıyla doğrulandı.<br></h2>'
+email_verification: 'E-posta Onayı'
+send_order: 'Siparişi Gönder'
+orders: Siparişler
+order_address: 'Sipariş Adresi'
+item_count: 'Ürün Sayısı'
+order_item: 'Sipariş Ögesi'
+ref: Referans
+vat: KDV
+product: Ürün
+item_per_price: 'Ürün Başı Fiyat'
+total_price: 'Toplam Fiyat'
+account_number: 'Hesap Numarası'
+is_billing_address: 'Fatura adresi?'
+order_time: 'Sipariş Tarihi'
+billing_address: 'Fatura Adresi'
+back: Geri
+order_success: 'Sipariş başarıyla gönderildi.'
+order_sent: 'Sipariş alındı'
+pay_now: 'Şimdi Öde'
+upload_an_image: 'Lütfen bir resim dosyası yükleyin.'
+upload_import_file: 'İçe aktarmak için bir excel belgesi yükleyin'
+upload_file_description: '<p></p><p>İçe aktarılacak excel dosyası aşağıdaki şartları sağlamalıdır</p><ol><li>Dosya <font color="#FF0000"><b>xlsx</b></font> formatında olmalıdır.<br></li><li>Aşağıdaki kolonları barındırmalıdır. Bu kolonların bulunması zorunludur ve boş hücre içeremez. Title kolonu ürün yeni oluşturulacaksa zorunludur, var olan bir ürünün güncellenmesi için bu kolon zorunlu değildir.<br><table class="table table-bordered"><tbody><tr><td><font color="#FF9C00"><b><font color="#FF0000">Stockcode</font></b><br></font></td><td><b><font color="#FF0000">Title</font></b><br></td><td><b><font color="#FF0000">List Price</font></b></td></tr></tbody></table></li><li><p>&nbsp;Aşağıdaki kolonlar zorunlu değildir. </p><p>Bespoke: Ürün kişiye özel ise 1 olmalıdır. Aksi takdirde 0.</p><p>Special: Ürün özel ürün olarak değerlendirilecekse 1 olmalıdır.&nbsp;Aksi takdirde 0.</p><p>Published: Ürün yayında ise 1, Aksi takdirde 0.</p><p>Minimum Order: Bu öge sipariş edilmeden önce uygulanacak en düşük sipariş sayısı, belirtilmezse varsayılan kullanılır.</p><p>Variable: Bu ürünün türevleri varsa 1 olmalıdır. Aksi takdirde 0.</p><table class="table table-bordered" style="width: 756px;"><tbody><tr><td><font color="#ff9c00"><span style="font-weight: bolder;">Bespoke</span></font></td><td><font color="#ff9c00"><b>Minimum Order</b></font></td><td><font color="#ff9c00"><b>Published</b></font></td><td><font color="#ff9c00"><span style="font-weight: bolder;">Special</span></font></td><td><b><font color="#ff9c00">Variable</font></b></td></tr></tbody></table><p><br></p></li><li>&nbsp;Yukarıdaki kolonlardan sonra aşağıdaki gibi ek fiyat kolonları yerleştirilebilir. Bu kolonları bulunması zorunlu değildir ve boş hücre içerebilir.<br><table class="table table-bordered"><tbody><tr><td><b>2</b><br></td><td><b>5</b><br></td><td><b>10</b><br></td><td><b>20</b><br></td><td><b>n....</b><br></td></tr></tbody></table><p><br><br></p></li></ol>'
+count_item_imported: '%s öge içe aktarıldı.'
+shipping_agent: 'Kargo Şirketi'
+driver: Sürücü
+courier: Kurye
+published: Yayında
+special_price_available: 'Özel Fiyat'
+order_confirmed: 'Sipariş Onayı'
+download: İndir
+order_status: 'Sipariş Durumu'
+pending: 'Onay Bekliyor'
+confirmed: Onaylandı
+add_new_address: 'Yeni Adres Ekle'
+myaccount: Hesabım
+my_orders: Siparişlerim
+view: Görüntüle
+list_price: 'Liste Fiyatı'
+thank_you_for_order: 'Siparişiniz için teşekkür ederiz.'
+payment_thanks_message: '₺%s ödemeniz için teşekkür ederiz.'
+issues: Konular
+priority: Öncelik
+status: Durum
+created_by: Oluşturan
+bug: Hata
+improvement: Geliştirme
+new-feature: 'Yeni Özellik'
+critical: Kritik
+todo: Yapılacak
+progressing: İlerliyor
+on-test: 'Test ortamında'
+deployed: Kuruldu
+add_new_user: 'Yeni kullanıcı ekle'
+desktop_image: 'Masaüstü resmi'
+mobile_image: 'Mobil resmi'
+url: URL
+catalog: Katalog
+originally_send_to: '<p>Bu mesaj aslında şu kişiye gönderildi: %s</p>'
+there_is_no_item_in_your_basket: 'Sepetiniz boş.'
+confirm_order: 'Siparişi Onayla'
+order_confirmed_admin_message: 'Sipariş onaylandı. Kullanıcı e-posta ile bilgilendirildi.'
+paid_online: 'Online Ödendi'
+record_remove_accept_field: '%s kaldırmak istediğinize emin misiniz?'
+empty_basket: 'Sepeti Boşalt'
+empty_basket_confirm: 'Sepetinizdeki tüm ögeleri temizlemek istediğinize emin misiniz?'
+basket_cleaned: 'Sepetinizdeki tüm ögeler silindi.'
+special_price_not_available: 'Özel fiyat uygulanmıyor'
+product_variant: 'Ürün Türevi'
+variant: Türev
+is_special_product: 'Stokta bulunmayan ürün'
+private_product_owner: 'Özel Ürün Sahibi'
+owner: Sahip
+is_private_product: 'Bu ürün kişiye özel mi?'
+private_products: 'Size Özel Ürünler'
+special_products: 'Özel Ürünler'
+enquire: İste
+minimum_private_error: 'Ödeme adımına geçmeden önce her çeşitten en az %s ürün eklemelisiniz: %s'
+exclude_private_products: 'Özel ürünleri dışla'
+include_private_products: 'Özel ürünleri dahil et'
+more: 'Daha Fazla'
+sundries: 'Çeşitli ögeler'
+open: Açık
+closed: Kapalı
+enquiry: İstek
+enquiry_description: 'Lütfen açıklama giriniz'
+minimum_item_error: 'En az %s ürün eklemelisiniz.'
+enquiry_saved: '<p>İsteğiniz başarıyla gönderildi.</p>'
+enquiry_exist_warning: 'Bu ürün için daha önce istekte bulundunuz. İstek kaydınızı güncelleyebilirsiniz.'
+already_enquired: 'Zaten İstenmiş'
+waiting_enquirys: 'Bekleyen İstekler'
+send_request: 'İstek Gönder'
+your_basket_empty: 'Sepetinizde hiç ürün yok. Lütfen ödemeye geçmeden önce birkaç ürün ekleyin.'
+record_remove_accept_entity: '<p>Bu %s ögesini silmek istediğinize emin misiniz?</p>'
+bespoke_warning: 'Özel ürünler 4 hafta sonra gönderilir. Eğer çeşitli ögeler de bu sipariş ile birlikte verilmiş ise onlar da 4 hafta sonra gönderilir.'
+user_remove_accept_has_order: 'Bu kullanıcının siparişleri mevcut. Yine de silmek istediğinize emin misiniz?'
+product_added_favorites: '<b>%s</b> favorilere eklendi.'
+product_removed_favorites: '<b>%s </b>favorilerden kaldırıldı.'
+minimum_order_count: 'En düşük sipariş sayısı'
+sundries_delivery_confirm: '<p>Tüm ürünler 4 hafta sonra teslim edilecek. Emin misiniz?</p>'
+county: Bölge
+abroad_delivery_and_tax_warning: 'Bu tutar kargoyu kapsamaz, sadece ürünleri kapsar.'
+additional_delivery_address: 'Ek Teslimat Adresi'
+is_variable: 'Bu ürünün çeşitliliği var mı?'
+variation_option: 'Türev seçenekleri'
+page: Sayfalar
+registered_address: 'Kayıtlı Adres'
+basket: Sepet
+collection_address: 'Gel-Al Adresi'
+download_app: 'Uygulamamızı indirin'
+blog: Blog
+content: İçerik
+add_new_blog: 'Yeni Blog Ekle'
+cover_image: 'Kapak Resmi'
+read_more: Devamı
+temporary: Geçici
+permanent: Kalıcı
+files_deleted: '%d dosya silindi.'
+clear_temporary_files: 'Geçici dosyaları temizle'
+'Is this product is private and has one or many owner.': 'Bu ürün özeldir ve bir ya da birden fazla sahibi olabilir.'
+discount: İndirim
+start_date: 'Başlangıç Zamanı'
+end_date: 'Bitiş Zamanı'
+promoted_price: 'Promosyon Fiyatı'
+new_user_registered: 'Yeni Kullanıcı Kaydoldu'
+all_products: 'Tüm Ürünler'
+cookie_accept_message: "<p>Bu site size daha iyi deneyim sağlamak amacıyla çerezleri kullanmaktadır. Eğer çerez kullanımını kabul ediyorsanız gezinmeye devam edebilirsiniz. Çerez politikası ile ilgili daha fazla bilgi için <a href=\"/page/privacy-policy\">tıklayın</a>.</p>\r\n<button id=\"accept-cookie\" class=\"btn btn-success\">Kabul Et</button>"
+allow_cookies: 'Çerezlere İzin Verin'
+spend_another_warning: 'Ücretsiz teslimat için ₺<span class="for-free-delivery">%s</span> daha harcamanız gerekiyor.'
+registration_date: 'Üye Olduğu Tarih'
+pay_optional_at_checkout: 'Ödeme Adımında Sonra Ödeme Seçeneği'
+pay_and_send_order: 'Öde ve Siparişi Ver'
+order_again: 'Siparişi Tekrarla'
+order_id: 'Sipariş Numarası'
+payment_failed: 'Ödeme başarısız'
+try_again: 'Tekrar Deneyin'
+hello: Merhaba
+total_orders: 'Toplam Sipariş Sayısı'
+total_sales: 'Toplam Satış'
+last_users_joined: 'Son Katılan Kullanıcılar'
+average: Ortalama
+blog_attachment: 'Ek Dosya'
 close: Kapat
+users_waiting_approval: 'Onay Bekleyen Kullanıcılar'
+marketing: Pazarlama
+open_baskets: 'Açık Sepetler'
+today_orders: 'Bugün ki Siparişler'
+this_month_orders: 'Bu Ay ki Siparişler'
+last_month_orders: 'Geçen Ay ki Siparişler'
+contact_us: 'İletişime Geçin'
+yearly: Yıllık
+monthly: Aylık
+weekly: Haftalık
+daily: Günlük
+hourly: Saatlik
+custom: Özel
+product_info: 'Ürün Bilgisi'
+opening_hours: 'Açık Saatler'
+maximum_order_count: 'En Fazla Sipariş Adedi'
+exclude_stock: 'Stoktan Dışla'
+alt_desc: 'Alternatif Tanım'
+price_type: 'Fiyat Tipi'
+collection: Gel-Al
+file_columns_missing: 'Zorunlu olan kolonlardan bazıları dosyada eksik.'
+title_missing: 'Başlık belirtilmemiş: %s'
+change_password: 'Şifre Değiştir'
+recent_orders: 'Son Siparişler'
+recent_order_description: 'Son siparişlerinizi görüntüleyin, yeniden sipariş verin, ödeme yapın'
+account_settings: 'Hesap ayarları'
+account_settings_description: 'Adres, şifre ve hesap ayrıntılarını düzenleyin'
+account: Hesap
+top_sellers: 'Çok Satanlar'
+delivery_days: 'Teslimat Günleri'
+contact_form: 'İletişim Formu'
+become_a_customer: 'Müşterimiz Olun'
+about_us: Hakkımızda
+privacy_policy: 'Gizlilik Politikası'
+terms_and_conditions: 'Şartlar ve Koşullar'
+how_to: Nasıl
+customer_care: 'Müşteri Hizmetleri'
+our_website: 'Web Sitemiz'
+explore_more: 'Daha Fazla Keşfet'
+approve_error: 'Hesabınız henüz onaylanmadı. Lütfen site yöneticilerine başvurun.'
+mobile: Mobil
+linked_account: 'Bağlı Hesap'
+select_collection_or_delivery: 'Gel-Al ya da Adrese teslimi seçiniz'
+choose_store: 'Şube Seçiniz'
+change_shipping_option: 'Teslimat Seçeneğini Değiştir'
+sub_account: 'Alt Hesap'
+offer: Teklif
+search_result_empty: 'Aranan kelime ile sonuç bulunamadı. Bunu mu demek istediniz: %s'
+on_offer: Teklif
+card_number: 'Kart Numarası'
+card_holder: 'Kart Sahibi'
+card_expire: SKT
+payment: Ödeme
+general_enquiries_email: 'Genel İstekler İçin E-posta'
+general_enquiries_phone: 'Genel İstekler İçin Telefon'
+message: Mesaj
+contactus_info: 'Lütfen bize herhangi bir sorun sorun, geri ödeme, öneri, yeni ürün önerileri ya da herhangi bir konuda yazın.'
+_is_required: '%s alanı zorunludur.'
+message_sent_success: 'Mesajınız başarıyla iletilmiştir. Teşekkür ederiz.'
+weight: Ağırlık
+sprice_valid_from: 'Sprice Geçerlilik Başlangıcı'
+sprice_valid_to: 'Sprice Geçerlilik Bitişi'
+offer_expires: 'Teklif son günü'
+clearance: 'Stok Fazlası'
+latest_offers: 'Son Teklifler'
+minimum_order_price: 'En az sipariş tutarı'
+postcode_table_info: 'Aşağıdaki liste bütün posta kodlarını listelemektedir. Arama bölümünü kullanarak filtreleme yapabilirsiniz. Belirtilen teslimat ücreti alışveriş tutararının, belirtilen en az tutardan az olması durumunda uygulanır.'
+maximum_order_warning: 'Bir günde en fazla %d adet %s sipariş edebilirsiniz.'
+stock_available_warning: 'Stokta sadece %d adet %s bulunmaktadır.'
+minimum_order_warning: 'Bir günde en az %d adet %s sipariş edebilirsiniz.'
+enter_valid_card_number: 'Lütfen geçerli bir kart numarası giriniz.'
+payment_test_mode: 'Sistem test modunda çalışıyor. Sahte bir kart numarası girebilirsiniz. Kart numarası: 5406675406675403, SKT: 12/2022, CVV: 000'
+no_stock: 'Stokta %s ürünü bulunmuyor.'
+branch: Şube
+please_select_date: 'Lütfen gün seçiniz'
+stock: Stok
+please_select_valid_day: 'Lütfen geçerli bir tarih seçiniz.'
+collection_date: 'Gel-Al Günü'
+delivery_date: 'Teslimat Günü'
+product_ordered: 'Bu ürün daha önce sipariş verildiği için silinemez. Ancak yayından kaldırılabilir. Lütfen yayından kaldırmayı deneyin.'
+paid_amount: 'Ödenen Tutar'
+add_to_active_order_warning: 'Şu anda aktif %d siparişiniz var. Sepetinizdeki ögeleri aktif siparişlerinizden birine eklemeyi tercih edebilir ya da yeni bir sipariş oluşturabilirsiniz. Siparişinizi eklemek için <a href="#" id="merge-detail">buraya</a> tıklayın.'
+active_order_choose: 'Aktif sipariş(ler)iniz aşağıda listelenmiştir. Sepetinizdeki ögeleri aktif siparişinize eklemek için lütfen birisini seçin ve "Birleştir" butonuna basın.'
+merge: Birleştir
+merge_warning: '<p>Birleştirme detayları aşağıda listelenmiştir:</p><p>%s</p><p>Teslimat: ₺%.2f</p><p>KDV: ₺%.2f</p><p>Ara toplam: ₺%.2f</p><p>Toplam: ₺%.2f</p><p>Fiyat Farkı: ₺%.2f</p>'
+continue_to_merge: 'Birleştirmeye devam et'
+optional_pay_not_available: 'Seçimli ödeme kullanılabilir değil.'
+order_merge_success: 'Sipariş ögeleri başarıyla eklendi.'
+cancel_order: 'Siparişi İptal Et'
+cancel_order_promt: 'Bu siparişi iptal etmek istediğinize emin misiniz?'
+order_canceled: 'Sipariş iptal edildi'
+is_canceled: 'İptal Edildi'
+update_stock: 'Stok Güncelleme'
+stock_upload_file_description: '<p>İçe aktarılacak excel dosyası aşağıdaki şartları sağlamalıdır</p><ol><li>Dosya&nbsp;<font color="#FF0000"><span style="font-weight: bolder;">csv</span></font>&nbsp;formatında olmalıdır.<br></li><li>Aşağıdaki kolonları barındırmalıdır. Bu kolonların bulunması zorunludur ve boş hücre içeremez.<br><table class="table table-bordered" style="width: 716.656px;"><tbody><tr><td><font color="#FF9C00"><span style="font-weight: bolder;"><font color="#FF0000">sku</font></span><br></font></td><td><span style="font-weight: bolder;"><font color="#FF0000">Code</font></span><br></td><td><span style="color: rgb(255, 0, 0); font-weight: 700;">Avail (01)</span><br></td><td><span style="color: rgb(255, 0, 0); font-weight: 700;">Avail (03)</span><br></td><td><span style="color: rgb(255, 0, 0); font-weight: 700;">Avail (04)</span><br></td><td><span style="color: rgb(255, 0, 0); font-weight: 700;">Avail (05)</span><br></td></tr></tbody></table></li></ol>'
+stockcode_not_found: '%s stok kodlu ürün bulunamadı.'
+select_for_account: 'Hesap seçin'
+register_account: 'Üye olun'
+completed: Tamamlandı
+enter_doornumber_and_postalcode: 'Kapı numaranızı ve posta kodunuzu aşağıya giriniz.'
+doornumber: 'Kapı numarası'
+submit: Gönder
+found_accounts: 'Bulunan hesap sayısı: %d. Lütfen seçiniz.'
+search_again: 'Tekrar Ara'
+accounts: Hesaplar
+email_not_exist: 'E-posta mevcut değil'
+no_email_found_please_enter: 'E-posta bulunamadı. Lütfen e-posta adresinizi giriniz.'
+please_enter_new_email: '<p>Eğer bu hesap size aitse <a href="%s">buraya</a> tıklayarak şifrenizi sıfırlayabilirsiniz.</p><p>Eğer bu e-posta adresi size ait değilse lütfen yeni hesap bilgilerini giriniz:<br></p>'
+account_number_info: 'Hesap numarası nerede?'
+pay_at: '%sda Öde'
+please_enter_quantity: 'Lütfen adet belirtiniz'
+new_email_added: '%s hesabına yeni e-posta adresi eklendi.<br>'
+shop_category: 'Market Kategorisi'
+shop_category_description: 'Lütfen kendinize en yakın olan kategoriyi seçiniz.<br>'
+choose: Seç
+payment_method: 'Ödeme Yöntemi'
+card_cvv: CVV
+verified: Onaylandı
+pay_with_saved_credit_card: 'Kayıtlı Kredi Kartı ile Öde'
+pay_with_credit_card: 'Kredi kartı ile Öde'
+save_my_card: 'Kartımı ilerideki ödemeler için kaydet'
+remove_card: 'Kartı Sil'
+card_remove_success: 'Kart Silindi'
+please_select_a_card: 'Lütfen bir kart seçiniz.'
+resend: 'Yeniden Gönder'
+account_not_activated: '<p>Bu hesap henüz etkinleştirilmedi. Tam e-posta adresini ve oturum açmak için kullanacağınız şifreyi girerek hesabı aktifleştirebilirsiniz.<br></p>'
+activate_account: 'Hesabı Etkinleştir'
+account_already_activated: 'Bu hesap zaten etkinleştirilmiş.<br>'
+email_is_not_correct: 'E-posta adresi doğru değil.<br>'
+space_under_banner: 'Kaydırıcı Altı Boşluk'
+attachment: 'Ek dosya'
+mainpage_box: 'Anasayfa Kutucuğu'
+recent_items: 'Son Zamanlarda Aldıklarınız'
+earliest_delivey_time: 'En Erken Teslimat Zamanı'
+add_to_active_order_warning_one_item: '<p>%s tarihi için 1 aktif siparişiniz bulunuyor. Bu sipariş ögelerini eklemek isterseniz&nbsp;<a href="#" id="merge-detail">buraya</a>&nbsp;tıklayın.<br></p>'
+banner_product: 'Kaydırıcı ürünü'
+view_all: 'Tümünü Görüntüle'
+added_to_basket: '<b>%s</b> sepete eklendi.'
+need_update: 'Güncelleme Gerekiyor'
+page_attachment: 'Sayfa Eki'
+resend_orders: 'Siparişler Yeniden Gönder'
+shipping_option: 'Teslimat Seçeneği'
+shipping_branch: 'Teslimat Marketi'
+shipping_address: 'Teslimat Hesabı'
+most_searched_words: 'En Çok Aratılan Kelimeler'
+count: Sayı
+word: Kelime
+item_vat: 'Ürün Kdvsi'
+is_hidden: 'Gizli mi?'
+export_users_to_csv: 'Kullanıcıları Dışa Aktar'
+if_not_company_type_your_name: 'Şirket hesabı oluşturmayacaksanız isminizi yazınız.'
+call: Arayın
+sales: Satış
+web_support: 'Web Desteği'
+show_stock: 'Stoğu Görüntüle'
+change_account_number: 'Hesap Numarasını Değiştir'
+new_account_number: 'Yeni Hesap Numarası'
+old_account_number: 'Eski Hesap Numarası'
+change: Değiştir
+account_number_not_found: 'Hesap numarası bulunamadı.'
+create_order: 'Sipariş oluştur'
+due_to: 'Teslimat Günü'
+please_select_a_branch: 'Lütfen bir şube seçiniz.'
+product_picture: 'Ürün Fotoğrafı'
+have_you_forgotten: 'Bunları unuttunuz mu?'
 login_as_user: 'Kullanıcı olarak oturum aç'
 cannot_login_as_another_admin_user: 'Başka bir yönetici olarak oturum açılamaz.'
-choose: Seç
+set: Ayarlanmış
+not_set: Ayarlanmamış
+stock_last_updated: 'Stok Son Güncelleme'
+product_description_attachment: 'Açıklama Eki'
+cancel_time: 'İptal Zamanı'
+voucher_codes: 'Kampanya Kodları'
+code: Kod
+discount_percentage: 'İndirim Yüzdesi'
+always_available: 'Her Zaman Etkin'
+voucher_code: 'Kampanya Kodu'
+voucher_code_discount: 'Kampanya kodu indirimi'
+button_text: 'Buton yazısı'
+find_out_more: 'Daha fazla göster'
+statistics: İstatistik
+product_tracker: 'Ürün Takipçisi'
+line_color: 'Çizgi Rengi'
+place: Konum
+size: Boyut
+under_latest_offers: 'Son tekliflerin altında'
+under_top_sellers: 'Çok satanların altında'
+payment_request_mail_sent_successfully: 'Ödeme isteği e-postası başarıyla gönderildi.'
+banner_box: 'Kaydırıcı Kutusu'
+position: Konum
+left: Sol
+right: Sağ
+center: Orta
+background_color: 'Arkaplan rengi'
+button_color: 'Buton rengi'
+item_added_using_product_list: '%d öge ürün listesi kullanılarak eklendi.'
+are_you_sure_want_to_send_payment_request: 'Ödeme isteği e-postası göndermek istediğinize emin misiniz?'
+voucher_codes_user: 'Kampanya Kodu Kullanıcıları'
+percentage: Yüzdelik
+exact_discount: 'Belirli bir değer'
+voucher_code_applied: '%s kampanya kodu uygulandı.'
+dealer: 'İlgilenen kişi'
+assign_to_me: 'Bana ata'
+unassign: 'Atamayı kaldır'
+archived_baskets: 'Arşivlenmiş Sepetler'
+last_modified_message: 'Son güncelleme: %s'
+comment: Yorum
+comment_last_modified_date: 'Yorumun son güncelleme zamanı'
+comment_last_modified_by: 'En son yorumu güncelleyen'
+please_choose: Seçiniz...
+delivery_charge: 'Teslimat Ücreti'
+delivery_charge_description: 'En az sipariş tutarı geçilmediğinde uygulanan teslimat ücreti.'
+authorized_branch: 'Yetkilendirilmiş Şube'
 compress_all_image_files: 'Tüm resim dosyalarını sıkıştır'
 _files_compressed: '%d dosya sıkıştırıldı.'
+login_or_register_to_get_best_prices: "%s'den en iyi fiyatları almak için \r\n<a href='%s' class='btn btn-outline-warning btn-sm text-white'>Oturum açın</a> ya da \r\n<a href='%s' class='btn btn-outline-warning btn-sm text-white'>Üye olun</a>"

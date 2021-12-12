@@ -1,0 +1,57 @@
+{% extends "forms/form.twig" %}
+
+{% block fields %}
+	<div class="row">
+		<div class="d-none">
+			{{ form.fields["form_id"] }}
+			{{ form.fields["form_build_id"] }}
+			{{ form.fields["form_token"] }}
+		</div>
+		<div class="form-group col-md-6">
+			{{ form.fields["company_name"] }}
+		</div>
+		<div class="form-group col-md-6">
+			{{ form.fields["phone"] }}
+		</div>
+		<div class="form-group col-md-6">
+			{{ form.fields["name"] }}
+		</div>
+		<div class="form-group col-md-6">
+			{{ form.fields["surname"] }}
+		</div>
+		<div class="form-group col-md-6">
+			{{ form.fields["address"] }}
+		</div>
+		<div class="form-group col-md-6">
+			{{ form.fields["town"] }}
+		</div>
+		<div class="form-group col-md-6">
+			{{ form.fields["county"] }}
+		</div>
+		<div class="form-group col-md-6">
+			{{ form.fields["country"] }}
+		</div>
+		<div class="form-group col-md-6">
+			{{ form.fields["postalcode"] }}
+		</div>
+		<div class="form-group col-md-6">
+			{{ form.fields["email"] }}
+		</div>
+		<div class="form-group col-md-6">
+			{{ form.fields["password"] }}
+		</div>
+		<div class="form-group col-md-6">
+			{{ form.fields["password_again"] }}
+		</div>
+		<div class="form-group col-md-6 col-12">
+			<input type="submit" class="btn btn-primary btn-user btn-block" value="{{ t("register") }}" name="register">
+		</div>
+		<hr/>
+		<div class="text-center col-12">
+			<a class="small" href="{{ constant("BASE_URL") ~ "/login" }}">
+				{{ t("have_account") }}
+				<b>{{ t("login") }}</b>
+			</a>
+		</div>
+	</div>
+{% endblock %}

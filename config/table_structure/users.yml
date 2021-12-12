@@ -3,7 +3,7 @@ table_comment: 'Contains site Users fundemantal data. Connected with User class.
 fields:
   username:
     type: short_text
-    length: '20'
+    length: '50'
     column_name: username
     primary_key: false
     autoIncrement: false
@@ -43,7 +43,7 @@ fields:
     comment: 'User profile photo.'
   email:
     type: short_text
-    length: '50'
+    length: '255'
     column_name: email
     primary_key: false
     autoIncrement: false
@@ -83,6 +83,159 @@ fields:
   last_access:
     type: datetime
     column_name: last_access
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  email_verified:
+    type: checkbox
+    column_name: email_verified
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Is email verified.'
+  email_verification_key:
+    type: short_text
+    length: '255'
+    column_name: email_verification_key
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  product_card_list_option:
+    type: enumarated_list
+    values:
+      card: card
+      list: list
+    column_name: product_card_list_option
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Option for listing products as card or list.'
+  favorite_card_list_option:
+    type: enumarated_list
+    values:
+      card: card
+      list: list
+    column_name: favorite_card_list_option
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Option for listing favorites as card or list.'
+  bespoke_card_list_option:
+    type: enumarated_list
+    values:
+      card: card
+      list: list
+    column_name: bespoke_card_list_option
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Option for listing bespokes as card or list.'
+  shipping_option:
+    type: enumarated_list
+    values:
+      collection: collection
+      delivery: delivery
+    column_name: shipping_option
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'User''s selected shipping option.'
+  shipping_branch:
+    type: table_reference
+    reference_table: branches
+    column_name: shipping_branch
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'If user selected shipping option as collection, must select shipping branch as well.'
+  delivery_date:
+    type: datetime
+    column_name: delivery_date
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Delivery date.'
+  shipping_address:
+    type: table_reference
+    reference_table: user_address
+    column_name: shipping_address
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Shipping address reference.'
+  pay_optional_at_checkout:
+    type: checkbox
+    column_name: pay_optional_at_checkout
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Option to pay or not pay at checkout. When ticked customer gets the option to pay or not to pay at checkout. When unticked customer has to pay at checkout.'
+  special_price_available:
+    type: integer
+    length: null
+    column_name: special_price_available
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Special price available above this number.'
+  opening_hours:
+    type: short_text
+    length: '255'
+    column_name: opening_hours
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Company opening hours.'
+  comment:
+    type: text
+    column_name: comment
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'User comment'
+  comment_last_modified_by:
+    type: table_reference
+    reference_table: users
+    column_name: comment_last_modified_by
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''
+  comment_last_modified_date:
+    type: datetime
+    column_name: comment_last_modified_date
     primary_key: false
     autoIncrement: false
     isNull: true

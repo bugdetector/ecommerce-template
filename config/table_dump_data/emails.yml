@@ -2,3 +2,35 @@ password_reset:
   key: password_reset
   en: '<p>You can reset your password using the link below.</p><p><a target="_blank" href="%s">%s</a></p>'
   tr: '<p>Aşağıdaki bağlantıyı kullanarak şifrenizi sıfırlayabilirsiniz.</p><p><a target="_blank" href="%s">%s</a></p>'
+email_verification:
+  key: email_verification
+  en: '<p>Hi %s,<br><br>Please verify your e-mail address by clicking on the link below.</p><p><a href="%s" target="_blank">%s</a><br></p>'
+  tr: '<p>Merhaba %s,<br><br>Lütfen aşagıdaki linke tıklayarak e-postanızı onaylayın.<br></p><p><a href="%s" target="_blank">%s</a><br></p>'
+order_sent:
+  key: order_sent
+  en: '<p>Hi %s,</p><p>Thank you for your order #%s. Please find order details attached.</p><p>Your order will be dispatched as soon as possible.</p><p>In the event of any unforeseen issues or delays, we shall promptly let you know.</p><p>Have a nice day.</p><p>A to Z Sales Team</p><p>Thanks.</p>'
+  tr: '<p>Merhaba %s,</p><p>Siparişiniz #%s için teşekkür ederiz. Ekte siparişiniz ile ilgili detayları bulabilirsiniz.</p><p>Siparişiniz en kısa sürede kargoya verilecektir.</p><p>İyi Günler.</p><p>A to Z Sales Team<br></p><p>Teşekkürler.</p>'
+enquiry_sent:
+  key: enquiry_sent
+  en: '<p>%s sent a new enquiry. Enquiry details listed below.</p><p><b>Product:</b> %s - %s</p><p><b>Quantity:</b> %s</p><p><b>Description:</b> To see click <a href="%s">here</a>.</p><p><b>User account number:</b> %s</p><p><b>User email:</b>&nbsp; %s</p>'
+  tr: '<p>%s kullanıcısı yeni bir istek gönderdi. Detaylar aşağıdadır.</p><p><b>Ürün:</b> %s - %s</p><p><b>Adet:</b> %s</p><p><b>Açıklama:</b> To see click&nbsp;<a href="%s">here</a>.</p><p><b>Kullanıcı hesap numarası:</b> %s</p><p><b>Kullanıcı e-postası</b>:&nbsp; %s</p>'
+new_user_registered:
+  key: new_user_registered
+  en: '<p>New registration has been made by %s.</p><p>Click <a href="%s">here</a> to see user.</p>'
+  tr: '<p>%s e-postasından kayıt yapıldı.</p><p>Görmek için <a href="%s">buraya</a> tıklayın.</p>'
+contact_us:
+  key: contact_us
+  en: '<p><span style="font-weight: bolder;">Name:&nbsp;</span><span style="font-size: 1rem;">%s</span></p><p><span style="font-weight: bolder;">E-mail:&nbsp;</span>%s</p><p><span style="font-weight: bolder;">Message:&nbsp;</span></p><p>%s</p>'
+  tr: '<p>&nbsp;</p>'
+new_user_linked:
+  key: new_user_linked
+  en: '<p>New user has been linked to your account.</p><p>Name: <b>%s</b><br></p><p>Company Name:<b> %s</b></p><p>Email:<b> %s</b><br></p>'
+  tr: ' '
+order_canceled:
+  key: order_canceled
+  en: '<p>Hi %s,</p><p>Your order #%s has been canceled on %s.</p><p>Have a nice day.</p><p>A to Z Sales Team</p><p>Thanks.</p>'
+  tr: '<p>Merhaba %s,</p><p>Siparişiniz #%s, %s tarihinde iptal edildi.</p><p>İyi Günler.</p><p>A to Z Sales Team<br></p><p>Teşekkürler.</p>'
+payment_request_mail:
+  key: payment_request_mail
+  en: '<p>Hello %s,</p><p>Please <a href="%s"><font color="#6badde">click</font></a> on the link to make a payment for your order no <b>#%d</b>.</p><p>Have a nice day.</p><p>A to Z Sales Team</p><p>Thanks.</p>'
+  tr: '<p>Hello %s,</p><p>Please&nbsp;<a href="http://localhost/AtoZ/public_html/admin/table/insert/%s"><font color="#6badde">click</font></a>&nbsp;on the link to make a payment for your order no&nbsp;<span style="font-weight: bolder;">#%d</span>.</p><p>Have a nice day.</p><p>A to Z Sales Team</p><p>Thanks.</p>'

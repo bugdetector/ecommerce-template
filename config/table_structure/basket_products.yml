@@ -1,0 +1,70 @@
+table_name: basket_products
+table_comment: 'Stores product in basket.'
+fields:
+  basket:
+    type: table_reference
+    reference_table: basket
+    column_name: basket
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Basket reference.'
+  product:
+    type: table_reference
+    reference_table: products
+    column_name: product
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Reference to product.'
+  item_vat:
+    type: float
+    column_name: item_vat
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'VAT price of product.'
+  quantity:
+    type: integer
+    length: null
+    column_name: quantity
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'How many items ordered.'
+  item_per_price:
+    type: float
+    column_name: item_per_price
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Per price for item.'
+  total_price:
+    type: float
+    column_name: total_price
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Total price.'
+  variant:
+    type: table_reference
+    reference_table: variation_options
+    column_name: variant
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Selected product variant.'

@@ -1,0 +1,32 @@
+{% extends "forms/form.twig" %}
+{% block fields %}
+	<div class="card card-flip h-100 shipping">
+		<div class="card-front text-white">
+			<div class="card-deck text-center px-3">
+				<div class="card rounded m-1 p-3 btn btn-outline-warning shipping-option
+				{{ form.fields["shipping_option"].value == "collection" ? "active" : "" }}" data-option="collection">
+					<h4>{{ t("collection") }}</h4>
+					<img src="{{ constant("BASE_URL") }}/assets/location.svg">
+				</div>
+				<div class="card rounded m-1 p-3 btn btn-outline-success shipping-option
+				{{ form.fields["shipping_option"].value == "delivery" ? "active" : "" }}" data-option="delivery">
+					<h4>{{ t("delivery") }}</h4>
+					<img src="{{ constant("BASE_URL") }}/assets/delivery.svg">
+				</div>
+			</div>
+		</div>
+		<div class="card-back bg-white">
+			<div class="card-body w-100">
+				<a href="#" class="btn btn-outline-info form-back mb-2">
+					<i class="fa fa-chevron-left mr-2"></i>
+					{{ t("back") }}
+				</a>
+				{% for field in form.fields %}
+					<div class="form-group">
+						{{ field }}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

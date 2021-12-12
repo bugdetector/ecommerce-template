@@ -1,0 +1,58 @@
+{% extends "page.twig" %}
+{% block content %}
+	<div>
+		<div id="carousel" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+				{% for index, banner in controller.banners %}
+					<div class="carousel-item {{ index == 0 ? " active" : " " }}">
+						{% set box = banner.banner_box.getValue()[0] %}
+						{% if box.active %}
+							<div class="position-absolute col-lg-3 col-6 p-4 banner-box {{ box.position }}-aligned">
+								<div class="card h-100 p-1 text-gray-900" style="background: {{ box.background_color }};">
+									<div class="card-body">
+										<h5 class="card-title">{{ box.title }}</h5>
+										<hr style=" width: 25%; background: {{ box.line_color }}; border-width: 4px; margin: inherit; margin-bottom: 5px;"/>
+										<div class="h-100">
+											{{box.text|raw}}
+										</div>
+									</div>
+									<div class="card-footer border-0" style="background: {{ box.background_color }};">
+										<a href="{{ box.url ?: "#" }}" class="btn btn-sm banner-box-btn d-block w-50 m-auto text-white" style="background-color: {{ box.button_color }}">{{
+												box.button_text ?: t("find_out_more")
+											}}</a>
+									</div>
+								</div>
+							</div>
+						{% endif %}
+						<picture>
+							<source media="(max-width:984px)" srcset="{{ banner.getFileUrlForField("mobile_image") }}" class="w-100 rounded-lg" alt="{{ banner.title }}" title="{{ banner.title }}">
+							<img src="{{ banner.getFileUrlForField("desktop_image") }}" alt="{{ banner.title }}" class="w-100 rounded-lg" title="{{ banner.title }}">
+							<a href="{{ constant("BASE_URL") ~ ( banner.url.getValue() ?: "/products/list/banner/" ~ banner.ID ) }}" class="stretched-link"></a>
+						</picture>
+					</div>
+				{% endfor %}
+			</div>
+			<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">{{ t("previous") }}</span>
+			</a>
+			<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">{{ t("next") }}</span>
+			</a>
+			<div class="carousel-indicators">
+				{% for index, banner in controller.banners %}
+					<li data-target="#carousel" data-slide-to="{{ index }}" class="{{ index == 0 ? "active" : "" }} bg-warning"></li>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3 card p-3">
+		<div class="col-md-12">
+			{{ controller.printMessages()|raw }}
+			{{ controller.echoContent()|raw }}
+		</div>
+	</div>
+
+{% endblock %}

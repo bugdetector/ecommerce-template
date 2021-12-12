@@ -2,6 +2,7 @@ import {$} from "../jquery/jquery";
 import "popper.js";
 import "bootstrap/js/dist/collapse";
 import "bootstrap/js/dist/dropdown";
+import "bootstrap/js/dist/popover";
 import "./_global.scss";
 
 $(function ($) {
@@ -53,6 +54,8 @@ $(function ($) {
         e.preventDefault();
         $.ajax(`${root}/admin/ajax/clearCache`);
     });
+
+    $('[data-toggle="popover"]').popover();
 })
 
 window._t = function (key, args) {

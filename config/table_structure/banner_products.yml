@@ -1,0 +1,23 @@
+table_name: banner_products
+table_comment: 'Banner and products link.'
+fields:
+  banner:
+    type: table_reference
+    reference_table: banner
+    column_name: banner
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Banner reference.'
+  product:
+    type: table_reference
+    reference_table: products
+    column_name: product
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: ''

@@ -1,0 +1,1230 @@
+AF:
+  name: Afghanistan
+  code: AF
+  tax_percentage: '20'
+  delivery_price: '0'
+AL:
+  name: Albania
+  code: AL
+  tax_percentage: '20'
+  delivery_price: '0'
+DZ:
+  name: Algeria
+  code: DZ
+  tax_percentage: '20'
+  delivery_price: '0'
+DS:
+  name: 'American Samoa'
+  code: DS
+  tax_percentage: '20'
+  delivery_price: '0'
+AD:
+  name: Andorra
+  code: AD
+  tax_percentage: '20'
+  delivery_price: '0'
+AO:
+  name: Angola
+  code: AO
+  tax_percentage: '20'
+  delivery_price: '0'
+AI:
+  name: Anguilla
+  code: AI
+  tax_percentage: '20'
+  delivery_price: '0'
+AQ:
+  name: Antarctica
+  code: AQ
+  tax_percentage: '20'
+  delivery_price: '0'
+AG:
+  name: 'Antigua and Barbuda'
+  code: AG
+  tax_percentage: '20'
+  delivery_price: '0'
+AR:
+  name: Argentina
+  code: AR
+  tax_percentage: '20'
+  delivery_price: '0'
+AM:
+  name: Armenia
+  code: AM
+  tax_percentage: '20'
+  delivery_price: '0'
+AW:
+  name: Aruba
+  code: AW
+  tax_percentage: '20'
+  delivery_price: '0'
+AU:
+  name: Australia
+  code: AU
+  tax_percentage: '20'
+  delivery_price: '0'
+AT:
+  name: Austria
+  code: AT
+  tax_percentage: '20'
+  delivery_price: '0'
+AZ:
+  name: Azerbaijan
+  code: AZ
+  tax_percentage: '20'
+  delivery_price: '0'
+BS:
+  name: Bahamas
+  code: BS
+  tax_percentage: '20'
+  delivery_price: '0'
+BH:
+  name: Bahrain
+  code: BH
+  tax_percentage: '20'
+  delivery_price: '0'
+BD:
+  name: Bangladesh
+  code: BD
+  tax_percentage: '20'
+  delivery_price: '0'
+BB:
+  name: Barbados
+  code: BB
+  tax_percentage: '20'
+  delivery_price: '0'
+BY:
+  name: Belarus
+  code: BY
+  tax_percentage: '20'
+  delivery_price: '0'
+BE:
+  name: Belgium
+  code: BE
+  tax_percentage: '20'
+  delivery_price: '0'
+BZ:
+  name: Belize
+  code: BZ
+  tax_percentage: '20'
+  delivery_price: '0'
+BJ:
+  name: Benin
+  code: BJ
+  tax_percentage: '20'
+  delivery_price: '0'
+BM:
+  name: Bermuda
+  code: BM
+  tax_percentage: '20'
+  delivery_price: '0'
+BT:
+  name: Bhutan
+  code: BT
+  tax_percentage: '20'
+  delivery_price: '0'
+BO:
+  name: Bolivia
+  code: BO
+  tax_percentage: '20'
+  delivery_price: '0'
+BA:
+  name: 'Bosnia and Herzegovina'
+  code: BA
+  tax_percentage: '20'
+  delivery_price: '0'
+BW:
+  name: Botswana
+  code: BW
+  tax_percentage: '20'
+  delivery_price: '0'
+BV:
+  name: 'Bouvet Island'
+  code: BV
+  tax_percentage: '20'
+  delivery_price: '0'
+BR:
+  name: Brazil
+  code: BR
+  tax_percentage: '20'
+  delivery_price: '0'
+IO:
+  name: 'British Indian Ocean Territory'
+  code: IO
+  tax_percentage: '20'
+  delivery_price: '0'
+BN:
+  name: 'Brunei Darussalam'
+  code: BN
+  tax_percentage: '20'
+  delivery_price: '0'
+BG:
+  name: Bulgaria
+  code: BG
+  tax_percentage: '20'
+  delivery_price: '0'
+BF:
+  name: 'Burkina Faso'
+  code: BF
+  tax_percentage: '20'
+  delivery_price: '0'
+BI:
+  name: Burundi
+  code: BI
+  tax_percentage: '20'
+  delivery_price: '0'
+KH:
+  name: Cambodia
+  code: KH
+  tax_percentage: '20'
+  delivery_price: '0'
+CM:
+  name: Cameroon
+  code: CM
+  tax_percentage: '20'
+  delivery_price: '0'
+CA:
+  name: Canada
+  code: CA
+  tax_percentage: '20'
+  delivery_price: '0'
+CV:
+  name: 'Cape Verde'
+  code: CV
+  tax_percentage: '20'
+  delivery_price: '0'
+KY:
+  name: 'Cayman Islands'
+  code: KY
+  tax_percentage: '20'
+  delivery_price: '0'
+CF:
+  name: 'Central African Republic'
+  code: CF
+  tax_percentage: '20'
+  delivery_price: '0'
+TD:
+  name: Chad
+  code: TD
+  tax_percentage: '20'
+  delivery_price: '0'
+CL:
+  name: Chile
+  code: CL
+  tax_percentage: '20'
+  delivery_price: '0'
+CN:
+  name: China
+  code: CN
+  tax_percentage: '20'
+  delivery_price: '0'
+CX:
+  name: 'Christmas Island'
+  code: CX
+  tax_percentage: '20'
+  delivery_price: '0'
+CC:
+  name: 'Cocos (Keeling) Islands'
+  code: CC
+  tax_percentage: '20'
+  delivery_price: '0'
+CO:
+  name: Colombia
+  code: CO
+  tax_percentage: '20'
+  delivery_price: '0'
+KM:
+  name: Comoros
+  code: KM
+  tax_percentage: '20'
+  delivery_price: '0'
+CD:
+  name: 'Democratic Republic of the Congo'
+  code: CD
+  tax_percentage: '20'
+  delivery_price: '0'
+CG:
+  name: 'Republic of the Congo'
+  code: CG
+  tax_percentage: '20'
+  delivery_price: '0'
+CK:
+  name: 'Cook Islands'
+  code: CK
+  tax_percentage: '20'
+  delivery_price: '0'
+CR:
+  name: 'Costa Rica'
+  code: CR
+  tax_percentage: '20'
+  delivery_price: '0'
+HR:
+  name: 'Croatia (Hrvatska)'
+  code: HR
+  tax_percentage: '20'
+  delivery_price: '0'
+CU:
+  name: Cuba
+  code: CU
+  tax_percentage: '20'
+  delivery_price: '0'
+CY:
+  name: Cyprus
+  code: CY
+  tax_percentage: '20'
+  delivery_price: '0'
+CZ:
+  name: 'Czech Republic'
+  code: CZ
+  tax_percentage: '20'
+  delivery_price: '0'
+DK:
+  name: Denmark
+  code: DK
+  tax_percentage: '20'
+  delivery_price: '0'
+DJ:
+  name: Djibouti
+  code: DJ
+  tax_percentage: '20'
+  delivery_price: '0'
+DM:
+  name: Dominica
+  code: DM
+  tax_percentage: '20'
+  delivery_price: '0'
+DO:
+  name: 'Dominican Republic'
+  code: DO
+  tax_percentage: '20'
+  delivery_price: '0'
+TP:
+  name: 'East Timor'
+  code: TP
+  tax_percentage: '20'
+  delivery_price: '0'
+EC:
+  name: Ecuador
+  code: EC
+  tax_percentage: '20'
+  delivery_price: '0'
+EG:
+  name: Egypt
+  code: EG
+  tax_percentage: '20'
+  delivery_price: '0'
+SV:
+  name: 'El Salvador'
+  code: SV
+  tax_percentage: '20'
+  delivery_price: '0'
+GQ:
+  name: 'Equatorial Guinea'
+  code: GQ
+  tax_percentage: '20'
+  delivery_price: '0'
+ER:
+  name: Eritrea
+  code: ER
+  tax_percentage: '20'
+  delivery_price: '0'
+EE:
+  name: Estonia
+  code: EE
+  tax_percentage: '20'
+  delivery_price: '0'
+ET:
+  name: Ethiopia
+  code: ET
+  tax_percentage: '20'
+  delivery_price: '0'
+FK:
+  name: 'Falkland Islands (Malvinas)'
+  code: FK
+  tax_percentage: '20'
+  delivery_price: '0'
+FO:
+  name: 'Faroe Islands'
+  code: FO
+  tax_percentage: '20'
+  delivery_price: '0'
+FJ:
+  name: Fiji
+  code: FJ
+  tax_percentage: '20'
+  delivery_price: '0'
+FI:
+  name: Finland
+  code: FI
+  tax_percentage: '20'
+  delivery_price: '0'
+FR:
+  name: France
+  code: FR
+  tax_percentage: '20'
+  delivery_price: '0'
+FX:
+  name: 'France, Metropolitan'
+  code: FX
+  tax_percentage: '20'
+  delivery_price: '0'
+GF:
+  name: 'French Guiana'
+  code: GF
+  tax_percentage: '20'
+  delivery_price: '0'
+PF:
+  name: 'French Polynesia'
+  code: PF
+  tax_percentage: '20'
+  delivery_price: '0'
+TF:
+  name: 'French Southern Territories'
+  code: TF
+  tax_percentage: '20'
+  delivery_price: '0'
+GA:
+  name: Gabon
+  code: GA
+  tax_percentage: '20'
+  delivery_price: '0'
+GM:
+  name: Gambia
+  code: GM
+  tax_percentage: '20'
+  delivery_price: '0'
+GE:
+  name: Georgia
+  code: GE
+  tax_percentage: '20'
+  delivery_price: '0'
+DE:
+  name: Germany
+  code: DE
+  tax_percentage: '20'
+  delivery_price: '0'
+GH:
+  name: Ghana
+  code: GH
+  tax_percentage: '20'
+  delivery_price: '0'
+GI:
+  name: Gibraltar
+  code: GI
+  tax_percentage: '20'
+  delivery_price: '0'
+GK:
+  name: Guernsey
+  code: GK
+  tax_percentage: '20'
+  delivery_price: '0'
+GR:
+  name: Greece
+  code: GR
+  tax_percentage: '20'
+  delivery_price: '0'
+GL:
+  name: Greenland
+  code: GL
+  tax_percentage: '20'
+  delivery_price: '0'
+GD:
+  name: Grenada
+  code: GD
+  tax_percentage: '20'
+  delivery_price: '0'
+GP:
+  name: Guadeloupe
+  code: GP
+  tax_percentage: '20'
+  delivery_price: '0'
+GU:
+  name: Guam
+  code: GU
+  tax_percentage: '20'
+  delivery_price: '0'
+GT:
+  name: Guatemala
+  code: GT
+  tax_percentage: '20'
+  delivery_price: '0'
+GN:
+  name: Guinea
+  code: GN
+  tax_percentage: '20'
+  delivery_price: '0'
+GW:
+  name: Guinea-Bissau
+  code: GW
+  tax_percentage: '20'
+  delivery_price: '0'
+GY:
+  name: Guyana
+  code: GY
+  tax_percentage: '20'
+  delivery_price: '0'
+HT:
+  name: Haiti
+  code: HT
+  tax_percentage: '20'
+  delivery_price: '0'
+HM:
+  name: 'Heard and Mc Donald Islands'
+  code: HM
+  tax_percentage: '20'
+  delivery_price: '0'
+HN:
+  name: Honduras
+  code: HN
+  tax_percentage: '20'
+  delivery_price: '0'
+HK:
+  name: 'Hong Kong'
+  code: HK
+  tax_percentage: '20'
+  delivery_price: '0'
+HU:
+  name: Hungary
+  code: HU
+  tax_percentage: '20'
+  delivery_price: '0'
+IS:
+  name: Iceland
+  code: IS
+  tax_percentage: '20'
+  delivery_price: '0'
+IN:
+  name: India
+  code: IN
+  tax_percentage: '20'
+  delivery_price: '0'
+IM:
+  name: 'Isle of Man'
+  code: IM
+  tax_percentage: '20'
+  delivery_price: '0'
+ID:
+  name: Indonesia
+  code: ID
+  tax_percentage: '20'
+  delivery_price: '0'
+IR:
+  name: 'Iran (Islamic Republic of)'
+  code: IR
+  tax_percentage: '20'
+  delivery_price: '0'
+IQ:
+  name: Iraq
+  code: IQ
+  tax_percentage: '20'
+  delivery_price: '0'
+IE:
+  name: Ireland
+  code: IE
+  tax_percentage: '20'
+  delivery_price: '0'
+IL:
+  name: Israel
+  code: IL
+  tax_percentage: '20'
+  delivery_price: '0'
+IT:
+  name: Italy
+  code: IT
+  tax_percentage: '20'
+  delivery_price: '0'
+CI:
+  name: 'Ivory Coast'
+  code: CI
+  tax_percentage: '20'
+  delivery_price: '0'
+JE:
+  name: Jersey
+  code: JE
+  tax_percentage: '20'
+  delivery_price: '0'
+JM:
+  name: Jamaica
+  code: JM
+  tax_percentage: '20'
+  delivery_price: '0'
+JP:
+  name: Japan
+  code: JP
+  tax_percentage: '20'
+  delivery_price: '0'
+JO:
+  name: Jordan
+  code: JO
+  tax_percentage: '20'
+  delivery_price: '0'
+KZ:
+  name: Kazakhstan
+  code: KZ
+  tax_percentage: '20'
+  delivery_price: '0'
+KE:
+  name: Kenya
+  code: KE
+  tax_percentage: '20'
+  delivery_price: '0'
+KI:
+  name: Kiribati
+  code: KI
+  tax_percentage: '20'
+  delivery_price: '0'
+KP:
+  name: 'Korea, Democratic People''s Republic of'
+  code: KP
+  tax_percentage: '20'
+  delivery_price: '0'
+KR:
+  name: 'Korea, Republic of'
+  code: KR
+  tax_percentage: '20'
+  delivery_price: '0'
+XK:
+  name: Kosovo
+  code: XK
+  tax_percentage: '20'
+  delivery_price: '0'
+KW:
+  name: Kuwait
+  code: KW
+  tax_percentage: '20'
+  delivery_price: '0'
+KG:
+  name: Kyrgyzstan
+  code: KG
+  tax_percentage: '20'
+  delivery_price: '0'
+LA:
+  name: 'Lao People''s Democratic Republic'
+  code: LA
+  tax_percentage: '20'
+  delivery_price: '0'
+LV:
+  name: Latvia
+  code: LV
+  tax_percentage: '20'
+  delivery_price: '0'
+LB:
+  name: Lebanon
+  code: LB
+  tax_percentage: '20'
+  delivery_price: '0'
+LS:
+  name: Lesotho
+  code: LS
+  tax_percentage: '20'
+  delivery_price: '0'
+LR:
+  name: Liberia
+  code: LR
+  tax_percentage: '20'
+  delivery_price: '0'
+LY:
+  name: 'Libyan Arab Jamahiriya'
+  code: LY
+  tax_percentage: '20'
+  delivery_price: '0'
+LI:
+  name: Liechtenstein
+  code: LI
+  tax_percentage: '20'
+  delivery_price: '0'
+LT:
+  name: Lithuania
+  code: LT
+  tax_percentage: '20'
+  delivery_price: '0'
+LU:
+  name: Luxembourg
+  code: LU
+  tax_percentage: '20'
+  delivery_price: '0'
+MO:
+  name: Macau
+  code: MO
+  tax_percentage: '20'
+  delivery_price: '0'
+MK:
+  name: 'North Macedonia'
+  code: MK
+  tax_percentage: '20'
+  delivery_price: '0'
+MG:
+  name: Madagascar
+  code: MG
+  tax_percentage: '20'
+  delivery_price: '0'
+MW:
+  name: Malawi
+  code: MW
+  tax_percentage: '20'
+  delivery_price: '0'
+MY:
+  name: Malaysia
+  code: MY
+  tax_percentage: '20'
+  delivery_price: '0'
+MV:
+  name: Maldives
+  code: MV
+  tax_percentage: '20'
+  delivery_price: '0'
+ML:
+  name: Mali
+  code: ML
+  tax_percentage: '20'
+  delivery_price: '0'
+MT:
+  name: Malta
+  code: MT
+  tax_percentage: '20'
+  delivery_price: '0'
+MH:
+  name: 'Marshall Islands'
+  code: MH
+  tax_percentage: '20'
+  delivery_price: '0'
+MQ:
+  name: Martinique
+  code: MQ
+  tax_percentage: '20'
+  delivery_price: '0'
+MR:
+  name: Mauritania
+  code: MR
+  tax_percentage: '20'
+  delivery_price: '0'
+MU:
+  name: Mauritius
+  code: MU
+  tax_percentage: '20'
+  delivery_price: '0'
+TY:
+  name: Mayotte
+  code: TY
+  tax_percentage: '20'
+  delivery_price: '0'
+MX:
+  name: Mexico
+  code: MX
+  tax_percentage: '20'
+  delivery_price: '0'
+FM:
+  name: 'Micronesia, Federated States of'
+  code: FM
+  tax_percentage: '20'
+  delivery_price: '0'
+MD:
+  name: 'Moldova, Republic of'
+  code: MD
+  tax_percentage: '20'
+  delivery_price: '0'
+MC:
+  name: Monaco
+  code: MC
+  tax_percentage: '20'
+  delivery_price: '0'
+MN:
+  name: Mongolia
+  code: MN
+  tax_percentage: '20'
+  delivery_price: '0'
+ME:
+  name: Montenegro
+  code: ME
+  tax_percentage: '20'
+  delivery_price: '0'
+MS:
+  name: Montserrat
+  code: MS
+  tax_percentage: '20'
+  delivery_price: '0'
+MA:
+  name: Morocco
+  code: MA
+  tax_percentage: '20'
+  delivery_price: '0'
+MZ:
+  name: Mozambique
+  code: MZ
+  tax_percentage: '20'
+  delivery_price: '0'
+MM:
+  name: Myanmar
+  code: MM
+  tax_percentage: '20'
+  delivery_price: '0'
+NA:
+  name: Namibia
+  code: NA
+  tax_percentage: '20'
+  delivery_price: '0'
+NR:
+  name: Nauru
+  code: NR
+  tax_percentage: '20'
+  delivery_price: '0'
+NP:
+  name: Nepal
+  code: NP
+  tax_percentage: '20'
+  delivery_price: '0'
+NL:
+  name: Netherlands
+  code: NL
+  tax_percentage: '20'
+  delivery_price: '0'
+AN:
+  name: 'Netherlands Antilles'
+  code: AN
+  tax_percentage: '20'
+  delivery_price: '0'
+NC:
+  name: 'New Caledonia'
+  code: NC
+  tax_percentage: '20'
+  delivery_price: '0'
+NZ:
+  name: 'New Zealand'
+  code: NZ
+  tax_percentage: '20'
+  delivery_price: '0'
+NI:
+  name: Nicaragua
+  code: NI
+  tax_percentage: '20'
+  delivery_price: '0'
+NE:
+  name: Niger
+  code: NE
+  tax_percentage: '20'
+  delivery_price: '0'
+NG:
+  name: Nigeria
+  code: NG
+  tax_percentage: '20'
+  delivery_price: '0'
+NU:
+  name: Niue
+  code: NU
+  tax_percentage: '20'
+  delivery_price: '0'
+NF:
+  name: 'Norfolk Island'
+  code: NF
+  tax_percentage: '20'
+  delivery_price: '0'
+MP:
+  name: 'Northern Mariana Islands'
+  code: MP
+  tax_percentage: '20'
+  delivery_price: '0'
+'NO':
+  name: Norway
+  code: 'NO'
+  tax_percentage: '20'
+  delivery_price: '0'
+OM:
+  name: Oman
+  code: OM
+  tax_percentage: '20'
+  delivery_price: '0'
+PK:
+  name: Pakistan
+  code: PK
+  tax_percentage: '20'
+  delivery_price: '0'
+PW:
+  name: Palau
+  code: PW
+  tax_percentage: '20'
+  delivery_price: '0'
+PS:
+  name: Palestine
+  code: PS
+  tax_percentage: '20'
+  delivery_price: '0'
+PA:
+  name: Panama
+  code: PA
+  tax_percentage: '20'
+  delivery_price: '0'
+PG:
+  name: 'Papua New Guinea'
+  code: PG
+  tax_percentage: '20'
+  delivery_price: '0'
+PY:
+  name: Paraguay
+  code: PY
+  tax_percentage: '20'
+  delivery_price: '0'
+PE:
+  name: Peru
+  code: PE
+  tax_percentage: '20'
+  delivery_price: '0'
+PH:
+  name: Philippines
+  code: PH
+  tax_percentage: '20'
+  delivery_price: '0'
+PN:
+  name: Pitcairn
+  code: PN
+  tax_percentage: '20'
+  delivery_price: '0'
+PL:
+  name: Poland
+  code: PL
+  tax_percentage: '20'
+  delivery_price: '0'
+PT:
+  name: Portugal
+  code: PT
+  tax_percentage: '20'
+  delivery_price: '0'
+PR:
+  name: 'Puerto Rico'
+  code: PR
+  tax_percentage: '20'
+  delivery_price: '0'
+QA:
+  name: Qatar
+  code: QA
+  tax_percentage: '20'
+  delivery_price: '0'
+RE:
+  name: Reunion
+  code: RE
+  tax_percentage: '20'
+  delivery_price: '0'
+RO:
+  name: Romania
+  code: RO
+  tax_percentage: '20'
+  delivery_price: '0'
+RU:
+  name: 'Russian Federation'
+  code: RU
+  tax_percentage: '20'
+  delivery_price: '0'
+RW:
+  name: Rwanda
+  code: RW
+  tax_percentage: '20'
+  delivery_price: '0'
+KN:
+  name: 'Saint Kitts and Nevis'
+  code: KN
+  tax_percentage: '20'
+  delivery_price: '0'
+LC:
+  name: 'Saint Lucia'
+  code: LC
+  tax_percentage: '20'
+  delivery_price: '0'
+VC:
+  name: 'Saint Vincent and the Grenadines'
+  code: VC
+  tax_percentage: '20'
+  delivery_price: '0'
+WS:
+  name: Samoa
+  code: WS
+  tax_percentage: '20'
+  delivery_price: '0'
+SM:
+  name: 'San Marino'
+  code: SM
+  tax_percentage: '20'
+  delivery_price: '0'
+ST:
+  name: 'Sao Tome and Principe'
+  code: ST
+  tax_percentage: '20'
+  delivery_price: '0'
+SA:
+  name: 'Saudi Arabia'
+  code: SA
+  tax_percentage: '20'
+  delivery_price: '0'
+SN:
+  name: Senegal
+  code: SN
+  tax_percentage: '20'
+  delivery_price: '0'
+RS:
+  name: Serbia
+  code: RS
+  tax_percentage: '20'
+  delivery_price: '0'
+SC:
+  name: Seychelles
+  code: SC
+  tax_percentage: '20'
+  delivery_price: '0'
+SL:
+  name: 'Sierra Leone'
+  code: SL
+  tax_percentage: '20'
+  delivery_price: '0'
+SG:
+  name: Singapore
+  code: SG
+  tax_percentage: '20'
+  delivery_price: '0'
+SK:
+  name: Slovakia
+  code: SK
+  tax_percentage: '20'
+  delivery_price: '0'
+SI:
+  name: Slovenia
+  code: SI
+  tax_percentage: '20'
+  delivery_price: '0'
+SB:
+  name: 'Solomon Islands'
+  code: SB
+  tax_percentage: '20'
+  delivery_price: '0'
+SO:
+  name: Somalia
+  code: SO
+  tax_percentage: '20'
+  delivery_price: '0'
+ZA:
+  name: 'South Africa'
+  code: ZA
+  tax_percentage: '20'
+  delivery_price: '0'
+GS:
+  name: 'South Georgia South Sandwich Islands'
+  code: GS
+  tax_percentage: '20'
+  delivery_price: '0'
+SS:
+  name: 'South Sudan'
+  code: SS
+  tax_percentage: '20'
+  delivery_price: '0'
+ES:
+  name: Spain
+  code: ES
+  tax_percentage: '20'
+  delivery_price: '0'
+LK:
+  name: 'Sri Lanka'
+  code: LK
+  tax_percentage: '20'
+  delivery_price: '0'
+SH:
+  name: 'St. Helena'
+  code: SH
+  tax_percentage: '20'
+  delivery_price: '0'
+PM:
+  name: 'St. Pierre and Miquelon'
+  code: PM
+  tax_percentage: '20'
+  delivery_price: '0'
+SD:
+  name: Sudan
+  code: SD
+  tax_percentage: '20'
+  delivery_price: '0'
+SR:
+  name: Suriname
+  code: SR
+  tax_percentage: '20'
+  delivery_price: '0'
+SJ:
+  name: 'Svalbard and Jan Mayen Islands'
+  code: SJ
+  tax_percentage: '20'
+  delivery_price: '0'
+SZ:
+  name: Swaziland
+  code: SZ
+  tax_percentage: '20'
+  delivery_price: '0'
+SE:
+  name: Sweden
+  code: SE
+  tax_percentage: '20'
+  delivery_price: '0'
+CH:
+  name: Switzerland
+  code: CH
+  tax_percentage: '20'
+  delivery_price: '0'
+SY:
+  name: 'Syrian Arab Republic'
+  code: SY
+  tax_percentage: '20'
+  delivery_price: '0'
+TW:
+  name: Taiwan
+  code: TW
+  tax_percentage: '20'
+  delivery_price: '0'
+TJ:
+  name: Tajikistan
+  code: TJ
+  tax_percentage: '20'
+  delivery_price: '0'
+TZ:
+  name: 'Tanzania, United Republic of'
+  code: TZ
+  tax_percentage: '20'
+  delivery_price: '0'
+TH:
+  name: Thailand
+  code: TH
+  tax_percentage: '20'
+  delivery_price: '0'
+TG:
+  name: Togo
+  code: TG
+  tax_percentage: '20'
+  delivery_price: '0'
+TK:
+  name: Tokelau
+  code: TK
+  tax_percentage: '20'
+  delivery_price: '0'
+TO:
+  name: Tonga
+  code: TO
+  tax_percentage: '20'
+  delivery_price: '0'
+TT:
+  name: 'Trinidad and Tobago'
+  code: TT
+  tax_percentage: '20'
+  delivery_price: '0'
+TN:
+  name: Tunisia
+  code: TN
+  tax_percentage: '20'
+  delivery_price: '0'
+TR:
+  name: Turkey
+  code: TR
+  tax_percentage: '20'
+  delivery_price: '0'
+TM:
+  name: Turkmenistan
+  code: TM
+  tax_percentage: '20'
+  delivery_price: '0'
+TC:
+  name: 'Turks and Caicos Islands'
+  code: TC
+  tax_percentage: '20'
+  delivery_price: '0'
+TV:
+  name: Tuvalu
+  code: TV
+  tax_percentage: '20'
+  delivery_price: '0'
+UG:
+  name: Uganda
+  code: UG
+  tax_percentage: '20'
+  delivery_price: '0'
+UA:
+  name: Ukraine
+  code: UA
+  tax_percentage: '20'
+  delivery_price: '0'
+AE:
+  name: 'United Arab Emirates'
+  code: AE
+  tax_percentage: '20'
+  delivery_price: '0'
+GB:
+  name: 'United Kingdom'
+  code: GB
+  tax_percentage: '20'
+  delivery_price: '10'
+US:
+  name: 'United States'
+  code: US
+  tax_percentage: '20'
+  delivery_price: '0'
+UM:
+  name: 'United States minor outlying islands'
+  code: UM
+  tax_percentage: '20'
+  delivery_price: '0'
+UY:
+  name: Uruguay
+  code: UY
+  tax_percentage: '20'
+  delivery_price: '0'
+UZ:
+  name: Uzbekistan
+  code: UZ
+  tax_percentage: '20'
+  delivery_price: '0'
+VU:
+  name: Vanuatu
+  code: VU
+  tax_percentage: '20'
+  delivery_price: '0'
+VA:
+  name: 'Vatican City State'
+  code: VA
+  tax_percentage: '20'
+  delivery_price: '0'
+VE:
+  name: Venezuela
+  code: VE
+  tax_percentage: '20'
+  delivery_price: '0'
+VN:
+  name: Vietnam
+  code: VN
+  tax_percentage: '20'
+  delivery_price: '0'
+VG:
+  name: 'Virgin Islands (British)'
+  code: VG
+  tax_percentage: '20'
+  delivery_price: '0'
+VI:
+  name: 'Virgin Islands (U.S.)'
+  code: VI
+  tax_percentage: '20'
+  delivery_price: '0'
+WF:
+  name: 'Wallis and Futuna Islands'
+  code: WF
+  tax_percentage: '20'
+  delivery_price: '0'
+EH:
+  name: 'Western Sahara'
+  code: EH
+  tax_percentage: '20'
+  delivery_price: '0'
+YE:
+  name: Yemen
+  code: YE
+  tax_percentage: '20'
+  delivery_price: '0'
+ZM:
+  name: Zambia
+  code: ZM
+  tax_percentage: '20'
+  delivery_price: '0'
+ZW:
+  name: Zimbabwe
+  code: ZW
+  tax_percentage: '20'
+  delivery_price: '0'

@@ -1,0 +1,44 @@
+table_name: product_price
+table_comment: 'Product price list.'
+fields:
+  product:
+    type: table_reference
+    reference_table: products
+    column_name: product
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: ''
+  item_count:
+    type: integer
+    length: null
+    column_name: item_count
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Price available more than this count.'
+  price:
+    type: float
+    column_name: price
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: ''
+  price_type:
+    type: enumarated_list
+    values:
+      delivery: delivery
+      collection: collection
+    column_name: price_type
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Is this price defined for delivery or collection.'

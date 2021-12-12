@@ -39,6 +39,29 @@ module.exports = (env, argv) => {
       side_table_list : ["./base_theme/src/views/side_table_list.js"],
       side_entity_list : ["./base_theme/src/views/side_entity_list.js"],
       table_and_column_selector : ["./base_theme/src/views/table_and_column_selector.js"],
+
+      /**
+       * Views
+       */
+      "product-teaser": ["./ecommerce_theme/src/components/product-teaser/product-teaser.js"],
+      "basket-product-card": ["./ecommerce_theme/src/components/basket-product-card/basket-product-card.js"],
+      basket: ["./ecommerce_theme/src/components/basket/basket.js"],
+      mainpage: ["./ecommerce_theme/src/components/mainpage/mainpage.js"],
+      csl_global: ["./ecommerce_theme/src/components/_global/_global.js"],
+      welcome_page: ["./ecommerce_theme/src/components/welcome_page/welcome_page.js"],
+      payment: ["./ecommerce_theme/src/components/payment/payment.js"],
+      "navbar-search" : ["./ecommerce_theme/src/components/navbar-search/navbar-search.js"],
+      enquire : ["./ecommerce_theme/src/components/enquire/enquire.js"],
+      "user-delete": ["./ecommerce_theme/src/components/user-delete/user-delete.js"],
+      graph_view: ["./ecommerce_theme/src/views/graph_view.js"],
+      totals_filter: ["./ecommerce_theme/src/views/totals_filter.js"],
+      "shipping-form": ["./ecommerce_theme/src/forms/shipping-form/shipping-form.js"],
+      swiper: ["./ecommerce_theme/src/components/swiper/swiper.js"],
+      "category_navbar": ["./ecommerce_theme/src/components/category_navbar/category_navbar.js"],
+      "delivery-date": ["./ecommerce_theme/src/components/delivery-date/delivery-date.js"],
+      "order-card": ["./ecommerce_theme/src/components/order-card/order-card.js"],
+      fancybox: ["./ecommerce_theme/src/components/fancybox/fancybox.js"],
+      user_comment:["./ecommerce_theme/src/components/user_comment/user_comment.js"]
     },
     resolve: {
       modules: [

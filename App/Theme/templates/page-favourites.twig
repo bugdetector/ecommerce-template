@@ -1,0 +1,16 @@
+{% extends "page.twig" %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card p-2">
+				{{ controller.printMessages()|raw }}				
+				{{ controller.echoContent()|raw }}
+				{% if controller.privateProductsList.data|length > 0 %}
+					<h3 class="text-primary">{{ t("private_products") }}</h3>
+					{{ controller.privateProductsList|raw }}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

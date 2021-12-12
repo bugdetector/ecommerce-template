@@ -1,0 +1,27 @@
+.basket-product-card{
+    label, b, span{
+        white-space: nowrap;
+    }
+    .image-wrapper{
+        img{
+            width: 80%;
+            height: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 540px) {
+
+    .basket-product-card{
+        label, b, span{
+            white-space: nowrap;
+        }
+        .image-wrapper{
+            img{
+                width: 45%;
+                height: auto;
+            }
+        }
+    }
+
+  }

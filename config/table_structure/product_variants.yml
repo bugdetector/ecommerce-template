@@ -1,0 +1,23 @@
+table_name: product_variants
+table_comment: 'Contains connection betwwen products and variants.'
+fields:
+  product:
+    type: table_reference
+    reference_table: products
+    column_name: product
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Base product.'
+  variant:
+    type: table_reference
+    reference_table: products
+    column_name: variant
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: true
+    default: null
+    comment: 'Product that is variant.'

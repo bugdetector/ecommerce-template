@@ -1,0 +1,6 @@
+{% extends "page.twig" %}
+{% block title %}{% endblock %}
+{% block content %}
+	{{ controller.printMessages()|raw }}
+	{{ controller.echoContent()|raw }}
+{% endblock %}

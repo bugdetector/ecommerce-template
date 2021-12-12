@@ -1,0 +1,57 @@
+<!-- Navbar -->
+<{{view.tag_name}} class='{{ view.classes|join(" ") }}' {{ view.renderAttributes()|raw }}>
+	{% for field in view.fields %}
+		{{ field }}
+	{% endfor %}
+	<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#category-navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="category-navbar">
+		<nav class="navbar-nav d-flex flex-wrap justify-content-center w-100">
+			<li class="nav-item active">
+				<a class="nav-link text-white" href="{{ constant("BASE_URL") }}/products">
+					{{ t("all_products") }}
+				</a>
+			</li>
+			{% for category in view.categories %}
+				{% if category.subCategories %}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle text-white" href="#" id="category-dropdown-{{ category.ID }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							{{ category.name }}
+						</a>
+						<div class="dropdown-menu animated--fade-in">
+							{% for subCategory in category.subCategories %}
+								<a href="{{ constant("BASE_URL") ~ "/products?category=" ~ subCategory.ID }}" 
+								class="dropdown-item text-nowrap btn btn-outline-danger">
+									<i class="fa fa-chevron-right"></i>
+									{{ subCategory.name }}
+								</a>
+							{% endfor %}
+						</div>
+					</li>
+				{% else %}
+					<li class="nav-item active">
+						<a class="nav-link text-white" href="{{ constant("BASE_URL") }}/products?category={{ category.ID }}">
+							{{ category.name }}
+						</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</nav>
+	</div>
+
+</{{view.tag_name}}>
+<!-- Navbar -->
+
+{% if not view.isLoggedIn %}
+	<nav id="redirect-login" class="navbar navbar-dark bg-gradient-danger justify-content-center">
+		<div class="nav-item text-white text-center">
+			{{ t("login_or_register_to_get_best_prices", [
+					variable("site_name").value,
+					constant("BASE_URL") ~ "/login",
+					constant("BASE_URL") ~ "/register",
+				])|raw }}
+		</div>
+	</nav>
+{% endif %}
+

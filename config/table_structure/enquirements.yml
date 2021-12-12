@@ -1,0 +1,54 @@
+table_name: enquirements
+table_comment: 'Special products enquiry list.'
+fields:
+  product:
+    type: table_reference
+    reference_table: products
+    column_name: product
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Enquired product.'
+  user:
+    type: table_reference
+    reference_table: users
+    column_name: user
+    primary_key: false
+    autoIncrement: false
+    isNull: false
+    isUnique: false
+    default: null
+    comment: 'Enquired user.'
+  quantity:
+    type: integer
+    length: null
+    column_name: quantity
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Enquired quantity.'
+  description:
+    type: long_text
+    column_name: description
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Customer enquire description.'
+  status:
+    type: enumarated_list
+    values:
+      open: open
+      closed: closed
+    column_name: status
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'Enquiry status.'
