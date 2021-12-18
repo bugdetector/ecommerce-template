@@ -79,3 +79,8 @@ define("OMNIPAY_CLIENT_ID", "clientid");
 define("OMNIPAY_PASSWORD", "password");
 define("OMNIPAY_FIRMNAME", "firmname");
 define("OMNIPAY_CURRENCY", "TRY");
+
+/**
+ * Add followup url to use followup.
+ */
+define("FOLLOWUP_URL", null);

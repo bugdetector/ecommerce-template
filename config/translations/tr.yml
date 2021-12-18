@@ -592,3 +592,4 @@ _files_compressed: '%d dosya sıkıştırıldı.'
 login_or_register_to_get_best_prices: "%s'den en iyi fiyatları almak için \r\n<a href='%s' class='btn btn-outline-warning btn-sm text-white'>Oturum açın</a> ya da \r\n<a href='%s' class='btn btn-outline-warning btn-sm text-white'>Üye olun</a>"
 captcha: 'Güvenlik Kodu'
 wrong_captcha: 'Güvenlik kodunu yanlış girdiniz.'
+no_follow_url_defined: 'FollowUp takip urlsi tanımlanmamış. FollowUp ı kullanmak için takip urlsini config.php ye ekleyin.'

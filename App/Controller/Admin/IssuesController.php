@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\AdminTheme\EcommerceAdminTheme;
 use Src\Entity\Translation;
+use Src\Views\AlertMessage;
 
 class IssuesController extends EcommerceAdminTheme
 {
@@ -22,10 +23,17 @@ class IssuesController extends EcommerceAdminTheme
 
     public function echoContent()
     {
-        return "<iframe 
-            src='https://followup.ai-websolutions.com/watch/98703513a8d89d5b2a47d6ce1f5f4802' 
-            class='w-100'
-            style='height: calc(100vh - 70px);'
-            frameBorder='0'></iframe>";
+        if (defined("FOLLOWUP_URL") && FOLLOWUP_URL) {
+            return "<iframe 
+                src='" . FOLLOWUP_URL . "' 
+                class='w-100'
+                style='height: calc(100vh - 70px);'
+                frameBorder='0'></iframe>";
+        } else {
+            return AlertMessage::create(
+                Translation::getTranslation("no_follow_url_defined"),
+                AlertMessage::MESSAGE_TYPE_WARNING
+            );
+        }
     }
 }

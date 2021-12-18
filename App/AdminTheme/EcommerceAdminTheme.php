@@ -199,7 +199,7 @@ class EcommerceAdminTheme extends AdminController
             )->addNavItem(
                 NavItem::create(
                     "fa fa-tasks",
-                    Translation::getTranslation("todo"),
+                    "FollowUp",
                     IssuesController::getUrl(),
                     static::class == IssuesController::class
                 )
