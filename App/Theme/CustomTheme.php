@@ -234,84 +234,82 @@ class CustomTheme extends BaseTheme
             "navbar navbar-expand-lg navbar-dark bg-primary mb-4"
         );
         $currentUser = \CoreDB::currentUser();
-        if (Variable::getByKey("collection_order_enabled")->value->getValue()) {
             $icon = null;
             $descriptionNav = null;
             $shippingUrl = ShippingController::getUrl() . "?destination=" . CoreDB::requestUrl();
-            switch ($currentUser->shipping_option->getValue()) {
-                case CustomUser::SHIPPING_OPTION_COLLECTION:
-                    $icon = "fa fa-walking";
-                    /** @var Branch */
-                    $branch = Branch::get($currentUser->shipping_branch->getValue());
-                    if (!$branch) {
-                        if (!$this instanceof ShippingController) {
-                            \CoreDB::goTo(ShippingController::getUrl());
-                        }
+        switch ($currentUser->shipping_option->getValue()) {
+            case CustomUser::SHIPPING_OPTION_COLLECTION:
+                $icon = "fa fa-walking";
+                /** @var Branch */
+                $branch = Branch::get($currentUser->shipping_branch->getValue());
+                if (!$branch) {
+                    if (!$this instanceof ShippingController) {
+                        \CoreDB::goTo(ShippingController::getUrl());
                     }
-                    $descriptionNav = NavItem::create(
-                        "fa fa-building",
-                        @$branch->name,
-                        $shippingUrl
-                    );
-                    break;
-                case CustomUser::SHIPPING_OPTION_DELIVERY:
-                    $icon = "fa fa-truck";
-                    /** @var UserAddress */
-                    $shippingAddress = UserAddress::get(
-                        $currentUser->shipping_address->getValue(),
-                        false
-                    );
-                    $descriptionNav = NavItem::create(
-                        "fa fa-map-marker-alt",
-                        $shippingAddress,
-                        $shippingUrl
-                    );
-                    break;
-            }
-            if ($icon) {
-                $changeButton = TextElement::create(
-                    Translation::getTranslation("change_shipping_option") .
-                        " <i class='fa fa-chevron-right'></i>"
-                )->setIsRaw(true)
-                    ->setTagName("a")
-                    ->addAttribute("href", $shippingUrl)
-                    ->addClass("dropdown-item bg-info text-white");
-                $shippingDropDown = NavItem::create(
-                    $icon,
-                    Translation::getTranslation($currentUser->shipping_option->getValue())
-                )->addDropdownItem(
-                    $descriptionNav
-                        ->addField(
-                            $changeButton
-                        )
+                }
+                $descriptionNav = NavItem::create(
+                    "fa fa-building",
+                    @$branch->name,
+                    $shippingUrl
                 );
-                $shippingDropDown->removeClass("no-arrow")
-                    ->addClass("d-lg-none");
-                $shippingDropDown->fields[0]->addClass("text-white");
-                $shippingDropDown->fields[1]->addAttribute(
-                    "style",
-                    "right: auto"
+                break;
+            case CustomUser::SHIPPING_OPTION_DELIVERY:
+                $icon = "fa fa-truck";
+                /** @var UserAddress */
+                $shippingAddress = UserAddress::get(
+                    $currentUser->shipping_address->getValue(),
+                    false
                 );
-                $this->categoryNavbar->addNavItem(
-                    $shippingDropDown
+                $descriptionNav = NavItem::create(
+                    "fa fa-map-marker-alt",
+                    $shippingAddress,
+                    $shippingUrl
                 );
+                break;
+        }
+        if ($icon) {
+            $changeButton = TextElement::create(
+                Translation::getTranslation("change_shipping_option") .
+                    " <i class='fa fa-chevron-right'></i>"
+            )->setIsRaw(true)
+                ->setTagName("a")
+                ->addAttribute("href", $shippingUrl)
+                ->addClass("dropdown-item bg-info text-white");
+            $shippingDropDown = NavItem::create(
+                $icon,
+                Translation::getTranslation($currentUser->shipping_option->getValue())
+            )->addDropdownItem(
+                $descriptionNav
+                    ->addField(
+                        $changeButton
+                    )
+            );
+            $shippingDropDown->removeClass("no-arrow")
+                ->addClass("d-lg-none");
+            $shippingDropDown->fields[0]->addClass("text-white");
+            $shippingDropDown->fields[1]->addAttribute(
+                "style",
+                "right: auto"
+            );
+            $this->categoryNavbar->addNavItem(
+                $shippingDropDown
+            );
     
-                $desktopShippingDropdown = NavItem::create(
-                    $icon,
-                    TextElement::create(
-                        Translation::getTranslation($currentUser->shipping_option->getValue())
-                    )->addClass("mx-1")
-                )->addDropdownItem(
-                    $descriptionNav
-                )->addClass(
-                    "d-none d-lg-block font-weight-bold"
-                );
-                $desktopShippingDropdown->removeClass("no-arrow");
-                $desktopShippingDropdown->fields[0]->addClass("text-primary");
-                $this->navbar->addNavItem(
-                    $desktopShippingDropdown
-                );
-            }
+            $desktopShippingDropdown = NavItem::create(
+                $icon,
+                TextElement::create(
+                    Translation::getTranslation($currentUser->shipping_option->getValue())
+                )->addClass("mx-1")
+            )->addDropdownItem(
+                $descriptionNav
+            )->addClass(
+                "d-none d-lg-block font-weight-bold"
+            );
+            $desktopShippingDropdown->removeClass("no-arrow");
+            $desktopShippingDropdown->fields[0]->addClass("text-primary");
+            $this->navbar->addNavItem(
+                $desktopShippingDropdown
+            );
         }
     }
 

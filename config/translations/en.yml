@@ -598,3 +598,4 @@ approved: Approved
 on_delivery: 'On delivery'
 delivered: Delivered
 not_ordered: 'Not ordered'
+select_delivery_address: 'Select delivery address'

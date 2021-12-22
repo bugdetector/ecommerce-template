@@ -598,3 +598,4 @@ approved: Onaylandı
 on_delivery: Kargolandı
 delivered: 'Teslim edildi'
 not_ordered: 'Sipariş verilmedi'
+select_delivery_address: 'Teslimat adresi seçiniz'

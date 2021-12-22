@@ -29,13 +29,14 @@ class ShippingController extends CustomTheme
             $user = \CoreDB::currentUser();
             $user->shipping_option->setValue(CustomUser::SHIPPING_OPTION_DELIVERY);
             $user->save();
-            \CoreDB::goTo(
-                @$_SERVER["HTTP_REFERER"] ?: MainpageController::getUrl()
+            $this->setTitle(
+                Translation::getTranslation("select_delivery_address")
+            );
+        } else {
+            $this->setTitle(
+                Translation::getTranslation("select_collection_or_delivery")
             );
         }
-        $this->setTitle(
-            Translation::getTranslation("select_collection_or_delivery")
-        );
         $this->shippingForm = new ShippingForm();
         $this->shippingForm->processForm();
     }
