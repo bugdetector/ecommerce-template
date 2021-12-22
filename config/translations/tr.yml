@@ -599,3 +599,5 @@ on_delivery: Kargolandı
 delivered: 'Teslim edildi'
 not_ordered: 'Sipariş verilmedi'
 select_delivery_address: 'Teslimat adresi seçiniz'
+status_change_message: 'Bu siparişin durumunu %s olarak değiştirmek istediğinize emin misiniz?'
+status_changed: 'Sipariş #%s, durum değişti: %s'

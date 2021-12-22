@@ -359,4 +359,21 @@ class AjaxController extends AdminAjaxController
         );
         $user->save();
     }
+
+    public function updateOrderStatus()
+    {
+        $basketId = $_POST["basket"];
+        $status = $_POST["status"];
+        /** @var Basket */
+        $basket = Basket::get($basketId);
+        $basket->status->setValue($status);
+        $basket->save();
+        \CoreDB::messenger()->createMessage(
+            Translation::getTranslation("status_changed", [
+                $basket->order_id->getValue(),
+                Translation::getTranslation($status)
+            ]),
+            Messenger::SUCCESS
+        );
+    }
 }

@@ -7,6 +7,7 @@ use App\Controller\AjaxController;
 use App\Controller\Admin\Orders\InsertController;
 use App\Controller\Admin\OrdersController;
 use App\Controller\Admin\Users\InsertController as UsersInsertController;
+use App\Entity\Basket\Basket;
 use App\Entity\Branch;
 use App\Entity\CustomUser;
 use CoreDB\Kernel\Database\SelectQueryPreparerAbstract;
@@ -35,6 +36,27 @@ class OrdersQuery extends ViewableQueries
                         if(response){ 
                             location.assign(link.attr('href'));
                         } 
+                    });
+                })
+                $('.status-change').on('click', function(e){
+                    e.preventDefault();
+                    let link = $(this);
+                    if(!link.data('status-text')){
+                        return;
+                    }
+                    bootbox.confirm(_t('status_change_message', [link.data('status-text')]), function(response){ 
+                        if(response){ 
+                            let basketId = link.data('basket');
+                            let newStatus = link.data('status');
+                            $.ajax({
+                                url: root + '/admin/ajax/updateOrderStatus',
+                                method: 'post',
+                                data: {basket: basketId, status: newStatus},
+                                success: function(){
+                                    location.reload();
+                                }
+                            })
+                        }
                     });
                 })
             })"
@@ -74,6 +96,7 @@ class OrdersQuery extends ViewableQueries
         $controller->addJsFiles("dist/user_comment/user_comment.js");
         $controller->addFrontendTranslation("comment");
         $controller->addFrontendTranslation("last_modified_message");
+        $controller->addFrontendTranslation("status_change_message");
         $headers = parent::getResultHeaders($translateLabel);
         $headers["ID"] = "Cart Id";
         array_unshift(
@@ -137,6 +160,50 @@ class OrdersQuery extends ViewableQueries
                 ViewGroup::create("i", "fa fa-envelope text-info core-control ml-3")
             )->addClass("send-payment-request")
         );
+        $statusChangeLink = null;
+        switch ($row["status"]) {
+            case Basket::STATUS_WAITING_APPROVAL:
+                $statusChangeLink = Link::create(
+                    "#",
+                    ViewGroup::create("i", "fa fa-check text-warning core-control ml-3")
+                )->addClass("status-change")
+                ->addAttribute("data-basket", $row["ID"])
+                ->addAttribute("data-status", Basket::STATUS_APPROVED)
+                ->addAttribute("data-status-text", Translation::getTranslation(Basket::STATUS_APPROVED))
+                ->addAttribute("title", Translation::getTranslation(Basket::STATUS_APPROVED));
+                break;
+            case Basket::STATUS_APPROVED:
+                $statusChangeLink = Link::create(
+                    "#",
+                    ViewGroup::create("i", "fa fa-truck text-info core-control ml-3")
+                )->addClass("status-change")
+                ->addAttribute("data-basket", $row["ID"])
+                ->addAttribute("data-status", Basket::STATUS_ON_DELIVERY)
+                ->addAttribute("data-status-text", Translation::getTranslation(Basket::STATUS_ON_DELIVERY))
+                ->addAttribute("title", Translation::getTranslation(Basket::STATUS_ON_DELIVERY));
+                break;
+            case Basket::STATUS_ON_DELIVERY:
+                $statusChangeLink = Link::create(
+                    "#",
+                    ViewGroup::create("i", "fa fa-user-check text-warning core-control ml-3")
+                )->addClass("status-change")
+                ->addAttribute("data-basket", $row["ID"])
+                ->addAttribute("data-status", Basket::STATUS_DELIVERED)
+                ->addAttribute("data-status-text", Translation::getTranslation(Basket::STATUS_DELIVERED))
+                ->addAttribute("title", Translation::getTranslation(Basket::STATUS_DELIVERED));
+                break;
+            case Basket::STATUS_DELIVERED:
+                $statusChangeLink = Link::create(
+                    "#",
+                    ViewGroup::create("i", "fa fa-check-double text-success core-control ml-3")
+                )
+                ->addClass("status-change")
+                ->addAttribute("title", Translation::getTranslation(Basket::STATUS_DELIVERED));
+                break;
+        }
+        if ($statusChangeLink) {
+            $row[0]->addField($statusChangeLink);
+        }
         $row["is_canceled"] = $row["is_canceled"] ?
             Translation::getTranslation("order_canceled") : "";
         $row["type"] = Translation::getTranslation($row["type"]);
