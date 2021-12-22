@@ -49,6 +49,27 @@ class Basket extends Model
      * TYPE_COLLECTION description.
      */
     public const TYPE_COLLECTION = "collection";
+
+    /**
+    * STATUS_PEDING description.
+    */
+    public const STATUS_NOT_ORDERED = "not_ordered";
+    /**
+    * STATUS_WAITING_APPROVAL description.
+    */
+    public const STATUS_WAITING_APPROVAL = "waiting_approval";
+    /**
+    * STATUS_APPROVED description.
+    */
+    public const STATUS_APPROVED = "approved";
+    /**
+    * STATUS_ON_DELIVERY description.
+    */
+    public const STATUS_ON_DELIVERY = "on_delivery";
+    /**
+    * STATUS_DELIVERED description.
+    */
+    public const STATUS_DELIVERED = "delivered";
     /**
      * @var Integer $order_id
      * Order Id
@@ -188,6 +209,11 @@ class Basket extends Model
     * Dealer user referance
     */
     public TableReference $dealer;
+    /**
+    * @var EnumaratedList $status
+    * order status.
+    */
+    public EnumaratedList $status;
     public static function getTableName(): string
     {
         return "basket";
@@ -262,6 +288,12 @@ class Basket extends Model
         return new OrderInsertForm($this);
     }
 
+    protected function insert()
+    {
+        $this->status->setValue(self::STATUS_NOT_ORDERED);
+        return parent::insert();
+    }
+
     public function update()
     {
         $user = User::get($this->user->getValue());
@@ -289,6 +321,7 @@ class Basket extends Model
             $this->order_id->setValue(
                 $this->getNewOrderId()
             );
+            $this->status->setValue(self::STATUS_WAITING_APPROVAL);
             if ($this->private_products_excluded->getValue()) {
                 $orderItems = $this->order_item->getValue();
                 $nonPrivateItems = [];

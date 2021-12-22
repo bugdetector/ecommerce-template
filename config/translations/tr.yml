@@ -593,3 +593,8 @@ login_or_register_to_get_best_prices: "%s'den en iyi fiyatları almak için \r\n
 captcha: 'Güvenlik Kodu'
 wrong_captcha: 'Güvenlik kodunu yanlış girdiniz.'
 no_follow_url_defined: 'FollowUp takip urlsi tanımlanmamış. FollowUp ı kullanmak için takip urlsini config.php ye ekleyin.'
+waiting_approval: 'Onay bekleniyor'
+approved: Onaylandı
+on_delivery: Kargolandı
+delivered: 'Teslim edildi'
+not_ordered: 'Sipariş verilmedi'

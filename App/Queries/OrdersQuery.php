@@ -140,6 +140,7 @@ class OrdersQuery extends ViewableQueries
         $row["is_canceled"] = $row["is_canceled"] ?
             Translation::getTranslation("order_canceled") : "";
         $row["type"] = Translation::getTranslation($row["type"]);
+        $row["status"] = Translation::getTranslation($row["status"]);
         $currencyIcon = Variable::getByKey("currency_icon")->value->getValue();
         $paidInfo = $row["paid_amount"] ? Translation::getTranslation(
             "{$currencyIcon}%.2f Paid, {$currencyIcon}%.2f remaining",

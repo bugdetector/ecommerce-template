@@ -26,7 +26,10 @@ class SentController extends CheckoutController
         parent::preprocessPage();
         if (
             $this->basket->paid_amount->getValue() == $this->basket->total->getValue() ||
-            strtotime($this->basket->delivery_date->getValue()) < strtotime("-2 month 23:59:59")
+            (
+                $this->basket->delivery_date->getValue() &&
+                strtotime($this->basket->delivery_date->getValue()) < strtotime("-2 month 23:59:59")
+            )
         ) {
             Router::getInstance()->route(AccessdeniedController::getUrl());
         }

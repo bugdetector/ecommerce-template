@@ -246,3 +246,18 @@ fields:
     isUnique: false
     default: null
     comment: 'User referance'
+  status:
+    type: enumarated_list
+    values:
+      not_ordered: not_ordered
+      waiting_approval: waiting_approval
+      approved: approved
+      on_delivery: on_delivery
+      delivered: delivered
+    column_name: status
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'order status.'

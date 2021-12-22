@@ -593,3 +593,8 @@ login_or_register_to_get_best_prices: "To get best prices from %s \r\n<a href='%
 captcha: 'Security Code'
 wrong_captcha: 'You entered wrong security code.'
 no_follow_url_defined: 'FollowUp url not defined. To use tracking add followup tracking url at config.php.'
+waiting_approval: 'Waiting approval'
+approved: Approved
+on_delivery: 'On delivery'
+delivered: Delivered
+not_ordered: 'Not ordered'
