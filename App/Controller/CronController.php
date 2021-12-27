@@ -11,7 +11,7 @@ class CronController extends ServiceController
     public function checkAccess(): bool
     {
         $cron_key = Variable::getByKey("cron_key");
-        if (!$cron_key) {
+        if (!$cron_key || $cron_key->value->getValue()) {
             $cron_key = Variable::create("cron_key");
             $cron_key->map([
                 "type" => "text",
