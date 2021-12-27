@@ -12,7 +12,7 @@ class CronController extends ServiceController
     {
         $cron_key = Variable::getByKey("cron_key");
         if (!$cron_key || !$cron_key->value->getValue()) {
-            $cron_key = Variable::create("cron_key");
+            $cron_key = $cron_key ?: Variable::create("cron_key");
             $cron_key->map([
                 "type" => "text",
                 "value" => bin2hex(random_bytes(10)) // 20 characters, only 0-9a-f
