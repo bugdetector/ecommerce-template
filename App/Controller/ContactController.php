@@ -60,6 +60,7 @@ class ContactController extends CustomTheme
                 ViewGroup::create("div", "col-12")
                 ->addField(
                     CollapsableCard::create($branch->name)
+                    ->setOpened(true)
                     ->setContent(
                         ViewGroup::create("div", "")
                         ->addField(
