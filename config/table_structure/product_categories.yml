@@ -11,16 +11,6 @@ fields:
     isUnique: true
     default: null
     comment: 'Name of category.'
-  code:
-    type: short_text
-    length: '255'
-    column_name: code
-    primary_key: false
-    autoIncrement: false
-    isNull: true
-    isUnique: true
-    default: null
-    comment: 'Temporary column for migration.'
   image:
     type: file
     reference_table: files

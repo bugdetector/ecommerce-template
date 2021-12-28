@@ -21,15 +21,6 @@ fields:
     isUnique: false
     default: null
     comment: 'Title of product.'
-  alt_desc:
-    type: long_text
-    column_name: alt_desc
-    primary_key: false
-    autoIncrement: false
-    isNull: true
-    isUnique: false
-    default: null
-    comment: 'Alternative product description.'
   category:
     type: table_reference
     reference_table: product_categories

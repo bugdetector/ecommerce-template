@@ -8,7 +8,6 @@ use App\Entity\Product\FavoriteProducts;
 use App\Entity\Product\Product;
 use App\Entity\Product\ProductCategory;
 use App\Entity\Product\ProductPrice;
-use App\Entity\Product\Stock;
 use App\Entity\Search\SearchApi;
 use CoreDB\Kernel\Database\QueryCondition;
 use CoreDB\Kernel\Database\SelectQueryPreparerAbstract;
@@ -59,12 +58,6 @@ class ProductsQuery extends ViewableQueries
             "basket.is_ordered = 0 AND basket.ID = " . $userBasket->ID->getValue()
         )->leftjoin(BasketProduct::getTableName(), "bp", "basket.ID = bp.basket AND  products.ID = bp.product")
         ->select("bp", ["quantity"]);
-        $query->join(Stock::getTableName(), "s", "products.ID = s.product");
-        $query->condition(
-            "s.branch",
-            $userBasket->type->getValue() == Basket::TYPE_COLLECTION ?
-            $userBasket->branch->getValue() : 1
-        );
         if (isset($_GET["search"]) && $_GET["search"]) {
             SearchApi::set($_GET["search"]);
             $category = ProductCategory::get(["name" => $_GET["search"]]);

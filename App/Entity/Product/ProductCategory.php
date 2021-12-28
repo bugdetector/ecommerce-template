@@ -23,11 +23,6 @@ class ProductCategory extends TreeEntityAbstract
     * Name of category.
     */
     public ShortText $name;
-    /**
-    * @var ShortText $code
-    * Temporary column for migration.
-    */
-    public ShortText $code;
     /* @var File $image
     * Category box image.
     */

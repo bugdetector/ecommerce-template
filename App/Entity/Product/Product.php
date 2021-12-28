@@ -52,11 +52,6 @@ class Product extends Model implements XMLSitemapEntityInterface
     */
     public ShortText $title;
     /**
-    * @var LongText $alt_desc
-    * Alternative product description.
-    */
-    public LongText $alt_desc;
-    /**
     * @var LongText $description
     * Product description. Please use Description Attachments section to add new image or file in the description.
     */
