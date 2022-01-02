@@ -7,6 +7,8 @@ use CoreDB\Kernel\Model;
 use CoreDB\Kernel\Database\DataType\TableReference;
 use CoreDB\Kernel\Database\DataType\Integer;
 use CoreDB\Kernel\Database\DataType\FloatNumber;
+use Src\Entity\Variable;
+use Src\Theme\View;
 
 /**
  * Object relation with table product_price
@@ -50,5 +52,14 @@ class ProductPrice extends Model
     public static function getTableName(): string
     {
         return "product_price";
+    }
+
+    protected function getFieldWidget(string $field_name, bool $translateLabel): ?View
+    {
+        if ($field_name == "price_type" && !Variable::getByKey("collection_order_enabled")->value->getValue()) {
+            return null;
+        } else {
+            return parent::getFieldWidget($field_name, $translateLabel);
+        }
     }
 }

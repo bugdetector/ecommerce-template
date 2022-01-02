@@ -68,7 +68,7 @@ class SentController extends CheckoutController
                     TextElement::create(
                         "<i class='fa fa-arrow-left'></i> " .
                         Translation::getTranslation("pay_at", [
-                            Translation::getTranslation($this->basket->type->getValue())
+                            Translation::getTranslation($this->basket->type->getValue() ?: Basket::TYPE_DELIVERY)
                         ])
                     )->setIsRaw(true)
                 )->addClass("btn btn-outline-info form-control h-100")

@@ -26,6 +26,7 @@ use CoreDB\Kernel\XMLSitemapUrl;
 use Src\Entity\File as EntityFile;
 use Src\Entity\Translation;
 use Src\Entity\User;
+use Src\Entity\Variable;
 use Src\Entity\Watchdog;
 use Src\Form\Widget\OptionWidget;
 use Src\Form\Widget\SelectWidget;
@@ -369,16 +370,22 @@ class Product extends Model implements XMLSitemapEntityInterface
 
     public function getPrices()
     {
-        $currentUser = \CoreDB::currentUser();
-        if ($currentUser->isLoggedIn()) {
-            $shippingOption = $currentUser->shipping_option->getValue();
-            return [
-                $shippingOption => $this->getPrice($shippingOption)
-            ];
+        if (Variable::getByKey("collection_order_enabled")->value->getValue()) {
+            $currentUser = \CoreDB::currentUser();
+            if ($currentUser->isLoggedIn()) {
+                $shippingOption = $currentUser->shipping_option->getValue();
+                return [
+                    $shippingOption => $this->getPrice($shippingOption)
+                ];
+            } else {
+                return [
+                    ProductPrice::PRICE_TYPE_DELIVERY => $this->getPrice(ProductPrice::PRICE_TYPE_DELIVERY),
+                    ProductPrice::PRICE_TYPE_COLLECTION => $this->getPrice(ProductPrice::PRICE_TYPE_COLLECTION),
+                ];
+            }
         } else {
             return [
-                ProductPrice::PRICE_TYPE_DELIVERY => $this->getPrice(ProductPrice::PRICE_TYPE_DELIVERY),
-                ProductPrice::PRICE_TYPE_COLLECTION => $this->getPrice(ProductPrice::PRICE_TYPE_COLLECTION),
+                "price" => $this->getPrice(null)
             ];
         }
     }
@@ -409,7 +416,7 @@ class Product extends Model implements XMLSitemapEntityInterface
         } else {
             $user = CoreDB::currentUser();
         }
-        if (!$deliveryType) {
+        if (!$deliveryType && Variable::getByKey("collection_order_enabled")->value->getValue()) {
             $deliveryType = $user->isLoggedIn() ?
             ProductPrice::PRICE_TYPE_DELIVERY : $user->shipping_option->getValue();
         }

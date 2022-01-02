@@ -229,12 +229,14 @@ class Basket extends Model
             $basket->user->setValue(\CoreDB::currentUser()->ID->getValue());
             $basket->total->setValue(0);
             $basket->is_ordered->setValue(0);
-            $basket->type->setValue(
-                $currentUser->shipping_option->getValue()
-            );
-            $basket->delivery_date->setValue(
-                $currentUser->delivery_date->getValue()
-            );
+            if (Variable::getByKey("collection_order_enabled")->value->getValue()) {
+                $basket->type->setValue(
+                    $currentUser->shipping_option->getValue()
+                );
+                $basket->delivery_date->setValue(
+                    $currentUser->delivery_date->getValue()
+                );
+            }
             switch ($basket->type->getValue()) {
                 case Basket::TYPE_COLLECTION:
                     $basket->branch->setValue(
@@ -598,23 +600,31 @@ class Basket extends Model
         $vat = $this->calculateVat();
         $deliveryCalculationTotal = $subtotal + $vat;
         $minimumOrderPrice = $this->getMinimumOrderPrice();
-        if ($this->type->getValue() == Basket::TYPE_COLLECTION || $deliveryCalculationTotal >= $minimumOrderPrice) {
-            $delivery = 0;
-        } else {
-            $address = $this->order_address->getValue();
-            /** @var Postcode */
-            $postcode = $address ? Postcode::get([
-                "postcode" => @explode(" ", $address[0]["postalcode"])[0]
-            ]) : null;
-            if ($postcode) {
-                $delivery = $postcode->delivery->getValue();
+        if (Variable::getByKey("collection_order_enabled")->value->getValue()) {
+            if ($this->type->getValue() == Basket::TYPE_COLLECTION || $deliveryCalculationTotal >= $minimumOrderPrice) {
+                $delivery = 0;
             } else {
-                $country = DynamicModel::get([
-                    "ID" => @$user->address->getValue()[0]["country"]
-                ], "countries") ?:  DynamicModel::get([
-                    "code" => Variable::getByKey("default_country_code")->value->getValue()
-                ], "countries");
-                $delivery = $country->delivery_price->getValue();
+                $address = $this->order_address->getValue();
+                /** @var Postcode */
+                $postcode = $address ? Postcode::get([
+                    "postcode" => @explode(" ", $address[0]["postalcode"])[0]
+                ]) : null;
+                if ($postcode) {
+                    $delivery = $postcode->delivery->getValue();
+                } else {
+                    $country = DynamicModel::get([
+                        "ID" => @$user->address->getValue()[0]["country"]
+                    ], "countries") ?:  DynamicModel::get([
+                        "code" => Variable::getByKey("default_country_code")->value->getValue()
+                    ], "countries");
+                    $delivery = $country->delivery_price->getValue();
+                }
+            }
+        } else {
+            if ($deliveryCalculationTotal < $minimumOrderPrice) {
+                $delivery = 15;
+            } else {
+                $delivery = 0;
             }
         }
         $vatTotal = $vat + (
@@ -643,6 +653,9 @@ class Basket extends Model
                 } else {
                     return Variable::getByKey("minimum_order_price")->value->getValue();
                 }
+                break;
+            default:
+                return Variable::getByKey("minimum_order_price")->value->getValue();
         }
     }
 

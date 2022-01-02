@@ -51,7 +51,7 @@ class SendOrderForm extends Form
             $this->basket->type->getValue() == Basket::TYPE_COLLECTION ||
             \CoreDB::currentUser()->pay_optional_at_checkout->getValue()
                 ? "send_order" : "pay_and_send_order";
-        $sendOrderButton = ViewGroup::create("button", "btn btn-warning mt-sm-0 form-control h-100")
+        $sendOrderButton = ViewGroup::create("button", "btn btn-primary mt-sm-0 form-control h-100")
         ->addAttribute("type", "submit")
         ->addAttribute("value", "send_order")
         ->addField(
@@ -82,7 +82,7 @@ class SendOrderForm extends Form
             ->addField(
                 ViewGroup::create("div", "row")
                     ->addField(
-                        ViewGroup::create("div", "col-6")
+                        ViewGroup::create("div", "col-4")
                         ->addField(
                             Link::create(
                                 CheckoutController::getUrl(),
@@ -93,7 +93,7 @@ class SendOrderForm extends Form
                         )
                     )
                     ->addField(
-                        ViewGroup::create("div", "col-6 mb-4")
+                        ViewGroup::create("div", "col-8 mb-4")
                             ->addField(
                                 $sendOrderButton
                             )

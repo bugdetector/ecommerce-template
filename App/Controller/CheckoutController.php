@@ -91,7 +91,7 @@ class CheckoutController extends CustomTheme
             $deliveryCalculationPrice = $this->basket->subtotal->getValue() +
             $this->basket->calculateVat();
             if (
-                $this->basket->type->getValue() == Basket::TYPE_DELIVERY &&
+                $this->basket->type->getValue() != Basket::TYPE_COLLECTION &&
                 $deliveryCalculationPrice < $this->minimumOrder &&
                 $deliveryCalculationPrice > 0
             ) {
