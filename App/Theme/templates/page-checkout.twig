@@ -17,7 +17,7 @@
 			{{ controller.echoContent()|raw }}
 		</div>
 		<div class="col-xl-4 mt-xl-2 mt-sm-0">
-			<div class="card p-2 mt-lg-0 mt-sm-2 text-right">
+			<div class="card p-2 mt-lg-0 mt-sm-2 text-end">
 				<div>
 					<label class="text-primary fw-bold">
 						{{ t("subtotal") }}
@@ -75,7 +75,7 @@
 					</h3>
 				{% endif %}
 				{% if controller.vatPercentage == 0 %}
-					<div class="alert alert-warning text-left">
+					<div class="alert alert-warning text-start">
 						<i class="fa fa-exclamation-triangle"></i>
 						{{ t("abroad_delivery_and_tax_warning") }}
 					</div>

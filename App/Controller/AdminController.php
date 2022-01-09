@@ -140,7 +140,7 @@ class AdminController extends EcommerceAdminTheme
         ->setContent(
             ViewGroup::create("div", "")
             ->addField(
-                TotalOrdersGraphFilter::create("div", "text-right")
+                TotalOrdersGraphFilter::create("div", "text-end")
             )
             ->addField(
                 GraphView::create("div", "")
