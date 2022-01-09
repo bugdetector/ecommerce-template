@@ -131,7 +131,7 @@ class Enquirement extends Model
                 TextElement::create(
                     "<i class='fa fa-plus text-white-50'></i> " . Translation::getTranslation("add")
                 )->setIsRaw(true)
-            )->addClass("btn btn-sm btn-primary shadow-sm mr-1 mb-1")
+            )->addClass("btn btn-sm btn-primary shadow-sm me-1 mb-1")
         ];
     }
 }

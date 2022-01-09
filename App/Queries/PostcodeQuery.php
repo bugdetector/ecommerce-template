@@ -25,7 +25,7 @@ class PostcodeQuery extends ViewableQueries
             TextElement::create(
                 Translation::getTranslation("delivery_charge") .
                 "<span class='bg-warning rounded-circle mx-2 px-3 py-2 text-white'
-                data-toggle='popover' title='" .
+                data-bs-toggle='popover' title='" .
                 Translation::getTranslation("delivery_charge")
                 . "' data-content='" .
                 Translation::getTranslation("delivery_charge_description")

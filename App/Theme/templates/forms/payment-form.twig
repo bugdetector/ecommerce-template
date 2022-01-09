@@ -10,7 +10,7 @@
 			<div class="card">
 				<div class="card-header bg-gradient-info position-relative">
 					<h5 class="mb-0">
-						<label class="btn btn-link font-weight-bold text-white stretched-link" data-toggle="collapse" data-target="#savedCreditCards">
+						<label class="btn btn-link fw-bold text-white stretched-link" data-bs-toggle="collapse" data-target="#savedCreditCards">
 							<input type="radio" name="payment_option" value="saved_credit_card" checked />
 							{{ t("pay_with_saved_credit_card") }}
 						</label>
@@ -25,7 +25,7 @@
 									<div class="d-flex justify-content-between">
 										<input type="radio" class="d-none saved_card" name="saved_card" value="{{ paymentMethod.ID }}">
 										{{ paymentMethod.card_holder }}
-										<div class='font-weight-bold'>
+										<div class='fw-bold'>
 											{{ paymentMethod.obfuscateCardNumber() }}
 											<input type="hidden" class="card-number" value="{{ paymentMethod.obfuscateCardNumber() }}">
 										</div>
@@ -48,7 +48,7 @@
 		<div class="card">
 			<div class="card-header bg-gradient-info position-relative">
 				<h5 class="mb-0">
-					<label class="btn btn-link collapsed font-weight-bold text-white stretched-link" data-toggle="collapse" data-target="#creditCardPayment">
+					<label class="btn btn-link collapsed fw-bold text-white stretched-link" data-bs-toggle="collapse" data-target="#creditCardPayment">
 						<input type="radio" name="payment_option" value="credit_card"/>
 						{{ t("pay_with_credit_card") }}
 					</label>
@@ -66,10 +66,10 @@
 							</div>
 							<div class="d-flex flex-wrap justify-content-between mt-3 mb-3">
 								<div class="d-flex">
-									<div class="mr-1">
+									<div class="me-1">
 										{{ form.fields.card_holder }}
 									</div>
-									<div class="mr-1">
+									<div class="me-1">
 										{{ form.fields.card_expire }}
 									</div>
 									<div>

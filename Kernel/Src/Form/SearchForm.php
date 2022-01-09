@@ -82,7 +82,7 @@ class SearchForm extends Form
                     InputWidget::create("reset")
                         ->setType("reset")
                         ->setValue(Translation::getTranslation("reset"))
-                        ->addClass("btn btn-danger ml-sm-1")
+                        ->addClass("btn btn-danger ms-sm-1")
                 )
         );
 

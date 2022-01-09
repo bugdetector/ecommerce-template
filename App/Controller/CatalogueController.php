@@ -55,7 +55,7 @@ class CatalogueController extends CustomTheme
                         true
                     )->addClass("w-100 my-2")
                     ->addAttribute("title", $category->name)
-                )->addClass("card p-3 text-decoration-none font-weight-bold")
+                )->addClass("card p-3 text-decoration-none fw-bold")
             );
             $this->categoryCards->addField(
                 $categoryCard

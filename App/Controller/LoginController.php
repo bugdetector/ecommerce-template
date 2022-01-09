@@ -50,7 +50,7 @@ class LoginController extends CustomTheme
             ->addClass("img-profile rounded-circle"),
             ""
         );
-        $userDropdown->addClass("ml-auto");
+        $userDropdown->addClass("ms-auto");
         if ($currentUser->isLoggedIn()) {
             $userDropdown->addDropdownItem(
                 NavItem::create(

@@ -65,7 +65,7 @@ class MyOrdersQuery extends ViewableQueries
             TextElement::create(
                 "<i class='fa fa-eye'></i> " . Translation::getTranslation("view")
             )->setIsRaw(true)
-        )->addClass("text-decoration-none btn btn-link mr-2 mb-2");
+        )->addClass("text-decoration-none btn btn-link me-2 mb-2");
         if (strtotime($row["delivery_date"]) > strtotime("-2 month 23:59:59")) {
             if (
                 $row["type"] == Basket::TYPE_DELIVERY &&
@@ -77,7 +77,7 @@ class MyOrdersQuery extends ViewableQueries
                     TextElement::create(
                         "<i class='fa fa-credit-card'></i> " . Translation::getTranslation("pay_now")
                     )->setIsRaw(true)
-                )->addClass("btn btn-success text-decoration-none mr-2 mb-2");
+                )->addClass("btn btn-success text-decoration-none me-2 mb-2");
             } else {
                 $row[1] = "";
             }
@@ -91,7 +91,7 @@ class MyOrdersQuery extends ViewableQueries
                     TextElement::create(
                         "<i class='fa fa-times'></i> " . Translation::getTranslation("cancel_order")
                     )->setIsRaw(true)
-                )->addClass("btn btn-outline-danger text-decoration-none mr-2 mb-2 cancel-order")
+                )->addClass("btn btn-outline-danger text-decoration-none me-2 mb-2 cancel-order")
                 ->addAttribute("data-order", $row["ID"]);
             } else {
                 $row[4] = TextElement::create(
@@ -104,14 +104,14 @@ class MyOrdersQuery extends ViewableQueries
             TextElement::create(
                 "<i class='fa fa-file-pdf'></i> " . Translation::getTranslation("download")
             )->setIsRaw(true)
-        )->addClass("text-decoration-none btn btn-link mr-2 mb-2");
+        )->addClass("text-decoration-none btn btn-link me-2 mb-2");
 
         $row[3] = Link::create(
             AjaxController::getUrl() . "orderAgain?basket-id={$row["ID"]}",
             TextElement::create(
                 "<i class='fa fa-undo-alt'></i> " . Translation::getTranslation("order_again")
             )->setIsRaw(true)
-        )->addClass("text-decoration-none btn btn-link mr-2 mb-2");
+        )->addClass("text-decoration-none btn btn-link me-2 mb-2");
 
         $row["total"] = Variable::getByKey("currency_icon")->value->getValue() .
             number_format($row["total"], 2, ".", ",");

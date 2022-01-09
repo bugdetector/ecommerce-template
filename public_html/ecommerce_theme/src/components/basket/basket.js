@@ -153,9 +153,9 @@ $(function ($) {
                             <div class=" d-flex align-items-center dropdown-item" href="#">
                                 <img src="${itemImageUrl}" 
                                 alt="${itemName}" 
-                                class="dropdown-list-image mr-3 rounded-circle">
+                                class="dropdown-list-image me-3 rounded-circle">
                                 <div class="">
-                                    <text class="font-weight-bold">
+                                    <text class="fw-bold">
                                         ${itemName} ${variation ? ` - ${variationName}` : ""}
                                     </text>
                                     <br>
@@ -176,7 +176,7 @@ $(function ($) {
                                             <i class='fa fa-plus'></i>
                                         </button>
                                     </div>
-                                    <div class="total-value font-weight-bold" data-item="${data.product}" data-variant='${variation}'>
+                                    <div class="total-value fw-bold" data-item="${data.product}" data-variant='${variation}'>
                                         0.00
                                     </div>
                                 </div>

@@ -138,7 +138,7 @@ class CheckoutController extends CustomTheme
             }
             if (get_class($this) == CheckoutController::class) {
                 $bespokeToggleButton =
-                "<button class='btn btn-sm btn-primary float-right toggle-excluded'>{$buttonText}</button>";
+                "<button class='btn btn-sm btn-primary float-end toggle-excluded'>{$buttonText}</button>";
             } else {
                 $bespokeToggleButton = "";
             }
@@ -245,7 +245,7 @@ class CheckoutController extends CustomTheme
                         TextElement::create(
                             "<i class='fa fa-trash'></i> " . Translation::getTranslation("empty_basket")
                         )->setIsRaw(true)
-                    )->addClass("btn btn-danger mb-5 empty-basket float-right mr-2")
+                    )->addClass("btn btn-danger mb-5 empty-basket float-end me-2")
                 );
             }
             return $content;
@@ -258,7 +258,7 @@ class CheckoutController extends CustomTheme
                         TextElement::create(
                             "<i class='fa fa-trash'></i> " . Translation::getTranslation("empty_basket")
                         )->setIsRaw(true)
-                    )->addClass("btn btn-danger mb-5 empty-basket float-right mr-2")
+                    )->addClass("btn btn-danger mb-5 empty-basket float-end me-2")
                 );
             }
             return $this->basketProductCards;

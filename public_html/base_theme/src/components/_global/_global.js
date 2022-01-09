@@ -51,8 +51,6 @@ $(function ($) {
         e.preventDefault();
         $.ajax(`${root}/admin/ajax/clearCache`);
     });
-
-    $('[data-toggle="popover"]').popover();
 })
 
 window._t = function (key, args) {

@@ -3,7 +3,7 @@
 	{% for field in view.fields %}
 		{{ field }}
 	{% endfor %}
-	<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#category-navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-target="#category-navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="category-navbar">
@@ -16,7 +16,7 @@
 			{% for category in view.categories %}
 				{% if category.subCategories %}
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle text-white" href="#" id="category-dropdown-{{ category.ID }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a class="nav-link dropdown-toggle text-white" href="#" id="category-dropdown-{{ category.ID }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							{{ category.name }}
 						</a>
 						<div class="dropdown-menu animated--fade-in">

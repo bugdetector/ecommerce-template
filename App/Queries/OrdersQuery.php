@@ -147,17 +147,17 @@ class OrdersQuery extends ViewableQueries
         )->addField(
             Link::create(
                 AjaxController::getUrl() . "basketInvoice?basket-id={$row["ID"]}",
-                ViewGroup::create("i", "fa fa-file-pdf text-danger core-control ml-3")
+                ViewGroup::create("i", "fa fa-file-pdf text-danger core-control ms-3")
             )->addAttribute("target", "_blank")
         )->addField(
             Link::create(
                 OrdersController::getUrl() . "?user=" . $row["user"],
-                ViewGroup::create("i", "fa fa-gifts text-info core-control ml-3")
+                ViewGroup::create("i", "fa fa-gifts text-info core-control ms-3")
             )
         )->addField(
             Link::create(
                 ControllerAdminAjaxController::getUrl() . "sendPaymentRequest?basket={$row["ID"]}",
-                ViewGroup::create("i", "fa fa-envelope text-info core-control ml-3")
+                ViewGroup::create("i", "fa fa-envelope text-info core-control ms-3")
             )->addClass("send-payment-request")
         );
         $statusChangeLink = null;
@@ -165,7 +165,7 @@ class OrdersQuery extends ViewableQueries
             case Basket::STATUS_WAITING_APPROVAL:
                 $statusChangeLink = Link::create(
                     "#",
-                    ViewGroup::create("i", "fa fa-check text-warning core-control ml-3")
+                    ViewGroup::create("i", "fa fa-check text-warning core-control ms-3")
                 )->addClass("status-change")
                 ->addAttribute("data-basket", $row["ID"])
                 ->addAttribute("data-status", Basket::STATUS_APPROVED)
@@ -175,7 +175,7 @@ class OrdersQuery extends ViewableQueries
             case Basket::STATUS_APPROVED:
                 $statusChangeLink = Link::create(
                     "#",
-                    ViewGroup::create("i", "fa fa-truck text-info core-control ml-3")
+                    ViewGroup::create("i", "fa fa-truck text-info core-control ms-3")
                 )->addClass("status-change")
                 ->addAttribute("data-basket", $row["ID"])
                 ->addAttribute("data-status", Basket::STATUS_ON_DELIVERY)
@@ -185,7 +185,7 @@ class OrdersQuery extends ViewableQueries
             case Basket::STATUS_ON_DELIVERY:
                 $statusChangeLink = Link::create(
                     "#",
-                    ViewGroup::create("i", "fa fa-user-check text-warning core-control ml-3")
+                    ViewGroup::create("i", "fa fa-user-check text-warning core-control ms-3")
                 )->addClass("status-change")
                 ->addAttribute("data-basket", $row["ID"])
                 ->addAttribute("data-status", Basket::STATUS_DELIVERED)
@@ -195,7 +195,7 @@ class OrdersQuery extends ViewableQueries
             case Basket::STATUS_DELIVERED:
                 $statusChangeLink = Link::create(
                     "#",
-                    ViewGroup::create("i", "fa fa-check-double text-success core-control ml-3")
+                    ViewGroup::create("i", "fa fa-check-double text-success core-control ms-3")
                 )
                 ->addClass("status-change")
                 ->addAttribute("title", Translation::getTranslation(Basket::STATUS_DELIVERED));

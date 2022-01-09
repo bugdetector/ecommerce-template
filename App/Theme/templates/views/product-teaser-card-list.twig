@@ -10,7 +10,7 @@
 					<div>
 						<i class="fa fa-star"></i>
 						{{ t("on_offer") }}
-						<small class="badge badge-danger">
+						<small class="badge bg-danger">
 							{{ t("offer_expires") }}:
 							{{ view.product.sprice_valid_to|date("d F Y") }}
 						</small>
@@ -44,7 +44,7 @@
 					{% endif %}
 					<div class="col-6 col-sm-6 col-md-3 mt-2 p-2">
 						{% if view.listOptionField != "bespoke_card_list_option" %}
-							<div class="btn float-right {{ row.favorite ? " text-heart" : " text-gray-500" }} item-favorite" data-item="{{ row.ID }}">
+							<div class="btn float-end {{ row.favorite ? " text-heart" : " text-gray-500" }} item-favorite" data-item="{{ row.ID }}">
 								<i class="fa fa-star"></i>
 							</div>
 						{% endif %}
@@ -52,15 +52,15 @@
 							<small>{{ row.product.stockcode }}</small>
 						</div>
 						<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ row.url_alias }}" class="text-decoration-none">
-							<h5 class="text-primary font-weight-bold item-name">
+							<h5 class="text-primary fw-bold item-name">
 								{{ row.title }}
 							</h5>
 						</a>
-						<div class="font-weight-bold text-info">
+						<div class="fw-bold text-info">
 							{% for type, priceInfo in row.prices %}
 								{% set offer = priceInfo.offer|number_format(2, '.', ',') %}
 								{% set list_price = priceInfo.list_price|number_format(2, '.', ',') %}
-								<div class="font-weight-bold text-info my-price-text mb-2">
+								<div class="fw-bold text-info my-price-text mb-2">
 									{{ t(type) }}:
 									{% if list_price != offer %}
 										<del class="text-danger">{{ variable("currency_icon").value }}{{ list_price }}</del>

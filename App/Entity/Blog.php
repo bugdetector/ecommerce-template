@@ -95,7 +95,7 @@ class Blog extends Model implements XMLSitemapEntityInterface
                     "<i class='fa fa-plus'></i> " .
                     Translation::getTranslation("add")
                 )->setIsRaw(true)
-            )->addClass("d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-1 mb-1")
+            )->addClass("d-sm-inline-block btn btn-sm btn-primary shadow-sm me-1 mb-1")
         ];
     }
 

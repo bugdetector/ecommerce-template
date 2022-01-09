@@ -130,10 +130,10 @@ class CustomTheme extends BaseTheme
         $phone = Variable::getByKey("general_enquiries_phone");
         if ($phone->value->getValue()) {
             $callItem = NavItem::create(
-                "fa fa-phone-alt mr-1 ml-2",
+                "fa fa-phone-alt me-1 ms-2",
                 TextElement::create(
                     Translation::getTranslation("call")
-                )->addClass("d-none d-md-block font-weight-bold"),
+                )->addClass("d-none d-md-block fw-bold"),
                 "tel:{$phone->value}"
             );
             $callItem->fields[0]->addClass("text-primary");
@@ -150,16 +150,16 @@ class CustomTheme extends BaseTheme
                     "fa fa-user",
                     Translation::getTranslation("account_settings"),
                     ProfileController::getUrl()
-                )->addClass("ml-1")
+                )->addClass("ms-1")
             )->addDropdownItem(
                 NavItem::create(
-                    "fa fa-shopping-cart mr-1",
+                    "fa fa-shopping-cart me-1",
                     Translation::getTranslation("my_orders"),
                     MyordersController::getUrl()
                 )
             )->addDropdownItem(
                 NavItem::create(
-                    "fa fa-star mr-1",
+                    "fa fa-star me-1",
                     Translation::getTranslation("favorites"),
                     FavoritesController::getUrl()
                 )
@@ -168,7 +168,7 @@ class CustomTheme extends BaseTheme
                     "fa fa-sign-out-alt",
                     Translation::getTranslation("logout"),
                     LogoutController::getUrl()
-                )->addClass("ml-1")
+                )->addClass("ms-1")
             )->addDropdownItem(
                 NavItem::create("", "", "")
                 ->addClass("dropdown-divider")
@@ -177,7 +177,7 @@ class CustomTheme extends BaseTheme
                     "fa fa-envelope",
                     $currentUser->email->getValue(),
                     AccountController::getUrl()
-                )->addClass("ml-1")
+                )->addClass("ms-1")
             );
             /** @var UserAddress */
             $shippingAddress = UserAddress::get(
@@ -190,7 +190,7 @@ class CustomTheme extends BaseTheme
                         "fa fa-user",
                         $shippingAddress->account_number,
                         AccountController::getUrl()
-                    )->addClass("ml-1")
+                    )->addClass("ms-1")
                 );
             }
         } else {
@@ -207,7 +207,7 @@ class CustomTheme extends BaseTheme
                         Translation::getTranslation("register"),
                         RegisterController::getUrl()
                     )
-                )->addClass("ml-auto");
+                )->addClass("ms-auto");
         }
         $translateIcons = Translation::get(["key" => "language_icon"]);
         foreach (Translation::getAvailableLanguageList() as $language) {
@@ -303,7 +303,7 @@ class CustomTheme extends BaseTheme
             )->addDropdownItem(
                 $descriptionNav
             )->addClass(
-                "d-none d-lg-block font-weight-bold"
+                "d-none d-lg-block fw-bold"
             );
             $desktopShippingDropdown->removeClass("no-arrow");
             $desktopShippingDropdown->fields[0]->addClass("text-primary");
@@ -320,12 +320,12 @@ class CustomTheme extends BaseTheme
 
         $basketNav = NavItem::create(
             "fa fa-shopping-basket text-basket",
-            ViewGroup::create("span", "badge badge-danger badge-counter shop-item-count")
+            ViewGroup::create("span", "badge bg-danger badge-counter shop-item-count")
                 ->addField(
                     TextElement::create($basket->item_count->getValue())
                 )
         );
-        $basketNav->addClass("shopping-basket ml-auto");
+        $basketNav->addClass("shopping-basket ms-auto");
         $basketNav->addDropdownItem(
             NavItem::create(
                 "",
@@ -360,14 +360,14 @@ class CustomTheme extends BaseTheme
                 Image::create(
                     $imageUrl,
                     $product->title->getValue() ?: ""
-                )->addClass("dropdown-list-image mr-3"),
+                )->addClass("dropdown-list-image me-3"),
                 ViewGroup::create("div", "")
                     ->addField(
                         TextElement::create(
                             $product->title->getValue() .
                                 ($variantId ? " - " . $variantOptions[$variantId] : "")
                         )
-                            ->addClass("font-weight-bold")
+                            ->addClass("fw-bold")
                     )->addField(
                         TextElement::create(
                             "<button type='button' class='btn btn-sm btn-danger drop-from-basket'
@@ -395,7 +395,7 @@ class CustomTheme extends BaseTheme
                                 number_format($basketItem->total_price->getValue(), 2, '.', '')
                         )
                             ->setTagName("div")
-                            ->addClass("total-value font-weight-bold")
+                            ->addClass("total-value fw-bold")
                             ->addAttribute("data-item", $basketItem->product)
                             ->addAttribute("data-variant", strval($basketItem->variant))
                     )

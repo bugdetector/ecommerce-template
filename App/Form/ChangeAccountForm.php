@@ -33,7 +33,7 @@ class ChangeAccountForm extends Form
             ->setValue(
                 Translation::getTranslation("change")
             )->removeClass("form-control")
-            ->addClass("btn btn-primary mt-2 float-right")
+            ->addClass("btn btn-primary mt-2 float-end")
         );
     }
 

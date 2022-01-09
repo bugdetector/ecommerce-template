@@ -276,19 +276,19 @@ class CustomUser extends User
                 TextElement::create(
                     "<i class='fa fa-plus'></i> " . Translation::getTranslation("add")
                 )->setIsRaw(true)
-            )->addClass("btn btn-sm btn-primary ml-auto"),
+            )->addClass("btn btn-sm btn-primary ms-auto"),
             Link::create(
                 AjaxController::getUrl() . "exportUsers?" . http_build_query($_GET),
                 TextElement::create(
                     "<i class='fa fa-file-csv'></i> " . Translation::getTranslation("export_users_to_csv")
                 )->setIsRaw(true)
-            )->addClass("btn btn-sm btn-primary ml-2"),
+            )->addClass("btn btn-sm btn-primary ms-2"),
             Link::create(
                 ChangeController::getUrl(),
                 TextElement::create(
                     "<i class='fa fa-exchange-alt'></i> " . Translation::getTranslation("change_account_number")
                 )->setIsRaw(true)
-            )->addClass("btn btn-sm btn-primary ml-2")
+            )->addClass("btn btn-sm btn-primary ms-2")
         ];
     }
 

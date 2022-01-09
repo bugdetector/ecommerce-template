@@ -64,7 +64,7 @@ class SendOrderForm extends Form
             ViewGroup::create("div", "")->addField(
                 TextElement::create(Translation::getTranslation("your_ref_optional"))
                     ->setTagName("p")
-                    ->addClass("font-weight-bold text-primary")
+                    ->addClass("fw-bold text-primary")
             )->addField(
                 TextElement::create($this->basket->ref)
                     ->setTagName("p")
@@ -73,7 +73,7 @@ class SendOrderForm extends Form
             ViewGroup::create("div", "")->addField(
                 TextElement::create(Translation::getTranslation("order_notes"))
                     ->setTagName("p")
-                    ->addClass("text-primary font-weight-bold")
+                    ->addClass("text-primary fw-bold")
             )->addField(
                 TextElement::create($this->basket->order_notes)
                     ->setTagName("p")
