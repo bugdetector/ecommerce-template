@@ -19,7 +19,7 @@ class AjaxController extends ServiceController
     public function autocompleteFilter()
     {
         $autocompleteToken = @$_POST["token"];
-        $data = @$_POST["data"];
+        $data = @$_POST["term"];
         if ($autocompleteToken && isset($_SESSION["autocomplete"][$autocompleteToken])) {
             $autocompleteData = $_SESSION["autocomplete"][$autocompleteToken];
             $referenceTable = $autocompleteData["referenceTable"];
@@ -27,10 +27,12 @@ class AjaxController extends ServiceController
             
             $data = "%{$data}%";
             $query = \CoreDB::database()->select($referenceTable)
-                ->select($referenceTable, ["ID", $referenceColumn])
+                ->select($referenceTable, ["ID AS id", $referenceColumn . " AS text"])
                 ->condition($referenceColumn, $data, "LIKE")
                 ->limit(20);
-            return $query->execute()->fetchAll(\PDO::FETCH_KEY_PAIR);
+            return $query->execute()->fetchAll(\PDO::FETCH_ASSOC);
+        } else {
+            return [];
         }
     }
 
@@ -90,7 +92,12 @@ class AjaxController extends ServiceController
                 $file->status->setValue(File::STATUS_TEMPORARY);
                 $file->save();
                 $fileWidget = InputWidget::create(@$_POST["name"]);
-                $fileWidget->addFileKey($object->entityName, $object->ID->getValue(), $data->field);
+                $fileWidget->addFileKey(
+                    $object->entityName,
+                    $object->ID->getValue(),
+                    $data->field,
+                    $object->{$data->field}->isNull
+                );
                 $fileWidget->setLabel(@$_POST["label"]);
                 $fileWidget->setType("file");
                 $fileWidget->setValue($file->ID->getValue());

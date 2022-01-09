@@ -1,8 +1,5 @@
 import {$} from "../jquery/jquery";
-import "popper.js";
-import "bootstrap/js/dist/collapse";
-import "bootstrap/js/dist/dropdown";
-import "bootstrap/js/dist/popover";
+import "bootstrap";
 import "./_global.scss";
 
 $(function ($) {

@@ -16,6 +16,8 @@ class InputWidget extends FormWidget
 
     public $fileClass = "img-thumbnail";
 
+    public bool $isNull = true;
+
     public static function create(string $name): InputWidget
     {
         return new InputWidget($name);
@@ -57,7 +59,12 @@ class InputWidget extends FormWidget
     public function addClass(string $class_name): View
     {
         $classesToAdd = explode(" ", $class_name);
-        if (in_array("dateinput", $classesToAdd) || in_array("datetimeinput", $classesToAdd)) {
+        if (
+            !empty(array_intersect(
+                ["dateinput", "datetimeinput", "timeinput"],
+                $classesToAdd
+            ))
+        ) {
             \CoreDB::controller()->addJsFiles("dist/datetimepicker/datetimepicker.js");
             \CoreDB::controller()->addCssFiles("dist/datetimepicker/datetimepicker.css");
         } elseif (in_array("daterangeinput", $classesToAdd)) {
@@ -67,7 +74,7 @@ class InputWidget extends FormWidget
         return parent::addClass($class_name);
     }
 
-    public function addFileKey($entityName, $id, $fieldName): InputWidget
+    public function addFileKey($entityName, $id, $fieldName, $isNull = true): InputWidget
     {
         $removeKeyJwt = new JWT();
         $removeKeyJwt->setPayload([
@@ -76,6 +83,7 @@ class InputWidget extends FormWidget
             "field" => $fieldName
         ]);
         $this->fileKey = $removeKeyJwt;
+        $this->isNull = $isNull;
         return $this;
     }
 

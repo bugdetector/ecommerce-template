@@ -346,7 +346,8 @@ abstract class Model implements SearchableInterface
                     $widget->addFileKey(
                         $this->entityName,
                         $this->ID->getValue(),
-                        $field_name
+                        $field_name,
+                        $field->isNull
                     );
                 }
             }
@@ -440,7 +441,7 @@ abstract class Model implements SearchableInterface
                 "<i class='fa fa-times text-danger core-control'></i> 
                 <span class='sr-only'>" . Translation::getTranslation("delete") . "</span>"
             )->setIsRaw(true)
-        )->addClass("mr-2");
+        )->addClass("me-2");
         if ($this instanceof DynamicModel) {
             $deleteButton->addClass("rowdelete")
             ->addAttribute("data-table", $this->getTableName())
@@ -460,7 +461,7 @@ abstract class Model implements SearchableInterface
             ->addField(
                 $deleteButton
             )->addField(
-                ViewGroup::create("a", "ml-2")
+                ViewGroup::create("a", "ms-2")
                     ->addField(
                         ViewGroup::create("i", "fa fa-edit text-primary core-control")
                     )->addField(
@@ -480,9 +481,9 @@ abstract class Model implements SearchableInterface
     public function actions(): array
     {
         return [
-            ViewGroup::create("a", "d-sm-inline-block btn btn-sm btn-primary shadow-sm mr-1 mb-1")
+            ViewGroup::create("a", "btn btn-sm btn-primary me-1 text-white")
                 ->addField(
-                    ViewGroup::create("i", "fa fa-plus text-white-50")
+                    ViewGroup::create("i", "fa fa-plus")
                 )->addAttribute("href", BASE_URL . "/admin/entity/insert/{$this->entityName}")
                 ->addField(TextElement::create(Translation::getTranslation("add")))
         ];
