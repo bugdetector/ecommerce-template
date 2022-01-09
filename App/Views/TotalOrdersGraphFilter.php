@@ -27,7 +27,7 @@ class TotalOrdersGraphFilter extends ViewGroup
             $buttonGroup->addField(
                 TextElement::create(
                     "<input type='radio' name='totals_filter' id='filter_{$filter}' value='{$filter}'" .
-                    ($filter == 'monthly' ? 'checked' : '') . ">
+                    ($filter == 'monthly' ? 'checked' : '') . " class='btn-check'>
                     " . Translation::getTranslation($filter) . ""
                 )->setIsRaw(true)
                 ->setTagName("label")

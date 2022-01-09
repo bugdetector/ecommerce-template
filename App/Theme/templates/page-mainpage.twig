@@ -3,12 +3,12 @@
 {% block content %}
 
 	<div class="mb-5">
-		<div id="carousel" class="carousel slide" data-ride="carousel">
-			<div class="carousel-inner">
+		<div class="swiper-container banner-swiper" data-speed="{{ controller.bannerSlideSpeed }}" data-loop="true" data-autoplay='{"delay": {{ controller.bannerSlideSpeed }}}' data-pagination='{"el":".swiper-pagination", "type":"progressbar", "clickable":true}' data-navigation='{"nextEl": "#banner-next1", "prevEl": "#banner-prev1"}'>
+			<div class="swiper-wrapper">
 				{% for index, banner in controller.banners %}
-					<div class="carousel-item {{ index == 0 ? " active" : " " }}">
+					<div class="swiper-slide">
 						{% set box = banner.banner_box.getValue()[0] %}
-						{% if box.active %}							
+						{% if box.active %}
 							<div class="position-absolute col-lg-3 col-6 p-4 banner-box {{ box.position }}-aligned">
 								<div class="card h-100 p-1 text-gray-900" style="background: {{ box.background_color }};">
 									<div class="card-body">
@@ -19,8 +19,7 @@
 										</div>
 									</div>
 									<div class="card-footer border-0" style="background: {{ box.background_color }};">
-										<a href="{{ box.url ?: "#" }}" class="btn btn-sm banner-box-btn d-block w-50 m-auto text-white"
-										style="background-color: {{ box.button_color }}">{{
+										<a href="{{ box.url ?: "#" }}" class="btn btn-danger d-block w-50 m-auto">{{
 												box.button_text ?: t("find_out_more")
 											}}</a>
 									</div>
@@ -28,26 +27,17 @@
 							</div>
 						{% endif %}
 						<picture>
-							<source media="(max-width:984px)" srcset="{{ banner.getFileUrlForField("mobile_image") }}" class="w-100 rounded-lg" alt="{{ banner.title }}" title="{{ banner.title }}">
-							<img src="{{ banner.getFileUrlForField("desktop_image") }}" alt="{{ banner.title }}" class="w-100 rounded-lg" title="{{ banner.title }}">
-							<a href="{{ constant("BASE_URL") ~ ( banner.url.getValue() ?: "/products/list/banner/" ~ banner.ID ) }}" class="stretched-link"></a>
+							<source media="(max-width:984px)" srcset="{{ banner.getFileUrlForField("mobile_image") }}" class="img-fluid rounded" alt="{{ banner.title }}" title="{{ banner.title }}">
+							<img src="{{ banner.getFileUrlForField("desktop_image") }}" alt="{{ banner.title }}" class="img-fluid w-100 rounded" title="{{ banner.title }}">
+							<a href="{{ constant("BASE_URL") ~ banner.url }}" class="stretched-link"></a>
 						</picture>
 					</div>
 				{% endfor %}
 			</div>
-			<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">{{ t("previous") }}</span>
-			</a>
-			<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">{{ t("next") }}</span>
-			</a>
-			<div class="carousel-indicators" style="bottom: -40px;">
-				{% for index, banner in controller.banners %}
-					<li data-target="#carousel" data-slide-to="{{ index }}" class="{{ index == 0 ? "active" : "" }} bg-warning"></li>
-				{% endfor %}
-			</div>
+			<div class="swiper-pagination"></div>
+			<!-- navigation buttons -->
+			<div id="banner-prev1" class="swiper-button-prev"></div>
+			<div id="banner-next1" class="swiper-button-next"></div>
 		</div>
 	</div>
 

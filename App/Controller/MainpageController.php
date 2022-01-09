@@ -20,6 +20,7 @@ class MainpageController extends CustomTheme
 
     public User $user;
     public array $banners;
+    public int $bannerSlideSpeed;
     public ?SpaceUnderBanner $space = null;
     public TopSellers $topSellers;
     public LatestOffers $latestOffers;
@@ -52,6 +53,8 @@ class MainpageController extends CustomTheme
         }
         $this->user = \CoreDB::currentUser();
         $this->banners = Banner::getRootElements();
+        $speedVariable = Variable::getByKey("banner_slide_speed");
+        $this->bannerSlideSpeed = $speedVariable ? $speedVariable->value->getValue() : 3000;
         $this->topSellers = new TopSellers();
         $this->latestOffers = new LatestOffers();
         if (\CoreDB::currentUser()->isLoggedIn()) {
