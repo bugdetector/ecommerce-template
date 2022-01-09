@@ -1,5 +1,6 @@
 import {$} from "../jquery/jquery";
 import "bootstrap";
+import { Popover } from "bootstrap";
 import "./_global.scss";
 
 $(function ($) {
@@ -51,6 +52,10 @@ $(function ($) {
         e.preventDefault();
         $.ajax(`${root}/admin/ajax/clearCache`);
     });
+
+    $('[data-bs-toggle="popover"]').each(function(i, el){
+        new Popover(el);
+    })
 })
 
 window._t = function (key, args) {

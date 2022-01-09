@@ -27,9 +27,9 @@ class PostcodeQuery extends ViewableQueries
                 "<span class='bg-warning rounded-circle mx-2 px-3 py-2 text-white'
                 data-bs-toggle='popover' title='" .
                 Translation::getTranslation("delivery_charge")
-                . "' data-content='" .
+                . "' data-bs-content='" .
                 Translation::getTranslation("delivery_charge_description")
-                . "' data-trigger='hover'><i class='rounded fa fa-info'></i></span>"
+                . "' data-bs-trigger='hover'><i class='rounded fa fa-info'></i></span>"
             )->setIsRaw(true),
             "days" => Translation::getTranslation("delivery_days")
         ];
