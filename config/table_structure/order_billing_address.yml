@@ -3,7 +3,6 @@ table_comment: 'Stores orders billing address data.'
 fields:
   order:
     type: table_reference
-    reference_table: basket
     column_name: order
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    reference_table: basket
   account_number:
     type: short_text
-    length: '255'
     column_name: account_number
     primary_key: false
     autoIncrement: false
@@ -21,9 +20,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Unique account number'
+    length: '255'
   company_name:
     type: short_text
-    length: '500'
     column_name: company_name
     primary_key: false
     autoIncrement: false
@@ -31,6 +30,7 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '500'
   address:
     type: text
     column_name: address
@@ -42,7 +42,6 @@ fields:
     comment: ''
   town:
     type: short_text
-    length: '255'
     column_name: town
     primary_key: false
     autoIncrement: false
@@ -50,9 +49,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '255'
   county:
     type: short_text
-    length: '255'
     column_name: county
     primary_key: false
     autoIncrement: false
@@ -60,9 +59,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '255'
   postalcode:
     type: short_text
-    length: '255'
     column_name: postalcode
     primary_key: false
     autoIncrement: false
@@ -70,9 +69,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '255'
   country:
     type: table_reference
-    reference_table: countries
     column_name: country
     primary_key: false
     autoIncrement: false
@@ -80,9 +79,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Country reference.'
+    reference_table: countries
   phone:
     type: short_text
-    length: '20'
     column_name: phone
     primary_key: false
     autoIncrement: false
@@ -90,9 +89,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '20'
   mobile:
     type: short_text
-    length: '20'
     column_name: mobile
     primary_key: false
     autoIncrement: false
@@ -100,3 +99,4 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '20'

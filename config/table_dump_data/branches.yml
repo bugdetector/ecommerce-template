@@ -4,8 +4,8 @@ Central:
   town: Town
   county: County
   postalcode: postcode
-  country: '231'
+  country: 231
   opening_hours: '<p>Opening Hours</p>'
-  weight: '0'
+  weight: 0
   email: email
   phone: phone

@@ -3,7 +3,6 @@ table_comment: 'Contains data about boxes on mainpage at below.'
 fields:
   title:
     type: short_text
-    length: '255'
     column_name: title
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Title of record'
+    length: '255'
   image:
     type: file
-    reference_table: files
     column_name: image
     primary_key: false
     autoIncrement: false
@@ -21,6 +20,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Image (required)'
+    reference_table: files
   text:
     type: long_text
     column_name: text
@@ -32,7 +32,6 @@ fields:
     comment: 'HTML text'
   line_color:
     type: short_text
-    length: '255'
     column_name: line_color
     primary_key: false
     autoIncrement: false
@@ -40,9 +39,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Line color of this box.'
+    length: '255'
   url:
     type: short_text
-    length: '255'
     column_name: url
     primary_key: false
     autoIncrement: false
@@ -50,9 +49,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Url to redirect when click.'
+    length: '255'
   attachment:
     type: file
-    reference_table: files
     column_name: attachment
     primary_key: false
     autoIncrement: false
@@ -60,9 +59,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Attachment file (optional)'
+    reference_table: files
   weight:
     type: integer
-    length: null
     column_name: weight
     primary_key: false
     autoIncrement: false
@@ -70,6 +69,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Order weight.'
+    length: null
   is_hidden:
     type: checkbox
     column_name: is_hidden
@@ -81,7 +81,6 @@ fields:
     comment: 'If checked this record not shown on mainpage.'
   button_text:
     type: short_text
-    length: '255'
     column_name: button_text
     primary_key: false
     autoIncrement: false
@@ -89,11 +88,9 @@ fields:
     isUnique: false
     default: null
     comment: 'If empty "Find out more" will be applied.'
+    length: '255'
   place:
     type: enumarated_list
-    values:
-      under_latest_offers: under_latest_offers
-      under_top_sellers: under_top_sellers
     column_name: place
     primary_key: false
     autoIncrement: false
@@ -101,13 +98,11 @@ fields:
     isUnique: false
     default: null
     comment: 'Place will be used for card placement in mainpage. '
+    values:
+      under_latest_offers: under_latest_offers
+      under_top_sellers: under_top_sellers
   size:
     type: enumarated_list
-    values:
-      col-md-2: col-md-2
-      col-md-3: col-md-3
-      col-md-4: col-md-4
-      col-md-6: col-md-6
     column_name: size
     primary_key: false
     autoIncrement: false
@@ -115,3 +110,8 @@ fields:
     isUnique: false
     default: null
     comment: 'Size will be applied as card size.'
+    values:
+      col-md-2: col-md-2
+      col-md-3: col-md-3
+      col-md-4: col-md-4
+      col-md-6: col-md-6

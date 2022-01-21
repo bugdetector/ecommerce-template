@@ -3,7 +3,6 @@ table_comment: 'Contains linked accounts.'
 fields:
   master_account:
     type: table_reference
-    reference_table: users
     column_name: master_account
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Master table.'
+    reference_table: users
   sub_account:
     type: table_reference
-    reference_table: users
     column_name: sub_account
     primary_key: false
     autoIncrement: false
@@ -21,3 +20,4 @@ fields:
     isUnique: false
     default: null
     comment: 'Referenced account.'
+    reference_table: users

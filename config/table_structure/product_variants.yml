@@ -3,7 +3,6 @@ table_comment: 'Contains connection betwwen products and variants.'
 fields:
   product:
     type: table_reference
-    reference_table: products
     column_name: product
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Base product.'
+    reference_table: products
   variant:
     type: table_reference
-    reference_table: products
     column_name: variant
     primary_key: false
     autoIncrement: false
@@ -21,3 +20,4 @@ fields:
     isUnique: true
     default: null
     comment: 'Product that is variant.'
+    reference_table: products

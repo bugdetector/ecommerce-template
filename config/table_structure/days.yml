@@ -3,7 +3,6 @@ table_comment: 'Contains days of a week.'
 fields:
   day:
     type: short_text
-    length: '255'
     column_name: day
     primary_key: false
     autoIncrement: false
@@ -11,3 +10,4 @@ fields:
     isUnique: false
     default: null
     comment: 'Day name.'
+    length: '255'

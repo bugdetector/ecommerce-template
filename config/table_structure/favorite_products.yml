@@ -3,7 +3,6 @@ table_comment: 'Stores products which saved as favorites by user.'
 fields:
   product:
     type: table_reference
-    reference_table: products
     column_name: product
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Product whic is favorite.'
+    reference_table: products
   user:
     type: table_reference
-    reference_table: users
     column_name: user
     primary_key: false
     autoIncrement: false
@@ -21,3 +20,4 @@ fields:
     isUnique: false
     default: null
     comment: 'User whose is favorited.'
+    reference_table: users

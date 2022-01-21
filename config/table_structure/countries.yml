@@ -3,7 +3,6 @@ table_comment: 'Country list all arount world. Also contains tax percentage and 
 fields:
   name:
     type: short_text
-    length: '255'
     column_name: name
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: true
     default: null
     comment: 'Country name'
+    length: '255'
   code:
     type: short_text
-    length: '255'
     column_name: code
     primary_key: false
     autoIncrement: false
@@ -21,6 +20,7 @@ fields:
     isUnique: true
     default: null
     comment: 'Country code'
+    length: '255'
   tax_percentage:
     type: float
     column_name: tax_percentage

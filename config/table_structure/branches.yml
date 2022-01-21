@@ -3,7 +3,6 @@ table_comment: 'Contains compay branches data.'
 fields:
   name:
     type: short_text
-    length: '255'
     column_name: name
     primary_key: false
     autoIncrement: false
@@ -11,6 +10,7 @@ fields:
     isUnique: true
     default: null
     comment: 'Branch name.'
+    length: '255'
   address:
     type: text
     column_name: address
@@ -22,7 +22,6 @@ fields:
     comment: 'Branch''s address.'
   town:
     type: short_text
-    length: '255'
     column_name: town
     primary_key: false
     autoIncrement: false
@@ -30,9 +29,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Branch''s town.'
+    length: '255'
   county:
     type: short_text
-    length: '255'
     column_name: county
     primary_key: false
     autoIncrement: false
@@ -40,9 +39,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Branch''s county.'
+    length: '255'
   postalcode:
     type: short_text
-    length: '255'
     column_name: postalcode
     primary_key: false
     autoIncrement: false
@@ -50,9 +49,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Branch''s postalcode.'
+    length: '255'
   country:
     type: table_reference
-    reference_table: countries
     column_name: country
     primary_key: false
     autoIncrement: false
@@ -60,6 +59,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Branch''s Country'
+    reference_table: countries
   opening_hours:
     type: long_text
     column_name: opening_hours
@@ -71,7 +71,6 @@ fields:
     comment: 'Opening hours of branch.'
   weight:
     type: integer
-    length: null
     column_name: weight
     primary_key: false
     autoIncrement: false
@@ -79,9 +78,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Order weight.'
+    length: null
   email:
     type: short_text
-    length: '255'
     column_name: email
     primary_key: false
     autoIncrement: false
@@ -89,9 +88,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Branch''s mail.'
+    length: '255'
   phone:
     type: short_text
-    length: '255'
     column_name: phone
     primary_key: false
     autoIncrement: false
@@ -99,3 +98,4 @@ fields:
     isUnique: false
     default: null
     comment: 'Branch''s phone.'
+    length: '255'

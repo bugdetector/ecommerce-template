@@ -3,7 +3,6 @@ table_comment: 'Contains site blogs available.'
 fields:
   cover_image:
     type: file
-    reference_table: files
     column_name: cover_image
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Blog''s cover image.'
+    reference_table: files
   url_alias:
     type: short_text
-    length: '255'
     column_name: url_alias
     primary_key: false
     autoIncrement: false
@@ -21,9 +20,9 @@ fields:
     isUnique: true
     default: null
     comment: 'Url alias of this blog entry.'
+    length: '255'
   title:
     type: short_text
-    length: '500'
     column_name: title
     primary_key: false
     autoIncrement: false
@@ -31,6 +30,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Blog title.'
+    length: '500'
   content:
     type: long_text
     column_name: content

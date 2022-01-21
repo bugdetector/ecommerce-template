@@ -3,7 +3,6 @@ table_comment: 'Contains stock in branches. Merge table between branches and pro
 fields:
   branch:
     type: table_reference
-    reference_table: branches
     column_name: branch
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Branch reference.'
+    reference_table: branches
   product:
     type: table_reference
-    reference_table: products
     column_name: product
     primary_key: false
     autoIncrement: false
@@ -21,9 +20,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Product reference.'
+    reference_table: products
   quantity:
     type: integer
-    length: null
     column_name: quantity
     primary_key: false
     autoIncrement: false
@@ -31,3 +30,4 @@ fields:
     isUnique: false
     default: null
     comment: 'Available quantity in stock.'
+    length: null

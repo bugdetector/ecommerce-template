@@ -3,7 +3,6 @@ table_comment: 'Customers.csv file imported values.'
 fields:
   company_name:
     type: short_text
-    length: '255'
     column_name: company_name
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '255'
   name:
     type: short_text
-    length: '255'
     column_name: name
     primary_key: false
     autoIncrement: false
@@ -21,9 +20,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '255'
   email:
     type: short_text
-    length: '255'
     column_name: email
     primary_key: false
     autoIncrement: false
@@ -31,9 +30,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '255'
   account_number:
     type: short_text
-    length: '255'
     column_name: account_number
     primary_key: false
     autoIncrement: false
@@ -41,6 +40,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Unique account number'
+    length: '255'
   address:
     type: text
     column_name: address
@@ -52,7 +52,6 @@ fields:
     comment: Address
   town:
     type: short_text
-    length: '255'
     column_name: town
     primary_key: false
     autoIncrement: false
@@ -60,9 +59,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '255'
   county:
     type: short_text
-    length: '255'
     column_name: county
     primary_key: false
     autoIncrement: false
@@ -70,9 +69,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '255'
   postalcode:
     type: short_text
-    length: '255'
     column_name: postalcode
     primary_key: false
     autoIncrement: false
@@ -80,9 +79,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '255'
   phone:
     type: short_text
-    length: '255'
     column_name: phone
     primary_key: false
     autoIncrement: false
@@ -90,9 +89,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '255'
   mobile:
     type: short_text
-    length: '255'
     column_name: mobile
     primary_key: false
     autoIncrement: false
@@ -100,3 +99,4 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '255'

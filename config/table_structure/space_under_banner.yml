@@ -3,7 +3,6 @@ table_comment: 'Contains data about space under banner on mainpage.'
 fields:
   title:
     type: short_text
-    length: '255'
     column_name: title
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Title of record'
+    length: '255'
   image:
     type: file
-    reference_table: files
     column_name: image
     primary_key: false
     autoIncrement: false
@@ -21,9 +20,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Image (required)'
+    reference_table: files
   text:
     type: short_text
-    length: '255'
     column_name: text
     primary_key: false
     autoIncrement: false
@@ -31,9 +30,9 @@ fields:
     isUnique: false
     default: null
     comment: 'HTML text'
+    length: '255'
   url:
     type: short_text
-    length: '255'
     column_name: url
     primary_key: false
     autoIncrement: false
@@ -41,9 +40,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Url to redirect when click.'
+    length: '255'
   attachment:
     type: file
-    reference_table: files
     column_name: attachment
     primary_key: false
     autoIncrement: false
@@ -51,9 +50,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Attachment file (optional)'
+    reference_table: files
   weight:
     type: integer
-    length: null
     column_name: weight
     primary_key: false
     autoIncrement: false
@@ -61,6 +60,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Order weight.'
+    length: null
   is_hidden:
     type: checkbox
     column_name: is_hidden

@@ -3,7 +3,6 @@ table_comment: 'Contains site Users fundemantal data. Connected with User class.
 fields:
   username:
     type: short_text
-    length: '50'
     column_name: username
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: true
     default: null
     comment: Username
+    length: '50'
   name:
     type: short_text
-    length: '50'
     column_name: name
     primary_key: false
     autoIncrement: false
@@ -21,9 +20,9 @@ fields:
     isUnique: false
     default: null
     comment: Name
+    length: '50'
   surname:
     type: short_text
-    length: '50'
     column_name: surname
     primary_key: false
     autoIncrement: false
@@ -31,9 +30,9 @@ fields:
     isUnique: false
     default: null
     comment: Surname
+    length: '50'
   profile_photo:
     type: file
-    reference_table: files
     column_name: profile_photo
     primary_key: false
     autoIncrement: false
@@ -41,9 +40,9 @@ fields:
     isUnique: false
     default: null
     comment: 'User profile photo.'
+    reference_table: files
   email:
     type: short_text
-    length: '255'
     column_name: email
     primary_key: false
     autoIncrement: false
@@ -51,9 +50,9 @@ fields:
     isUnique: true
     default: null
     comment: Email
+    length: '255'
   phone:
     type: short_text
-    length: '20'
     column_name: phone
     primary_key: false
     autoIncrement: false
@@ -61,9 +60,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '20'
   password:
     type: short_text
-    length: '255'
     column_name: password
     primary_key: false
     autoIncrement: false
@@ -71,12 +70,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Hashed user password'
+    length: '255'
   status:
     type: enumarated_list
-    values:
-      active: active
-      blocked: blocked
-      banned: banned
     column_name: status
     primary_key: false
     autoIncrement: false
@@ -84,6 +80,10 @@ fields:
     isUnique: false
     default: null
     comment: "Active is user can login and use the site.\r\nBlocked is user has been blocked due to too many untrested actions. Need reset password.\r\nBanned is user is not able to login to site."
+    values:
+      active: active
+      blocked: blocked
+      banned: banned
   last_access:
     type: datetime
     column_name: last_access
@@ -102,9 +102,17 @@ fields:
     isUnique: false
     default: null
     comment: 'Is email verified.'
+  active:
+    type: checkbox
+    column_name: active
+    primary_key: false
+    autoIncrement: false
+    isNull: true
+    isUnique: false
+    default: null
+    comment: 'User is active or blocked.'
   email_verification_key:
     type: short_text
-    length: '255'
     column_name: email_verification_key
     primary_key: false
     autoIncrement: false
@@ -112,11 +120,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '255'
   product_card_list_option:
     type: enumarated_list
-    values:
-      card: card
-      list: list
     column_name: product_card_list_option
     primary_key: false
     autoIncrement: false
@@ -124,11 +130,11 @@ fields:
     isUnique: false
     default: null
     comment: 'Option for listing products as card or list.'
-  favorite_card_list_option:
-    type: enumarated_list
     values:
       card: card
       list: list
+  favorite_card_list_option:
+    type: enumarated_list
     column_name: favorite_card_list_option
     primary_key: false
     autoIncrement: false
@@ -136,11 +142,11 @@ fields:
     isUnique: false
     default: null
     comment: 'Option for listing favorites as card or list.'
-  bespoke_card_list_option:
-    type: enumarated_list
     values:
       card: card
       list: list
+  bespoke_card_list_option:
+    type: enumarated_list
     column_name: bespoke_card_list_option
     primary_key: false
     autoIncrement: false
@@ -148,11 +154,11 @@ fields:
     isUnique: false
     default: null
     comment: 'Option for listing bespokes as card or list.'
+    values:
+      card: card
+      list: list
   shipping_option:
     type: enumarated_list
-    values:
-      collection: collection
-      delivery: delivery
     column_name: shipping_option
     primary_key: false
     autoIncrement: false
@@ -160,9 +166,11 @@ fields:
     isUnique: false
     default: null
     comment: 'User''s selected shipping option.'
+    values:
+      collection: collection
+      delivery: delivery
   shipping_branch:
     type: table_reference
-    reference_table: branches
     column_name: shipping_branch
     primary_key: false
     autoIncrement: false
@@ -170,6 +178,7 @@ fields:
     isUnique: false
     default: null
     comment: 'If user selected shipping option as collection, must select shipping branch as well.'
+    reference_table: branches
   delivery_date:
     type: datetime
     column_name: delivery_date
@@ -181,7 +190,6 @@ fields:
     comment: 'Delivery date.'
   shipping_address:
     type: table_reference
-    reference_table: user_address
     column_name: shipping_address
     primary_key: false
     autoIncrement: false
@@ -189,6 +197,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Shipping address reference.'
+    reference_table: user_address
   pay_optional_at_checkout:
     type: checkbox
     column_name: pay_optional_at_checkout
@@ -200,7 +209,6 @@ fields:
     comment: 'Option to pay or not pay at checkout. When ticked customer gets the option to pay or not to pay at checkout. When unticked customer has to pay at checkout.'
   special_price_available:
     type: integer
-    length: null
     column_name: special_price_available
     primary_key: false
     autoIncrement: false
@@ -208,9 +216,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Special price available above this number.'
+    length: null
   opening_hours:
     type: short_text
-    length: '255'
     column_name: opening_hours
     primary_key: false
     autoIncrement: false
@@ -218,6 +226,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Company opening hours.'
+    length: '255'
   comment:
     type: text
     column_name: comment
@@ -229,7 +238,6 @@ fields:
     comment: 'User comment'
   comment_last_modified_by:
     type: table_reference
-    reference_table: users
     column_name: comment_last_modified_by
     primary_key: false
     autoIncrement: false
@@ -237,6 +245,7 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    reference_table: users
   comment_last_modified_date:
     type: datetime
     column_name: comment_last_modified_date

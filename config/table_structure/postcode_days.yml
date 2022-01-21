@@ -3,7 +3,6 @@ table_comment: 'Merge table between postcode and days table. Postcode''s availab
 fields:
   postcode:
     type: table_reference
-    reference_table: postcode
     column_name: postcode
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Postcode reference.'
+    reference_table: postcode
   day:
     type: table_reference
-    reference_table: days
     column_name: day
     primary_key: false
     autoIncrement: false
@@ -21,3 +20,4 @@ fields:
     isUnique: false
     default: null
     comment: 'Day reference.'
+    reference_table: days

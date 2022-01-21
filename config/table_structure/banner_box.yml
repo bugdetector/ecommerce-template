@@ -12,10 +12,6 @@ fields:
     comment: 'If checked this record shown on banner, If not checked not shown.'
   position:
     type: enumarated_list
-    values:
-      left: left
-      right: right
-      center: center
     column_name: position
     primary_key: false
     autoIncrement: false
@@ -23,9 +19,12 @@ fields:
     isUnique: false
     default: null
     comment: 'Position of card.'
+    values:
+      left: left
+      right: right
+      center: center
   banner:
     type: table_reference
-    reference_table: banner
     column_name: banner
     primary_key: false
     autoIncrement: false
@@ -33,9 +32,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    reference_table: banner
   title:
     type: short_text
-    length: '255'
     column_name: title
     primary_key: false
     autoIncrement: false
@@ -43,6 +42,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Title of record'
+    length: '255'
   text:
     type: long_text
     column_name: text
@@ -54,7 +54,6 @@ fields:
     comment: 'HTML text'
   line_color:
     type: short_text
-    length: '255'
     column_name: line_color
     primary_key: false
     autoIncrement: false
@@ -62,9 +61,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Line color of this box.'
+    length: '255'
   url:
     type: short_text
-    length: '255'
     column_name: url
     primary_key: false
     autoIncrement: false
@@ -72,9 +71,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Url to redirect when click.'
+    length: '255'
   button_text:
     type: short_text
-    length: '255'
     column_name: button_text
     primary_key: false
     autoIncrement: false
@@ -82,9 +81,9 @@ fields:
     isUnique: false
     default: null
     comment: 'If empty "Find out more" will be applied.'
+    length: '255'
   background_color:
     type: short_text
-    length: '255'
     column_name: background_color
     primary_key: false
     autoIncrement: false
@@ -92,9 +91,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Card background color.'
+    length: '255'
   button_color:
     type: short_text
-    length: '255'
     column_name: button_color
     primary_key: false
     autoIncrement: false
@@ -102,3 +101,4 @@ fields:
     isUnique: false
     default: null
     comment: 'Button color.'
+    length: '255'

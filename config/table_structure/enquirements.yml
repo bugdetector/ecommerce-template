@@ -3,7 +3,6 @@ table_comment: 'Special products enquiry list.'
 fields:
   product:
     type: table_reference
-    reference_table: products
     column_name: product
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Enquired product.'
+    reference_table: products
   user:
     type: table_reference
-    reference_table: users
     column_name: user
     primary_key: false
     autoIncrement: false
@@ -21,9 +20,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Enquired user.'
+    reference_table: users
   quantity:
     type: integer
-    length: null
     column_name: quantity
     primary_key: false
     autoIncrement: false
@@ -31,6 +30,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Enquired quantity.'
+    length: null
   description:
     type: long_text
     column_name: description
@@ -42,9 +42,6 @@ fields:
     comment: 'Customer enquire description.'
   status:
     type: enumarated_list
-    values:
-      open: open
-      closed: closed
     column_name: status
     primary_key: false
     autoIncrement: false
@@ -52,3 +49,6 @@ fields:
     isUnique: false
     default: null
     comment: 'Enquiry status.'
+    values:
+      open: open
+      closed: closed

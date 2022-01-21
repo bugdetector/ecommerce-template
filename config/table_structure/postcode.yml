@@ -3,7 +3,6 @@ table_comment: ' Contains delivery days, minimum delivery, delivery charge price
 fields:
   postcode:
     type: short_text
-    length: '255'
     column_name: postcode
     primary_key: false
     autoIncrement: false
@@ -11,6 +10,7 @@ fields:
     isUnique: true
     default: null
     comment: 'Postcode value.'
+    length: '255'
   minimum_order_price:
     type: float
     column_name: minimum_order_price

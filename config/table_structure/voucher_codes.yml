@@ -3,7 +3,6 @@ table_comment: 'Contains available voucher codes.'
 fields:
   title:
     type: short_text
-    length: '255'
     column_name: title
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Title of code. (Using for administration.)'
+    length: '255'
   stockcode:
     type: short_text
-    length: '255'
     column_name: stockcode
     primary_key: false
     autoIncrement: false
@@ -21,9 +20,9 @@ fields:
     isUnique: true
     default: null
     comment: 'Stockcode used for billing integration.'
+    length: '255'
   code:
     type: short_text
-    length: '255'
     column_name: code
     primary_key: false
     autoIncrement: false
@@ -31,11 +30,9 @@ fields:
     isUnique: true
     default: null
     comment: 'Code that must be entered by user on checkout.'
+    length: '255'
   type:
     type: enumarated_list
-    values:
-      percentage: percentage
-      exact_discount: exact_discount
     column_name: type
     primary_key: false
     autoIncrement: false
@@ -43,6 +40,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Type of voucher codes.'
+    values:
+      percentage: percentage
+      exact_discount: exact_discount
   discount_percentage:
     type: float
     column_name: discount_percentage

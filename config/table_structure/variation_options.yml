@@ -3,7 +3,6 @@ table_comment: 'Available variation options.'
 fields:
   title:
     type: short_text
-    length: '255'
     column_name: title
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Variation name shown on selectbox.'
+    length: '255'
   weight:
     type: integer
-    length: null
     column_name: weight
     primary_key: false
     autoIncrement: false
@@ -21,3 +20,4 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: null

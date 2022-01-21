@@ -3,7 +3,6 @@ table_comment: 'User payment methods.'
 fields:
   user:
     type: table_reference
-    reference_table: users
     column_name: user
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'User reference.'
+    reference_table: users
   card_number:
     type: short_text
-    length: '255'
     column_name: card_number
     primary_key: false
     autoIncrement: false
@@ -21,9 +20,9 @@ fields:
     isUnique: true
     default: null
     comment: 'Card number.'
+    length: '255'
   card_holder:
     type: short_text
-    length: '255'
     column_name: card_holder
     primary_key: false
     autoIncrement: false
@@ -31,6 +30,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Card holder name.'
+    length: '255'
   card_expire:
     type: date
     column_name: card_expire
@@ -42,7 +42,6 @@ fields:
     comment: 'Card expiry date.'
   card_cvv:
     type: short_text
-    length: '255'
     column_name: card_cvv
     primary_key: false
     autoIncrement: false
@@ -50,6 +49,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Card cvv.'
+    length: '255'
   verified:
     type: checkbox
     column_name: verified

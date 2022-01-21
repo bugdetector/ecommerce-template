@@ -3,7 +3,6 @@ table_comment: 'Stores data about user''s basket.'
 fields:
   order_id:
     type: integer
-    length: null
     column_name: order_id
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Order Id'
+    length: null
   user:
     type: table_reference
-    reference_table: users
     column_name: user
     primary_key: false
     autoIncrement: false
@@ -21,9 +20,9 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    reference_table: users
   item_count:
     type: integer
-    length: null
     column_name: item_count
     primary_key: false
     autoIncrement: false
@@ -31,6 +30,7 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: null
   subtotal:
     type: float
     column_name: subtotal
@@ -87,7 +87,6 @@ fields:
     comment: ''
   ref:
     type: short_text
-    length: '255'
     column_name: ref
     primary_key: false
     autoIncrement: false
@@ -95,6 +94,7 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '255'
   order_notes:
     type: text
     column_name: order_notes
@@ -115,7 +115,6 @@ fields:
     comment: ''
   transaction_id:
     type: short_text
-    length: '500'
     column_name: transaction_id
     primary_key: false
     autoIncrement: false
@@ -123,6 +122,7 @@ fields:
     isUnique: false
     default: null
     comment: ''
+    length: '500'
   paid_amount:
     type: float
     column_name: paid_amount
@@ -143,9 +143,6 @@ fields:
     comment: 'Is private products excluded when checkout.'
   type:
     type: enumarated_list
-    values:
-      delivery: delivery
-      collection: collection
     column_name: type
     primary_key: false
     autoIncrement: false
@@ -153,9 +150,11 @@ fields:
     isUnique: false
     default: null
     comment: 'Ordered as delivery or collection.'
+    values:
+      delivery: delivery
+      collection: collection
   branch:
     type: table_reference
-    reference_table: branches
     column_name: branch
     primary_key: false
     autoIncrement: false
@@ -163,6 +162,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Collection branch.'
+    reference_table: branches
   is_checked_out:
     type: checkbox
     column_name: is_checked_out
@@ -219,7 +219,6 @@ fields:
     comment: 'When order is canceled.'
   applied_voucher_code:
     type: table_reference
-    reference_table: voucher_codes
     column_name: applied_voucher_code
     primary_key: false
     autoIncrement: false
@@ -227,6 +226,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Applied voucher code reference if exists.'
+    reference_table: voucher_codes
   voucher_code_discount:
     type: float
     column_name: voucher_code_discount
@@ -238,7 +238,6 @@ fields:
     comment: 'Applied voucher code total discount.'
   dealer:
     type: table_reference
-    reference_table: users
     column_name: dealer
     primary_key: false
     autoIncrement: false
@@ -246,14 +245,9 @@ fields:
     isUnique: false
     default: null
     comment: 'User referance'
+    reference_table: users
   status:
     type: enumarated_list
-    values:
-      not_ordered: not_ordered
-      waiting_approval: waiting_approval
-      approved: approved
-      on_delivery: on_delivery
-      delivered: delivered
     column_name: status
     primary_key: false
     autoIncrement: false
@@ -261,3 +255,9 @@ fields:
     isUnique: false
     default: null
     comment: 'order status.'
+    values:
+      not_ordered: not_ordered
+      waiting_approval: waiting_approval
+      approved: approved
+      on_delivery: on_delivery
+      delivered: delivered

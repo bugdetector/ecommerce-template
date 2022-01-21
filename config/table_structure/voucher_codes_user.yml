@@ -3,7 +3,6 @@ table_comment: 'Marge table voucher code and user.'
 fields:
   user:
     type: table_reference
-    reference_table: users
     column_name: user
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'User reference.'
+    reference_table: users
   voucher_code:
     type: table_reference
-    reference_table: voucher_codes
     column_name: voucher_code
     primary_key: false
     autoIncrement: false
@@ -21,3 +20,4 @@ fields:
     isUnique: false
     default: null
     comment: 'Voucher code reference.'
+    reference_table: voucher_codes

@@ -3,7 +3,6 @@ table_comment: 'Stores product in basket.'
 fields:
   basket:
     type: table_reference
-    reference_table: basket
     column_name: basket
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Basket reference.'
+    reference_table: basket
   product:
     type: table_reference
-    reference_table: products
     column_name: product
     primary_key: false
     autoIncrement: false
@@ -21,6 +20,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Reference to product.'
+    reference_table: products
   item_vat:
     type: float
     column_name: item_vat
@@ -32,7 +32,6 @@ fields:
     comment: 'VAT price of product.'
   quantity:
     type: integer
-    length: null
     column_name: quantity
     primary_key: false
     autoIncrement: false
@@ -40,6 +39,7 @@ fields:
     isUnique: false
     default: null
     comment: 'How many items ordered.'
+    length: null
   item_per_price:
     type: float
     column_name: item_per_price
@@ -60,7 +60,6 @@ fields:
     comment: 'Total price.'
   variant:
     type: table_reference
-    reference_table: variation_options
     column_name: variant
     primary_key: false
     autoIncrement: false
@@ -68,3 +67,4 @@ fields:
     isUnique: false
     default: null
     comment: 'Selected product variant.'
+    reference_table: variation_options

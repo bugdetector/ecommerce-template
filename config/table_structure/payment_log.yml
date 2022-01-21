@@ -3,7 +3,6 @@ table_comment: 'Payment responses log.'
 fields:
   order:
     type: table_reference
-    reference_table: basket
     column_name: order
     primary_key: false
     autoIncrement: false
@@ -11,6 +10,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Order reference.'
+    reference_table: basket
   amount:
     type: float
     column_name: amount
@@ -22,7 +22,6 @@ fields:
     comment: 'Paid amount'
   transaction_ref:
     type: short_text
-    length: '255'
     column_name: transaction_ref
     primary_key: false
     autoIncrement: false
@@ -30,6 +29,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Transaction reference.'
+    length: '255'
   is_success:
     type: checkbox
     column_name: is_success

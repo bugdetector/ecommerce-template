@@ -3,7 +3,6 @@ table_comment: 'Contains extra information about product.'
 fields:
   product:
     type: table_reference
-    reference_table: products
     column_name: product
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Product reference.'
+    reference_table: products
   title:
     type: short_text
-    length: '255'
     column_name: title
     primary_key: false
     autoIncrement: false
@@ -21,6 +20,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Info title'
+    length: '255'
   description:
     type: long_text
     column_name: description

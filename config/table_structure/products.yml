@@ -3,7 +3,6 @@ table_comment: 'Caontains all products.'
 fields:
   stockcode:
     type: short_text
-    length: '255'
     column_name: stockcode
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: true
     default: null
     comment: 'User input stockcode.'
+    length: '255'
   title:
     type: short_text
-    length: '255'
     column_name: title
     primary_key: false
     autoIncrement: false
@@ -21,9 +20,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Title of product.'
+    length: '255'
   category:
     type: table_reference
-    reference_table: product_categories
     column_name: category
     primary_key: false
     autoIncrement: false
@@ -31,6 +30,7 @@ fields:
     isUnique: false
     default: null
     comment: 'Product category.'
+    reference_table: product_categories
   is_variable:
     type: checkbox
     column_name: is_variable
@@ -96,7 +96,6 @@ fields:
     comment: 'Is this product is private and has one or many owner.'
   minimum_order_count:
     type: integer
-    length: null
     column_name: minimum_order_count
     primary_key: false
     autoIncrement: false
@@ -104,9 +103,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Minimum order count that this item can be checkout.'
+    length: null
   maximum_order_count:
     type: integer
-    length: null
     column_name: maximum_order_count
     primary_key: false
     autoIncrement: false
@@ -114,9 +113,9 @@ fields:
     isUnique: false
     default: null
     comment: 'Maximum order that this item can be ordered in a day.'
+    length: null
   url_alias:
     type: short_text
-    length: '500'
     column_name: url_alias
     primary_key: false
     autoIncrement: false
@@ -124,6 +123,7 @@ fields:
     isUnique: true
     default: null
     comment: ''
+    length: '500'
   exclude_stock:
     type: checkbox
     column_name: exclude_stock
@@ -135,7 +135,6 @@ fields:
     comment: 'If checked this product stock quantity is not important for next day collection.'
   weight:
     type: integer
-    length: null
     column_name: weight
     primary_key: false
     autoIncrement: false
@@ -143,6 +142,7 @@ fields:
     isUnique: false
     default: null
     comment: "Weight used ordering.\r\n(Old system: sprice9 column)"
+    length: null
   sprice_valid_from:
     type: date
     column_name: sprice_valid_from

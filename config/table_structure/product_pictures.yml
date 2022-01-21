@@ -3,7 +3,6 @@ table_comment: 'marge table between product and file '
 fields:
   product:
     type: table_reference
-    reference_table: products
     column_name: product
     primary_key: false
     autoIncrement: false
@@ -11,9 +10,9 @@ fields:
     isUnique: false
     default: null
     comment: 'product info'
+    reference_table: products
   image:
     type: file
-    reference_table: files
     column_name: image
     primary_key: false
     autoIncrement: false
@@ -21,3 +20,4 @@ fields:
     isUnique: false
     default: null
     comment: 'product image'
+    reference_table: files
