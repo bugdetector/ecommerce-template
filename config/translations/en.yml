@@ -601,3 +601,10 @@ not_ordered: 'Not ordered'
 select_delivery_address: 'Select delivery address'
 status_change_message: 'Are you sure want to change status to %s?'
 status_changed: 'Order #%s, status changed to: %s'
+sessions: Sessions
+current_session: 'Current session'
+session_logout_success: 'Session has been ended successfully. '
+user_sessions_notify: 'You have %d other sessions. You can manage your sessions on <a href="%s">Profile</a> page.'
+blocked: Blocked
+banned: Banned
+account_banned: 'This account has been banned. You are not able to login with this account.'

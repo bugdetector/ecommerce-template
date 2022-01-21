@@ -179,7 +179,14 @@ class CoreDB
             if (isset($_SESSION[BASE_URL . "-UID"])) {
                 $session = Session::get(["session_key" => session_id()]);
                 if($session){
-                    self::$currentUser = $userClass::get($_SESSION[BASE_URL . "-UID"]);
+                    self::$currentUser = $userClass::get([
+                        "ID" => $_SESSION[BASE_URL . "-UID"],
+                        "status" => User::STATUS_ACTIVE
+                    ]);
+                    $session->map([
+                        "last_access" => \CoreDB::currentDate()
+                    ]);
+                    $session->save();
                 }
             } elseif (isset($_COOKIE["session-token"])) {
                 $jwt = JWT::createFromString($_COOKIE["session-token"]);
@@ -189,7 +196,10 @@ class CoreDB
                     "remember_me_token" => $_COOKIE["session-token"]
                 ]);
                 if($session){
-                    self::$currentUser = $userClass::get($session->user->getValue());
+                    self::$currentUser = $userClass::get([
+                        "ID" => $session->user->getValue(),
+                        "status" => User::STATUS_ACTIVE
+                    ]);
                     $session->session_key->setValue(session_id());
                     $session->save();
                     $_SESSION[BASE_URL . "-UID"] = self::$currentUser->ID;
@@ -206,7 +216,6 @@ class CoreDB
     }
 
     public static function userLogin(User $user, bool $rememberMe = false){
-        Session::checkLoginPolicy($user);
         $user->last_access->setValue(\CoreDB::currentDate());
         $user->save();
         $_SESSION[BASE_URL . "-UID"] = $user->ID;
@@ -216,7 +225,7 @@ class CoreDB
             "ip_address" => User::getUserIp(),
             "user" => $user->ID->getValue()
         ]);
-        if (isset($_POST["remember-me"]) && $_POST["remember-me"]) {
+        if ($rememberMe) {
             $jwt = new JWT();
             $payload = new stdClass();
             $payload->ID = $user->ID->getValue();
@@ -225,10 +234,12 @@ class CoreDB
             $session->map([
                 "remember_me_token" => $token
             ]);
+            $rememberMeTimeout = defined("REMEMBER_ME_TIMEOUT") ?
+            REMEMBER_ME_TIMEOUT : "+" . User::DEFAULT_REMEMBER_ME_TIMEOUT;
             setcookie(
                 "session-token",
                 $token,
-                strtotime("+1 week"),
+                strtotime($rememberMeTimeout),
                 SITE_ROOT ?: "/",
                 \CoreDB::baseHost(),
                 $_SERVER['SERVER_PORT'] == 443
