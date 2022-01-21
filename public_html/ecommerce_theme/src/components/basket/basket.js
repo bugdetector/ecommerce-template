@@ -76,7 +76,7 @@ $(function ($) {
             message: _t("empty_basket_confirm"),
             callback: function () {
                 $.ajax({
-                    url: root + "/ajax/cleanBasket",
+                    url: root + "/api/cleanBasket",
                     success: function () {
                         setTimeout(function () {
                             location.reload();
@@ -129,7 +129,7 @@ $(function ($) {
             data.place = place;
         }
         $.ajax({
-            url: `${root}/ajax/addItemToBasket`,
+            url: `${root}/api/addItemToBasket`,
             method: "post",
             dataType: "json",
             data: data,

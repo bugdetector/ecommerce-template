@@ -9,6 +9,7 @@ use CoreDB;
 use CoreDB\Kernel\Messenger;
 use Src\Entity\Cache;
 use Src\Entity\Translation;
+use Src\Entity\Variable;
 use Src\Theme\ResultsViewer;
 use Src\Views\TextElement;
 
@@ -16,6 +17,7 @@ class ProductTeaserCard extends ResultsViewer
 {
     public $listOptionField = "product_card_list_option";
     public bool $logged_in;
+    public bool $non_login_order;
     public function __construct()
     {
         $this->addClass("row");
@@ -26,6 +28,7 @@ class ProductTeaserCard extends ResultsViewer
         $controller->addCssFiles("dist/swiper/swiper.css");
         $this->listOption = \CoreDB::currentUser()->{$this->listOptionField}->getValue();
         $this->logged_in = \CoreDB::currentUser()->isLoggedIn();
+        $this->non_login_order = Variable::getByKey("non_login_order")->value->getValue() == 1;
         if (!$this->logged_in) {
             \CoreDB::controller()->addFrontendTranslation("login");
         }

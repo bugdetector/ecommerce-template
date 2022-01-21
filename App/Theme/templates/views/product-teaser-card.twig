@@ -67,7 +67,7 @@
 				</div>
 				<div class="card-footer bg-gradient-info">
 					<a href="#" class="text-white text-decoration-none add-basket-control {{ not view.logged_in ? " nonlogin-add-to-basket" }}">
-						{% if view.logged_in %}
+						{% if view.logged_in or view.non_login_order %}
 							<input type="number" value="{{ row.quantity ?: 1 }}" class="quantity d-none" data-item="{{ row.ID }}" min="1">
 							<a href="#" class="save-quantity no-edit text-white" data-item="{{ row.ID }}">
 								<i class="fa fa-shopping-basket"></i>

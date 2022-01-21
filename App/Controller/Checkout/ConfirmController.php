@@ -5,7 +5,9 @@ namespace App\Controller\Checkout;
 use App\Controller\CheckoutController;
 use App\Entity\Basket\Basket;
 use App\Form\SendOrderForm;
+use CoreDB;
 use Src\Entity\Translation;
+use Src\Entity\Variable;
 use Src\Form\Form;
 use Src\Views\CollapsableCard;
 use Src\Views\ViewGroup;
@@ -29,11 +31,23 @@ class ConfirmController extends CheckoutController
 
     protected function getBasket(): ?Basket
     {
-        return Basket::get([
-            "ID" => intval(@$_GET["basket"]),
-            "is_ordered" => 0,
-            "user" => \CoreDB::currentUser()->ID->getValue()
-        ]);
+        if (
+            !CoreDB::currentUser()->isLoggedIn() &&
+            Variable::getByKey("non_login_order")->value->getValue() == 1 &&
+            @$_COOKIE["basket"]
+        ) {
+            return Basket::get([
+                "ID" => intval(@$_GET["basket"]),
+                "is_ordered" => 0,
+                "basket_cookie" => @$_COOKIE["basket"]
+            ]);
+        } else {
+            return Basket::get([
+                "ID" => intval(@$_GET["basket"]),
+                "is_ordered" => 0,
+                "user" => \CoreDB::currentUser()->ID->getValue()
+            ]);
+        }
     }
 
     protected function getForm(): ?Form

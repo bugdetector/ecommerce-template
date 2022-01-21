@@ -114,3 +114,7 @@ use_postcode_list:
   key: use_postcode_list
   value: '0'
   type: checkbox
+non_login_order:
+  key: non_login_order
+  value: '0'
+  type: checkbox

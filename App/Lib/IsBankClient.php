@@ -10,6 +10,7 @@ use App\Entity\Basket\OrderAddress;
 use App\Entity\Log\PaymentLog;
 use App\Entity\PaymentMethod;
 use CoreDB\Kernel\Messenger;
+use Exception;
 use Omnipay\Common\Message\ResponseInterface;
 use Omnipay\NestPay\Gateway;
 use Omnipay\Nestpay\Message\CompletePaymentResponse;
@@ -62,7 +63,7 @@ class IsBankClient
                 "ID" => @$form->request["saved_card"]
             ]);
             if (!$paymentMethod) {
-                throw new \Exception(
+                throw new Exception(
                     Translation::getTranslation("please_select_a_card")
                 );
             }

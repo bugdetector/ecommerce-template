@@ -8,6 +8,7 @@ use App\Entity\Basket\Basket;
 use App\Entity\Basket\VoucherCode;
 use App\Exception\BasketException;
 use App\Views\BasketInfo;
+use CoreDB;
 use CoreDB\Kernel\Database\QueryCondition;
 use CoreDB\Kernel\Messenger;
 use Src\Entity\Translation;
@@ -42,6 +43,20 @@ class CheckoutForm extends Form
                 Translation::getTranslation("checkout") . " <i class='fa fa-check'></i>"
             )->setIsRaw(true)
         );
+        if (
+            Variable::getByKey("non_login_order")->value->getValue() &&
+            !CoreDB::currentUser()->isLoggedIn()
+        ) {
+            if (Variable::getByKey("collection_order_enabled")->value->getValue()) {
+                $this->addField(
+                    $this->basket->type->getWidget()
+                    ->setName("type")
+                );
+            }
+            $this->addField(
+                $this->basket->order_address->getWidget()
+            );
+        }
         $this->addField(
             InputWidget::create("ref")
             ->setLabel(
@@ -134,6 +149,16 @@ class CheckoutForm extends Form
             "order_notes" => $this->request["order_notes"],
             "delivery_date" => @$this->request["delivery_date"]
         ];
+        if (
+            Variable::getByKey("non_login_order")->value->getValue() &&
+            !CoreDB::currentUser()->isLoggedIn()
+        ) {
+            if (Variable::getByKey("collection_order_enabled")->value->getValue()) {
+                $basketEdit["type"] = $this->request["type"];
+            }
+            $basketEdit["order_address"] = $this->request["orders"]["order_address"];
+            $basketEdit["billing_address"] = $this->request["orders"]["order_address"];
+        }
         if ($this->code) {
             \CoreDB::messenger()->createMessage(
                 Translation::getTranslation("voucher_code_applied", [

@@ -7,7 +7,10 @@ use CoreDB\Kernel\Database\DataType\Text;
 use CoreDB\Kernel\Database\DataType\ShortText;
 use CoreDB\Kernel\Database\DataType\TableReference;
 use Src\Entity\DynamicModel;
+use Src\Entity\Translation;
 use Src\Entity\Variable;
+use Src\Form\Widget\SelectWidget;
+use Src\Theme\View;
 
 /**
  * Object relation with table order_address
@@ -86,5 +89,23 @@ class OrderAddress extends Model
             "code" => Variable::getByKey("default_country_code")->value->getValue()
         ], "countries")->name;
         return implode(", ", $data);
+    }
+
+    protected function getFieldWidget(string $field_name, bool $translateLabel): ?View
+    {
+        if ($field_name == "account_number") {
+            return null;
+        } if ($field_name == "country") {
+            return SelectWidget::create($field_name)
+            ->setOptions(
+                \CoreDB::database()->select("countries", "c")
+                ->select("c", ["ID", "name"])
+                ->execute()->fetchAll(\PDO::FETCH_KEY_PAIR)
+            )->setLabel(
+                Translation::getTranslation("country")
+            )->setValue($this->country->getValue());
+        } else {
+            return parent::getFieldWidget($field_name, $translateLabel);
+        }
     }
 }

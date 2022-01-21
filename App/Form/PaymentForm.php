@@ -79,13 +79,15 @@ class PaymentForm extends Form
             ->addClass("btn btn-outline-primary align-self-end")
         );
 
-        $this->addField(
-            InputWidget::create("save_my_card")
-            ->setLabel(
-                Translation::getTranslation("save_my_card")
-            )->setType("checkbox")
-            ->removeClass("form-control")
-        );
+        if (\CoreDB::currentUser()->isLoggedIn()) {
+            $this->addField(
+                InputWidget::create("save_my_card")
+                ->setLabel(
+                    Translation::getTranslation("save_my_card")
+                )->setType("checkbox")
+                ->removeClass("form-control")
+            );
+        }
     }
 
     public function getFormId(): string
@@ -103,7 +105,7 @@ class PaymentForm extends Form
         try {
             $response = $this->isBankClient->makePayment($this);
             if ($response->isRedirect()) {
-                if ($this->request["save_my_card"]) {
+                if (@$this->request["save_my_card"]) {
                     $paymentMethod = new PaymentMethod();
                     $paymentMethod->map($this->request);
                     $paymentMethod->user->setValue(

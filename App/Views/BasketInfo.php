@@ -21,6 +21,7 @@ class BasketInfo extends ViewGroup
         $usePostcodeList = Variable::getByKey("use_postcode_list")->value->getValue();
         switch ($this->basket->type->getValue()) {
             case Basket::TYPE_DELIVERY:
+            case null:
                 /** @var OrderAddress */
                 $address = OrderAddress::get([
                     "order" => $this->basket->ID->getValue()

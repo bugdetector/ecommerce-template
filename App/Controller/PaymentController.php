@@ -9,6 +9,7 @@ use App\Views\BasketInfo;
 use CoreDB\Kernel\Router;
 use Src\Controller\AccessdeniedController;
 use Src\Entity\Translation;
+use Src\Entity\Variable;
 
 class PaymentController extends CustomTheme
 {
@@ -20,15 +21,27 @@ class PaymentController extends CustomTheme
     public function __construct(array $arguments)
     {
         parent::__construct($arguments);
-        $this->basket = Basket::get([
-            "ID" => intval(@$_GET["basket"]),
-            "user" => \CoreDB::currentUser()->ID->getValue()
-        ]);
+        if (
+            !\CoreDB::currentUser()->isLoggedIn() &&
+            Variable::getByKey("non_login_order")->value->getValue() == 1 &&
+            @$_COOKIE["basket"]
+        ) {
+            $this->basket = Basket::get([
+                "ID" => intval(@$_GET["basket"]),
+                "basket_cookie" => @$_COOKIE["basket"]
+            ]);
+        } else {
+            $this->basket = Basket::get([
+                "ID" => intval(@$_GET["basket"]),
+                "user" => \CoreDB::currentUser()->ID->getValue()
+            ]);
+        }
     }
 
     public function checkAccess(): bool
     {
-        return parent::checkAccess() &&
+        return
+        (Variable::getByKey("non_login_order")->value->getValue() == 1 || parent::checkAccess()) &&
         $this->basket && $this->basket->is_checked_out->getValue();
     }
 

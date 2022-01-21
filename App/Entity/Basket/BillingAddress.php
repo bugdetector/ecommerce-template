@@ -8,6 +8,7 @@ use CoreDB\Kernel\Database\DataType\Text;
 use CoreDB\Kernel\Database\DataType\ShortText;
 use Src\Entity\DynamicModel;
 use Src\Entity\Variable;
+use Src\Theme\View;
 
 /**
  * Object relation with table order_billing_address
@@ -84,5 +85,14 @@ class BillingAddress extends Model
             "code" => Variable::getByKey("default_country_code")->value->getValue()
         ], "countries")->name;
         return implode(", ", $data);
+    }
+
+    protected function getFieldWidget(string $field_name, bool $translateLabel): ?View
+    {
+        if ($field_name == "account_number") {
+            return null;
+        } else {
+            return parent::getFieldWidget($field_name, $translateLabel);
+        }
     }
 }

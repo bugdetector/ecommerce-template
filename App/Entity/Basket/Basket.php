@@ -214,6 +214,12 @@ class Basket extends Model
     * order status.
     */
     public EnumaratedList $status;
+    /**
+    * @var ShortText $basket_cookie
+    * Basket stores via cookie if user is not logged in.
+    */
+    public ShortText $basket_cookie;
+
     public static function getTableName(): string
     {
         return "basket";
@@ -221,12 +227,33 @@ class Basket extends Model
 
     public static function getUserBasket(): Basket
     {
-        $basket = Basket::get(["user" => \CoreDB::currentUser()->ID->getValue(), "is_ordered" => 0]);
+        /** @var CustomUser */
+        $currentUser = \CoreDB::currentUser();
+        /** @var Basket */
+        $basket = null;
+        if ($currentUser->isLoggedIn()) {
+            $basket = Basket::get(["user" => \CoreDB::currentUser()->ID->getValue(), "is_ordered" => 0]);
+        } elseif (@$_COOKIE["basket"]) {
+            $basket = Basket::get(["basket_cookie" => @$_COOKIE["basket"], "is_ordered" => 0]);
+        }
         if (!$basket) {
-            /** @var CustomUser */
-            $currentUser = \CoreDB::currentUser();
             $basket = new Basket();
-            $basket->user->setValue(\CoreDB::currentUser()->ID->getValue());
+            if ($currentUser->isLoggedIn()) {
+                $basket->user->setValue($currentUser->ID->getValue());
+            } else {
+                $basketCookie = hash("SHA256", User::getUserIp() . microtime());
+                $rememberMeTimeout = defined("REMEMBER_ME_TIMEOUT") ?
+                    REMEMBER_ME_TIMEOUT : "+" . User::DEFAULT_REMEMBER_ME_TIMEOUT;
+                setcookie(
+                    "basket",
+                    $basketCookie,
+                    strtotime($rememberMeTimeout),
+                    SITE_ROOT ?: "/",
+                    \CoreDB::baseHost(),
+                    $_SERVER['SERVER_PORT'] == 443
+                );
+                $basket->basket_cookie->setValue($basketCookie);
+            }
             $basket->total->setValue(0);
             $basket->is_ordered->setValue(0);
             if (Variable::getByKey("collection_order_enabled")->value->getValue()) {
@@ -258,9 +285,9 @@ class Basket extends Model
                     $basket->billing_address->setValue(
                         $basket->order_address->getValue()
                     );
-                    $basket->save();
                 }
             }
+            $basket->save();
         }
         return $basket;
     }
@@ -300,7 +327,7 @@ class Basket extends Model
     {
         $user = User::get($this->user->getValue());
         if (!$this->is_ordered->getValue()) {
-            if (!$user->pay_optional_at_checkout->getValue()) {
+            if ($user && !$user->pay_optional_at_checkout->getValue()) {
                 $this->paid_online->setValue(1);
             } else {
                 $this->paid_online->setValue(0);

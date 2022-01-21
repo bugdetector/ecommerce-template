@@ -17,6 +17,7 @@ use CoreDB\Kernel\Messenger;
 use CoreDB\Kernel\Router;
 use Src\Controller\NotFoundController;
 use Src\Entity\Translation;
+use Src\Entity\Variable;
 use Src\Form\Form;
 use Src\Views\AlertMessage;
 use Src\Views\CollapsableCard;
@@ -40,6 +41,12 @@ class CheckoutController extends CustomTheme
     {
         parent::__construct($arguments);
         $this->basket = $this->getBasket();
+    }
+
+    public function checkAccess(): bool
+    {
+        return Variable::getByKey("non_login_order")->value->getValue() == 1 ||
+        parent::checkAccess();
     }
 
     public function preprocessPage()

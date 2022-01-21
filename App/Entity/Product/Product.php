@@ -23,6 +23,7 @@ use CoreDB\Kernel\Database\DataType\TableReference;
 use CoreDB\Kernel\EntityReference;
 use CoreDB\Kernel\XMLSitemapEntityInterface;
 use CoreDB\Kernel\XMLSitemapUrl;
+use Exception;
 use Src\Entity\File as EntityFile;
 use Src\Entity\Translation;
 use Src\Entity\User;
@@ -311,7 +312,7 @@ class Product extends Model implements XMLSitemapEntityInterface
         ->selectWithFunction(["COUNT(*)"])
         ->execute()->fetchColumn();
         if ($productOrdered) {
-            throw new \Exception(
+            throw new Exception(
                 Translation::getTranslation("product_ordered")
             );
         }

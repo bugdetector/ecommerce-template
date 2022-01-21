@@ -142,9 +142,8 @@ class CustomTheme extends BaseTheme
                 $callItem
             );
         }
+        $this->navbar->addNavItem($this->getBasketNav());
         if ($currentUser->isLoggedIn()) {
-            $this->navbar->addNavItem($this->getBasketNav());
-
             $userDropdown->addDropdownItem(
                 NavItem::create(
                     "fa fa-user",
