@@ -11,11 +11,13 @@ use App\Views\ProductList\LatestOffers;
 use App\Views\ProductList\RecentItems;
 use App\Views\ProductList\TopSellers;
 use App\Views\SpaceUnderBanner;
-use Src\Entity\Translation;
 use Src\Entity\User;
 use Src\Entity\Variable;
+use CoreDB\Kernel\BaseController;
+use Src\Entity\Translation;
+use Src\Theme\ThemeInteface;
 
-class MainpageController extends CustomTheme
+class MainpageController extends BaseController
 {
 
     public User $user;
@@ -28,6 +30,12 @@ class MainpageController extends CustomTheme
     public ?RecentItems $recentItems;
     public MainpageBoxes $boxesUnderLatest;
     public MainpageBoxes $boxesTopSellers;
+    public $content;
+
+    public function getTheme(): ThemeInteface
+    {
+        return new CustomTheme();
+    }
 
     public function checkAccess(): bool
     {
@@ -64,17 +72,7 @@ class MainpageController extends CustomTheme
         }
         $this->boxesUnderLatest = new MainpageBoxes(MainpageBox::PLACE_UNDER_LATEST_OFFERS);
         $this->boxesTopSellers = new MainpageBoxes(MainpageBox::PLACE_UNDER_TOP_SELLERS);
-    }
-
-    protected function addDefaultJsFiles()
-    {
-        parent::addDefaultJsFiles();
         $this->addJsFiles("dist/mainpage/mainpage.js");
-    }
-
-    protected function addDefaultCssFiles()
-    {
-        parent::addDefaultCssFiles();
         $this->addCssFiles("dist/mainpage/mainpage.css");
     }
 }

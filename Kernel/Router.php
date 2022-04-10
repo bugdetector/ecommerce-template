@@ -71,18 +71,18 @@ class Router
 
             $controllerFound = false;
             if (class_exists($tempSrcControllerName)) {
-                $namespaceSrc = "{$namespaceSrc}{$page}\\";
                 $srcControllerName = $tempSrcControllerName;
                 $controllerFound = true;
                 $appControllerName = "";
             }
+            $namespaceSrc = "{$namespaceSrc}{$page}\\";
             if ($appControllerFound && class_exists($tempAppControllerName)) {
-                $namespaceApp = "{$namespaceApp}{$page}\\";
                 $appControllerName = $tempAppControllerName;
                 $controllerFound = true;
             } else {
                 $appControllerFound = false;
             }
+            $namespaceApp = "{$namespaceApp}{$page}\\";
             if ($controllerFound) {
                 array_shift($currentArguments);
             } else {
@@ -106,7 +106,13 @@ class Router
         $mainPath = explode("\\", str_replace(["Src\\Controller\\", "App\\Controller\\"], "", $controller));
         $route = "/";
         foreach ($mainPath as $path) {
-            $route .= str_replace("controller", "", mb_strtolower($path)) . "/";
+            $route .= strtolower(
+                preg_replace(
+                    '/(?<!^)[A-Z]/',
+                    '_$0',
+                    str_replace("Controller", "", $path)
+                )
+            ) . "/";
         }
         return BASE_URL . $route;
     }

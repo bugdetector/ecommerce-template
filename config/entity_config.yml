@@ -138,3 +138,19 @@ voucher_code:
       foreignKey: "voucher_code"
 voucher_codes_user:
   class: App\Entity\Basket\VoucherCodesUser
+sidebar:
+  class: Src\Entity\Sidebar
+  manyToMany:
+    roles:
+      mergeTable: "sidebar_roles"
+      selfKey: "sidebar_id"
+      foreignKey: "role_id"
+      createIfNotExist: false
+navbar:
+  class: Src\Entity\Navbar
+  manyToMany:
+    roles:
+      mergeTable: "navbar_roles"
+      selfKey: "navbar_id"
+      foreignKey: "role_id"
+      createIfNotExist: false

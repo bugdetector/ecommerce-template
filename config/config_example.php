@@ -1,5 +1,7 @@
 <?php
 
+use Src\BaseTheme\BaseTheme;
+
 define("DB_SERVER", "%db_server");
 define("DB_NAME", "%db_name");
 define("DB_USER", "%db_user");
@@ -37,7 +39,7 @@ define("LOGIN_POLICY_ROLES", []);
 /**
  * Write a time for strtotime().
  */
-define("REMEMBER_ME_TIMEOUT", "+1 week");
+define("REMEMBER_ME_TIMEOUT", "1 week");
 
 // To configure PWA feature use the section below.
 if (!IS_CLI) {
@@ -88,3 +90,4 @@ define("OMNIPAY_CURRENCY", "TRY");
  * Add followup url to use followup.
  */
 define("FOLLOWUP_URL", null);
+define("THEME", BaseTheme::class);

@@ -43,7 +43,7 @@ class SearchForm extends Form
         $this->page = $page >= 1 ? $page : 1;
         $this->pagination = new Pagination($this->page, $this->object->getPaginationLimit());
         $controller = \CoreDB::controller();
-        $controller->addJsFiles("dist/search_form/search_form.js");
+        $controller->addJsFiles("assets/js/forms/search_form.js");
         $controller->addFrontendTranslation("record_remove_accept");
         $controller->addFrontendTranslation("record_remove_accept_entity");
 
@@ -53,6 +53,7 @@ class SearchForm extends Form
          * @var FormWidget $searchWidget
          */
         foreach ($this->object->getSearchFormFields($this->translateLabels) as $field_name => $searchWidget) {
+            $searchFieldName = str_replace(".", "_", $field_name);
             $this->searchableFields[] = $field_name;
             if (in_array("daterangeinput", $searchWidget->classes)) {
                 $searchWidgetClass = "col-sm-6 col-lg-3";
@@ -62,7 +63,7 @@ class SearchForm extends Form
             $search_input_group->addField(
                 ViewGroup::create("div", $searchWidgetClass)->addField(
                     $searchWidget
-                    ->setValue(isset($this->request[$field_name]) ? $this->request[$field_name] : "")
+                    ->setValue(isset($this->request[$searchFieldName]) ? $this->request[$searchFieldName] : "")
                     ->addAttribute("autocomplete", "off")
                 )
             );

@@ -11,6 +11,8 @@ use CoreDB\Kernel\Database\SelectQueryPreparerAbstract;
 use CoreDB\Kernel\Database\TableDefinition;
 use PDO;
 use PDOException;
+use Src\Controller\Admin\Entity\InsertController;
+use Src\Controller\Admin\Table\InsertController as TableInsertController;
 use Src\Entity\DynamicModel;
 use Src\Entity\File;
 use Src\Entity\Translation;
@@ -215,6 +217,9 @@ abstract class Model implements SearchableInterface
 
     protected function update()
     {
+        $query =  CoreDB::database()
+        ->update($this->getTableName(), $this->toArray())
+        ->condition("ID", $this->ID->getValue())->getQuery();
         $result = CoreDB::database()
             ->update($this->getTableName(), $this->toArray())
             ->condition("ID", $this->ID->getValue())
@@ -457,7 +462,7 @@ abstract class Model implements SearchableInterface
                 $this->entityName
             ))->addAttribute("data-key", $removeKeyJwt->createToken());
         }
-        $row["edit_actions"] = ViewGroup::create("div", "d-flex")
+        $row["edit_actions"] = ViewGroup::create("div", "d-flex px-2")
             ->addField(
                 $deleteButton
             )->addField(
@@ -484,7 +489,11 @@ abstract class Model implements SearchableInterface
             ViewGroup::create("a", "btn btn-sm btn-primary me-1 text-white")
                 ->addField(
                     ViewGroup::create("i", "fa fa-plus")
-                )->addAttribute("href", BASE_URL . "/admin/entity/insert/{$this->entityName}")
+                )->addAttribute(
+                    "href",
+                    $this->entityName ? InsertController::getUrl() . $this->entityName :
+                    TableInsertController::getUrl() . $this->getTableName()
+                )
                 ->addField(TextElement::create(Translation::getTranslation("add")))
         ];
     }

@@ -5,3 +5,7 @@ viewable_queries: key
 countries: code
 branches: name
 days: ID
+sidebar: ID
+sidebar_roles: ID
+navbar: ID
+navbar_roles: ID
