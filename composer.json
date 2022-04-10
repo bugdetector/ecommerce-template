@@ -1,4 +1,18 @@
 {
+    "repositories": [
+        {
+            "type":"package",
+            "package": {
+              "name": "bugdetector/nestpay",
+              "version":"1.0",
+              "source": {
+                  "url": "https://github.com/bugdetector/nestpay.git",
+                  "type": "git",
+                  "reference":"master"
+                }
+            }
+        }
+    ],
     "require": {
         "twig/twig": "^3.0",
         "squizlabs/php_codesniffer": "*",
@@ -8,7 +22,7 @@
         "shuchkin/simplexlsx": "^0.8.19",
         "spipu/html2pdf": "^5.2",
         "sentry/sdk": "^3.1",
-        "mstfsnc/nestpay": "~1.0.2",
+        "bugdetector/nestpay" : "^1.0",
         "cweagans/composer-patches": "~1.0"
     },
     "autoload": {
