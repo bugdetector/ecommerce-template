@@ -9,7 +9,6 @@ use App\Entity\Product\FavoriteProducts;
 use App\Entity\Product\Product;
 use App\Entity\Product\VariationOption;
 use App\Theme\AppController;
-use App\Theme\CustomTheme;
 use CoreDB\Kernel\Router;
 use Src\Controller\AccessdeniedController;
 use Src\Controller\NotFoundController;

@@ -6,7 +6,6 @@ use App\Form\ProductSearchForm;
 use App\Queries\FavoriteProductsQuery;
 use App\Queries\PrivateProductsQuery;
 use App\Theme\AppController;
-use App\Theme\CustomTheme;
 use Src\Entity\Translation;
 
 class FavoritesController extends AppController

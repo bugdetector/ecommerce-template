@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Branch;
 use App\Form\ContactForm;
 use App\Theme\AppController;
-use App\Theme\CustomTheme;
 use Src\Entity\Translation;
 use Src\Entity\Variable;
 use Src\Views\CollapsableCard;

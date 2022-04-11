@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Controller\ProfileController;
 use App\Entity\CustomUser;
-use App\Theme\CustomTheme;
 use CoreDB;
 use Src\Entity\File;
 use Src\Entity\Translation;

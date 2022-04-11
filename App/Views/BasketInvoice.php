@@ -10,7 +10,7 @@ use App\Entity\Branch;
 use App\Entity\CustomUser;
 use App\Entity\Product\Product;
 use App\Entity\Product\VariationOption;
-use App\Theme\CustomTheme;
+use App\Theme\AppTheme;
 use Spipu\Html2Pdf\Html2Pdf;
 use Src\Entity\Translation;
 use Src\Entity\Variable;
@@ -89,7 +89,7 @@ class BasketInvoice extends View
     public function renderAsPdf(): Html2Pdf
     {
         $html = CoreRenderer::getInstance(
-            CustomTheme::getTemplateDirectories()
+            new AppTheme()
         )->renderView($this);
         $html2pdf = new Html2Pdf('P', 'A4', Translation::getLanguage(), true, "UTF-8");
         $html2pdf->setDefaultFont('dejavusans');
