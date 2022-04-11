@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\AdminTheme\EcommerceAdminController;
 use App\AdminTheme\EcommerceAdminTheme;
 use App\Controller\AdminController;
 use App\Entity\View\SpaceUnderBanner;
@@ -11,7 +12,7 @@ use Src\Entity\Translation;
 use Src\Form\InsertForm;
 use Src\Form\TreeForm;
 
-class SpaceUnderBannerController extends EcommerceAdminTheme
+class SpaceUnderBannerController extends EcommerceAdminController
 {
     public TreeForm $treeForm;
     public SpaceUnderBanner $space;

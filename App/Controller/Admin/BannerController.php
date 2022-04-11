@@ -2,13 +2,13 @@
 
 namespace App\Controller\Admin;
 
-use App\AdminTheme\EcommerceAdminTheme;
+use App\AdminTheme\EcommerceAdminController;
 use App\Controller\Admin\Banner\InsertController;
 use App\Entity\Banner;
 use Src\Entity\Translation;
 use Src\Form\TreeForm;
 
-class BannerController extends EcommerceAdminTheme
+class BannerController extends EcommerceAdminController
 {
 
     public TreeForm $bannerTreeForm;

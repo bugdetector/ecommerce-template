@@ -6,7 +6,7 @@ use App\Controller\PaymentController;
 use App\Entity\Basket\Basket;
 use App\Entity\Log\PaymentLog;
 use App\Lib\IsBankClient;
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use CoreDB\Kernel\Messenger;
 use CoreDB\Kernel\Router;
 use Src\Controller\AccessdeniedController;
@@ -17,7 +17,7 @@ use Src\Views\Link;
 use Src\Views\TextElement;
 use Src\Views\ViewGroup;
 
-class PaymentsuccessController extends CustomTheme
+class PaymentsuccessController extends AppController
 {
     private IsBankClient $isBankClient;
     public ?Basket $basket = null;

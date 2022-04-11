@@ -3,11 +3,11 @@
 namespace App\Controller;
 
 use App\Queries\MyOrdersQuery;
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use Src\Entity\Translation;
 use Src\Form\SearchForm;
 
-class MyordersController extends CustomTheme
+class MyordersController extends AppController
 {
     public $searchForm;
 

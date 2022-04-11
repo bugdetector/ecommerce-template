@@ -2,11 +2,11 @@
 
 namespace App\Controller\Admin;
 
-use App\AdminTheme\EcommerceAdminTheme;
+use App\AdminTheme\EcommerceAdminController;
 use Src\Entity\Translation;
 use Src\Views\AlertMessage;
 
-class IssuesController extends EcommerceAdminTheme
+class IssuesController extends EcommerceAdminController
 {
 
     public $searchForm;
@@ -14,11 +14,6 @@ class IssuesController extends EcommerceAdminTheme
     public function preprocessPage()
     {
         $this->setTitle(Translation::getTranslation("todo"));
-    }
-
-    public function getTemplateFile(): string
-    {
-        return "page-todo.twig";
     }
 
     public function echoContent()

@@ -8,13 +8,14 @@ use App\Entity\Product\Enquirement;
 use App\Entity\Product\FavoriteProducts;
 use App\Entity\Product\Product;
 use App\Entity\Product\VariationOption;
+use App\Theme\AppController;
 use App\Theme\CustomTheme;
 use CoreDB\Kernel\Router;
 use Src\Controller\AccessdeniedController;
 use Src\Controller\NotFoundController;
 use Src\Form\Widget\SelectWidget;
 
-class ProductController extends CustomTheme
+class ProductController extends AppController
 {
 
     public ?Product $product = null;

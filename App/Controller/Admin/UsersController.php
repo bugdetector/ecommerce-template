@@ -2,12 +2,12 @@
 
 namespace App\Controller\Admin;
 
-use App\AdminTheme\EcommerceAdminTheme;
+use App\AdminTheme\EcommerceAdminController;
 use App\Entity\CustomUser;
 use Src\Entity\Translation;
 use Src\Form\SearchForm;
 
-class UsersController extends EcommerceAdminTheme
+class UsersController extends EcommerceAdminController
 {
 
     public SearchForm $searchForm;
@@ -20,21 +20,11 @@ class UsersController extends EcommerceAdminTheme
         $this->searchForm = SearchForm::createByObject($customUser);
         $this->searchForm->addClass("p-3");
         $this->actions = $customUser->actions();
-    }
-
-    public function getTemplateFile(): string
-    {
-        return "page-admin-products.twig";
+        $this->addJsFiles("dist/user-delete/user-delete.js");
     }
 
     public function echoContent()
     {
         return $this->searchForm;
-    }
-
-    protected function addDefaultJsFiles()
-    {
-        parent::addDefaultJsFiles();
-        $this->addJsFiles("dist/user-delete/user-delete.js");
     }
 }

@@ -2,26 +2,17 @@
 
 namespace App\Controller\Admin;
 
-use App\AdminTheme\EcommerceAdminTheme;
+use App\AdminTheme\EcommerceAdminController;
 use App\Entity\Product\ProductCategory;
 use CoreDB\Kernel\Router;
 use Src\Controller\NotFoundController;
 use Src\Form\TreeForm;
 use Src\Entity\Translation;
 
-class CategoryController extends EcommerceAdminTheme
+class CategoryController extends EcommerceAdminController
 {
 
     public $categoryForm;
-
-    public function getTemplateFile(): string
-    {
-        if (@$this->arguments[0]) {
-            return "page-admin-products.twig";
-        } else {
-            return "page.twig";
-        }
-    }
 
     public function preprocessPage()
     {

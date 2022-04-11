@@ -10,7 +10,7 @@ use App\Entity\Basket\BasketProduct;
 use App\Entity\Product\Product;
 use App\Exception\BasketException;
 use App\Form\CheckoutForm;
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use App\Views\BasketProductCard;
 use App\Views\ProductList\CheckoutRecommendList;
 use CoreDB\Kernel\Messenger;
@@ -25,7 +25,7 @@ use Src\Views\Link;
 use Src\Views\TextElement;
 use Src\Views\ViewGroup;
 
-class CheckoutController extends CustomTheme
+class CheckoutController extends AppController
 {
 
     public ?Basket $basket;

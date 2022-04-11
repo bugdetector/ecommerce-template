@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\AdminTheme\EcommerceAdminTheme;
+use App\AdminTheme\EcommerceAdminController;
 use App\Controller\NotFoundController;
 use App\Entity\Basket\VoucherCode;
 use CoreDB\Kernel\Router;
@@ -10,7 +10,7 @@ use Src\Entity\Translation;
 use Src\Form\InsertForm;
 use Src\Form\SearchForm;
 
-class VoucherController extends EcommerceAdminTheme
+class VoucherController extends EcommerceAdminController
 {
 
     public ?SearchForm $voucherForm = null;
@@ -45,11 +45,6 @@ class VoucherController extends EcommerceAdminTheme
             $this->voucherForm = SearchForm::createByObject($this->code);
         }
         $this->actions = $this->code->actions();
-    }
-
-    public function getTemplateFile(): string
-    {
-        return "page.twig";
     }
 
     public function echoContent()

@@ -12,7 +12,6 @@ use App\Views\ProductList\SwiperProductList;
 use App\Views\ProductList\TopSellers;
 use CoreDB\Kernel\Router;
 use Src\Controller\NotFoundController;
-use Src\Entity\Translation;
 
 class ListController extends ProductsController
 {
@@ -47,6 +46,7 @@ class ListController extends ProductsController
             default:
                 Router::getInstance()->route(NotFoundController::getUrl());
         }
+        /** @var IDFilteredProductsQuery */
         $this->query = IDFilteredProductsQuery::getInstance();
         if ($this->idList) {
             $this->query->setIdList($this->idList);

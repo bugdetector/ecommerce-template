@@ -4,10 +4,10 @@ namespace App\Controller;
 
 use App\Form\ProductSearchForm;
 use App\Queries\ProductsQuery;
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use Src\Entity\Translation;
 
-class ProductsController extends CustomTheme
+class ProductsController extends AppController
 {
 
     protected ProductSearchForm $productListSearch;

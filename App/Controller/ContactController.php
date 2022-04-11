@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Branch;
 use App\Form\ContactForm;
+use App\Theme\AppController;
 use App\Theme\CustomTheme;
 use Src\Entity\Translation;
 use Src\Entity\Variable;
@@ -12,7 +13,7 @@ use Src\Views\Link;
 use Src\Views\TextElement;
 use Src\Views\ViewGroup;
 
-class ContactController extends CustomTheme
+class ContactController extends AppController
 {
 
     public array $branches;

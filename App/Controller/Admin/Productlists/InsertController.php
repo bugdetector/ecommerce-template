@@ -3,7 +3,6 @@
 namespace App\Controller\Admin\Productlists;
 
 use App\Controller\Admin\ProductlistsController;
-use App\Entity\Product\ProductDiscountList;
 use App\Entity\Product\ProductList;
 use CoreDB\Kernel\Messenger;
 use CoreDB\Kernel\Router;

@@ -4,14 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Basket\Basket;
 use App\Form\PaymentForm;
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use App\Views\BasketInfo;
 use CoreDB\Kernel\Router;
 use Src\Controller\AccessdeniedController;
 use Src\Entity\Translation;
 use Src\Entity\Variable;
 
-class PaymentController extends CustomTheme
+class PaymentController extends AppController
 {
     public ?Basket $basket;
     public ?PaymentForm $paymentForm;

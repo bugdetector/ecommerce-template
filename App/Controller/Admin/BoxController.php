@@ -2,8 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\AdminTheme\EcommerceAdminTheme;
-use App\Controller\AdminController;
+use App\AdminTheme\EcommerceAdminController;
 use App\Entity\View\MainpageBox;
 use CoreDB\Kernel\Router;
 use Src\Controller\NotFoundController;
@@ -11,7 +10,7 @@ use Src\Entity\Translation;
 use Src\Form\InsertForm;
 use Src\Form\TreeForm;
 
-class BoxController extends EcommerceAdminTheme
+class BoxController extends EcommerceAdminController
 {
     public TreeForm $treeForm;
     public MainpageBox $box;

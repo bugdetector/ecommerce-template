@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\AdminTheme\EcommerceAdminTheme;
+use App\AdminTheme\EcommerceAdminController;
 use App\Controller\Admin\Products\MissingpicturesController;
 use App\Entity\Product\Product;
 use App\Entity\Product\ProductPicture;
@@ -12,7 +12,7 @@ use Src\Form\SearchForm;
 use Src\Views\BasicCard;
 use Src\Views\ViewGroup;
 
-class ProductsController extends EcommerceAdminTheme
+class ProductsController extends EcommerceAdminController
 {
 
     protected SearchForm $productListSearch;
@@ -27,11 +27,6 @@ class ProductsController extends EcommerceAdminTheme
         $this->productListSearch->addClass("p-3");
         $product = new Product();
         $this->actions = $product->actions();
-    }
-
-    public function getTemplateFile(): string
-    {
-        return "page-admin-products.twig";
     }
 
     public function echoContent()
@@ -52,7 +47,7 @@ class ProductsController extends EcommerceAdminTheme
             ViewGroup::create("div", "row p-3")
             ->addField(
                 BasicCard::create()
-                ->setBorderClass("border-left-info")
+                ->setBackgroundClass("bg-info")
                 ->setHref(ProductsController::getUrl())
                 ->setTitle(Translation::getTranslation("product_count"))
                 ->setDescription($this->productCount)
@@ -61,7 +56,7 @@ class ProductsController extends EcommerceAdminTheme
             )
             ->addField(
                 BasicCard::create()
-                ->setBorderClass("border-left-warning")
+                ->setBackgroundClass("bg-warning")
                 ->setHref(MissingpicturesController::getUrl())
                 ->setTitle("MISSING PRODUCT PICTURES")
                 ->setDescription($this->missingPictureCount)

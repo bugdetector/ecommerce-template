@@ -2,13 +2,13 @@
 
 namespace App\Controller\Admin;
 
-use App\AdminTheme\EcommerceAdminTheme;
+use App\AdminTheme\EcommerceAdminController;
 use App\Controller\Admin\Branch\InsertController;
 use App\Entity\Branch;
 use Src\Form\Form;
 use Src\Form\TreeForm;
 
-class BranchController extends EcommerceAdminTheme
+class BranchController extends EcommerceAdminController
 {
 
     /** @var TreeForm */

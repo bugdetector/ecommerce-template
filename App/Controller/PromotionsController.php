@@ -4,11 +4,11 @@ namespace App\Controller;
 
 use App\Form\ProductSearchForm;
 use App\Queries\DiscountPromotionsQuery;
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use CoreDB\Kernel\Messenger;
 use Src\Entity\Translation;
 
-class PromotionsController extends CustomTheme
+class PromotionsController extends AppController
 {
     protected ProductSearchForm $productListSearch;
 

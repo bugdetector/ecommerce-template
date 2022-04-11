@@ -5,11 +5,11 @@ namespace App\Controller;
 use App\Entity\Basket\Basket;
 use App\Entity\CustomUser;
 use App\Form\ShippingForm;
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use Src\Entity\Translation;
 use Src\Entity\Variable;
 
-class ShippingController extends CustomTheme
+class ShippingController extends AppController
 {
 
     public ShippingForm $shippingForm;

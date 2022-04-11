@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\AdminTheme\EcommerceAdminTheme;
+use App\AdminTheme\EcommerceAdminController;
 use App\Entity\Basket\Basket;
 use App\Queries\OrdersQuery;
 use CoreDB;
@@ -11,7 +11,7 @@ use Src\Form\SearchForm;
 use Src\Views\BasicCard;
 use Src\Views\ViewGroup;
 
-class OrdersController extends EcommerceAdminTheme
+class OrdersController extends EcommerceAdminController
 {
 
     public $searchForm;
@@ -46,11 +46,6 @@ class OrdersController extends EcommerceAdminTheme
         $this->delivered = $delivered->execute()->fetchColumn();
     }
 
-    public function getTemplateFile(): string
-    {
-        return "page-admin-products.twig";
-    }
-
     public function echoContent()
     {
         return ViewGroup::create("div", "")
@@ -58,7 +53,7 @@ class OrdersController extends EcommerceAdminTheme
             ViewGroup::create("div", "row p-3")
             ->addField(
                 BasicCard::create()
-                ->setBorderClass("border-left-danger")
+                ->setBackgroundClass("bg-danger")
                 ->setHref(
                     self::getUrl() . "?status=" . Basket::STATUS_WAITING_APPROVAL
                 )
@@ -69,7 +64,7 @@ class OrdersController extends EcommerceAdminTheme
             )
             ->addField(
                 BasicCard::create()
-                ->setBorderClass("border-left-info")
+                ->setBackgroundClass("bg-info")
                 ->setHref(
                     self::getUrl() . "?status=" . Basket::STATUS_APPROVED
                 )
@@ -80,7 +75,7 @@ class OrdersController extends EcommerceAdminTheme
             )
             ->addField(
                 BasicCard::create()
-                ->setBorderClass("border-left-warning")
+                ->setBackgroundClass("bg-warning")
                 ->setHref(
                     self::getUrl() . "?status=" . Basket::STATUS_ON_DELIVERY
                 )
@@ -91,7 +86,7 @@ class OrdersController extends EcommerceAdminTheme
             )
             ->addField(
                 BasicCard::create()
-                ->setBorderClass("border-left-primary")
+                ->setBackgroundClass("bg-primary")
                 ->setHref(
                     self::getUrl() . "?status=" . Basket::STATUS_DELIVERED
                 )

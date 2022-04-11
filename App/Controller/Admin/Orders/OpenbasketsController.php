@@ -64,7 +64,7 @@ class OpenbasketsController extends OrdersController
             ViewGroup::create("div", "row p-3")
             ->addField(
                 BasicCard::create()
-                ->setBorderClass("border-left-info")
+                ->setBackgroundClass("bg-info")
                 ->setHref(
                     self::getUrl() . "?basket.last_updated={$twoMonthsAgo}+%26+{$today}"
                 )
@@ -75,7 +75,7 @@ class OpenbasketsController extends OrdersController
             )
             ->addField(
                 BasicCard::create()
-                ->setBorderClass("border-left-warning")
+                ->setBackgroundClass("bg-warning")
                 ->setHref(
                     self::getUrl() . "?basket.last_updated=" . date("Y-m-d", 0) . "+%26+" .
                     date("Y-m-d", strtotime("-2 month -1 day"))

@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Product\ProductCategory;
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use CoreDB\Kernel\Router;
 use Src\Controller\NotFoundController;
 use Src\Entity\Translation;
@@ -11,7 +11,7 @@ use Src\Views\Image;
 use Src\Views\Link;
 use Src\Views\ViewGroup;
 
-class CatalogueController extends CustomTheme
+class CatalogueController extends AppController
 {
 
     public $categoryCards;

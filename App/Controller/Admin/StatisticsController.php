@@ -2,18 +2,18 @@
 
 namespace App\Controller\Admin;
 
+use App\AdminTheme\EcommerceAdminController;
 use App\Controller\Admin\Statistics\ProducttrackerController;
-use App\Controller\AdminController;
 use Src\Entity\Translation;
 use Src\Views\BasicCard;
 
-class StatisticsController extends AdminController
+class StatisticsController extends EcommerceAdminController
 {
     public function preprocessPage()
     {
         $this->setTitle(Translation::getTranslation("statistics"));
         $this->cards[] = BasicCard::create()
-        ->setBorderClass("border-left-primary")
+        ->setBackgroundClass("bg-primary")
         ->setHref(ProducttrackerController::getUrl())
         ->setTitle(Translation::getTranslation("product_tracker"))
         ->setIconClass("fa-chart-area")

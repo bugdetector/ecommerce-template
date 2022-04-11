@@ -2,12 +2,12 @@
 
 namespace App\Controller\Admin;
 
-use App\AdminTheme\EcommerceAdminTheme;
+use App\AdminTheme\EcommerceAdminController;
 use App\Entity\Product\VariationOption;
 use Src\Form\TreeForm;
 use Src\Entity\Translation;
 
-class VariationController extends EcommerceAdminTheme
+class VariationController extends EcommerceAdminController
 {
 
     public TreeForm $variationTreeForm;

@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\AdminTheme\EcommerceAdminTheme;
+use App\AdminTheme\EcommerceAdminController;
 use App\Controller\Admin\AjaxController;
 use App\Controller\Admin\Orders\OpenbasketsController;
 use App\Controller\Admin\OrdersController;
@@ -25,8 +25,13 @@ use Src\Views\CollapsableCard;
 use Src\Views\Table;
 use Src\Views\ViewGroup;
 
-class AdminController extends EcommerceAdminTheme
+class AdminController extends EcommerceAdminController
 {
+
+    public function getTemplateFile(): string
+    {
+        return "page-admin.twig";
+    }
 
     public function preprocessPage()
     {
@@ -70,7 +75,7 @@ class AdminController extends EcommerceAdminTheme
         ->execute()->fetchColumn();
 
         $this->cards[] = BasicCard::create()
-        ->setBorderClass("border-left-primary")
+        ->setBackgroundClass("bg-primary")
         ->setHref(UsersController::getUrl())
         ->setTitle(Translation::getTranslation("number_of_members"))
         ->setDescription($this->number_of_members)
@@ -78,7 +83,7 @@ class AdminController extends EcommerceAdminTheme
         ->addClass("col-lg-3 col-md-6 mb-4");
 
         $this->cards[] = BasicCard::create()
-        ->setBorderClass("border-left-info")
+        ->setBackgroundClass("bg-info")
         ->setHref(EnquirementController::getUrl() . "?status=open")
         ->setTitle(Translation::getTranslation("waiting_enquirys"))
         ->setDescription($waitingEnquirements)
@@ -86,7 +91,7 @@ class AdminController extends EcommerceAdminTheme
         ->addClass("col-lg-3 col-md-6 mb-4");
 
         $this->cards[] = BasicCard::create()
-        ->setBorderClass("border-left-warning")
+        ->setBackgroundClass("bg-warning")
         ->setHref(OpenbasketsController::getUrl())
         ->setTitle(Translation::getTranslation("open_baskets"))
         ->setDescription($openBaskets)
@@ -94,7 +99,7 @@ class AdminController extends EcommerceAdminTheme
         ->addClass("col-lg-3 col-md-6 mb-4");
 
         $this->cards[] = BasicCard::create()
-        ->setBorderClass("border-left-primary")
+        ->setBackgroundClass("bg-primary")
         ->setHref(OrdersController::getUrl() . "?order_time={$today} %26 {$today}")
         ->setTitle(Translation::getTranslation("today_orders"))
         ->setDescription($todaysOrders)
@@ -102,7 +107,7 @@ class AdminController extends EcommerceAdminTheme
         ->addClass("col-lg-3 col-md-6 mb-4");
 
         $this->cards[] = BasicCard::create()
-        ->setBorderClass("border-left-success")
+        ->setBackgroundClass("bg-success")
         ->setHref(OrdersController::getUrl() . "?order_time={$thisMonth} %26 {$today}")
         ->setTitle(Translation::getTranslation("this_month_orders"))
         ->setDescription($thisMonthsOrders)
@@ -110,7 +115,7 @@ class AdminController extends EcommerceAdminTheme
         ->addClass("col-lg-3 col-md-6 mb-4");
 
         $this->cards[] = BasicCard::create()
-        ->setBorderClass("border-left-success")
+        ->setBackgroundClass("bg-success")
         ->setHref(
             OrdersController::getUrl()
             . "?order_time={$lastMonth} %26 " . date("Y-m-d", strtotime($thisMonth . " -1 day"))
@@ -123,7 +128,7 @@ class AdminController extends EcommerceAdminTheme
         $stockLastUpdated = Variable::getByKey(StockImportForm::STOCK_LAST_UPDATE_KEY);
         if ($stockLastUpdated) {
             $this->cards[] = BasicCard::create()
-            ->setBorderClass("border-left-warning border-bottom-warning")
+            ->setBackgroundClass("bg-warning")
             ->setHref(StockController::getUrl())
             ->setTitle(Translation::getTranslation("stock_last_updated"))
             ->setDescription(date(

@@ -3,11 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Page\Page;
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use CoreDB\Kernel\Router;
 use Src\Controller\NotFoundController;
 
-class PageController extends CustomTheme
+class PageController extends AppController
 {
 
     public ?Page $page;

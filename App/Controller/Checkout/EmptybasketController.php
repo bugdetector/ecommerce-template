@@ -2,10 +2,10 @@
 
 namespace App\Controller\Checkout;
 
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use Src\Entity\Translation;
 
-class EmptybasketController extends CustomTheme
+class EmptybasketController extends AppController
 {
     public function preprocessPage()
     {

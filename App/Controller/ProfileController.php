@@ -3,9 +3,9 @@
 namespace App\Controller;
 
 use App\Form\ProfileForm;
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 
-class ProfileController extends CustomTheme
+class ProfileController extends AppController
 {
     public ProfileForm $profileForm;
 

@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use Src\Entity\Translation;
 use Src\Entity\User;
 
-class VerifyController extends CustomTheme
+class VerifyController extends AppController
 {
 
     public $pageMessage = "";

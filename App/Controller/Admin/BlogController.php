@@ -21,11 +21,6 @@ class BlogController extends AdminController
         $this->actions = $blog->actions();
     }
 
-    public function getTemplateFile(): string
-    {
-        return "page-admin-products.twig";
-    }
-
     public function echoContent()
     {
         return $this->searchForm;

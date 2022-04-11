@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Banner;
 use App\Entity\View\MainpageBox;
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use App\Views\MainpageBoxes;
 use App\Views\ProductList\FavoritesList;
 use App\Views\ProductList\LatestOffers;
@@ -13,11 +13,9 @@ use App\Views\ProductList\TopSellers;
 use App\Views\SpaceUnderBanner;
 use Src\Entity\User;
 use Src\Entity\Variable;
-use CoreDB\Kernel\BaseController;
 use Src\Entity\Translation;
-use Src\Theme\ThemeInteface;
 
-class MainpageController extends BaseController
+class MainpageController extends AppController
 {
 
     public User $user;
@@ -31,11 +29,6 @@ class MainpageController extends BaseController
     public MainpageBoxes $boxesUnderLatest;
     public MainpageBoxes $boxesTopSellers;
     public $content;
-
-    public function getTheme(): ThemeInteface
-    {
-        return new CustomTheme();
-    }
 
     public function checkAccess(): bool
     {

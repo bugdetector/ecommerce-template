@@ -2,26 +2,20 @@
 
 namespace App\Controller\Admin;
 
-use App\AdminTheme\EcommerceAdminTheme;
+use App\AdminTheme\EcommerceAdminController;
 use App\Controller\Admin\Productlists\InsertController;
 use App\Entity\Product\ProductDiscountList;
 use App\Entity\Product\ProductList;
 use Src\Form\TreeForm;
-use CoreDB\Kernel\Messenger;
 use Src\Entity\Translation;
 use Src\Views\NavItem;
 use Src\Views\TextElement;
 use Src\Views\ViewGroup;
 
-class ProductlistsController extends EcommerceAdminTheme
+class ProductlistsController extends EcommerceAdminController
 {
     public ViewGroup $tabs;
     public ?TreeForm $productListForm = null;
-
-    public function getTemplateFile(): string
-    {
-        return "page-admin-productlists.twig";
-    }
 
     public function preprocessPage()
     {

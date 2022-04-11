@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use Src\Entity\Translation;
 
-class WelcomeController extends CustomTheme
+class WelcomeController extends AppController
 {
 
     public function checkAccess(): bool
@@ -15,10 +15,6 @@ class WelcomeController extends CustomTheme
         } else {
             return \CoreDB::currentUser()->isLoggedIn();
         }
-    }
-
-    public function buildSidebar()
-    {
     }
 
     public function preprocessPage()
@@ -31,19 +27,9 @@ class WelcomeController extends CustomTheme
         return Translation::getTranslation("after_register_welcome_message", [
             \CoreDB::currentUser()->email->getValue()
         ]);
-    }
-
-    protected function addDefaultJsFiles()
-    {
-        parent::addDefaultJsFiles();
         $this->addJsFiles("dist/welcome_page/welcome_page.js");
         $currentUser = \CoreDB::currentUser();
         $this->addJsCode("var userMail = '{$currentUser->email}'");
-    }
-
-    protected function addDefaultTranslations()
-    {
-        parent::addDefaultTranslations();
         $this->addFrontendTranslation("email");
         $this->addFrontendTranslation("send_mail");
     }

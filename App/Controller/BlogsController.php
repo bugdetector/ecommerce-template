@@ -4,11 +4,11 @@ namespace App\Controller;
 
 use App\Form\ProductSearchForm;
 use App\Queries\BlogQuery;
-use App\Theme\CustomTheme;
+use App\Theme\AppController;
 use Src\Entity\Translation;
 use Src\Form\SearchForm;
 
-class BlogsController extends CustomTheme
+class BlogsController extends AppController
 {
 
 
