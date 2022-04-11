@@ -9,6 +9,12 @@ use Src\Views\BasicCard;
 
 class StatisticsController extends EcommerceAdminController
 {
+
+    public function getTemplateFile(): string
+    {
+        return "page-admin.twig";
+    }
+
     public function preprocessPage()
     {
         $this->setTitle(Translation::getTranslation("statistics"));

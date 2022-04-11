@@ -46,3 +46,139 @@
   available_for: logged_in
   weight: 5
   parent: null
+7:
+  title: orders
+  icon_class: 'fa fa-shopping-cart'
+  link_class: null
+  url: /admin/orders
+  available_for: logged_in
+  weight: 6
+  parent: null
+8:
+  title: open_baskets
+  icon_class: 'fa fa-shopping-basket'
+  link_class: null
+  url: /admin/orders/openbaskets
+  available_for: logged_in
+  weight: 7
+  parent: null
+9:
+  title: users
+  icon_class: 'fa fa-users'
+  link_class: null
+  url: /admin/users
+  available_for: logged_in
+  weight: 8
+  parent: null
+10:
+  title: products
+  icon_class: 'fa fa-tablets'
+  link_class: null
+  url: /admin/products
+  available_for: logged_in
+  weight: 9
+  parent: null
+11:
+  title: products
+  icon_class: 'fa fa-tablets'
+  link_class: null
+  url: /admin/products
+  available_for: logged_in
+  weight: 10
+  parent: 10
+12:
+  title: categories
+  icon_class: 'fa fa-stream'
+  link_class: null
+  url: /admin/category
+  available_for: logged_in
+  weight: 11
+  parent: 10
+13:
+  title: variation_option
+  icon_class: 'fa fa-list'
+  link_class: null
+  url: /admin/variation
+  available_for: logged_in
+  weight: 12
+  parent: 10
+14:
+  title: statistics
+  icon_class: 'fa fa-chart-area'
+  link_class: null
+  url: /admin/statistics
+  available_for: logged_in
+  weight: 13
+  parent: null
+15:
+  title: marketing
+  icon_class: 'fa fa-ad'
+  link_class: null
+  url: '#'
+  available_for: logged_in
+  weight: 14
+  parent: null
+16:
+  title: branch
+  icon_class: 'fa fa-code-branch'
+  link_class: null
+  url: /admin/branch
+  available_for: logged_in
+  weight: 15
+  parent: 15
+17:
+  title: promotions
+  icon_class: 'fa fa-list-alt'
+  link_class: null
+  url: /admin/productlists
+  available_for: logged_in
+  weight: 16
+  parent: 15
+18:
+  title: banners
+  icon_class: 'fa fa-images'
+  link_class: null
+  url: /admin/banner
+  available_for: logged_in
+  weight: 17
+  parent: 15
+19:
+  title: blog
+  icon_class: 'fa fa-blog'
+  link_class: null
+  url: /admin/blog
+  available_for: logged_in
+  weight: 18
+  parent: 15
+20:
+  title: space_under_banner
+  icon_class: 'fa fa-boxes'
+  link_class: null
+  url: /admin/space_under_banner
+  available_for: logged_in
+  weight: 19
+  parent: 15
+21:
+  title: mainpage_box
+  icon_class: 'fa fa-boxes'
+  link_class: null
+  url: /admin/box
+  available_for: logged_in
+  weight: 20
+  parent: 15
+22:
+  title: todo
+  icon_class: 'fa fa-tasks'
+  link_class: null
+  url: /admin/issues/
+  available_for: logged_in
+  weight: 21
+  parent: null
+23:
+  title: enquiry
+  icon_class: 'fa fa-info'
+  link_class: null
+  url: /admin/products/enquirement
+  available_for: logged_in
+  weight: 22
+  parent: null

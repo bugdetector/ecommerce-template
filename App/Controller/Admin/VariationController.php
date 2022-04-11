@@ -19,7 +19,7 @@ class VariationController extends EcommerceAdminController
 
     public function preprocessPage()
     {
-        $this->setTitle(Translation::getTranslation("categories"));
+        $this->setTitle(Translation::getTranslation("variation_option"));
         $this->variationTreeForm = new TreeForm(VariationOption::class);
         $this->variationTreeForm->processForm();
         $this->variationTreeForm->addClass("col-12");
