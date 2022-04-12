@@ -47,7 +47,7 @@
 							<div class="swiper-container swiper" id="product-swiper" data-speed="2000" data-loop="true" data-autoplay='{"delay": 2000}' data-pagination='{"el":".swiper-pagination", "clickable":true}' data-navigation='{"nextEl": "#js-next1", "prevEl": "#js-prev1"}'>
 								<div class="swiper-wrapper">
 									{% for index, image in images %}
-										<a class="swiper-slide"  href="{{ image.getUrl() }}" data-fancybox="gallery">
+										<a class="swiper-slide"  href="{{ image.getUrl() }}" data-fancybox="product_gallery">
 											<img src="{{ image.getUrl() }}" alt="{{ controller.product.title }}" class="img-fluid w-100 rounded" title="{{ controller.product.title }}">
 										</a>
 									{% endfor %}
@@ -66,7 +66,7 @@
 					</div>
 					<div class="col-md-8">
 						<span class="d-none item-name">{{ controller.product.title }}</span>
-						<small class="text-primary fw-bold">
+						<small class="text-primary fw-bolder">
 							{{ t("stockcode") }}:
 							{{ controller.product.stockcode }}
 							{% if controller.logged_in %}
@@ -123,7 +123,7 @@
 							{% for index, product_info in controller.product.product_info.getValue() %}
 								<div class="card">
 									<div class="card-header">
-										<a class="card-link fw-bold" data-bs-toggle="collapse" href="#collapse{{ index }}">
+										<a class="card-link fw-bolder" data-bs-toggle="collapse" href="#collapse{{ index }}">
 											{{ product_info.title|raw }}
 											<i class="fas fa-caret-square-down"></i>
 										</a>

@@ -12,8 +12,8 @@ class SpecialProductTeaserCard extends ResultsViewer
     {
         $this->addClass("row");
         $controller = CoreDB::controller();
-        $controller->addJsFiles("dist/product-teaser/product-teaser.js");
-        $controller->addCssFiles("dist/product-teaser/product-teaser.css");
+        $controller->addJsFiles("ecommerce_theme/src/components/product-teaser/product-teaser.js");
+        $controller->addCssFiles("ecommerce_theme/src/components/product-teaser/product-teaser.js");
     }
 
     public function getTemplateFile(): string

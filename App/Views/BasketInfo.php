@@ -30,7 +30,7 @@ class BasketInfo extends ViewGroup
                     TextElement::create(
                         Translation::getTranslation("delivery_address")
                     )->setTagName("p")
-                    ->addClass("text-primary fw-bold")
+                    ->addClass("text-primary fw-bolder")
                 );
                 $this->addField(
                     TextElement::create(
@@ -43,7 +43,7 @@ class BasketInfo extends ViewGroup
                             TextElement::create(
                                 Translation::getTranslation("delivery_date")
                             )->setTagName("p")
-                            ->addClass("text-primary fw-bold")
+                            ->addClass("text-primary fw-bolder")
                         );
                         $this->addField(
                             TextElement::create(
@@ -77,7 +77,7 @@ class BasketInfo extends ViewGroup
                     TextElement::create(
                         Translation::getTranslation("collection_address")
                     )->setTagName("p")
-                    ->addClass("text-primary fw-bold")
+                    ->addClass("text-primary fw-bolder")
                 );
                 $this->addField(
                     TextElement::create(
@@ -88,14 +88,14 @@ class BasketInfo extends ViewGroup
                     TextElement::create(
                         Translation::getTranslation("opening_hours")
                     )->setTagName("p")
-                    ->addClass("text-primary fw-bold")
+                    ->addClass("text-primary fw-bolder")
                 );
                 $this->addField(
                     TextElement::create(
                         $branch->opening_hours
                     )->setIsRaw(true)
                     ->setTagName("p")
-                    ->addClass("text-info fw-bold")
+                    ->addClass("text-info fw-bolder")
                 );
                 if ($usePostcodeList) {
                     if (!$editable) {
@@ -103,7 +103,7 @@ class BasketInfo extends ViewGroup
                             TextElement::create(
                                 Translation::getTranslation("collection_date")
                             )->setTagName("p")
-                            ->addClass("text-primary fw-bold")
+                            ->addClass("text-primary fw-bolder")
                         );
                         $this->addField(
                             TextElement::create(

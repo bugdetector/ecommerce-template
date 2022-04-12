@@ -31,9 +31,6 @@ class InsertController extends BannerController
         $this->bannerInsertForm = $this->banner->getForm();
         $this->bannerInsertForm->processForm();
         $this->bannerInsertForm->addClass("p-3");
-
-        $this->addJsFiles("dist/select/select.js");
-        $this->addCssFiles("dist/select/select.css");
     }
 
     public function echoContent()

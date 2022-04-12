@@ -30,8 +30,6 @@ class InsertController extends ProductsController
         $this->setTitle($title);
         $this->productInsertForm = $this->product->getForm();
         $this->productInsertForm->processForm();
-        $this->addJsFiles("dist/file_input/file_input.js");
-        $this->addCssFiles("dist/file_input/file_input.css");
         $this->addFrontendTranslation("close");
         $this->productInsertForm->addClass("p-3");
     }

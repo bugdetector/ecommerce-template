@@ -1,8 +1,8 @@
 {% if view.data %}
 
 	<div class="card mb-2">
-		<h5 class="card-header text-primary fw-bold">
-			{{ view.title }}
+		<h5 class="card-header">
+			<div class="card-title text-primary fw-bolder">{{ view.title }}</div>
 		</h5>
 		<div class="card-body">
 			<div class="swiper-container product-list-container" data-place="{{ view.getListPlace() }}" data-slides-per-view="auto" data-space-between="10" data-free-mode="true" data-centered-slides="true" data-navigation='{"nextEl": ".swiper-button-next","prevEl":".swiper-button-prev"}' data-pagination='{"el":".swiper-pagination", "clickable":true}' data-autoplay='{"delay":"1500", "disableOnInteraction": true}' data-loop="true">
@@ -19,13 +19,13 @@
 												<small>{{ product.stockcode }}</small>
 											</div>
 										</div>
-										<h5 class="text-primary fw-bold item-name" style="height: 30px">
+										<h5 class="text-primary fw-bolder item-name" style="height: 30px">
 											{{ product.title }}
 										</h5>
 										{% for type, priceInfo in product.getPrices() %}
 											{% set offer = priceInfo.offer|number_format(2, '.', ',') %}
 											{% set list_price = priceInfo.list_price|number_format(2, '.', ',') %}
-											<div class="fw-bold text-info mb-2">
+											<div class="fw-bolder text-info mb-2">
 												{{ t(type) }}:
 												{% if list_price != offer %}
 													<del class="text-danger">{{ variable("currency_icon").value }}{{ list_price }}</del>

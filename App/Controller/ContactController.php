@@ -43,13 +43,13 @@ class ContactController extends AppController
             ViewGroup::create("div", "col-12 mb-5 p-3")
             ->addField(
                 TextElement::create(Translation::getTranslation("general_enquiries_email") . ": ")
-                ->addClass("text-info fw-bold")
+                ->addClass("text-info fw-bolder")
             )->addField(
                 Link::create("mailto:{$this->generalEnquiriesEmail->value}", $this->generalEnquiriesEmail->value)
             )->addField(
                 TextElement::create("<br/>" . Translation::getTranslation("general_enquiries_phone") . ": ")
                 ->setIsRaw(true)
-                ->addClass("text-info fw-bold")
+                ->addClass("text-info fw-bolder")
             )->addField(
                 Link::create("tel:{$this->generalEnquiriesPhone->value}", $this->generalEnquiriesPhone->value)
             )
@@ -65,24 +65,24 @@ class ContactController extends AppController
                         ViewGroup::create("div", "")
                         ->addField(
                             TextElement::create(
-                                "<p class='text-info fw-bold'>" .
+                                "<p class='text-info fw-bolder'>" .
                                     Translation::getTranslation("address")
                                 . "</p>" .
                                 "<p>$branch</p>" .
-                                "<p class='text-info fw-bold'>" .
+                                "<p class='text-info fw-bolder'>" .
                                     Translation::getTranslation("opening_hours") .
                                 "</p>" .
                                 $branch->opening_hours
                             )->setIsRaw(true)
                         )->addField(
                             TextElement::create(Translation::getTranslation("email") . ": ")
-                            ->addClass("text-info fw-bold")
+                            ->addClass("text-info fw-bolder")
                         )->addField(
                             Link::create("mailto:{$branch->email}", $branch->email)
                         )->addField(
                             TextElement::create("<br/>" . Translation::getTranslation("phone") . ": ")
                             ->setIsRaw(true)
-                            ->addClass("text-info fw-bold")
+                            ->addClass("text-info fw-bolder")
                         )->addField(
                             Link::create("tel:{$branch->phone}", $branch->phone)
                         )

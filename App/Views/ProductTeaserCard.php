@@ -22,10 +22,11 @@ class ProductTeaserCard extends ResultsViewer
     {
         $this->addClass("row");
         $controller = CoreDB::controller();
-        $controller->addJsFiles("dist/product-teaser/product-teaser.js");
-        $controller->addCssFiles("dist/product-teaser/product-teaser.css");
-        $controller->addJsFiles("dist/swiper/swiper.js");
-        $controller->addCssFiles("dist/swiper/swiper.css");
+        $controller->addJsFiles("ecommerce_theme/src/components/product-teaser/product-teaser.js");
+        $controller->addCssFiles("ecommerce_theme/src/components/product-teaser/product-teaser.css");
+        $controller->addJsFiles("ecommerce_theme/lib/swiper/swiper-bundle.min.js");
+        $controller->addCssFiles("ecommerce_theme/lib/swiper/swiper-bundle.min.css");
+        $controller->addJsFiles("ecommerce_theme/src/components/swiper/swiper.js");
         $this->listOption = \CoreDB::currentUser()->{$this->listOptionField}->getValue();
         $this->logged_in = \CoreDB::currentUser()->isLoggedIn();
         $this->non_login_order = Variable::getByKey("non_login_order")->value->getValue() == 1;

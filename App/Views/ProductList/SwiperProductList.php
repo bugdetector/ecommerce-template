@@ -33,8 +33,9 @@ abstract class SwiperProductList extends ProductTeaserCard
         parent::__construct();
         $this->title = $this->getTitle();
         $controller = \CoreDB::controller();
-        $controller->addJsFiles("dist/swiper/swiper.js");
-        $controller->addCssFiles("dist/swiper/swiper.css");
+        $controller->addJsFiles("ecommerce_theme/lib/swiper/swiper-bundle.min.js");
+        $controller->addCssFiles("ecommerce_theme/lib/swiper/swiper-bundle.min.css");
+        $controller->addJsFiles("ecommerce_theme/src/components/swiper/swiper.js");
         if ($executeQuery) {
             $this->setData(array_map(function ($id) {
                 return Product::get($id);

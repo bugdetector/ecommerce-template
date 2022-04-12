@@ -155,7 +155,7 @@ $(function ($) {
                                 alt="${itemName}" 
                                 class="dropdown-list-image me-3 rounded-circle">
                                 <div class="">
-                                    <text class="fw-bold">
+                                    <text class="fw-bolder">
                                         ${itemName} ${variation ? ` - ${variationName}` : ""}
                                     </text>
                                     <br>
@@ -176,7 +176,7 @@ $(function ($) {
                                             <i class='fa fa-plus'></i>
                                         </button>
                                     </div>
-                                    <div class="total-value fw-bold" data-item="${data.product}" data-variant='${variation}'>
+                                    <div class="total-value fw-bolder" data-item="${data.product}" data-variant='${variation}'>
                                         0.00
                                     </div>
                                 </div>

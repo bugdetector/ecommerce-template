@@ -12,21 +12,27 @@ $(function(){
                 modifiedBy, modifiedDate
             ]);
         }
-
-        bootbox.prompt({
+        swal.fire({
+            confirmButtonText: _t("save"),
+            showCancelButton: true,
+            cancelButtonText: _t("cancel"),
             title: _t("comment"),
-            message: message,
-            inputType: 'textarea',
-            value: comment,
-            callback: function (result) {
-                if(result){
-                    $.ajax({
-                        url: root + "/admin/ajax/saveComment",
-                        method: "post",
-                        data: {user_id : userId, comment : result}
-                    });
-                    button.data("comment", result);
-                }
+            inputLabel: message,
+            input: 'textarea',
+            inputValue: comment,
+            customClass: {
+                confirmButton: "btn btn-primary",
+                cancelButton: "btn btn-danger"
+            }
+        }).then((result) => {
+            if(result.isConfirmed){
+                $.ajax({
+                    url: root + "/admin/ajax/saveComment",
+                    method: "post",
+                    data: {user_id : userId, comment : result.value}
+                });
+                button.data("comment", result.value);
+                button.removeClass("btn-info").addClass("btn-danger");
             }
         });
     })

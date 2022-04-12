@@ -358,6 +358,10 @@ class AjaxController extends AdminAjaxController
             CoreDB::currentDate()
         );
         $user->save();
+        $this->createMessage(
+            Translation::getTranslation("comment_saved"),
+            Messenger::SUCCESS
+        );
     }
 
     public function updateOrderStatus()

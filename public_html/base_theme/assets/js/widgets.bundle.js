@@ -4929,7 +4929,7 @@ var KTTimelineWidget1 = function () {
                             ${userTemplate}
                         </div>
         
-                        <a href="#" class="fw-bold text-white text-hover-dark">${item.content}</a>
+                        <a href="#" class="fw-bolder text-white text-hover-dark">${item.content}</a>
                     </div>
         
                     <div class="d-flex flex-center bg-body rounded-pill fs-7 fw-bolder ms-auto h-100 px-3 position-relative z-index-2">
@@ -5103,7 +5103,7 @@ var KTTimelineWidget1 = function () {
                             ${userTemplate}
                         </div>
         
-                        <a href="#" class="fw-bold text-white text-hover-dark">${item.content}</a>
+                        <a href="#" class="fw-bolder text-white text-hover-dark">${item.content}</a>
                     </div>
         
                     <div class="d-flex flex-center bg-body rounded-pill fs-7 fw-bolder ms-auto h-100 px-3 position-relative z-index-2">
@@ -5277,7 +5277,7 @@ var KTTimelineWidget1 = function () {
                             ${userTemplate}
                         </div>
         
-                        <a href="#" class="fw-bold text-white text-hover-dark">${item.content}</a>
+                        <a href="#" class="fw-bolder text-white text-hover-dark">${item.content}</a>
                     </div>
         
                     <div class="d-flex flex-center bg-body rounded-pill fs-7 fw-bolder ms-auto h-100 px-3 position-relative z-index-2">

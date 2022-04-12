@@ -93,10 +93,11 @@ class OrdersQuery extends ViewableQueries
     public function getResultHeaders(bool $translateLabel = true): array
     {
         $controller = \CoreDB::controller();
-        $controller->addJsFiles("dist/user_comment/user_comment.js");
+        $controller->addJsFiles("ecommerce_theme/src/components/user_comment/user_comment.js");
         $controller->addFrontendTranslation("comment");
         $controller->addFrontendTranslation("last_modified_message");
         $controller->addFrontendTranslation("status_change_message");
+        $controller->addFrontendTranslation("save");
         $headers = parent::getResultHeaders($translateLabel);
         $headers["ID"] = "Cart Id";
         array_unshift(
@@ -226,7 +227,8 @@ class OrdersQuery extends ViewableQueries
         $row['comment'] = Link::create(
             "#",
             ViewGroup::create("i", "fa fa-comment")
-        )->addClass("btn btn-info user-comment-button")
+        )->addClass("btn btn-sm user-comment-button")
+        ->addClass($row["comment"] ? "btn-danger" : "btn-info")
         ->addAttribute("data-user", $row["user_id"] ?: "")
         ->addAttribute("data-comment", $row['comment'] ?: "");
         /** @var CustomUser */

@@ -1,5 +1,3 @@
-import "./product-teaser.scss";
-
 $(function ($) {
     $(document).on("click", ".item-favorite", function(e){
         e.preventDefault();

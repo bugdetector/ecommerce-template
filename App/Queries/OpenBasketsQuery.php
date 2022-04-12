@@ -37,9 +37,10 @@ class OpenBasketsQuery extends ViewableQueries
     public function getResultHeaders(bool $translateLabel = true): array
     {
         $controller = \CoreDB::controller();
-        $controller->addJsFiles("dist/user_comment/user_comment.js");
+        $controller->addJsFiles("ecommerce_theme/src/components/user_comment/user_comment.js");
         $controller->addFrontendTranslation("comment");
         $controller->addFrontendTranslation("last_modified_message");
+        $controller->addFrontendTranslation("save");
         $controller->addJsCode(
             "$(function(){
                 $(document).on('click', '.assign-button', function(e){
@@ -111,7 +112,8 @@ class OpenBasketsQuery extends ViewableQueries
         $row['comment'] = Link::create(
             "#",
             ViewGroup::create("i", "fa fa-comment")
-        )->addClass("btn btn-info user-comment-button")
+        )->addClass("btn btn-sm user-comment-button")
+        ->addClass($row["comment"] ? "btn-danger" : "btn-info")
         ->addAttribute("data-user", $row["user"] ?: "")
         ->addAttribute("data-comment", $row['comment'] ?: "");
         /** @var CustomUser */

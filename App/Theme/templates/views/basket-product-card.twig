@@ -7,20 +7,20 @@
 			<div>
 				<small>{{ view.product.stockcode }}</small>
 			</div>
-			<h5 class="text-primary fw-bold item-name">
+			<h5 class="text-primary fw-bolder item-name">
 				<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ view.product.url_alias }}">
 					{{ view.product.title }}
 					{{ view.variantName ? " - " ~ view.variantName : "" }}
 				</a>
 			</h5>
-			<div class="fw-bold">{{ t("price") }}:
+			<div class="fw-bolder">{{ t("price") }}:
 				<span class="text-info">{{ variable("currency_icon").value }}
 					<text class="my-price" data-item="{{ view.product.ID }}">{{ view.basketProduct.item_per_price.value|number_format(2, '.', ',') }}</text>
 				</span>
 			</div>
 		</div>
 		<div class="col-md-4 pt-3">
-			<label class="text-primary fw-bold">
+			<label class="text-primary fw-bolder">
 				{{ t("quantity") }}
 			</label>
 			{% if view.controlEnabled %}
@@ -44,14 +44,14 @@
 		</div>
 		<div class="col-md-3 pt-3">
 			<div>
-				<label class="text-primary fw-bold">
+				<label class="text-primary fw-bolder">
 					{{ t("vat") }}
 				</label>
 				<b class="item-vat" data-item="{{ view.product.ID }}" data-variant="{{ view.basketProduct.variant }}">{{ variable("currency_icon").value }}
 					{{ view.basketProduct.item_vat.value|number_format(2, '.', ',') }}</b>
 			</div>
 			<div>
-				<label class="text-primary fw-bold">
+				<label class="text-primary fw-bolder">
 					{{ t("subtotal") }}
 					:
 				</label>

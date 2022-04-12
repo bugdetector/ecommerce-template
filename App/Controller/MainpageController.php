@@ -65,7 +65,6 @@ class MainpageController extends AppController
         }
         $this->boxesUnderLatest = new MainpageBoxes(MainpageBox::PLACE_UNDER_LATEST_OFFERS);
         $this->boxesTopSellers = new MainpageBoxes(MainpageBox::PLACE_UNDER_TOP_SELLERS);
-        $this->addJsFiles("dist/mainpage/mainpage.js");
-        $this->addCssFiles("dist/mainpage/mainpage.css");
+        $this->addCssFiles("ecommerce_theme/src/components/mainpage/mainpage.css");
     }
 }

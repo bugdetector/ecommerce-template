@@ -22,7 +22,7 @@ class AppTheme extends BaseTheme
     {
         parent::addDefaultJsFiles($controller);
         $controller->addJsFiles("dist/basket/basket.js");
-        $controller->addJsFiles("dist/csl_global/csl_global.js");
+        $controller->addJsFiles("ecommerce_theme/src/components/_global/_global.js");
         $controller->addJsFiles("dist/navbar-search/navbar-search.js");
         $tagManagerId = Variable::getByKey("google_tag_manager_id")->value->getValue();
         $controller->addJsFiles("https://www.googletagmanager.com/gtag/js?id={$tagManagerId}");
@@ -38,7 +38,6 @@ class AppTheme extends BaseTheme
     {
         parent::addDefaultCssFiles($controller);
         $controller->addCssFiles("dist/basket/basket.css");
-        $controller->addCssFiles("dist/csl_global/csl_global.css");
         $controller->addCssFiles("dist/navbar-search/navbar-search.css");
     }
 

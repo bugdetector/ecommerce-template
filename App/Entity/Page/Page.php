@@ -41,8 +41,6 @@ class Page extends Model implements XMLSitemapEntityInterface
 
     public function getForm()
     {
-        \CoreDB::controller()->addJsFiles("dist/file_input/file_input.js");
-        \CoreDB::controller()->addCssFiles("dist/file_input/file_input.css");
         \CoreDB::controller()->addFrontendTranslation("close");
         return parent::getForm();
     }

@@ -68,8 +68,8 @@ class ProductController extends AppController
             }
 
             if (!$this->product->is_special_product->getValue()) {
-                $this->addJsFiles("dist/product-teaser/product-teaser.js");
-                $this->addCssFiles("dist/product-teaser/product-teaser.css");
+                $this->addJsFiles("ecommerce_theme/src/components/product-teaser/product-teaser.js");
+                $this->addCssFiles("ecommerce_theme/src/components/product-teaser/product-teaser.css");
             } else {
                 $this->isEnquirementExist = boolval(
                     Enquirement::getUserActiveEnquirement($this->product->ID->getValue())
@@ -84,9 +84,11 @@ class ProductController extends AppController
                 $this->addFrontendTranslation("enquiry_description");
             }
         }
-        $this->addJsFiles("dist/swiper/swiper.js");
-        $this->addCssFiles("dist/swiper/swiper.css");
-        $this->addJsFiles("dist/fancybox/fancybox.js");
-        $this->addCssFiles("dist/fancybox/fancybox.css");
+        $this->addJsFiles("ecommerce_theme/lib/swiper/swiper-bundle.min.js");
+        $this->addCssFiles("ecommerce_theme/lib/swiper/swiper-bundle.min.css");
+        $this->addJsFiles("ecommerce_theme/src/components/swiper/swiper.js");
+        $this->addJsFiles("ecommerce_theme/lib/fancybox@3.5.7/jquery.fancybox.min.js");
+        $this->addCssFiles("ecommerce_theme/lib/fancybox@3.5.7/jquery.fancybox.min.css");
+        $this->addJsFiles("ecommerce_theme/src/components/fancybox/fancybox.js");
     }
 }

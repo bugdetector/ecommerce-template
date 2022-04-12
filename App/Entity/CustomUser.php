@@ -345,9 +345,10 @@ class CustomUser extends User
     public function getResultHeaders(bool $translateLabel = true): array
     {
         $controller = \CoreDB::controller();
-        $controller->addJsFiles("dist/user_comment/user_comment.js");
+        $controller->addJsFiles("ecommerce_theme/src/components/user_comment/user_comment.js");
         $controller->addFrontendTranslation("comment");
         $controller->addFrontendTranslation("last_modified_message");
+        $controller->addFrontendTranslation("save");
         $headers = [
             "edit_actions" => "ID",
             "name" => Translation::getTranslation("name"),
@@ -411,7 +412,8 @@ class CustomUser extends User
         $row['comment'] = Link::create(
             "#",
             ViewGroup::create("i", "fa fa-comment")
-        )->addClass("btn btn-info user-comment-button")
+        )->addClass("btn btn-sm user-comment-button")
+        ->addClass($row["comment"] ? "btn-danger" : "btn-info")
         ->addAttribute("data-user", $row["edit_actions"])
         ->addAttribute("data-comment", $row['comment'] ?: "");
         /** @var CustomUser */

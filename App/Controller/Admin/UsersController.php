@@ -20,7 +20,7 @@ class UsersController extends EcommerceAdminController
         $this->searchForm = SearchForm::createByObject($customUser);
         $this->searchForm->addClass("p-3");
         $this->actions = $customUser->actions();
-        $this->addJsFiles("dist/user-delete/user-delete.js");
+        $this->addJsFiles("ecommerce_theme/src/components/user-delete/user-delete.js");
     }
 
     public function echoContent()

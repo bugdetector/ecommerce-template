@@ -51,11 +51,11 @@
 								<small>{{ row.product.stockcode }}</small>
 							</div>
 						</div>
-						<h5 class="text-primary fw-bold item-name" style="height: 60px">{{ row.title }}</h5>
+						<h5 class="text-primary fw-bolder item-name" style="height: 60px">{{ row.title }}</h5>
 						{% for type, priceInfo in row.prices %}
 							{% set offer = priceInfo.offer|number_format(2, '.', ',') %}
 							{% set list_price = priceInfo.list_price|number_format(2, '.', ',') %}
-							<div class="fw-bold text-info my-price-text mb-2">
+							<div class="fw-bolder text-info my-price-text mb-2">
 								{{ t(type) }}:
 								{% if list_price != offer %}
 									<del class="text-danger">{{ variable("currency_icon").value }}{{ list_price }}</del>

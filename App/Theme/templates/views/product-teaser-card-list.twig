@@ -52,15 +52,15 @@
 							<small>{{ row.product.stockcode }}</small>
 						</div>
 						<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ row.url_alias }}" class="text-decoration-none">
-							<h5 class="text-primary fw-bold item-name">
+							<h5 class="text-primary fw-bolder item-name">
 								{{ row.title }}
 							</h5>
 						</a>
-						<div class="fw-bold text-info">
+						<div class="fw-bolder text-info">
 							{% for type, priceInfo in row.prices %}
 								{% set offer = priceInfo.offer|number_format(2, '.', ',') %}
 								{% set list_price = priceInfo.list_price|number_format(2, '.', ',') %}
-								<div class="fw-bold text-info my-price-text mb-2">
+								<div class="fw-bolder text-info my-price-text mb-2">
 									{{ t(type) }}:
 									{% if list_price != offer %}
 										<del class="text-danger">{{ variable("currency_icon").value }}{{ list_price }}</del>
