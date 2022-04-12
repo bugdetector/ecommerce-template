@@ -1,5 +1,5 @@
-import "bootstrap-4-autocomplete";
-import "./navbar-search.scss";
+//import "bootstrap-4-autocomplete";
+
 $(function($){
     $(document).on("input", '#navbar-search-input', function(e){
         let search = this.value;

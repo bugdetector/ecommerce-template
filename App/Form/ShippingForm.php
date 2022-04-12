@@ -97,8 +97,8 @@ class ShippingForm extends Form
         );
 
         $controller = \CoreDB::controller();
-        $controller->addCssFiles("dist/shipping-form/shipping-form.css");
-        $controller->addJsFiles("dist/shipping-form/shipping-form.js");
+        $controller->addCssFiles("ecommerce_theme/src/forms/shipping-form/shipping-form.css");
+        $controller->addJsFiles("ecommerce_theme/src/forms/shipping-form/shipping-form.js");
     }
 
     public function getUserAddresses()

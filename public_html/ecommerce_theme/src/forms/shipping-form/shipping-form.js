@@ -1,9 +1,6 @@
-import "./shipping-form.scss";
-
 $(function(){
     $(".shipping-option").on("click", function(){
-        $("#input_shipping_option").val($(this).data("option"));
-        $("#input_shipping_option").selectpicker("refresh").change();
+        $("#input_shipping_option").val($(this).data("option")).trigger("change");
         $(".shipping").addClass("flipped");
     })
 

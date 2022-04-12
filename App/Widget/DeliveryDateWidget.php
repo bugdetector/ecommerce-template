@@ -14,13 +14,13 @@ class DeliveryDateWidget extends InputWidget
         ->addAttribute("data-target", "#input_delivery_date")
         ->addAttribute("data-toggle", "datetimepicker")
         ->addAttribute("autocomplete", "off")
-        ->addAttribute("data-start-of", date("Y-m-d", strtotime($startOf)))
+        ->addAttribute("data-start-of", date("d-m-Y", strtotime($startOf)))
         ->addClass("datetimepicker-input");
         $controller = \CoreDB::controller();
-        $controller->addJsFiles("dist/datetimepicker/datetimepicker.js");
-        $controller->addCssFiles("dist/datetimepicker/datetimepicker.css");
-        $controller->addJsFiles("dist/delivery-date/delivery-date.js");
-        $controller->addCssFiles("dist/delivery-date/delivery-date.css");
+        $controller->addJsFiles("assets/js/components/datetimepicker.js");
+        $controller->addCssFiles("assets/css/components/datetimepicker.css");
+        $controller->addJsFiles("ecommerce_theme/src/components/delivery-date/delivery-date.js");
+        $controller->addCssFiles("ecommerce_theme/src/components/delivery-date/delivery-date.css");
     }
 
     public function setValue($value)

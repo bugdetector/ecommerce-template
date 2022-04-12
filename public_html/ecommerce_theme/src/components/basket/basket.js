@@ -1,4 +1,3 @@
-import "./basket.scss";
 $(function ($) {
     $(document).on("click", ".basket-item", function (e) {
         e.stopPropagation();

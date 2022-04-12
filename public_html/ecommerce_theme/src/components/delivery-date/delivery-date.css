@@ -1,0 +1,13 @@
+#input_delivery_date + .bootstrap-datetimepicker-widget td, #input_delivery_date + .bootstrap-datetimepicker-widget th {
+    color: black;
+}
+#input_delivery_date + .bootstrap-datetimepicker-widget .day.disabled {
+    opacity: 0.5;
+    color: red;
+}
+#input_delivery_date + .bootstrap-datetimepicker-widget .day:not(.disabled,.active) {
+    background-color: darkgray;
+}
+#input_delivery_date + .bootstrap-datetimepicker-widget .day.active {
+    background-color: mediumseagreen;
+}
