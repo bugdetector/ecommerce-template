@@ -23,6 +23,7 @@ class AppTheme extends BaseTheme
         parent::addDefaultJsFiles($controller);
         $controller->addJsFiles("ecommerce_theme/src/components/basket/basket.js");
         $controller->addJsFiles("ecommerce_theme/src/components/_global/_global.js");
+        $controller->addJsFiles("ecommerce_theme/lib/bootstrap-4-autocomplete/bootstrap-4-autocomplete.min.js");
         $controller->addJsFiles("ecommerce_theme/src/components/navbar-search/navbar-search.js");
         $tagManagerId = Variable::getByKey("google_tag_manager_id")->value->getValue();
         $controller->addJsFiles("https://www.googletagmanager.com/gtag/js?id={$tagManagerId}");

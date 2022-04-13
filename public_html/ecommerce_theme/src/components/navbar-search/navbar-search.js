@@ -8,15 +8,15 @@ $(function($){
             data : {search: search},
             dataType : "json",
             success : function(response){
-                // $('#navbar-search-input').autocomplete({
-                //     source: response.data,
-                //     onSelectItem: function(item, element) {
-                //         window.location = `${root}/products?search=` + encodeURIComponent(item.label);
-                //     },
-                //     highlightClass: 'text-danger',
-                //     treshold: 0,
-                //     maximumItems: 15
-                // }).trigger("keyup");
+                $('#navbar-search-input').autocomplete({
+                    source: response.data,
+                    onSelectItem: function(item, element) {
+                        window.location = `${root}/products?search=` + encodeURIComponent(item.label);
+                    },
+                    highlightClass: 'text-danger',
+                    treshold: 0,
+                    maximumItems: 15
+                }).trigger("keyup");
             }
         })
     })
