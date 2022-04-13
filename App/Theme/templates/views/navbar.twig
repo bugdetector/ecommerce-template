@@ -85,6 +85,16 @@
 			<!--begin::Toolbar wrapper-->
 			<div
 				class="d-flex align-items-stretch flex-shrink-0">
+				<form id="navbar-search" class="d-flex align-items-center ms-1 ms-lg-3"
+				action="{{ constant("BASE_URL") }}/products">
+					<div class="input-group">
+						<input type="search" id="navbar-search-input" class="form-control" value="" autocomplete="off" name="search" placeholder="{{ t("search") }}">
+						<button type="submit" class="btn btn-primary">
+							<i class="fa fa-search"></i>
+							<span class="sr-only">{{ t("search") }}</span>
+						</button>
+					</div>
+				</form>
 				<!--begin::User menu-->
 				<div
 					class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
