@@ -6,7 +6,7 @@
 		{% set listprice = firstPrice.price|number_format(2, '.', ',') %}
 		<div class="w-100 card shadow-lg my-2 basket-item basket-list-item">
 			{% if row.on_offer %}
-				<div class="card-header bg-gradient-warning text-white">
+				<div class="card-header bg-gradient-warning text-light">
 					<div>
 						<i class="fa fa-star"></i>
 						{{ t("on_offer") }}
@@ -45,7 +45,7 @@
 					<div class="col-6 col-sm-6 col-md-3 mt-2 p-2">
 						{% if view.listOptionField != "bespoke_card_list_option" %}
 							<div class="btn float-end {{ row.favorite ? " text-heart" : " text-gray-500" }} item-favorite" data-item="{{ row.ID }}">
-								<i class="fa fa-star"></i>
+								<span class="fa fa-star"></span>
 							</div>
 						{% endif %}
 						<div>
@@ -74,15 +74,11 @@
 						{% if row.is_variable %}
 							{{ row.variation_select }}
 						{% endif %}
-						<div class="card-footer bg-gradient-info rounded-pill text-center w-sm-50">
-							<a href="#" class="text-white text-decoration-none add-basket-control {{ not view.logged_in ? " nonlogin-add-to-basket" }}">
-								<input type="number" value="{{ row.quantity ?: 1 }}" class="quantity d-none" data-item="{{ row.ID }}" min="1">
-								<a href="#" class="save-quantity no-edit text-white" data-item="{{ row.ID }}">
-									<i class="fa fa-shopping-basket"></i>
-									{{ t("add_to_basket") }}
-								</a>
-							</a>
-						</div>
+						<div class="save-quantity no-edit btn btn-primary text-decoration-none add-basket-control {{ not view.logged_in ? " nonlogin-add-to-basket" }}" data-item="{{ row.ID }}">
+							<input type="number" value="{{ row.quantity ?: 1 }}" class="quantity d-none" data-item="{{ row.ID }}" min="1">
+							<span class="fa fa-shopping-basket"></span>
+							{{ t("add_to_basket") }}
+						</a>
 					</div>
 				</div>
 			</div>

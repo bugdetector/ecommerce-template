@@ -10,7 +10,7 @@
 			<div class="card">
 				<div class="card-header bg-gradient-info position-relative">
 					<h5 class="mb-0">
-						<label class="btn btn-link fw-bolder text-white stretched-link" data-bs-toggle="collapse" data-target="#savedCreditCards">
+						<label class="btn btn-link fw-bolder text-light stretched-link" data-bs-toggle="collapse" data-target="#savedCreditCards">
 							<input type="radio" name="payment_option" value="saved_credit_card" checked />
 							{{ t("pay_with_saved_credit_card") }}
 						</label>
@@ -48,7 +48,7 @@
 		<div class="card">
 			<div class="card-header bg-gradient-info position-relative">
 				<h5 class="mb-0">
-					<label class="btn btn-link collapsed fw-bolder text-white stretched-link" data-bs-toggle="collapse" data-target="#creditCardPayment">
+					<label class="btn btn-link collapsed fw-bolder text-light stretched-link" data-bs-toggle="collapse" data-target="#creditCardPayment">
 						<input type="radio" name="payment_option" value="credit_card"/>
 						{{ t("pay_with_credit_card") }}
 					</label>
@@ -56,7 +56,7 @@
 			</div>
 			<div id="creditCardPayment" class="collapse {{ not form.paymentMethods ? "show" }}" data-parent="#accordion">
 				<div class="card-body">
-					<div class="d-flex justify-content-center container text-white mt-5">
+					<div class="d-flex justify-content-center container text-light mt-5">
 						<div class="card credit-card p-2 px-3 py-3">
 							<div class="d-flex justify-content-end align-items-end" id="card-type-image">
 								<i class='fa fa-credit-card'></i>

@@ -43,7 +43,7 @@ class ProductlistsController extends EcommerceAdminController
                     TextElement::create(
                         Translation::getTranslation($list)
                     )->addClass(
-                        @$this->arguments[0] == $list ? "text-white" : ""
+                        @$this->arguments[0] == $list ? "text-light" : ""
                     ),
                     self::getUrl() . $list,
                     @$this->arguments[0] == $list

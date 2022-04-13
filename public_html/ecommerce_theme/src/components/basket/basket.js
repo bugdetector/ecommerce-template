@@ -12,26 +12,20 @@ $(function ($) {
         if (!variation) {
             variation = null;
         }
-        bootbox.prompt({
+        swal.fire({
+            confirmButtonText: _t("add_to_basket"),
+            showCancelButton: true,
+            cancelButtonText: _t("cancel"),
             title: _t("please_enter_quantity"),
-            value: quantityInput.val(),
-            centerVertical: true,
-            inputType: 'number',
-            min: 1,
-            buttons: {
-                cancel: {
-                    label: _t("cancel"),
-                    className: 'btn-danger',
-                },
-                confirm: {
-                    label: _t("add_to_basket"),
-                    className: 'btn-info'
-                }
-            },
-            callback: function (result) {
-                if (result) {
-                    saveItemToBasket(itemId, result, variation, refresh, place);
-                }
+            input: 'number',
+            inputValue: quantityInput.val(),
+            customClass: {
+                confirmButton: "btn btn-primary",
+                cancelButton: "btn btn-danger"
+            }
+        }).then((result) => {
+            if(result.isConfirmed){
+                saveItemToBasket(itemId, result.value, variation, refresh, place);
             }
         });
     }).on("click", ".quantity-down, .quantity-up", function () {
@@ -137,52 +131,6 @@ $(function ($) {
                     location.reload();
                 }
                 let data = response.data;
-                let itemCard = $(`.product-item[data-item='${data.product}']`);
-                let itemName = itemCard.find(".item-name").first().text();
-                toastr.success(
-                    _t("added_to_basket", [
-                        data.quantity + ", " + itemName
-                    ])
-                );
-                if (data.quantity > 0 && $(`.shopping-basket .basket-item[data-item='${data.product}'][data-variant='${variation}']`).length == 0) {
-                    let itemImageUrl = itemCard.find("img").attr("src");
-                    let variationName = $(".variation_select:first").find(`option[value='${variation}']`).text();
-                    let template =
-                        `<div class="nav-item basket-item" data-item="${data.product}" data-variant='${variation}'>
-                            <div class=" d-flex align-items-center dropdown-item" href="#">
-                                <img src="${itemImageUrl}" 
-                                alt="${itemName}" 
-                                class="dropdown-list-image me-3 rounded-circle">
-                                <div class="">
-                                    <text class="fw-bolder">
-                                        ${itemName} ${variation ? ` - ${variationName}` : ""}
-                                    </text>
-                                    <br>
-                                    <button type='button' class='btn btn-sm btn-danger drop-from-basket'
-                                    data-item='${data.product}' data-variant='${variation}'>
-                                        <i class='fa fa-trash'></i>
-                                    </button>
-                                    <div class='btn-group my-2'>
-                                        <button type='button' class='btn btn-sm btn-info quantity-down'
-                                        data-item='${data.product}' data-variant='${variation}'>
-                                            <i class='fa fa-minus'></i>
-                                        </button>
-                                        <input type='number' class='btn btn-sm btn-primary quantity'
-                                        data-item='${data.product}' data-variant='${variation}'
-                                        value='${data.quantity}' readonly/>
-                                        <button type='button' class='btn btn-sm btn-info quantity-up'
-                                        data-item='${data.product}' data-variant='${variation}'>
-                                            <i class='fa fa-plus'></i>
-                                        </button>
-                                    </div>
-                                    <div class="total-value fw-bolder" data-item="${data.product}" data-variant='${variation}'>
-                                        0.00
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`;
-                    $(".shopping-basket .dropdown-menu .checkout-section").after(template);
-                }
                 if (data.product && variation) {
                     $(`.quantity[data-item="${data.product}"][data-variant='${variation}']`).val(data.quantity);
                     $(`.item-vat[data-item="${data.product}"][data-variant='${variation}']`).text(`₺${data.item_vat.toFixed(2)}`);

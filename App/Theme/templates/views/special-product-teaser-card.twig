@@ -3,7 +3,7 @@
 		<div class="col-lg-4 col-xl-3 p-2 align-self-stretch basket-item">
 			<div class="text-center card shadow p-2 h-100 d-block">
 				<div class="btn px-2 float-end {{ row.favorite ? " text-heart" : " text-gray-500" }} item-favorite" data-item="{{ row.ID }}">
-					<i class="fa fa-heart"></i>
+					<span class="fa fa-heart"></span>
 				</div>
 				<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ row.url_alias }}" data-item="{{row.ID}}" class="text-decoration-none product-item">
 					<div class="mx-auto item-image-wrapper">

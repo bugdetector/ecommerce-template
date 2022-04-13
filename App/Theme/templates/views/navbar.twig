@@ -95,6 +95,17 @@
 						</button>
 					</div>
 				</form>
+				<div
+					class="d-flex align-items-center ms-7">
+					{% set itemCount = theme.getUserBasketItemCount()  %}
+					<div class="btn btn-icon btn-active-light btn-active-color-primary w-40px h-40px w-md-60px h-md-60px btn-icon-primary" 
+					data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+						<span class="fa fa-shopping-basket fs-2x"></span>
+						<span class="position-relative top-0 translate-middle badge rounded-pill bg-danger shop-item-count">
+							{{ itemCount > 100 ? "99+" : itemCount }}
+						</span>
+					</div>
+				</div>
 				<!--begin::User menu-->
 				<div
 					class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">

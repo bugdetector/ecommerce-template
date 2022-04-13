@@ -35,10 +35,10 @@
 										{% endfor %}
 										{% if not clickUrl %}
 											<div class="card-footer bg-gradient-info">
-												<a href="#" class="text-white text-decoration-none add-basket-control {{ not view.isLoggedIn() ? " nonlogin-add-to-basket" }}">
+												<a href="#" class="text-light text-decoration-none add-basket-control {{ not view.isLoggedIn() ? " nonlogin-add-to-basket" }}">
 													{% if view.isLoggedIn() %}
 														<input type="number" value="{{ 1 }}" class="quantity d-none" data-item="{{ product.ID }}" min="1">
-														<a href="#" class="save-quantity refresh-after-add no-edit text-white" data-item="{{ product.ID }}">
+														<a href="#" class="save-quantity refresh-after-add no-edit text-light" data-item="{{ product.ID }}">
 															<i class="fa fa-shopping-basket"></i>
 															{{ t("add_to_basket") }}
 														</a>

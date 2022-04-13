@@ -24,7 +24,7 @@ class PostcodeQuery extends ViewableQueries
             "minimum_order_price" => Translation::getTranslation("minimum_order_price"),
             TextElement::create(
                 Translation::getTranslation("delivery_charge") .
-                "<span class='bg-warning rounded-circle mx-2 px-3 py-2 text-white'
+                "<span class='bg-warning rounded-circle mx-2 px-3 py-2 text-light'
                 data-bs-toggle='popover' title='" .
                 Translation::getTranslation("delivery_charge")
                 . "' data-bs-content='" .

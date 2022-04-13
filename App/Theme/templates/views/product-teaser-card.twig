@@ -7,7 +7,7 @@
 		<div class="col-lg-4 col-xl-3 p-2 align-self-stretch basket-item">
 			<div class="text-center card shadow h-100 rounded-lg">
 				{% if row.on_offer %}
-					<div class="card-header bg-gradient-warning text-white">
+					<div class="card-header bg-gradient-warning text-light">
 						<div>
 							<i class="fa fa-star"></i>
 							{{ t("on_offer") }}
@@ -21,7 +21,7 @@
 				<div class="card-body">
 					{% if view.listOptionField != "bespoke_card_list_option" and view.logged_in %}
 						<div class="btn px-2 float-end {{ row.favorite ? " text-heart" : " text-gray-500" }} item-favorite" data-item="{{ row.ID }}">
-							<i class="fa fa-star"></i>
+							<span class="fa fa-star"></span>
 						</div>
 					{% endif %}
 					<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ row.url_alias }}" data-item="{{row.ID}}" class="text-decoration-none product-item">
@@ -65,16 +65,16 @@
 						{% endfor %}
 					</a>
 				</div>
-				<div class="card-footer bg-gradient-info">
-					<a href="#" class="text-white text-decoration-none add-basket-control {{ not view.logged_in ? " nonlogin-add-to-basket" }}">
+				<div class="card-footer">
+					<a href="#" class="text-decoration-none add-basket-control {{ not view.logged_in ? " nonlogin-add-to-basket" }}">
 						{% if view.logged_in or view.non_login_order %}
 							<input type="number" value="{{ row.quantity ?: 1 }}" class="quantity d-none" data-item="{{ row.ID }}" min="1">
-							<a href="#" class="save-quantity no-edit text-white" data-item="{{ row.ID }}">
-								<i class="fa fa-shopping-basket"></i>
+							<a href="#" class="btn btn-primary save-quantity no-edit" data-item="{{ row.ID }}">
+								<span class="fa fa-shopping-basket"></span>
 								{{ t("add_to_basket") }}
 							</a>
 						{% else %}
-							<i class="fa fa-shopping-basket"></i>
+							<span class="fa fa-shopping-basket"></span>
 							{{ t("add_to_basket") }}
 						{% endif %}
 					</a>

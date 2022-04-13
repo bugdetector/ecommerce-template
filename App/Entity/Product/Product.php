@@ -178,25 +178,25 @@ class Product extends Model implements XMLSitemapEntityInterface
         return [
             ViewGroup::create("a", "btn btn-sm btn-primary shadow-sm me-1 ms-auto mb-1")
                 ->addField(
-                    ViewGroup::create("i", "fa fa-plus text-white-50")
+                    ViewGroup::create("i", "fa fa-plus text-light-50")
                 )->addAttribute("href", InsertController::getUrl())
                 ->addField(TextElement::create(Translation::getTranslation("add_new_product"))),
             Link::create(
                 ImportController::getUrl(),
                 TextElement::create(
-                    "<i class='fa fa-file-import text-white-50'></i> " . Translation::getTranslation("import")
+                    "<i class='fa fa-file-import text-light-50'></i> " . Translation::getTranslation("import")
                 )->setIsRaw(true)
             )->addClass("btn btn-sm btn-info shadow-sm me-1 mb-1"),
             Link::create(
                 StockController::getUrl(),
                 TextElement::create(
-                    "<i class='fa fa-eye text-white-50'></i> " . Translation::getTranslation("show_stock")
+                    "<i class='fa fa-eye text-light-50'></i> " . Translation::getTranslation("show_stock")
                 )->setIsRaw(true)
             )->addClass("btn btn-sm btn-info shadow-sm me-1 mb-1"),
             Link::create(
                 StockimportController::getUrl(),
                 TextElement::create(
-                    "<i class='fa fa-file-import text-white-50'></i> " . Translation::getTranslation("update_stock")
+                    "<i class='fa fa-file-import text-light-50'></i> " . Translation::getTranslation("update_stock")
                 )->setIsRaw(true)
             )->addClass("btn btn-sm btn-info shadow-sm me-1 mb-1")
         ];

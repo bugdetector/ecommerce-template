@@ -14,7 +14,6 @@ $(function ($) {
                 }else{
                     button.removeClass("text-heart ").addClass("text-gray-500 ");
                 }
-                toastr.success(response.data.message);
             }
         })
     }).on("click", ".quick-add-item", function(e){

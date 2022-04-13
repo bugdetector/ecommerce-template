@@ -9,14 +9,14 @@
 	<div class="collapse navbar-collapse" id="category-navbar">
 		<nav class="navbar-nav d-flex flex-wrap justify-content-center w-100">
 			<li class="nav-item active">
-				<a class="nav-link text-white" href="{{ constant("BASE_URL") }}/products">
+				<a class="nav-link text-light" href="{{ constant("BASE_URL") }}/products">
 					{{ t("all_products") }}
 				</a>
 			</li>
 			{% for category in view.categories %}
 				{% if category.subCategories %}
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle text-white" href="#" id="category-dropdown-{{ category.ID }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a class="nav-link dropdown-toggle text-light" href="#" id="category-dropdown-{{ category.ID }}" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							{{ category.name }}
 						</a>
 						<div class="dropdown-menu animated--fade-in">
@@ -31,7 +31,7 @@
 					</li>
 				{% else %}
 					<li class="nav-item active">
-						<a class="nav-link text-white" href="{{ constant("BASE_URL") }}/products?category={{ category.ID }}">
+						<a class="nav-link text-light" href="{{ constant("BASE_URL") }}/products?category={{ category.ID }}">
 							{{ category.name }}
 						</a>
 					</li>
@@ -45,7 +45,7 @@
 
 {% if not view.isLoggedIn %}
 	<nav id="redirect-login" class="navbar navbar-dark bg-gradient-danger justify-content-center">
-		<div class="nav-item text-white text-center">
+		<div class="nav-item text-light text-center">
 			{{ t("login_or_register_to_get_best_prices", [
 					variable("site_name").value,
 					constant("BASE_URL") ~ "/login",

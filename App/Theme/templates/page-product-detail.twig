@@ -32,7 +32,7 @@
 					<div class="col-md-4 item-image-wrapper">
 						{% if onoffer %}
 							<div class="card-header bg-gradient-warning text-center">
-								<div class="text-white">
+								<div class="text-light">
 									<i class="fa fa-star"></i>
 									{{ t("on_offer") }}
 								</div>
@@ -71,7 +71,7 @@
 							{{ controller.product.stockcode }}
 							{% if controller.logged_in %}
 								<div class="btn px-2 float-end {{ controller.isFavorite ? " text-heart" : " text-gray-500" }} item-favorite" data-item="{{ controller.product.ID }}">
-									<i class="fa fa-star"></i>
+									<span class="fa fa-star"></span>
 								</div>
 							{% endif %}
 						</small>
@@ -96,9 +96,9 @@
 									</div>
 								{% endif %}
 								<div class="card-footer bg-gradient-info">
-									<a href="#" class="text-white text-decoration-none add-basket-control">
+									<a href="#" class="text-light text-decoration-none add-basket-control">
 										<input type="number" value="{{controller.basketProduct.quantity.getValue() ?: 1 }}" class="quantity d-none" data-item="{{ controller.product.ID }}" min="1">
-										<a href="#" class="save-quantity no-edit text-white" data-item="{{ controller.product.ID }}">
+										<a href="#" class="save-quantity no-edit text-light" data-item="{{ controller.product.ID }}">
 											<i class="fa fa-shopping-basket"></i>
 											{{ t("add_to_basket") }}
 										</a>
@@ -112,7 +112,7 @@
 							{% endif %}
 						{% else %}
 							<div class="card-footer bg-gradient-info">
-								<a href="#" class="text-white text-decoration-none add-basket-control {{ not view.logged_in ? " nonlogin-add-to-basket" }}">
+								<a href="#" class="text-light text-decoration-none add-basket-control {{ not view.logged_in ? " nonlogin-add-to-basket" }}">
 									<i class="fa fa-shopping-basket"></i>
 									{{ t("add_to_basket") }}
 								</a>

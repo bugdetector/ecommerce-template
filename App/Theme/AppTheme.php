@@ -2,6 +2,7 @@
 
 namespace App\Theme;
 
+use App\Entity\Basket\Basket;
 use CoreDB\Kernel\ControllerInterface;
 use Src\BaseTheme\BaseTheme;
 use Src\Entity\Variable;
@@ -85,5 +86,10 @@ class AppTheme extends BaseTheme
             "name" => "keywords",
             "content" => Variable::getByKey("meta_keywords")->value
         ]);
+    }
+
+    public function getUserBasketItemCount()
+    {
+        return Basket::getUserBasket()->item_count->getValue();
     }
 }

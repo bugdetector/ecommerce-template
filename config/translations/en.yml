@@ -511,7 +511,7 @@ earliest_delivey_time: 'Earliest Delivey Time'
 add_to_active_order_warning_one_item: 'You have 1 active order for date %s. Click <a href="#" id="merge-detail">here</a>&nbsp;if you want add to this order.'
 banner_product: 'Banner Product'
 view_all: 'View All'
-added_to_basket: '<b>%s</b> added to basket.'
+added_to_basket: '<b>%d</b> pieces, <b>%s</b> added to basket.'
 need_update: 'Need Update'
 page_attachment: 'Page Attachment'
 resend_orders: 'Resend Orders'
@@ -621,3 +621,4 @@ language: Language
 navbar: 'Header menu'
 dark-mode: 'Dark Mode'
 banners: Banners
+comment_saved: 'Comment saved'

@@ -129,7 +129,7 @@ class Enquirement extends Model
             Link::create(
                 InsertController::getUrl(),
                 TextElement::create(
-                    "<i class='fa fa-plus text-white-50'></i> " . Translation::getTranslation("add")
+                    "<i class='fa fa-plus text-light-50'></i> " . Translation::getTranslation("add")
                 )->setIsRaw(true)
             )->addClass("btn btn-sm btn-primary shadow-sm me-1 mb-1")
         ];

@@ -511,7 +511,7 @@ earliest_delivey_time: 'En Erken Teslimat Zamanı'
 add_to_active_order_warning_one_item: '<p>%s tarihi için 1 aktif siparişiniz bulunuyor. Bu sipariş ögelerini eklemek isterseniz&nbsp;<a href="#" id="merge-detail">buraya</a>&nbsp;tıklayın.<br></p>'
 banner_product: 'Kaydırıcı ürünü'
 view_all: 'Tümünü Görüntüle'
-added_to_basket: '<b>%s</b> sepete eklendi.'
+added_to_basket: '<b>%d</b> adet, <b>%s</b> sepete eklendi.'
 need_update: 'Güncelleme Gerekiyor'
 page_attachment: 'Sayfa Eki'
 resend_orders: 'Siparişler Yeniden Gönder'
@@ -621,3 +621,4 @@ language: Dil
 navbar: 'Başlık menüsü'
 dark-mode: 'Karanlık Mod'
 banners: Kaydırıcılar
+comment_saved: 'Yorum kaydedildi'

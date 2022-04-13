@@ -28,12 +28,15 @@ class AjaxController extends ControllerAjaxController
         if ($product) {
             $toggled = FavoriteProducts::toggleFavorite($product);
             $message = $toggled ? "product_added_favorites" : "product_removed_favorites";
-            return [
-                "toggled" => $toggled,
-                "message" => Translation::getTranslation(
+            $this->createMessage(
+                Translation::getTranslation(
                     $message,
                     [$product->title->getValue()]
                 ),
+                Messenger::SUCCESS
+            );
+            return [
+                "toggled" => $toggled
             ];
         }
     }

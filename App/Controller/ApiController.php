@@ -7,6 +7,7 @@ use App\Entity\Basket\Basket;
 use App\Entity\Product\Product;
 use App\Entity\Search\SearchApi;
 use App\Exception\BasketException;
+use CoreDB;
 use CoreDB\Kernel\Messenger;
 use CoreDB\Kernel\Router;
 use CoreDB\Kernel\ServiceController;
@@ -34,7 +35,10 @@ class ApiController extends ServiceController
 
     public function addItemToBasket()
     {
-        if (!Variable::getByKey("non_login_order")->value->getValue()) {
+        if (
+            !CoreDB::currentUser()->isLoggedIn() &&
+            !Variable::getByKey("non_login_order")->value->getValue()
+        ) {
             Router::getInstance()->route(AccessdeniedController::getUrl());
         }
         $itemId = @$_POST["itemId"];
@@ -78,6 +82,13 @@ class ApiController extends ServiceController
             $response["for_free_delivery"] = $basket->getMinimumOrderPrice() -
             $basket->subtotal->getValue() -
             $basket->calculateVat();
+            $this->createMessage(
+                Translation::getTranslation("added_to_basket", [
+                    $quantity,
+                    $product->title
+                ]),
+                Messenger::SUCCESS
+            );
             return $response;
         } elseif ($itemId == "update") {
             $basket = Basket::getUserBasket();
