@@ -1,21 +1,10 @@
 {% extends "page.twig" %}
-{% block title %}
-	<div class="mb-4">
-		<a href="javascript:history.back()" class="btn btn-outline-info">
-			<i class="fa fa-chevron-left me-2"></i>
-			{{ t("back") }}
-		</a>
-	</div>
-	<div class="d-sm-flex align-items-center justify-content-between mb-4 text-center">
-		<h1 class="h3 mb-0 text-primary">{{ controller.title }}</h1>
-	</div>
+{% block content %}
 	<a href="{{ constant("BASE_URL") ~ "/products" }}" class="ms-2">{{ t("all") }}</a>
 	{% for category in controller.product.getBreadCrumb() %}
 		/
 		<a href="{{ constant("BASE_URL") ~ "/products?category=" ~ category.ID }}">{{ category.name }}</a>
 	{% endfor %}
-{% endblock %}
-{% block content %}
 	{% set onoffer = false %}
 	{% for type, priceInfo in controller.product.getPrices() %}
 		{% set offer = priceInfo.offer|number_format(2, '.', ',') %}
@@ -29,7 +18,7 @@
 			<div class="card p-2">
 				{{ controller.printMessages() }}
 				<div class="row product-item basket-item" data-item="{{controller.product.ID}}">
-					<div class="col-md-4 item-image-wrapper">
+					<div class="col-md-4">
 						{% if onoffer %}
 							<div class="card-header bg-gradient-warning text-center">
 								<div class="text-light">
@@ -95,13 +84,11 @@
 										</div>
 									</div>
 								{% endif %}
-								<div class="card-footer bg-gradient-info">
-									<a href="#" class="text-light text-decoration-none add-basket-control">
+								<div class="card-footer">
+									<a href="#" class="btn btn-primary save-quantity no-edit add-basket-control" data-item="{{ controller.product.ID }}">
 										<input type="number" value="{{controller.basketProduct.quantity.getValue() ?: 1 }}" class="quantity d-none" data-item="{{ controller.product.ID }}" min="1">
-										<a href="#" class="save-quantity no-edit text-light" data-item="{{ controller.product.ID }}">
-											<i class="fa fa-shopping-basket"></i>
-											{{ t("add_to_basket") }}
-										</a>
+										<span class="fa fa-shopping-basket"></span>
+										{{ t("add_to_basket") }}
 									</a>
 								</div>
 							{% else %}
