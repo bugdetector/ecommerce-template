@@ -7,6 +7,8 @@ use App\Entity\Basket\Basket;
 use App\Entity\Product\Product;
 use App\Entity\Search\SearchApi;
 use App\Exception\BasketException;
+use App\Theme\AppTheme;
+use App\Views\BasketItemsContainer;
 use CoreDB;
 use CoreDB\Kernel\Messenger;
 use CoreDB\Kernel\Router;
@@ -15,6 +17,7 @@ use Exception;
 use Src\Controller\AccessdeniedController;
 use Src\Entity\Translation;
 use Src\Entity\Variable;
+use Src\Theme\CoreRenderer;
 
 class ApiController extends ServiceController
 {
@@ -102,7 +105,10 @@ class ApiController extends ServiceController
 
     public function cleanBasket()
     {
-        if (!Variable::getByKey("non_login_order")->value->getValue()) {
+        if (
+            !CoreDB::currentUser()->isLoggedIn() &&
+            !Variable::getByKey("non_login_order")->value->getValue()
+        ) {
             Router::getInstance()->route(AccessdeniedController::getUrl());
         }
         $basket = Basket::getUserBasket();
@@ -112,5 +118,12 @@ class ApiController extends ServiceController
             Translation::getTranslation("basket_cleaned"),
             Messenger::SUCCESS
         );
+    }
+
+    public function getBasketDrawerItems()
+    {
+        $this->response_type = self::RESPONSE_TYPE_RAW;
+        return CoreRenderer::getInstance(new AppTheme())
+        ->renderView(new BasketItemsContainer());
     }
 }

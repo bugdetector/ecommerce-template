@@ -108,6 +108,13 @@ $(function ($) {
                 location.reload();
             }
         })
+    }).on("click", "#basket_toggle", function(e){
+        $.ajax({
+            url: root + "/api/getBasketDrawerItems",
+            success: function(response){
+                $("#basket_body").html(response);
+            }
+        })
     })
 
     window.saveItemToBasket = function (itemId, quantity = null, variation = null, refresh = false, place = null) {

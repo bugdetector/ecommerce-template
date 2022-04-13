@@ -3,6 +3,7 @@
 namespace App\Theme;
 
 use App\Entity\Basket\Basket;
+use App\Views\BasketDrawer;
 use CoreDB\Kernel\ControllerInterface;
 use Src\BaseTheme\BaseTheme;
 use Src\Entity\Variable;
@@ -11,12 +12,19 @@ use Src\Views\Navbar;
 class AppTheme extends BaseTheme
 {
     public ?Navbar $categoryNavbar;
+    public BasketDrawer $basketDrawer;
 
     public static function getTemplateDirectories(): array
     {
         $directories = parent::getTemplateDirectories();
         array_unshift($directories, __DIR__ . "/templates");
         return $directories;
+    }
+
+    public function setDefaults(ControllerInterface $controller)
+    {
+        parent::setDefaults($controller);
+        $this->basketDrawer = new BasketDrawer();
     }
 
     protected function addDefaultJsFiles(ControllerInterface $controller)

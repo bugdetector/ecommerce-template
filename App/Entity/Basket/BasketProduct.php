@@ -136,4 +136,9 @@ class BasketProduct extends Model
                 return parent::getFieldWidget($field_name, $translateLabel);
         }
     }
+
+    public function getProduct()
+    {
+        return Product::get($this->product->getValue());
+    }
 }

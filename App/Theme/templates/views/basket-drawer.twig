@@ -1,0 +1,29 @@
+<div
+	class="drawer drawer-end drawer-off shadow-lg" data-kt-drawer="true" data-kt-drawer-name="basket" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'400px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#basket_toggle" data-kt-drawer-close="#basket_close">
+	<!--begin::Card-->
+	<div
+		class="card shadow-lg rounded-0 w-100">
+		<!--begin::Header-->
+		<div class="card-header">
+			<h3 class="card-title fw-bolder text-gray-700">{{ t("basket") }}</h3>
+			<div class="card-toolbar">
+				<button type="button" class="btn btn-sm btn-icon btn-active-color-primary fs-3 me-n6" id="basket_close">
+					<span class="fa fa-times"></span>
+				</button>
+			</div>
+		</div>
+		<!--end::Header-->
+		<!--begin::Body-->
+		<div class="card-body p-0" id="basket_body">        
+            
+        </div>
+        <div class="card-footer">
+            <a href="{{ constant("BASE_URL") }}/checkout" class="btn btn-primary form-control">
+                {{ t("checkout") }}
+                <span class='fa fa-chevron-right' ></span>
+            </a>
+        </div>
+		<!--end::Body-->
+	</div>
+	<!--end::Card-->
+</div>

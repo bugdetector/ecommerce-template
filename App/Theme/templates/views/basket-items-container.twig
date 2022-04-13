@@ -1,0 +1,33 @@
+<ul class="list-group overflow-auto" style="height: calc(100vh - 165px);">
+	{% for item in view.basket.getBasketProducts() %}
+		{% set product = item.getProduct() %}
+		<li class="list-group-item basket-item" data-item="197" data-variant="null">
+			<div class="d-flex">
+				<div class="w-70px my-auto me-2">
+                    <img src="https://atoz-catering.co.uk/files/uploaded/products/image/f64fb674fe25443bd8ab183944d90dad" alt="{{ product.title }}" class="img-fluid img-thumbnail">
+                </div>
+				<div class="">
+					<b>{{ product.title }}</b>
+					<div class="d-flex">
+						<div class="btn-group btn-group-sm my-2">
+							<button type="button" class="btn btn-sm btn-danger drop-from-basket p-3" data-item="{{ item.product }}" data-variant="{{ item.variant }}">
+								<span class="fa fa-trash"></span>
+							</button>
+							<button type="button" class="btn btn-sm btn-info quantity-down p-3" data-item="{{ item.product }}" data-variant="{{ item.variant }}">
+								<span class="fa fa-minus"></span>
+							</button>
+							<input type="number" class="btn btn-sm btn-primary quantity mw-60px p-3" data-item="{{ item.product }}" data-variant="{{ item.variant }}" value="{{ item.quantity }}" readonly>
+							<button type="button" class="btn btn-sm btn-info quantity-up p-3" data-item="{{ item.product }}" data-variant="{{ item.variant }}">
+								<i class="fa fa-plus"></i>
+							</button>
+						</div>
+					</div>
+					{#  #}
+					<div class="total-value fw-bold" data-item="197" data-variant="">
+						{{ variable("currency_icon").value }}{{ item.total_price }}
+					</div>
+				</div>
+			</div>
+		</li>
+	{% endfor %}
+</ul>
