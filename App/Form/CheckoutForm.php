@@ -80,9 +80,9 @@ class CheckoutForm extends Form
                     Link::create(
                         ProductsController::getUrl(),
                         TextElement::create(
-                            "<i class='fa fa-arrow-left'></i> " . Translation::getTranslation("continue_shopping")
+                            "<span class='fa fa-arrow-left'></span> " . Translation::getTranslation("continue_shopping")
                         )->setIsRaw(true)
-                    )->addClass("btn btn-outline-info form-control h-100")
+                    )->addClass("btn btn-light-info form-control h-100")
                 )
             )->addField(
                 ViewGroup::create("div", "col-6")

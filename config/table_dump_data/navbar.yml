@@ -38,3 +38,11 @@
   available_for: logged_in
   weight: 4
   parent: 1
+6:
+  title: all_products
+  icon_class: null
+  link_class: null
+  url: /products
+  available_for: both
+  weight: 0
+  parent: null

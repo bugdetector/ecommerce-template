@@ -87,9 +87,9 @@ class SendOrderForm extends Form
                             Link::create(
                                 CheckoutController::getUrl(),
                                 TextElement::create(
-                                    "<i class='fa fa-arrow-left'></i> " . Translation::getTranslation("back")
+                                    "<span class='fa fa-arrow-left'></span> " . Translation::getTranslation("back")
                                 )->setIsRaw(true)
-                            )->addClass("btn btn-outline-info mb-2 form-control")
+                            )->addClass("btn btn-light-info mb-2 form-control")
                         )
                     )
                     ->addField(

@@ -23,7 +23,7 @@
 						</div>
 					</div>
 					{#  #}
-					<div class="total-value fw-bold" data-item="197" data-variant="">
+					<div class="total-value fw-bold" data-item="{{ item.product }}" data-variant="{{ item.variant }}">
 						{{ variable("currency_icon").value }}{{ item.total_price }}
 					</div>
 				</div>

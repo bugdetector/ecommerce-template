@@ -1,5 +1,3 @@
-import "./basket-product-card.scss";
-
 $(function($){
     $(document).on("click", ".toggle-excluded", function(e){
         e.preventDefault();

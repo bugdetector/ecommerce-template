@@ -21,8 +21,8 @@ class BasketProductCard extends View
         $this->product = Product::get($basketProduct->product);
         $this->addClass("card shadow my-3 basket-product-card basket-item");
         $controller = \CoreDB::controller();
-        $controller->addJsFiles("dist/basket-product-card/basket-product-card.js");
-        $controller->addCssFiles("dist/basket-product-card/basket-product-card.css");
+        $controller->addJsFiles("ecommerce_theme/src/components/basket-product-card/basket-product-card.js");
+        $controller->addCssFiles("ecommerce_theme/src/components/basket-product-card/basket-product-card.css");
         $variantId = $this->basketProduct->variant->getValue();
         $this->variantName = $variantId ? VariationOption::get($variantId)->title->getValue() : "";
     }

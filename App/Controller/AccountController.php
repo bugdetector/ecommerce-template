@@ -21,7 +21,7 @@ class AccountController extends AppController
             ->setDescription(Translation::getTranslation("recent_order_description"))
             ->setIconClass("fa fa-history")
             ->setHref(MyordersController::getUrl())
-            ->setBackgroundClass("bg-info")
+            ->setBackgroundClass("bg-info h-100")
             ->addClass("col-md-6 my-1")
         );
 
@@ -31,7 +31,7 @@ class AccountController extends AppController
             ->setDescription(Translation::getTranslation("account_settings_description"))
             ->setIconClass("fa fa-user")
             ->setHref(ProfileController::getUrl())
-            ->setBackgroundClass("bg-info")
+            ->setBackgroundClass("bg-info h-100")
             ->addClass("col-md-6 my-1")
         );
     }

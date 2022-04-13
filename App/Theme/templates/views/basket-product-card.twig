@@ -1,6 +1,6 @@
 <div class='{{ view.classes|join(" ") }}' {{ view.renderAttributes()|raw }}>
 	<div class="row px-2">
-		<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ view.product.url_alias }}" class="col-6 col-sm-3 col-md-2 image-wrapper p-2">
+		<a href="{{ constant("BASE_URL") ~ "/products/product/" ~ view.product.url_alias }}" class="col-6 col-sm-3 col-md-2 image-wrapper p-2 my-auto">
 			<img src="{{ view.product.getCoverImageUrl() }}" height="100px">
 		</a>
 		<div class="col-6 col-sm-6 col-md-3 mt-1 p-2">
@@ -25,15 +25,15 @@
 			</label>
 			{% if view.controlEnabled %}
 				<br>
-				<button type='button' class='btn btn-sm btn-danger drop-from-basket' data-item='{{view.product.ID }}' data-variant='{{ view.basketProduct.variant }}'>
-					<i class='fa fa-trash'></i>
-				</button>
 				<div class='btn-group my-2'>
-					<button type='button' class='btn btn-sm btn-info quantity-down' data-item='{{view.product.ID }}' data-variant='{{ view.basketProduct.variant }}'>
+					<button type='button' class='btn btn-sm btn-danger drop-from-basket p-3' data-item='{{view.product.ID }}' data-variant='{{ view.basketProduct.variant }}'>
+						<i class='fa fa-trash'></i>
+					</button>
+					<button type='button' class='btn btn-sm btn-info quantity-down p-3' data-item='{{view.product.ID }}' data-variant='{{ view.basketProduct.variant }}'>
 						<i class='fa fa-minus'></i>
 					</button>
-					<input type='number' class='btn btn-sm btn-primary quantity' data-item='{{view.product.ID }}' data-variant='{{ view.basketProduct.variant }}' value='{{view.basketProduct.quantity }}' readonly/>
-					<button type='button' class='btn btn-sm btn-info quantity-up' data-item='{{view.product.ID }}' data-variant='{{ view.basketProduct.variant }}'>
+					<input type='number' class='btn btn-sm btn-primary quantity w-60px p-3' data-item='{{view.product.ID }}' data-variant='{{ view.basketProduct.variant }}' value='{{view.basketProduct.quantity }}' readonly/>
+					<button type='button' class='btn btn-sm btn-info quantity-up p-3' data-item='{{view.product.ID }}' data-variant='{{ view.basketProduct.variant }}'>
 						<i class='fa fa-plus'></i>
 					</button>
 				</div>

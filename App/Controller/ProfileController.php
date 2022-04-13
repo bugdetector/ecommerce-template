@@ -12,8 +12,9 @@ class ProfileController extends AppController
     public function preprocessPage()
     {
         $user = \CoreDB::currentUser();
+        $addressData = @\CoreDB::currentUser()->address->getValue()[0];
         $this->setTitle(
-            \CoreDB::currentUser()->address->getValue()[0]["company_name"]
+            $addressData ? $addressData["company_name"] : $user->getFullName()
         );
         $this->profileForm = new ProfileForm();
         $this->profileForm->processForm();

@@ -118,7 +118,7 @@
 						{% if user().isLoggedIn() %}
 							<!--begin::Menu item-->
 							<div class="menu-item px-3">
-								<div
+								<a href="{{ constant("BASE_URL") ~ "/account" }}"
 									class="menu-content d-flex align-items-center px-3">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-50px me-5">
@@ -130,10 +130,10 @@
 										<div class="fw-bolder d-flex align-items-center fs-5">
 											{{ user().getFullName() }}
 										</div>
-										<a href="mailto:{{user().email}}" class="fw-bolder text-muted text-hover-primary fs-7">{{ user().email }}</a>
+										<span class="fw-bolder text-muted text-hover-primary fs-7">{{ user().email }}</span>
 									</div>
 									<!--end::Username-->
-								</div>
+								</a>
 							</div>
 							<!--end::Menu item-->
 							<!--begin::Menu separator-->
@@ -142,6 +142,12 @@
 							<!--begin::Menu item-->
 							<div class="menu-item px-5">
 								<a href="{{ constant("BASE_URL") ~ "/profile" }}" class="menu-link px-5">{{ t("profile") }}</a>
+							</div>
+							<div class="menu-item px-5">
+								<a href="{{ constant("BASE_URL") ~ "/myorders" }}" class="menu-link px-5">{{ t("my_orders") }}</a>
+							</div>
+							<div class="menu-item px-5">
+								<a href="{{ constant("BASE_URL") ~ "/favorites" }}" class="menu-link px-5">{{ t("favorites") }}</a>
 							</div>
 							<!--end::Menu item-->
 							<!--begin::Menu separator-->
