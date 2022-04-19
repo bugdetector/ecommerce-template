@@ -102,15 +102,6 @@ fields:
     isUnique: false
     default: null
     comment: 'Is email verified.'
-  active:
-    type: checkbox
-    column_name: active
-    primary_key: false
-    autoIncrement: false
-    isNull: true
-    isUnique: false
-    default: null
-    comment: 'User is active or blocked.'
   email_verification_key:
     type: short_text
     column_name: email_verification_key
