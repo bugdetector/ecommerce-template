@@ -4,11 +4,11 @@ namespace App\Form;
 
 use App\Controller\VerifyController;
 use App\Controller\WelcomeController;
+use App\Entity\AppUser;
 use CoreDB;
 use Exception;
 use Src\Entity\DynamicModel;
 use Src\Entity\Translation;
-use Src\Entity\User;
 use Src\Entity\Variable;
 use Src\Form\Form;
 use Src\Form\Widget\FormWidget;
@@ -112,7 +112,7 @@ class RegisterForm extends Form
                 Translation::getTranslation("password_match_error")
             );
         } elseif (
-            !User::validatePassword($this->request["password"])
+            !AppUser::validatePassword($this->request["password"])
         ) {
             $this->setError(
                 "password",
@@ -130,9 +130,9 @@ class RegisterForm extends Form
     public function submit()
     {
         try {
-            $user = new User();
+            $user = new AppUser();
             $mapData = $this->request;
-            $mapData["active"] = 1;
+            $mapData["status"] = AppUser::STATUS_ACTIVE;
             $mapData["username"] = $this->generateUsername($this->request["email"]);
             $mapData["pay_optional_at_checkout"] = 1;
             $mapData["email_verification_key"] = hash(
@@ -174,7 +174,7 @@ class RegisterForm extends Form
     {
         $mailStart = explode("@", $email)[0];
         $tempUserName = $mailStart;
-        while (User::getUserByUsername($tempUserName)) {
+        while (AppUser::getUserByUsername($tempUserName)) {
             $tempUserName = $mailStart . random_int(0, 100);
         }
         return $tempUserName;

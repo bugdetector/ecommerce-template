@@ -4,7 +4,7 @@
             "type":"package",
             "package": {
               "name": "bugdetector/nestpay",
-              "version":"1.0",
+              "version":"1.1",
               "source": {
                   "url": "https://github.com/bugdetector/nestpay.git",
                   "type": "git",
@@ -19,24 +19,24 @@
         "phpmailer/phpmailer": "^6.1",
         "symfony/yaml": "^5.1",
         "symfony/console": "^5.1",
+        "guzzlehttp/guzzle": "^7.5",
+        "symfony/event-dispatcher": "^6.3",
+        "peppeocchi/php-cron-scheduler": "^4.0",
+        "kreait/firebase-php": "^7.9",
         "shuchkin/simplexlsx": "^0.8.19",
         "spipu/html2pdf": "^5.2",
         "sentry/sdk": "^3.1",
-        "bugdetector/nestpay" : "^1.0",
-        "cweagans/composer-patches": "~1.0"
+        "bugdetector/nestpay" : "^1.1",
+        "cweagans/composer-patches": "~1.0",
+        "league/omnipay": "^3.2",
+        "omnipay/paypal": "^3.0"
     },
     "autoload": {
         "psr-4": {
         "CoreDB\\Kernel\\":"Kernel/",
         "Src\\" : "Kernel/Src/",
-        "App\\" : "App/"
-        }
-    },
-    "extra": {
-        "patches": {
-            "mstfsnc/nestpay": {
-            "Payment fix":"patches/3d_pay_hosting.patch"
-            }
+        "App\\" : "App/",
+        "Omnipay\\Nestpay\\": "vendor/bugdetector/nestpay/src/"
         }
     },
     "config": {

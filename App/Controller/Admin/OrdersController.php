@@ -15,6 +15,11 @@ class OrdersController extends EcommerceAdminController
 {
     public $searchForm;
 
+    public $waitingApproved = 0;
+    public $approved = 0;
+    public $onDelivery = 0;
+    public $delivered = 0;
+
     public function checkAccess(): bool
     {
         return parent::checkAccess() ||
