@@ -7,7 +7,6 @@ use Src\Entity\Translation;
 
 class WelcomeController extends AppController
 {
-
     public function checkAccess(): bool
     {
         if (\CoreDB::currentUser()->email_verified->getValue()) {

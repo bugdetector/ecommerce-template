@@ -3,7 +3,7 @@
 namespace App\Entity\Basket;
 
 use App\Controller\Admin\Orders\InsertController;
-use App\Entity\CustomUser;
+use App\Entity\AppUser;
 use App\Entity\Postcode\Postcode;
 use App\Entity\Product\Product;
 use App\Entity\Product\ProductVariant;
@@ -227,7 +227,7 @@ class Basket extends Model
 
     public static function getUserBasket(): Basket
     {
-        /** @var CustomUser */
+        /** @var AppUser */
         $currentUser = \CoreDB::currentUser();
         /** @var Basket */
         $basket = null;
@@ -383,8 +383,8 @@ class Basket extends Model
                 Translation::getTranslation("order_success"),
                 Messenger::INFO
             );
-            /** @var CustomUser */
-            $basketUser = CustomUser::get($this->user->getValue());
+            /** @var AppUser */
+            $basketUser = AppUser::get($this->user->getValue());
             $filename = "Order #{$this->order_id} - Cart Id: #{$this->ID}.pdf";
             /** @var OrderAddress */
             $address = OrderAddress::get(["order" => $this->ID->getValue()]);
@@ -605,7 +605,7 @@ class Basket extends Model
             $this->total->setValue(0);
             return;
         }
-        $user = CustomUser::get($this->user->getValue());
+        $user = AppUser::get($this->user->getValue());
         $subtotalQuery = CoreDB::database()->select(BasketProduct::getTableName(), "bp")
             ->condition("bp.basket", $this->ID)
             ->selectWithFunction(["SUM(bp.total_price) as total"]);
@@ -954,7 +954,7 @@ class Basket extends Model
         ];
         $basketSummary[] = Translation::getTranslation("delivery_address") . ": " .
         OrderAddress::get(["order" => $this->ID->getValue()]);
-        
+
         $basketSummary[] = Translation::getTranslation("date") . ": " .
         date("d-m-Y H:i", strtotime($this->delivery_date->getValue()));
 

@@ -9,7 +9,6 @@ use Src\Entity\Translation;
 
 class VariationController extends EcommerceAdminController
 {
-
     public TreeForm $variationTreeForm;
 
     public function getTemplateFile(): string

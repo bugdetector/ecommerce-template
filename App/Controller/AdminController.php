@@ -10,7 +10,7 @@ use App\Controller\Admin\Products\EnquirementController;
 use App\Controller\Admin\Products\StockController;
 use App\Controller\Admin\UsersController;
 use App\Entity\Basket\Basket;
-use App\Entity\CustomUser;
+use App\Entity\AppUser;
 use App\Entity\Product\Enquirement;
 use App\Entity\Search\SearchApi;
 use App\Form\StockImportForm;
@@ -27,6 +27,7 @@ use Src\Views\ViewGroup;
 
 class AdminController extends EcommerceAdminController
 {
+    public $cards = [];
 
     public function getTemplateFile(): string
     {
@@ -36,9 +37,6 @@ class AdminController extends EcommerceAdminController
     public function preprocessPage()
     {
         $this->setTitle(Variable::getByKey("site_name")->value . " | " . Translation::getTranslation("dashboard"));
-        $this->number_of_members = CoreDB::database()->select(User::getTableName())
-        ->selectWithFunction(["COUNT(*) as count"])
-        ->execute()->fetchObject()->count;
 
 
         $waitingEnquirements = CoreDB::database()->select(Enquirement::getTableName(), "e")
@@ -78,7 +76,11 @@ class AdminController extends EcommerceAdminController
         ->setBackgroundClass("bg-primary")
         ->setHref(UsersController::getUrl())
         ->setTitle(Translation::getTranslation("number_of_members"))
-        ->setDescription($this->number_of_members)
+        ->setDescription(
+            CoreDB::database()->select(User::getTableName())
+            ->selectWithFunction(["COUNT(*) as count"])
+            ->execute()->fetchColumn()
+        )
         ->setIconClass("fa-user")
         ->addClass("col-lg-3 col-md-6 mb-4");
 
@@ -168,8 +170,8 @@ class AdminController extends EcommerceAdminController
         ->setId("total_sales")
         ->addClass("col-12");
 
-        /** @var CustomUser */
-        $user = new CustomUser();
+        /** @var AppUser */
+        $user = new AppUser();
         $usersTableHeaders = $user->getResultHeaders();
         $usersTableHeaders["edit_actions"] = "";
         $usersTableData = $user->getResultQuery()

@@ -7,7 +7,6 @@ use Src\Theme\ResultsViewer;
 
 class SpecialProductTeaserCard extends ResultsViewer
 {
-
     public function __construct()
     {
         $this->addClass("row");

@@ -9,7 +9,7 @@ use App\Controller\Admin\OrdersController;
 use App\Controller\Admin\Users\InsertController as UsersInsertController;
 use App\Entity\Basket\Basket;
 use App\Entity\Branch;
-use App\Entity\CustomUser;
+use App\Entity\AppUser;
 use CoreDB\Kernel\Database\SelectQueryPreparerAbstract;
 use Src\Controller\Admin\AjaxController as ControllerAdminAjaxController;
 use Src\Entity\Translation;
@@ -21,7 +21,6 @@ use Src\Views\ViewGroup;
 
 class OrdersQuery extends ViewableQueries
 {
-
     public function __construct(string $tableName = null, array $mapData = [])
     {
         parent::__construct($tableName, $mapData);
@@ -231,9 +230,9 @@ class OrdersQuery extends ViewableQueries
         ->addClass($row["comment"] ? "btn-danger" : "btn-info")
         ->addAttribute("data-user", $row["user_id"] ?: "")
         ->addAttribute("data-comment", $row['comment'] ?: "");
-        /** @var CustomUser */
+        /** @var AppUser */
         $lastModifiedBy = $row["comment_last_modified_by"] ?
-        CustomUser::get($row["comment_last_modified_by"]) : null;
+        AppUser::get($row["comment_last_modified_by"]) : null;
         if ($lastModifiedBy) {
             $row['comment']
             ->addAttribute("data-modified-by", $lastModifiedBy->getFullName())

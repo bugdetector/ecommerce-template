@@ -6,7 +6,6 @@ use Src\Form\Widget\InputWidget;
 
 class DeliveryDateWidget extends InputWidget
 {
-
     public function __construct(string $name, string $startOf = "today")
     {
         parent::__construct($name);

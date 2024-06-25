@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Controller\Admin\Products\Enquirement\InsertController;
 use App\Controller\Checkout\SentController;
 use App\Entity\Basket\Basket;
-use App\Entity\CustomUser;
+use App\Entity\AppUser;
 use App\Entity\PaymentMethod;
 use App\Entity\Product\Enquirement;
 use App\Entity\Product\FavoriteProducts;
@@ -160,7 +160,7 @@ class AjaxController extends ControllerAjaxController
 
         $enquirement = Enquirement::getUserActiveEnquirement($itemId) ?: new Enquirement();
 
-        /** @var CustomUser */
+        /** @var AppUser */
         $user = \CoreDB::currentUser();
         $enquirement->user->setValue($user->ID->getValue());
         $enquirement->product->setValue($itemId);
@@ -200,8 +200,8 @@ class AjaxController extends ControllerAjaxController
         $listOptionField = @$_POST["listOptionField"];
         if (
             in_array($listOption, [
-            CustomUser::PRODUCT_CARD_LIST_OPTION_CARD,
-            CustomUser::PRODUCT_CARD_LIST_OPTION_LIST
+            AppUser::PRODUCT_CARD_LIST_OPTION_CARD,
+            AppUser::PRODUCT_CARD_LIST_OPTION_LIST
             ]) &&
             in_array($listOptionField, [
                 "product_card_list_option",

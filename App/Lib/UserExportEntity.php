@@ -2,9 +2,9 @@
 
 namespace App\Lib;
 
-use App\Entity\CustomUser;
+use App\Entity\AppUser;
 
-class UserExportEntity extends CustomUser
+class UserExportEntity extends AppUser
 {
     public function postProcessRow(&$row): void
     {

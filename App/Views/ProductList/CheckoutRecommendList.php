@@ -11,7 +11,6 @@ use Src\Entity\Translation;
 
 class CheckoutRecommendList extends SwiperProductList
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -33,7 +32,7 @@ class CheckoutRecommendList extends SwiperProductList
     {
         $user = \CoreDB::currentUser();
         $basket = Basket::getUserBasket();
-        
+
         $subQuery = \CoreDB::database()->select(Basket::getTableName(), "b2")
         ->join(BasketProduct::getTableName(), "bp2", "b2.ID = bp2.basket")
         ->condition("b2.user", $user->ID->getValue())

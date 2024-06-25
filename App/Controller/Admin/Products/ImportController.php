@@ -8,7 +8,6 @@ use Src\Entity\Translation;
 
 class ImportController extends ProductsController
 {
-
     public ProductsImportForm $importForm;
 
     public function preprocessPage()

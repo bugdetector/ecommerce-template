@@ -9,7 +9,6 @@ use Src\Form\SearchForm;
 
 class BlogController extends AdminController
 {
-
     public $searchForm;
 
     public function preprocessPage()

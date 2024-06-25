@@ -9,7 +9,6 @@ use Src\Form\InsertForm;
 
 class ProductListInsertForm extends InsertForm
 {
-
     /** @var ProductList $object */
     protected Model $object;
 

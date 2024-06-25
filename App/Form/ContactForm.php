@@ -14,7 +14,6 @@ use Src\Views\TextElement;
 
 class ContactForm extends Form
 {
-
     public string $method = "POST";
 
     public function getFormId(): string

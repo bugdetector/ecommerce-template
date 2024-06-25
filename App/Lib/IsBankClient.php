@@ -22,7 +22,6 @@ use Src\Form\Form;
 
 class IsBankClient
 {
-
     private const OPERATION_TYPE = "Auth";
 
     public ?Basket $basket;

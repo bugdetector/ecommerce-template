@@ -52,7 +52,7 @@ class UserInsertForm extends FormUserInsertForm
     {
         parent::restoreValues();
         /** @var CollapsableWidgetGroup */
-        $addressFields = @$this->fields["custom_users[address][]"];
+        $addressFields = @$this->fields["users[address][]"];
         if ($addressFields) {
             foreach ($this->request["users"]["address"] as $index => $addressData) {
                 $index = 0;

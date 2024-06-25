@@ -9,7 +9,6 @@ use Src\Form\Widget\SelectWidget;
 
 class PostcodeWidget extends FormWidget
 {
-
     public SelectWidget $postcodeSelect;
     public string $postcodeInputVal = "";
 

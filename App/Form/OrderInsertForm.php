@@ -58,7 +58,7 @@ class OrderInsertForm extends InsertForm
                     $paymentLog->transaction_ref
                 ];
             }
-            
+
             $paymentLogTable->setData($tableData);
 
             $this->paymentLogView->setContent($paymentLogTable);

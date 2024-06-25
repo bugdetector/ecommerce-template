@@ -11,7 +11,6 @@ use Src\Views\TextElement;
 
 class ProductsImportForm extends Form
 {
-
     public string $method = "POST";
     public const REQUIRED_COLUMNS = [
         'Stockcode',

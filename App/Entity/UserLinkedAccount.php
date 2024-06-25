@@ -37,10 +37,10 @@ class UserLinkedAccount extends Model
     {
         if ($result = parent::insert()) {
             if (!IS_CLI) {
-                /** @var CustomUser */
-                $master = CustomUser::get($this->master_account->getValue());
-                /** @var CustomUser */
-                $subAccount = CustomUser::get($this->sub_account->getValue());
+                /** @var AppUser */
+                $master = AppUser::get($this->master_account->getValue());
+                /** @var AppUser */
+                $subAccount = AppUser::get($this->sub_account->getValue());
                 CoreDB::HTMLMail(
                     $master->email->getValue(),
                     "New User Linked To Your Account",

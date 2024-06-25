@@ -8,7 +8,6 @@ use Src\Entity\Translation;
 
 class BasketException extends Exception
 {
-
     public const TYPE_MAXIMUM_ORDER = 1;
     public const TYPE_MINIMUM_ORDER = 2;
     public const TYPE_STOCK_EXCEED = 3;

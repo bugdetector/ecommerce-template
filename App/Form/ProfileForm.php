@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Controller\ProfileController;
-use App\Entity\CustomUser;
+use App\Entity\AppUser;
 use CoreDB;
 use Src\Entity\File;
 use Src\Entity\Translation;
@@ -13,7 +13,6 @@ use Src\Views\ViewGroup;
 
 class ProfileForm extends Form
 {
-
     public const VALID_KEYS = [
         "name",
         "surname",
@@ -34,7 +33,7 @@ class ProfileForm extends Form
         $controller->addFrontendTranslation("record_remove_accept");
         $controller->addFrontendTranslation("record_remove_accept_field");
 
-        $this->user = CustomUser::get(\CoreDB::currentUser()->ID->getValue());
+        $this->user = AppUser::get(\CoreDB::currentUser()->ID->getValue());
         $addtionalAdresses = $this->user->additional_delivery_address->getValue();
         $this->user->additional_delivery_address->setValue(
             array_shift($addtionalAdresses)
@@ -99,7 +98,7 @@ class ProfileForm extends Form
         if (!filter_var($this->request["profile"]["email"], FILTER_VALIDATE_EMAIL)) {
             $this->setError("email", Translation::getTranslation("enter_valid_mail"));
         } elseif ($this->request["profile"]["email"] != $user->email->getValue()) {
-            $userByMail = CustomUser::getUserByEmail($this->request["profile"]["email"]);
+            $userByMail = AppUser::getUserByEmail($this->request["profile"]["email"]);
             if ($userByMail && $userByMail->ID->getValue() != $user->ID->getValue()) {
                 $this->setError("email", Translation::getTranslation("email_not_available"));
             }
@@ -118,7 +117,7 @@ class ProfileForm extends Form
                 );
             }
             if (
-                !CustomUser::validatePassword($this->request["profile"]["password"])
+                !AppUser::validatePassword($this->request["profile"]["password"])
             ) {
                 $this->setError(
                     "password",

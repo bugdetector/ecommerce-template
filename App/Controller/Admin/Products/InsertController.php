@@ -11,7 +11,6 @@ use Src\Form\InsertForm;
 
 class InsertController extends ProductsController
 {
-
     public ?Product $product;
     public InsertForm $productInsertForm;
 

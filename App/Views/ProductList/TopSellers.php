@@ -11,7 +11,6 @@ use Src\Entity\Translation;
 
 class TopSellers extends SwiperProductList
 {
-
     public function getListId(): string
     {
         return "top_sellers";

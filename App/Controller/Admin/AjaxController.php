@@ -9,7 +9,7 @@ use App\Entity\Banner;
 use App\Entity\Basket\Basket;
 use App\Entity\Basket\BasketProduct;
 use App\Entity\Branch;
-use App\Entity\CustomUser;
+use App\Entity\AppUser;
 use App\Entity\Product\ProductCategory;
 use App\Entity\Product\ProductList;
 use CoreDB;
@@ -73,9 +73,9 @@ class AjaxController extends AdminAjaxController
             $jwt = JWT::createFromString($key);
             $data = $jwt->getPayload();
             $referenceClass = \CoreDB::config()->getEntityInfo($data->entity)["class"];
-            /** @var CustomUser */
+            /** @var AppUser */
             $user = $referenceClass::get($data->id);
-            if (!$user || $referenceClass != CustomUser::class) {
+            if (!$user || $referenceClass != AppUser::class) {
                 throw new Exception(
                     Translation::getTranslation("invalid_operation")
                 );
@@ -309,8 +309,8 @@ class AjaxController extends AdminAjaxController
         $basket_id = $_GET["basket"];
         /** @var Basket */
         $basket = Basket::get($basket_id);
-        /** @var CustomUser */
-        $user = CustomUser::get($basket->user->getValue());
+        /** @var AppUser */
+        $user = AppUser::get($basket->user->getValue());
         CoreDB::HTMLMail(
             $user->email->getValue(),
             "Payment Resquest",
@@ -348,8 +348,8 @@ class AjaxController extends AdminAjaxController
     {
         $user_id = $_POST["user_id"];
         $comment = $_POST["comment"];
-        /** @var CustomUser */
-        $user = CustomUser::get($user_id);
+        /** @var AppUser */
+        $user = AppUser::get($user_id);
         $user->comment->setValue($comment);
         $user->comment_last_modified_by->setValue(
             CoreDB::currentUser()->ID->getValue()

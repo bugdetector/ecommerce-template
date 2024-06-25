@@ -7,7 +7,7 @@ use App\Entity\Basket\BasketProduct;
 use App\Entity\Basket\BillingAddress;
 use App\Entity\Basket\OrderAddress;
 use App\Entity\Branch;
-use App\Entity\CustomUser;
+use App\Entity\AppUser;
 use App\Entity\Product\Product;
 use App\Entity\Product\VariationOption;
 use App\Theme\AppTheme;
@@ -22,7 +22,7 @@ use Src\Views\TextElement;
 class BasketInvoice extends View
 {
     public Basket $basket;
-    public CustomUser $user;
+    public AppUser $user;
     public Table $basketProductDataTable;
 
     public ?OrderAddress $orderAddress = null;
@@ -31,7 +31,7 @@ class BasketInvoice extends View
     public function __construct(Basket $basket)
     {
         $this->basket = $basket;
-        $this->user = CustomUser::get($basket->user->getValue());
+        $this->user = AppUser::get($basket->user->getValue());
 
         $this->basketProductDataTable = new Table();
         $tableHeaders = [

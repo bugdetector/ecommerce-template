@@ -11,7 +11,6 @@ use Src\Form\InsertForm;
 
 class InsertController extends BannerController
 {
-
     public ?Banner $banner;
     public InsertForm $bannerInsertForm;
 

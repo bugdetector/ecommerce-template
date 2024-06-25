@@ -8,7 +8,6 @@ use Src\Views\ViewGroup;
 
 class TotalOrdersGraphFilter extends ViewGroup
 {
-
     public const FILTERS = [
         "yearly",
         "monthly",

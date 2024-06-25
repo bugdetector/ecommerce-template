@@ -3,7 +3,7 @@
 namespace App\Views;
 
 use App\Controller\ProductsController;
-use App\Entity\CustomUser;
+use App\Entity\AppUser;
 use App\Entity\Search\SearchApi;
 use CoreDB;
 use CoreDB\Kernel\Messenger;
@@ -16,6 +16,7 @@ use Src\Views\TextElement;
 class ProductTeaserCard extends ResultsViewer
 {
     public $listOptionField = "product_card_list_option";
+    public $listOption = 'card';
     public bool $logged_in;
     public bool $non_login_order;
     public function __construct()
@@ -68,7 +69,7 @@ class ProductTeaserCard extends ResultsViewer
 
     public function getTemplateFile(): string
     {
-        if ($this->listOption == CustomUser::PRODUCT_CARD_LIST_OPTION_LIST) {
+        if ($this->listOption == AppUser::PRODUCT_CARD_LIST_OPTION_LIST) {
             return "product-teaser-card-list.twig";
         } else {
             return "product-teaser-card.twig";

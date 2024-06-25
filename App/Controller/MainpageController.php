@@ -17,7 +17,6 @@ use Src\Entity\Translation;
 
 class MainpageController extends AppController
 {
-
     public User $user;
     public array $banners;
     public int $bannerSlideSpeed;

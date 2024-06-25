@@ -5,7 +5,7 @@ namespace App\Form;
 use App\Controller\ProductsController;
 use App\Entity\Basket\Basket;
 use App\Entity\Branch;
-use App\Entity\CustomUser;
+use App\Entity\AppUser;
 use App\Entity\UserAddress;
 use App\Widget\DeliveryDateWidget;
 use CoreDB;
@@ -18,7 +18,6 @@ use Src\Form\Widget\SelectWidget;
 
 class ShippingForm extends Form
 {
-
     public string $method = "POST";
 
     public $userAdresses = [];
@@ -28,7 +27,7 @@ class ShippingForm extends Form
     public function __construct()
     {
         parent::__construct();
-        /** @var CustomUser */
+        /** @var AppUser */
         $user = \CoreDB::currentUser();
         $this->collectionEnabled = boolval(
             Variable::getByKey("collection_order_enabled")->value->getValue()
@@ -39,13 +38,13 @@ class ShippingForm extends Form
                 SelectWidget::create("shipping_option")
                 ->setOptions(
                     [
-                        CustomUser::SHIPPING_OPTION_DELIVERY =>
+                        AppUser::SHIPPING_OPTION_DELIVERY =>
                         Translation::getTranslation(
-                            CustomUser::SHIPPING_OPTION_DELIVERY
+                            AppUser::SHIPPING_OPTION_DELIVERY
                         ),
-                        CustomUser::SHIPPING_OPTION_COLLECTION =>
+                        AppUser::SHIPPING_OPTION_COLLECTION =>
                         Translation::getTranslation(
-                            CustomUser::SHIPPING_OPTION_COLLECTION
+                            AppUser::SHIPPING_OPTION_COLLECTION
                         )
                     ]
                 )->setValue(
@@ -67,14 +66,14 @@ class ShippingForm extends Form
                     $user->shipping_branch->getValue()
                 )
             );
-    
+
             /** @var DeliveryDateWidget */
             $deliveryDate = (new DeliveryDateWidget("delivery_date"))
             ->setLabel(Translation::getTranslation("collection_date"))
             ->setValue($user->delivery_date->getValue());
             $this->addField($deliveryDate);
         }
-        
+
         $this->addField(
             SelectWidget::create("shipping_address")
             ->setOptions(
@@ -160,7 +159,7 @@ class ShippingForm extends Form
 
     public function submit()
     {
-        /** @var CustomUser */
+        /** @var AppUser */
         $user = \CoreDB::currentUser();
         $basketData = [];
         if ($this->collectionEnabled) {
@@ -181,11 +180,11 @@ class ShippingForm extends Form
         } else {
             $basketData["type"] = Basket::TYPE_DELIVERY;
         }
-        
+
         $user->shipping_address->setValue(
             @$this->request["shipping_address"]
         );
-        
+
         if (
             (
             !$this->collectionEnabled || $this->request["shipping_option"] == Basket::TYPE_DELIVERY

@@ -21,7 +21,6 @@ use Src\Theme\CoreRenderer;
 
 class ApiController extends ServiceController
 {
-
     /**
      * @inheritdoc
      */

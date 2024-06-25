@@ -10,7 +10,6 @@ use Src\Form\TreeForm;
 
 class BannerController extends EcommerceAdminController
 {
-
     public TreeForm $bannerTreeForm;
 
     public function getTemplateFile(): string

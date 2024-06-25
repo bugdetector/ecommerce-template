@@ -9,7 +9,6 @@ use Src\Form\SearchForm;
 
 class StockController extends ProductsController
 {
-
     public SearchForm $stockSearch;
     public function preprocessPage()
     {

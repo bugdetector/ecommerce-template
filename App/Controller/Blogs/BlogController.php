@@ -13,7 +13,6 @@ use Src\Views\ViewGroup;
 
 class BlogController extends BlogsController
 {
-
     public ?Blog $blog;
 
     public function preprocessPage()

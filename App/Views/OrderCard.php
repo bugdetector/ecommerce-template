@@ -6,7 +6,6 @@ use Src\Theme\ResultsViewer;
 
 class OrderCard extends ResultsViewer
 {
-
     public function __construct()
     {
         $this->addClass("row");

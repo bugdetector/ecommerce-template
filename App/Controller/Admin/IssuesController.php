@@ -8,7 +8,6 @@ use Src\Views\AlertMessage;
 
 class IssuesController extends EcommerceAdminController
 {
-
     public $searchForm;
 
     public function preprocessPage()

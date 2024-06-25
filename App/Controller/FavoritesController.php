@@ -10,7 +10,6 @@ use Src\Entity\Translation;
 
 class FavoritesController extends AppController
 {
-
     public ProductSearchForm $privateProductsList;
     private ProductSearchForm $productListSearch;
 

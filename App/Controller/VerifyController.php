@@ -8,7 +8,6 @@ use Src\Entity\User;
 
 class VerifyController extends AppController
 {
-
     public $pageMessage = "";
 
     public function checkAccess(): bool

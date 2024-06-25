@@ -7,7 +7,6 @@ use Src\Theme\View;
 
 class MainpageBoxes extends View
 {
-
     public array $boxes;
 
     public function __construct(string $place = MainpageBox::PLACE_UNDER_LATEST_OFFERS)

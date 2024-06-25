@@ -1,5 +1,5 @@
 users:
-  class: Src\Entity\User
+  class: App\Entity\AppUser
   manyToMany:
     roles:
       mergeTable: "users_roles"
@@ -58,8 +58,6 @@ category:
   class: App\Entity\Product\ProductCategory
 price:
   class: App\Entity\Product\ProductPrice
-custom_users:
-  class: App\Entity\CustomUser
 address:
   class: App\Entity\UserAddress  
 additional_delivery_address:

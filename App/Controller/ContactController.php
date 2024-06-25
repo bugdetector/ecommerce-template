@@ -14,7 +14,6 @@ use Src\Views\ViewGroup;
 
 class ContactController extends AppController
 {
-
     public array $branches;
     public ContactForm $contactForm;
     public Variable $generalEnquiriesEmail;

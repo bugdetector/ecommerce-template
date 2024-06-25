@@ -13,9 +13,8 @@ use Src\Views\ViewGroup;
 
 class OrdersController extends EcommerceAdminController
 {
-
     public $searchForm;
-    
+
     public function checkAccess(): bool
     {
         return parent::checkAccess() ||

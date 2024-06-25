@@ -9,7 +9,6 @@ use Src\Entity\Translation;
 
 class ProductsController extends AppController
 {
-
     protected ProductSearchForm $productListSearch;
 
     public function checkAccess(): bool

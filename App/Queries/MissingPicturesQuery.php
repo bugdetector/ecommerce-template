@@ -7,7 +7,6 @@ use CoreDB\Kernel\Database\SelectQueryPreparerAbstract;
 
 class MissingPicturesQuery extends AdminProductsQuery
 {
-
     public function getResultQuery(): SelectQueryPreparerAbstract
     {
         $query = parent::getResultQuery();

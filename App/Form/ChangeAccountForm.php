@@ -12,7 +12,6 @@ use Src\Form\Widget\InputWidget;
 
 class ChangeAccountForm extends Form
 {
-
     public string $method = "POST";
     public function __construct()
     {

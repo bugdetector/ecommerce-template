@@ -13,7 +13,6 @@ use Src\Views\ViewGroup;
 
 class CatalogueController extends AppController
 {
-
     public $categoryCards;
 
     public function checkAccess(): bool

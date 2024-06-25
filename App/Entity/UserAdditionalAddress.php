@@ -9,7 +9,6 @@ namespace App\Entity;
 
 class UserAdditionalAddress extends UserAddress
 {
-
     public static function get($filter, $isDefault = true)
     {
         @$filter["default"] = 0;

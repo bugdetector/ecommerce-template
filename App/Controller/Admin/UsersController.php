@@ -3,23 +3,22 @@
 namespace App\Controller\Admin;
 
 use App\AdminTheme\EcommerceAdminController;
-use App\Entity\CustomUser;
+use App\Entity\AppUser;
 use Src\Entity\Translation;
 use Src\Form\SearchForm;
 
 class UsersController extends EcommerceAdminController
 {
-
     public SearchForm $searchForm;
     public array $actions;
 
     public function preprocessPage()
     {
         $this->setTitle(Translation::getTranslation("users"));
-        $customUser = new CustomUser();
-        $this->searchForm = SearchForm::createByObject($customUser);
+        $user = new AppUser();
+        $this->searchForm = SearchForm::createByObject($user);
         $this->searchForm->addClass("p-3");
-        $this->actions = $customUser->actions();
+        $this->actions = $user->actions();
         $this->addJsFiles("ecommerce_theme/src/components/user-delete/user-delete.js");
     }
 

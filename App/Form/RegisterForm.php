@@ -152,7 +152,7 @@ class RegisterForm extends Form
             ];
             $user->map($mapData);
             $user->save();
-            
+
             $verifyUrl = VerifyController::getUrl() . "{$user->ID}/" . $user->email_verification_key->getValue();
             \CoreDB::HTMLMail(
                 $user->email->getValue(),
@@ -162,7 +162,7 @@ class RegisterForm extends Form
                 ]),
                 $user->getFullName()
             );
-            
+
             $_SESSION[BASE_URL . "-UID"] = $user->ID;
             CoreDB::goTo(WelcomeController::getUrl());
         } catch (Exception $ex) {

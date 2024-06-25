@@ -15,7 +15,6 @@ use Src\Controller\NotFoundController;
 
 class ListController extends ProductsController
 {
-
     protected ?Banner $banner;
     protected ?array $idList = null;
     protected ?IDFilteredProductsQuery $query;

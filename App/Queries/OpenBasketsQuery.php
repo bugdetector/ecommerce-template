@@ -5,7 +5,7 @@ namespace App\Queries;
 use App\Controller\Admin\AjaxController;
 use App\Controller\Admin\Orders\InsertController;
 use App\Controller\Admin\Users\InsertController as UsersInsertController;
-use App\Entity\CustomUser;
+use App\Entity\AppUser;
 use CoreDB\Kernel\Database\SelectQueryPreparerAbstract;
 use Src\Entity\Translation;
 use Src\Entity\ViewableQueries;
@@ -15,7 +15,6 @@ use Src\Views\ViewGroup;
 
 class OpenBasketsQuery extends ViewableQueries
 {
-
     public function getSearchFormFields(bool $translateLabel = true): array
     {
         $searchFormFields = parent::getSearchFormFields($translateLabel);
@@ -116,9 +115,9 @@ class OpenBasketsQuery extends ViewableQueries
         ->addClass($row["comment"] ? "btn-danger" : "btn-info")
         ->addAttribute("data-user", $row["user"] ?: "")
         ->addAttribute("data-comment", $row['comment'] ?: "");
-        /** @var CustomUser */
+        /** @var AppUser */
         $lastModifiedBy = $row["comment_last_modified_by"] ?
-        CustomUser::get($row["comment_last_modified_by"]) : null;
+        AppUser::get($row["comment_last_modified_by"]) : null;
         if ($lastModifiedBy) {
             $row['comment']
             ->addAttribute("data-modified-by", $lastModifiedBy->getFullName())
@@ -127,9 +126,9 @@ class OpenBasketsQuery extends ViewableQueries
                 date("d-m-Y H:i:s", strtotime($row["comment_last_modified_date"]))
             );
         }
-        
-        /** @var CustomUser */
-        $dealer = $row['dealer'] ? CustomUser::get($row['dealer']) : null;
+
+        /** @var AppUser */
+        $dealer = $row['dealer'] ? AppUser::get($row['dealer']) : null;
         $row['dealer'] = $row['dealer'] ?
         ViewGroup::create("div", "d-flex flex-column")
         ->addField(TextElement::create($dealer->getFullName()))

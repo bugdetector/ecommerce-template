@@ -10,8 +10,6 @@ use Src\Form\SearchForm;
 
 class BlogsController extends AppController
 {
-
-
     public SearchForm $searchForm;
 
     public function checkAccess(): bool

@@ -4,7 +4,6 @@ namespace App\Entity\Product;
 
 class ProductDiscountList extends ProductList
 {
-
     public function __construct(string $tableName = null, array $mapData = [])
     {
         parent::__construct($tableName, $mapData);

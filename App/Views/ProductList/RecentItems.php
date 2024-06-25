@@ -12,7 +12,6 @@ use Src\Entity\Translation;
 
 class RecentItems extends SwiperProductList
 {
-
     public function __construct()
     {
         parent::__construct();

@@ -6,7 +6,6 @@ use CoreDB\Kernel\Database\SelectQueryPreparerAbstract;
 
 class IDFilteredProductsQuery extends ProductsQuery
 {
-
     public ?array $idList = null;
 
     public function setIdList(array $idList)

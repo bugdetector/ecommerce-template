@@ -8,7 +8,6 @@ use Src\Entity\Translation;
 
 class StockimportController extends ProductsController
 {
-
     public function preprocessPage()
     {
         parent::preprocessPage();

@@ -8,7 +8,7 @@ use App\Controller\Admin\Products\StockController;
 use App\Controller\Admin\Products\StockimportController;
 use App\Entity\Basket\Basket;
 use App\Entity\Basket\BasketProduct;
-use App\Entity\CustomUser;
+use App\Entity\AppUser;
 use App\Entity\Search\SearchApi;
 use CoreDB;
 use CoreDB\Kernel\Database\DataType\Checkbox;
@@ -413,7 +413,7 @@ class Product extends Model implements XMLSitemapEntityInterface
         }
         if ($userId) {
             /** @var User $user */
-            $user = CustomUser::get($userId);
+            $user = AppUser::get($userId);
         } else {
             $user = CoreDB::currentUser();
         }
@@ -467,10 +467,10 @@ class Product extends Model implements XMLSitemapEntityInterface
 
     public function getQuantityInStock(): int
     {
-        /** @var CustomUser */
+        /** @var AppUser */
         $user = \CoreDB::currentUser();
         // if not set use Imex Hornsey
-        $branch = $user->shipping_option->getValue() == CustomUser::SHIPPING_OPTION_COLLECTION ?
+        $branch = $user->shipping_option->getValue() == AppUser::SHIPPING_OPTION_COLLECTION ?
         $user->shipping_branch->getValue() : 1;
         foreach ($this->stock->getValue() as $quantity) {
             if ($quantity["branch"] == $branch) {
@@ -486,7 +486,7 @@ class Product extends Model implements XMLSitemapEntityInterface
         return ProductList::getListEntry($this->ID->getValue());
     }
 
-    public function isPrivateAndOwnerMatches(CustomUser $user = null): bool
+    public function isPrivateAndOwnerMatches(AppUser $user = null): bool
     {
         if ($this->is_private_product->getValue()) {
             if (!$user) {

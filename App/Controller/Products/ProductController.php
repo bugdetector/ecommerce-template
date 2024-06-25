@@ -16,7 +16,6 @@ use Src\Form\Widget\SelectWidget;
 
 class ProductController extends AppController
 {
-
     public ?Product $product = null;
     public bool $logged_in;
     public BasketProduct $basketProduct;

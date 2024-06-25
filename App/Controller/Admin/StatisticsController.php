@@ -9,7 +9,6 @@ use Src\Views\BasicCard;
 
 class StatisticsController extends EcommerceAdminController
 {
-
     public function getTemplateFile(): string
     {
         return "page-admin.twig";

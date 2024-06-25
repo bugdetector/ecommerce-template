@@ -7,7 +7,6 @@ use Src\Theme\View;
 
 class BasketItemsContainer extends View
 {
-
     public Basket $basket;
 
     public function __construct()

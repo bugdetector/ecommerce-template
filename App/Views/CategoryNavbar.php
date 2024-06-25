@@ -8,7 +8,6 @@ use Src\Views\Navbar;
 
 class CategoryNavbar extends Navbar
 {
-
     public $categories = [];
     public bool $isLoggedIn;
     public function __construct(string $tag_name, string $wrapper_class)

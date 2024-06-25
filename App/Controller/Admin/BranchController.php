@@ -11,7 +11,6 @@ use Src\Form\TreeForm;
 
 class BranchController extends EcommerceAdminController
 {
-
     /** @var TreeForm */
     public Form $branchForm;
 

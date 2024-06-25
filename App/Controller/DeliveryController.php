@@ -11,7 +11,6 @@ use Src\Form\SearchForm;
 
 class DeliveryController extends AppController
 {
-
     public SearchForm $postcodeSearch;
 
     public function checkAccess(): bool

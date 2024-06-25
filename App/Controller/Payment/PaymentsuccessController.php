@@ -79,7 +79,7 @@ class PaymentsuccessController extends AppController
                 "paid_amount" => $this->basket->total->getValue()
             ]);
             $this->basket->save();
-            
+
             \CoreDB::HTMLMail(
                 Variable::getByKey("payment_report_email")->value->getValue(),
                 "Payment: " . htmlspecialchars($this->basket->order_id),

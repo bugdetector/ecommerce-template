@@ -12,7 +12,6 @@ use Src\Form\InsertForm;
 
 class InsertController extends OrdersController
 {
-
     public ?Basket $order;
     public InsertForm $orderInsertForm;
 

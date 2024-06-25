@@ -14,7 +14,6 @@ use Src\Views\ViewGroup;
 
 class ProductsController extends EcommerceAdminController
 {
-
     protected SearchForm $productListSearch;
     public $productCount;
     public $missingPictureCount;

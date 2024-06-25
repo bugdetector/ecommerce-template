@@ -12,7 +12,6 @@ use Src\Form\SearchForm;
 
 class VoucherController extends EcommerceAdminController
 {
-
     public ?SearchForm $voucherForm = null;
     public ?InsertForm $insertForm = null;
     public VoucherCode $code;

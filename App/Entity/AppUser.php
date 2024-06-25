@@ -35,7 +35,7 @@ use Src\Views\ViewGroup;
  * @author murat
  */
 
-class CustomUser extends User
+class AppUser extends User
 {
     /**
     * List producst on grid.
@@ -189,16 +189,6 @@ class CustomUser extends User
     public EntityReference $address;
     public EntityReference $additional_delivery_address;
 
-
-    public function __construct(string $tableName = null, array $mapData = [])
-    {
-        $user = new User($tableName, $mapData);
-        foreach ($user as $fieldName => $field) {
-            $this->$fieldName = $field;
-        }
-        $this->entityName = "custom_users";
-    }
-
     public function insert()
     {
         $this->email_verification_key->setValue(
@@ -230,20 +220,6 @@ class CustomUser extends User
             return $result;
         } else {
             return false;
-        }
-    }
-
-    public static function get($filter)
-    {
-        $user = User::get($filter);
-        if ($user) {
-            $customUser = new CustomUser();
-            foreach ($user as $fieldName => $field) {
-                $customUser->$fieldName = $field;
-            }
-            return $customUser;
-        } else {
-            return null;
         }
     }
 
@@ -295,37 +271,11 @@ class CustomUser extends User
     public function getSearchFormFields(bool $translateLabel = true): array
     {
         $fields = parent::getSearchFormFields($translateLabel);
-        $fields["u.created_at"] = $fields["created_at"];
-        $fields["u.created_at"]->setLabel(
-            Translation::getTranslation("registration_date")
-        )->setName("u.created_at");
-        unset(
-            $fields["ID"],
-            $fields["created_at"],
-            $fields["last_updated"],
-            $fields["username"],
-            $fields["last_access"],
-            $fields["password"],
-            $fields["active"],
-            $fields["email_verification_key"],
-            $fields["email_verified"],
-            $fields["product_card_list_option"],
-            $fields["favorite_card_list_option"],
-            $fields["bespoke_card_list_option"],
-            $fields["shipping_option"],
-            $fields["shipping_branch"],
-            $fields["shipping_address"],
-            $fields["phone"],
-            $fields["comment"]
-        );
         $address = new UserAddress();
         $fields = [
             "account_number" => $address->account_number->getSearchWidget()
             ->setName("account_number")
-            ->setLabel(Translation::getTranslation("account_number"))
-        ] + [
-            "email" => $fields["email"]
-        ] + [
+            ->setLabel(Translation::getTranslation("account_number")),
             "address.company_name" => $address->company_name->getSearchWidget()
             ->setName("address.company_name")
             ->setLabel(Translation::getTranslation("company_name")),
@@ -335,7 +285,7 @@ class CustomUser extends User
             "address.phone" => $address->phone->getSearchWidget()
             ->setName("address.phone")
             ->setLabel(Translation::getTranslation("phone"))
-        ] + $fields;
+        ];
         $fields["address"] = $address->address->getSearchWidget()
         ->setName("address")
         ->setLabel(Translation::getTranslation("address"));
@@ -368,7 +318,7 @@ class CustomUser extends User
     public function getResultQuery(): SelectQueryPreparerAbstract
     {
         return \CoreDB::database()->select(static::getTableName(), "u")
-            ->join(UserAddress::getTableName(), "address", "u.ID = address.user")
+            ->leftjoin(UserAddress::getTableName(), "address", "u.ID = address.user")
             ->leftjoin("users_roles", "ur", "ur.user_id = u.ID")
             ->leftjoin(Role::getTableName(), "roles", "roles.ID = ur.role_id")
             ->select("u", [
@@ -416,9 +366,9 @@ class CustomUser extends User
         ->addClass($row["comment"] ? "btn-danger" : "btn-info")
         ->addAttribute("data-user", $row["edit_actions"])
         ->addAttribute("data-comment", $row['comment'] ?: "");
-        /** @var CustomUser */
+        /** @var AppUser */
         $lastModifiedBy = $row["comment_last_modified_by"] ?
-        CustomUser::get($row["comment_last_modified_by"]) : null;
+        AppUser::get($row["comment_last_modified_by"]) : null;
         if ($lastModifiedBy) {
             $row['comment']
             ->addAttribute("data-modified-by", $lastModifiedBy->getFullName())

@@ -18,7 +18,6 @@ use Src\Views\ViewGroup;
 
 class SendOrderForm extends Form
 {
-
     public string $method = "POST";
     public Basket $basket;
     public function __construct(Basket &$basket)

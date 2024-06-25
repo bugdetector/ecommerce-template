@@ -27,7 +27,6 @@ use Src\Views\ViewGroup;
 
 class CheckoutController extends AppController
 {
-
     public ?Basket $basket;
     public ?CollapsableCard $privateProducts = null;
     public ViewGroup $basketProductCards;

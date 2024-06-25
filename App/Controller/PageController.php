@@ -9,7 +9,6 @@ use Src\Controller\NotFoundController;
 
 class PageController extends AppController
 {
-
     public ?Page $page;
 
     public function __construct(array $arguments)

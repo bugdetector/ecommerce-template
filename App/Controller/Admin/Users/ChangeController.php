@@ -8,7 +8,6 @@ use Src\Entity\Translation;
 
 class ChangeController extends UsersController
 {
-
     public ChangeAccountForm $changeAccountForm;
 
     public function preprocessPage()

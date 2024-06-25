@@ -11,7 +11,6 @@ use Src\Views\TextElement;
 
 class OrderAgainForm extends Form
 {
-
     public function __construct(Basket $basket = null)
     {
         parent::__construct();

@@ -6,7 +6,6 @@ use Src\Views\ViewGroup;
 
 class GraphView extends ViewGroup
 {
-
     public $id;
 
     public function __construct(string $tag_name, string $wrapper_class)

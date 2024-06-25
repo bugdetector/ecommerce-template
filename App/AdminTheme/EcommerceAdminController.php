@@ -8,7 +8,6 @@ use Src\Theme\ThemeInteface;
 
 class EcommerceAdminController extends BaseController
 {
-
     public function getTheme(): ThemeInteface
     {
         return new EcommerceAdminTheme();
@@ -16,6 +15,7 @@ class EcommerceAdminController extends BaseController
 
     public function checkAccess(): bool
     {
-        return parent::checkAccess() || CoreDB::currentUser()->isUserInRole("Manager");
+        $user = CoreDB::currentUser();
+        return $user->isAdmin() || $user->isUserInRole('Manager');
     }
 }

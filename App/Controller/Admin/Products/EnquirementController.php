@@ -9,7 +9,6 @@ use Src\Form\SearchForm;
 
 class EnquirementController extends ProductsController
 {
-
     public $enquirementSearch;
 
     public function preprocessPage()

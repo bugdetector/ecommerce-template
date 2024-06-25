@@ -11,7 +11,6 @@ use Src\Entity\Translation;
 
 class CategoryController extends EcommerceAdminController
 {
-
     public $categoryForm;
 
     public function preprocessPage()

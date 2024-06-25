@@ -7,7 +7,6 @@ use Src\Theme\View;
 
 class SpaceUnderBanner extends View
 {
-
     public array $spaces;
 
     public function __construct()
