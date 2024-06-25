@@ -13,7 +13,6 @@ use CoreDB\Kernel\Model;
 
 abstract class EncryptedModel extends Model
 {
-    
     protected const ENCRYPTION_ALG = "AES128";
 
     /**
@@ -48,7 +47,7 @@ abstract class EncryptedModel extends Model
      */
     public function toArray(): array
     {
-        foreach ($this as $field_name => $field) {
+        foreach ($this->getAllFields() as $field_name => $field) {
             if (
                 !($field instanceof DataTypeAbstract) ||
                 ($field instanceof EntityReference) ||
@@ -93,7 +92,7 @@ abstract class EncryptedModel extends Model
         );
         return base64_encode($encrypted_string);
     }
-    
+
     /**
      *
      * @return type

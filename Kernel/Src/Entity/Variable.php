@@ -8,7 +8,6 @@ use CoreDB\Kernel\Database\DataType\LongText;
 use CoreDB\Kernel\Database\DataType\ShortText;
 use CoreDB\Kernel\Database\SelectQueryPreparerAbstract;
 use CoreDB\Kernel\Model;
-use Exception;
 use Src\Theme\View;
 
 /**
@@ -21,7 +20,7 @@ class Variable extends Model
     public ShortText $key;
     public LongText $value;
     public EnumaratedList $type;
-    
+
     /**
      * @inheritdoc
      */

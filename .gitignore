@@ -1,8 +1,10 @@
 public_html/files/uploaded
 config/config.php
+config/firebase-service-account.json
 .htaccess
 .composer.lock
 vendor/
 public_html/node_modules/
 cache/
 public_html/package-lock.json
+.DS_Store

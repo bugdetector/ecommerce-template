@@ -8,7 +8,6 @@ use Src\Form\Widget\InputWidget;
 
 class FloatNumber extends DataTypeAbstract
 {
-
     /**
      * @inheritdoc
      */
@@ -41,7 +40,7 @@ class FloatNumber extends DataTypeAbstract
 
     public function getValue()
     {
-        return floatval($this->value);
+        return $this->value !== null ? floatval($this->value) : null;
     }
 
     /**

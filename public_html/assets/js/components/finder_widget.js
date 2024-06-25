@@ -5,13 +5,15 @@ $(function(){
         let className = button.data("class");
         let dialog = null;
         loadData();
-        function loadData(data = [], orderBy = ""){
-            data.push({
-                name: "className",
-                value: className
-            });
+        function loadData(data = [], orderBy = "", url = null){
+            if(!url){
+                data.push({
+                    name: "className",
+                    value: className
+                });
+            }
             $.ajax({
-                url: `${root}/finder/findData` + orderBy,
+                url: url ? url : `${root}/finder/findData` + orderBy,
                 data: data,
                 success: function(response){
                     if(!dialog){
@@ -24,19 +26,7 @@ $(function(){
                     }else{
                         dialogContent.find(".modal-body").html(response);
                     }
-                    dialogContent.find("form").on("submit", function(e){
-                        e.preventDefault();
-                        loadData($(this).serializeArray());
-                        return false;
-                    });
-                    dialogContent.find("th a").on("click", function(e){
-                        e.preventDefault();
-                        loadData([], $(this).attr("href"));
-                    })
-                    dialogContent.find("select").each(function(i, el){
-                        loadSelect2(el);
-                    });
-                    dialogContent.find(".finder-select").on("click", function(e){
+                    dialogContent.on("click", ".finder-select", function(e){
                         e.preventDefault();
                         finderArea.find(".finder-input").val(this.value).trigger("change");
                         let row = $(this).parents("tr");
@@ -45,6 +35,9 @@ $(function(){
                             row.find("td:eq(2)").text().trim()
                         ).trigger("change");
                         dialog.hide();
+                    })
+                    dialogContent.on("shown.bs.modal", function(){
+                        KTMenu.createInstances();
                     })
                 }
             })

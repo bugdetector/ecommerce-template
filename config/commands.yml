@@ -7,3 +7,7 @@
 - Src\Command\CompressImageFilesCommand
 - App\Command\UpdateProductUrlAliasCommand
 - App\Command\SearchWordsGenerateCommand
+- Src\Command\SendPushNotificationsCommand
+- Src\Command\SendTestPushNotificationsCommand
+- Src\Command\ScheduleRunCommand
+- Src\Command\ServeCommand

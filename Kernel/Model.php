@@ -6,7 +6,7 @@ use CoreDB;
 use CoreDB\Kernel\Database\DataType\DataTypeAbstract;
 use CoreDB\Kernel\Database\DataType\DateTime;
 use CoreDB\Kernel\Database\DataType\File as DataTypeFile;
-use CoreDB\Kernel\Database\DataType\Integer;
+use CoreDB\Kernel\Database\DataType\UnsignedBigInteger;
 use CoreDB\Kernel\Database\SelectQueryPreparerAbstract;
 use CoreDB\Kernel\Database\TableDefinition;
 use PDO;
@@ -19,6 +19,7 @@ use Src\Entity\Translation;
 use Src\Form\InsertForm;
 use Src\Form\Widget\FormWidget;
 use Src\Form\Widget\InputWidget;
+use Src\Form\Widget\TextareaWidget;
 use Src\JWT;
 use Src\Theme\ResultsViewer;
 use Src\Theme\View;
@@ -29,13 +30,14 @@ use Src\Views\ViewGroup;
 
 abstract class Model implements SearchableInterface
 {
-    public Integer $ID;
+    public UnsignedBigInteger $ID;
     public DateTime $created_at;
     public DateTime $last_updated;
     public string $entityName = "";
     public ?array $entityConfig = [];
 
     protected $changed_fields;
+    protected $fields = [];
 
     public function __construct(string $tableName = null, array $mapData = [])
     {
@@ -76,7 +78,20 @@ abstract class Model implements SearchableInterface
     }
     public function __get($name)
     {
-        return isset($this->{$name}) ? $this->{$name} : null;
+        if (property_exists($this, $name)) {
+            return $this->{$name};
+        } else {
+            return @$this->fields[$name];
+        }
+    }
+
+    public function __set($name, $value)
+    {
+        if (property_exists($this, $name)) {
+            $this->{$name} = $value;
+        } else {
+            $this->fields[$name] = $value;
+        }
     }
 
     /**
@@ -175,7 +190,7 @@ abstract class Model implements SearchableInterface
     {
         $this->changed_fields = [];
         foreach ($array as $key => $value) {
-            if (!property_exists($this, $key)) {
+            if (!property_exists($this, $key) && !array_key_exists($key, $this->fields)) {
                 continue;
             }
             if (!$isConstructor && $this->{$key}->getValue() != $value) {
@@ -194,7 +209,7 @@ abstract class Model implements SearchableInterface
      */
     public function toArray(): array
     {
-        foreach ($this as $field_name => $field) {
+        foreach ($this->getAllFields() as $field_name => $field) {
             if (
                 !($field instanceof DataTypeAbstract) ||
                 ($field instanceof EntityReference) ||
@@ -217,9 +232,6 @@ abstract class Model implements SearchableInterface
 
     protected function update()
     {
-        $query =  CoreDB::database()
-        ->update($this->getTableName(), $this->toArray())
-        ->condition("ID", $this->ID->getValue())->getQuery();
         $result = CoreDB::database()
             ->update($this->getTableName(), $this->toArray())
             ->condition("ID", $this->ID->getValue())
@@ -229,7 +241,10 @@ abstract class Model implements SearchableInterface
                 if ($field instanceof DataTypeFile && @$this->changed_fields[$fieldName]) {
                     $file = File::get($this->changed_fields[$fieldName]["old_value"]);
                     if ($file) {
-                        $file->delete();
+                        $file->map([
+                            "status" => File::STATUS_TEMPORARY
+                        ]);
+                        $file->save();
                     }
                 }
             }
@@ -242,7 +257,7 @@ abstract class Model implements SearchableInterface
         if (!$this->ID->getValue()) {
             $this->insert();
         }
-        foreach ($this as $field_name => $field) {
+        foreach ($this->getAllFields() as $field_name => $field) {
             if (
                 ($field instanceof CoreDB\Kernel\Database\DataType\File) &&
                 $field->getValue()
@@ -273,7 +288,7 @@ abstract class Model implements SearchableInterface
         /**
          * @var DataTypeAbstract $field
          */
-        foreach ($this as $field_name => $field) {
+        foreach ($this->getAllFields() as $field_name => $field) {
             if ($field instanceof \CoreDB\Kernel\Database\DataType\File) {
                 /** @var File $file */
                 if ($file = File::get($field->getValue())) {
@@ -315,7 +330,7 @@ abstract class Model implements SearchableInterface
     {
         /** @var File */
         $file = File::get($this->$field_name);
-        return $file->getUrl();
+        return $file ? $file->getUrl() : null;
     }
 
     public function getForm()
@@ -326,7 +341,7 @@ abstract class Model implements SearchableInterface
     public function getFormFields($name, bool $translateLabel = true): array
     {
         $fields = [];
-        foreach ($this as $field_name => $field) {
+        foreach ($this->getAllFields() as $field_name => $field) {
             if (
                 !($field instanceof DataTypeAbstract) ||
                 in_array($field_name, ["ID", "table", "created_at", "last_updated"])
@@ -349,7 +364,15 @@ abstract class Model implements SearchableInterface
                 if ($field instanceof \CoreDB\Kernel\Database\DataType\File) {
                     /** @var InputWidget $widget*/
                     $widget->addFileKey(
-                        $this->entityName,
+                        $this->entityName ?: $this->getTableName(),
+                        $this->ID->getValue(),
+                        $field_name,
+                        $field->isNull
+                    );
+                } elseif ($field instanceof \CoreDB\Kernel\Database\DataType\LongText) {
+                    /** @var TextareaWidget $widget*/
+                    $widget->addFileKey(
+                        $this->entityName ?: $this->getTableName(),
                         $this->ID->getValue(),
                         $field_name,
                         $field->isNull
@@ -358,6 +381,16 @@ abstract class Model implements SearchableInterface
             }
             $fields[$field_name] = $widget;
         }
+        return $fields;
+    }
+
+    public function getAllFields()
+    {
+        $fields = [];
+        foreach ($this as $field_name => $field) {
+            $fields[$field_name] = $field;
+        }
+        $fields += $this->fields;
         return $fields;
     }
 
@@ -373,7 +406,7 @@ abstract class Model implements SearchableInterface
     public function getSearchFormFields(bool $translateLabel = true): array
     {
         $fields = [];
-        foreach ($this as $field_name => $field) {
+        foreach ($this->getAllFields() as $field_name => $field) {
             if (!($field instanceof DataTypeAbstract)) {
                 continue;
             }

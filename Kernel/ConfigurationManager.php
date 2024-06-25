@@ -18,9 +18,8 @@ use Symfony\Component\Yaml\Yaml;
 
 class ConfigurationManager
 {
-
     private static ?ConfigurationManager $instance = null;
-    
+
     private array $entityConfig = [];
 
     private function __construct()
@@ -151,7 +150,7 @@ class ConfigurationManager
             foreach ($query->fetchAll(\PDO::FETCH_ASSOC) as $data) {
                 $key = $data[$dumpByColumn];
                 unset($data["ID"], $data["created_at"], $data["last_updated"]);
-                $tableData[$key] = $data;
+                $tableData[strval($key)] = $data;
             }
             file_put_contents(
                 __DIR__ . "/../config/table_dump_data/{$tableName}.yml",
@@ -173,12 +172,12 @@ class ConfigurationManager
 
     public function getEntityInfo(string $entityName)
     {
-        return $this->entityConfig[$entityName];
+        return @$this->entityConfig[$entityName];
     }
 
     public function getEntityClassName(string $entityName)
     {
-        return $this->entityConfig[$entityName]["class"];
+        return @$this->entityConfig[$entityName]["class"];
     }
 
     public function getEntityInstance(string $entityName)

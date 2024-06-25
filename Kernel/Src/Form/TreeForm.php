@@ -18,7 +18,6 @@ use Src\Views\ViewGroup;
 
 class TreeForm extends Form
 {
-
     public string $className;
     public string $method = "POST";
     public array $cards = [];
@@ -157,7 +156,7 @@ class TreeForm extends Form
         }
         $content = ViewGroup::create("div", "row")
         ->addField($contentInputs);
-        
+
         if ($element->hasSubItems()) {
             $content->addField(
                 $this->getSubCards($element)
@@ -210,7 +209,7 @@ class TreeForm extends Form
 
     protected function getSubCards(TreeEntityAbstract $element = null): ViewGroup
     {
-        $subCardGroup = ViewGroup::create("div", "sortable_list col-sm-12 mt-3 min-h-25px");
+        $subCardGroup = ViewGroup::create("div", "sortable_list col-sm-12 mt-3 min-h-50px");
         $subCardGroup->addAttribute("id", $element ? "parent-{$element->ID->getValue()}" : "");
         if ($element) {
             /** @var TreeEntityAbstract $subCard */

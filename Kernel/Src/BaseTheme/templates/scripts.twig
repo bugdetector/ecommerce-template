@@ -1,0 +1,9 @@
+{% for js_file  in controller.js_files %}
+	<script {{ ("http" in js_file) ? "async" }} src="{{ ("http" not in js_file) ? (constant("BASE_URL") ~ "/" ~ js_file) ~ "?" ~ getHashedFilemTime(js_file) : js_file }}"></script>
+{% endfor %}
+<script language="javascript">
+	var root = "{{ constant("BASE_URL") }}";
+    var translations = {{ controller.frontend_translations|json_encode()|raw }};
+    {{ controller.js_codes|join(";")|raw }}
+    var language = '{{ language() }}';
+</script>

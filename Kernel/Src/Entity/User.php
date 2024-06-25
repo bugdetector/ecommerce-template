@@ -18,7 +18,6 @@ use Src\Views\TextElement;
 
 class User extends Model
 {
-
     public const DEFAULT_REMEMBER_ME_TIMEOUT = "1 week";
 
     /**
@@ -41,7 +40,7 @@ class User extends Model
     public ShortText $username;
 
     public EntityReference $roles;
-    
+
     /**
     * @var ShortText $name
     * Name
@@ -128,6 +127,23 @@ class User extends Model
             $headers[$header] = $translateLabel ? Translation::getTranslation($header) : $header;
         }
         return $headers;
+    }
+
+    public function getSearchFormFields(bool $translateLabel = true): array
+    {
+        $fields = parent::getSearchFormFields($translateLabel);
+        $searchFields = [
+            "u.ID" => $fields["ID"]->setName("u.ID"),
+            "username" => $fields["username"],
+            "name" => $fields["name"],
+            "surname" => $fields["surname"],
+            "email" => $fields["email"],
+            "phone" => $fields["phone"],
+            "roles" => $fields["roles"]->setName("roles"),
+            "last_access" => $fields["last_access"],
+            "u.created_at" => $fields["created_at"]->setName("u.created_at"),
+        ];
+        return $searchFields;
     }
 
     public function getResultQuery(): SelectQueryPreparerAbstract
@@ -239,7 +255,10 @@ class User extends Model
 
     public static function validatePassword(string $password)
     {
-        return preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\p{P})[a-zA-Z\d\p{P}]{8,}$/", $password);
+        return preg_match(
+            "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/",
+            $password
+        );
     }
 
     public function isAdmin()
@@ -341,7 +360,7 @@ class User extends Model
             )), "<")
             ->condition("remember_me_token", null)
             ->execute();
-        
+
         \CoreDB::database()->delete(Session::getTableName(), "s")
             ->condition("last_access", date("Y-m-d H:i:s", strtotime(
                 "-" . ini_get("session.gc_maxlifetime") . " seconds"

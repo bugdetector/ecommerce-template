@@ -2,21 +2,36 @@
 
 namespace Src\Theme;
 
-use Src\BaseTheme\BaseTheme;
+use Src\Entity\Cache;
+use Src\Entity\Translation;
 use Src\Theme\CoreRenderer;
 
 abstract class View
 {
+    protected ?Cache $cache = null;
 
     public $classes = [];
     public $attributes = [];
+    public bool $cachable = false;
 
     abstract public function getTemplateFile(): string;
 
     public function render()
     {
-        echo CoreRenderer::getInstance()
-        ->renderView($this);
+        if ($this->cachable && defined("ENVIROMENT") && ENVIROMENT != "development") {
+            $cache = $this->getCache();
+            if (!$cache) {
+                $render = CoreRenderer::getInstance()
+                        ->renderView($this);
+                Cache::set("view_render", $this->getCacheKey(), $render);
+                echo $render;
+            } else {
+                echo $cache->value;
+            }
+        } else {
+            echo CoreRenderer::getInstance()
+                ->renderView($this);
+        }
     }
 
     public function addClass(string $class_name): View
@@ -40,7 +55,7 @@ abstract class View
         }
         return $this;
     }
-    
+
     public function addAttribute(string $attribute_name, string $attribute_value)
     {
         $this->attributes[$attribute_name] = $attribute_value;
@@ -52,7 +67,7 @@ abstract class View
         unset($this->attributes[$attribute_name]);
         return $this;
     }
-    
+
     public function renderAttributes()
     {
         $render = "";
@@ -60,6 +75,25 @@ abstract class View
             $render .= " $name='$value' ";
         }
         return $render;
+    }
+
+    public function getCache(): ?Cache
+    {
+        if (!$this->cache && defined("ENVIROMENT") && ENVIROMENT != "development") {
+            $this->cache = Cache::getByBundleAndKey("view_render", $this->getCacheKey());
+        }
+        return $this->cache;
+    }
+
+    protected function getCacheKey(): string
+    {
+        return Translation::getLanguage() . static::class;
+    }
+
+    public function setCachable(bool $cachable)
+    {
+        $this->cachable = $cachable;
+        return $this;
     }
 
     public function __toString()

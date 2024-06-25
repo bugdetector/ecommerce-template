@@ -4,9 +4,9 @@ namespace Src\Form;
 
 use CoreDB\Kernel\Model;
 use Exception;
-use Src\Controller\Admin\TableController;
 use Src\Entity\DynamicModel;
 use Src\Entity\Translation;
+use Src\Entity\TreeEntityAbstract;
 use Src\Form\Widget\FormWidget;
 use Src\Form\Widget\InputWidget;
 use Src\Views\ViewGroup;
@@ -83,6 +83,13 @@ class InsertForm extends Form
     public function validate(): bool
     {
         if (isset($this->request[$this->formName])) {
+            if (
+                $this->object instanceof TreeEntityAbstract &&
+                property_exists($this->object, "parent") &&
+                isset($_GET["parent"])
+            ) {
+                $this->request[$this->formName]["parent"] = $_GET["parent"];
+            }
             $this->object->map($this->request[$this->formName]);
         }
         return true;
@@ -114,6 +121,6 @@ class InsertForm extends Form
 
     protected function deleteSuccess(): string
     {
-        \CoreDB::goTo(TableController::getUrl() . $this->object->getTableName());
+        \CoreDB::goTo(BASE_URL . \CoreDB::requestUrl() . "/..");
     }
 }

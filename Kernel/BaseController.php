@@ -12,11 +12,10 @@ use Src\Views\ViewGroup;
 
 abstract class BaseController implements ControllerInterface
 {
-
     public $arguments = [];
     public array $actions = [];
     public $method;
-    
+
     public string $title = "";
     public array $metaTags = [];
     public $js_files = [];
@@ -142,12 +141,9 @@ abstract class BaseController implements ControllerInterface
 
     public function addJsCode(string $js_code)
     {
-        if (!$this->js_codes) {
-            $this->js_codes = [];
-        }
         $this->js_codes[] = $js_code;
     }
-    
+
     public function addCssFiles($css_file_path)
     {
         if (is_array($css_file_path)) {
@@ -156,7 +152,12 @@ abstract class BaseController implements ControllerInterface
             $this->css_files[] = $css_file_path;
         }
     }
-    
+
+    public function addCssCode(string $css_code)
+    {
+        $this->css_codes[] = $css_code;
+    }
+
     public function addFrontendTranslation($translation_key)
     {
         $this->frontend_translations[$translation_key] = Translation::getTranslation($translation_key);

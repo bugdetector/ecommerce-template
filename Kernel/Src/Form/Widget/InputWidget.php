@@ -29,7 +29,10 @@ class InputWidget extends FormWidget
         if ($type == "checkbox") {
             \CoreDB::controller()->addJsFiles("assets/js/components/checkbox.js");
         } elseif ($type == "file") {
-            \CoreDB::controller()->addJsFiles("assets/js/components/file_input.js");
+            \CoreDB::controller()->addJsFiles([
+                "assets/js/components/file_input.js",
+                "base_theme/assets/plugins/custom/fslightbox/fslightbox.bundle.js",
+            ]);
             \CoreDB::controller()->addCssFiles("assets/css/components/file_input.css");
             \CoreDB::controller()->addFrontendTranslation("close");
         }
@@ -73,13 +76,12 @@ class InputWidget extends FormWidget
 
     public function addFileKey($entityName, $id, $fieldName, $isNull = true): InputWidget
     {
-        $removeKeyJwt = new JWT();
-        $removeKeyJwt->setPayload([
+        $this->fileKey = new JWT();
+        $this->fileKey->setPayload([
             "entity" => $entityName,
             "id" => $id,
             "field" => $fieldName
         ]);
-        $this->fileKey = $removeKeyJwt;
         $this->isNull = $isNull;
         return $this;
     }

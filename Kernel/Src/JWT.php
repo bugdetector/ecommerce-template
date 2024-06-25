@@ -22,7 +22,7 @@ class JWT
         $this->alg = $alg;
         $this->typ = $typ;
     }
-    
+
     public static function createFromString(string $string): self
     {
         $parts = explode(".", $string);
@@ -96,7 +96,7 @@ class JWT
             $this->payload = json_decode(base64_decode($payload));
         }
     }
-    
+
     /**
      * Returns token
      * @return string
@@ -117,21 +117,35 @@ class JWT
     {
         return $this->encrypt($this->getEncodedJoseHeader() . "." . $this->getEncodedPayload());
     }
-    
+
     public function validateSignature(string $signature): bool
     {
         return $this->decrypt($signature) == $this->generateSignature();
     }
-    
+
     /**
      * Returns encoded JOSE Header
      * @return string
      */
     private function getEncodedJoseHeader(): string
     {
-        return base64_encode(json_encode(["alg" => $this->alg, "typ" => $this->typ]));
+        return $this->encodeBase64URL(json_encode(["alg" => $this->alg, "typ" => $this->typ]));
     }
-    
+
+    /**
+     * Encode data to Base64URL.
+     * @param string $data
+     * @return string   encoded string
+     */
+    private function encodeBase64URL(string $data): string
+    {
+        // Convert Base64 to Base64URL by replacing “+” with “-” and “/” with “_”
+        $url = strtr(base64_encode($data), '+/', '-_');
+
+        // Remove padding character from the end of line and return the Base64URL result
+        return rtrim($url, '=');
+    }
+
     /**
      * Sets decoded JOSE Header
      * @return string
@@ -145,16 +159,16 @@ class JWT
         $this->setAlg($decoded_header->alg);
         $this->setTyp($decoded_header->typ);
     }
-    
+
     /**
      * Returns encoded Payload
      * @return string
      */
     private function getEncodedPayload(): string
     {
-        return base64_encode(json_encode($this->payload));
+        return $this->encodeBase64URL(json_encode($this->payload));
     }
-    
+
     /**
      *
      * @return string
@@ -162,9 +176,9 @@ class JWT
     private function encrypt($pure_string)
     {
         $encrypted_string = openssl_encrypt($pure_string, $this->alg, HASH_SALT, OPENSSL_RAW_DATA, self::IV);
-        return base64_encode($encrypted_string);
+        return $this->encodeBase64URL($encrypted_string);
     }
-    
+
     /**
      *
      * @return type

@@ -2,8 +2,9 @@
 // phpcs:ignoreFile
 use CoreDB\Kernel\BaseController;
 use CoreDB\Kernel\ConfigurationManager;
-use CoreDB\Kernel\Database\MySQL\MySQLDriver;
 use CoreDB\Kernel\Database\DatabaseDriver;
+use CoreDB\Kernel\Events\EventsManager;
+use CoreDB\Kernel\Events\EventsManagerInterface;
 use CoreDB\Kernel\Messenger;
 use CoreDB\Kernel\Router;
 use Src\Entity\Session;
@@ -12,10 +13,14 @@ use Src\Entity\User;
 use Src\Entity\Variable;
 use Src\Entity\Watchdog;
 use Src\JWT;
+use Src\Lib\PushNotification\PushNotificationService;
+use Src\Theme\CoreRenderer;
+use Src\Theme\ThemeInteface;
+use Src\Views\EmailTemplate;
 
 class CoreDB
 {
-    private static $currentUser;
+    private static $currentUser = null;
 
     public static function currentDate()
     {
@@ -37,14 +42,29 @@ class CoreDB
      *      filename = $filename
      *  ]
      */
-    public static function HTMLMail($to, $subject, $message, $toUsername, array $attachments = [])
+    public static function HTMLMail(
+        $tos, 
+        $subject, 
+        $message, 
+        $toUsernames, 
+        array $attachments = [], 
+        $template = EmailTemplate::class,
+        ThemeInteface $theme = null,
+        $ccs = null,
+        $bccs = null,
+        $fromName = null,
+    )
     {
         if(ENVIROMENT != "production"){
             $message .= Translation::getTranslation("originally_send_to", [
-                $to
+                $tos
             ]);
-            $to = Variable::getByKey("test_email_send_address")
+            $tos = Variable::getByKey("test_email_send_address")
             ->value->getValue();
+            // Set if exist
+            $ccs = $ccs ? $tos : null;
+            // Set if exist
+            $bccs = $bccs ? $tos : null;
         }
         $siteMail = Variable::getByKey("email_address")->value->getValue();
         $mail = new \PHPMailer\PHPMailer\PHPMailer();
@@ -58,10 +78,18 @@ class CoreDB
         $mail->CharSet  = "utf-8";
         $mail->Username = $siteMail;
         $mail->Password = Variable::getByKey("email_password")->value->getValue();
-        $mail->SetFrom($siteMail, Variable::getByKey("email_username")->value->getValue());
-        $mail->AddAddress($to, $toUsername);
+        $mail->SetFrom(
+            $siteMail, 
+            $fromName ?: Variable::getByKey("email_username")->value->getValue()
+        );
+        $toUsernames = explode(";", $toUsernames);
+        foreach(explode(";", $tos) as $index => $to){
+            $mail->AddAddress($to, @$toUsernames[$index] ?: current($toUsernames));
+        }
         $mail->Subject = $subject;
-        $mail->Body = $message;
+        $mail->Body = CoreRenderer::getInstance(
+            $theme ?: CoreDB::controller()->getTheme()
+        )->renderView(new $template($message));
         foreach($attachments as $attachment){
             switch($attachment["type"]){
                 case "content":
@@ -77,6 +105,12 @@ class CoreDB
                     );
                 break;
             }
+        }
+        foreach($ccs ? explode(";", $ccs) : [] as $cc){
+            $mail->addCC($cc);
+        }
+        foreach($bccs ? explode(";", $bccs) : [] as $bcc){
+            $mail->addBCC($bcc);
         }
         return $mail->Send();
     }
@@ -117,7 +151,7 @@ class CoreDB
 
     public static function cleanXSS($data)
     {
-        if ($data == strip_tags($data)) {
+        if ($data == strip_tags($data ?: "")) {
             // is HTML
             //If not html then no need to sanitize
             return $data;
@@ -176,6 +210,11 @@ class CoreDB
             return self::$currentUser;
         } else {
             $userClass = ConfigurationManager::getInstance()->getEntityInfo("users")["class"];
+            $userClass::deleteExpiredSessions();
+            $headers = getallheaders();
+            if(!@$headers["Authorization"] && @$_SERVER["REDIRECT_HTTP_AUTHORIZATION"]) {
+                $headers["Authorization"] = @$_SERVER["REDIRECT_HTTP_AUTHORIZATION"];
+            }
             if (isset($_SESSION[BASE_URL . "-UID"])) {
                 $session = Session::get(["session_key" => session_id()]);
                 if($session){
@@ -188,22 +227,39 @@ class CoreDB
                     ]);
                     $session->save();
                 }
-            } elseif (isset($_COOKIE["session-token"])) {
-                $jwt = JWT::createFromString($_COOKIE["session-token"]);
-                /** @var Session */
-                $session = Session::get([
-                    "user" => $jwt->getPayload()->ID,
-                    "remember_me_token" => $_COOKIE["session-token"]
-                ]);
-                if($session){
-                    self::$currentUser = $userClass::get([
-                        "ID" => $session->user->getValue(),
-                        "status" => User::STATUS_ACTIVE
+            } 
+            if (!self::$currentUser && (
+                isset($_COOKIE["session-token"]) || isset($headers["Authorization"])
+            )) {
+                try{
+                    $authorization = null;
+                    if(isset($_COOKIE["session-token"])){
+                        $authorization = $_COOKIE["session-token"];
+                    } else if(isset($headers["Authorization"])){
+                        $authorization = str_replace("Bearer ", "", $headers["Authorization"]);
+                    }
+                    $jwt = JWT::createFromString($authorization);
+                    /** @var Session */
+                    $session = Session::get([
+                        "user" => $jwt->getPayload()->ID,
+                        "remember_me_token" => $authorization
                     ]);
-                    $session->session_key->setValue(session_id());
-                    $session->save();
-                    $_SESSION[BASE_URL . "-UID"] = self::$currentUser->ID;
-                }
+                    if($session){
+                        $rememberMeTimeout = defined("REMEMBER_ME_TIMEOUT") ?
+                            "+" . REMEMBER_ME_TIMEOUT : "+" . User::DEFAULT_REMEMBER_ME_TIMEOUT;
+                        if(strtotime($session->last_access->getValue()) < strtotime("-". $rememberMeTimeout)){
+                            $session->delete();
+                        } else {
+                            self::$currentUser = $userClass::get([
+                                "ID" => $session->user->getValue(),
+                                "status" => User::STATUS_ACTIVE
+                            ]);
+                            $session->session_key->setValue(session_id());
+                            $session->save();
+                            $_SESSION[BASE_URL . "-UID"] = self::$currentUser->ID;
+                        }
+                    }
+                }catch(Exception $ex){}
             }
             if (!self::$currentUser) {
                 self::$currentUser = new $userClass();
@@ -223,12 +279,14 @@ class CoreDB
         $session->map([
             "session_key" => session_id(),
             "ip_address" => User::getUserIp(),
-            "user" => $user->ID->getValue()
+            "user" => $user->ID->getValue(),
+            "last_access" => \CoreDB::currentDate(),
         ]);
         if ($rememberMe) {
             $jwt = new JWT();
             $payload = new stdClass();
             $payload->ID = $user->ID->getValue();
+            $payload->timestamp = time();
             $jwt->setPayload($payload);
             $token = $jwt->createToken();
             $session->map([
@@ -273,7 +331,7 @@ class CoreDB
 
     public static function database(): DatabaseDriver
     {
-        return MySQLDriver::getInstance();
+        return DatabaseDriver::getDriver();
     }
 
     /**
@@ -297,6 +355,16 @@ class CoreDB
     }
 
     /**
+     * Returns notification service.
+     * @return PushNotificationService
+     * PushNotificationService instance
+     */
+    public static function notification(): PushNotificationService
+    {
+        return PushNotificationService::getInstance();
+    }
+
+    /**
      * Returns configuration manager
      * @return ConfigurationManager
      * Configuration Manager
@@ -304,6 +372,16 @@ class CoreDB
     public static function config(): ConfigurationManager
     {
         return ConfigurationManager::getInstance();
+    }
+
+    /**
+     * Returns event manager
+     * @return EventsManagerInterface
+     * Event Manager
+     */
+    public static function events(): EventsManagerInterface
+    {
+        return EventsManager::getInstance();
     }
 
     public static function isImage($path)

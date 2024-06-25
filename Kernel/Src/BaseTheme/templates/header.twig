@@ -2,42 +2,24 @@
 	{% for metaTag  in controller.metaTags %}
 		<meta {% for key, value in metaTag %} {{ key }}="{{ value }}" {% endfor %}>
 	{% endfor %}
-	<link rel="icon" href="{{ constant("BASE_URL") ~ "/assets/favicon.png" }}"/>
+	
+	<link rel="icon" href="{{ constant("BASE_URL") ~ "/assets/favicon.ico" }}"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ constant("BASE_URL") }}/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ constant("BASE_URL") }}/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ constant("BASE_URL") }}/assets/favicon-16x16.png">
+    <link rel="canonical" href="{{ theme.canonicalUrl() }}" />
+    <meta name="msapplication-TileColor" content="#00aba9">
+	<meta name="theme-color" content="#ffffff">
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
 	<title>
 		{{ controller.title }}
 	</title>
-	{% for js_file  in controller.js_files %}
-		<script {{ ("http" in js_file) ? "async" }} src="{{ ("http" not in js_file) ? (constant("BASE_URL") ~ "/" ~ js_file) ~ "?" ~ getHashedFilemTime(js_file) : js_file }}"></script>
-	{% endfor %}
-
 	{% for css_file  in controller.css_files %}
 		<link rel="stylesheet" href="{{ ("http" not in css_file) ? (constant("BASE_URL") ~ "/" ~ css_file) ~ "?" ~ getHashedFilemTime(css_file) : css_file }}"/>
 	{% endfor %}
 	{% if constant("PWA_ENABLED") is defined and constant("PWA_ENABLED") %}
 		<link rel="manifest" href="{{ constant("BASE_URL") ~ "/manifest.json" }}"/>
-		<script language="javascript">
-			$(function(){
-				registerServiceWorker();
-			})
-			async function registerServiceWorker(){
-				if('serviceWorker' in navigator){
-					try{
-						await navigator.serviceWorker.register(root + "/pwa_service_worker.js");
-					}catch(e){
-						console.log("Service Worker registration failed");
-					}
-				}
-			}
-		</script>
 	{% endif %}
-	
-
-	<script>
-		var root = "{{ constant("BASE_URL") }}";
-		var translations = {{ controller.frontend_translations|json_encode()|raw }};
-		{{ controller.js_codes|join(";")|raw }}
-		var language = '{{ language() }}';
-	</script>
-	<style>
-		{{controller.css_codes|join(";")|raw}}</style>
+    <style>{{controller.css_codes|join(";")|raw}}</style>
 </head>

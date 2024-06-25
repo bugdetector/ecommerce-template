@@ -1,19 +1,11 @@
 <?php
 
-namespace App\Theme;
+namespace App\AdminTheme;
 
-use App\Entity\Basket\Basket;
-use App\Views\BasketDrawer;
-use CoreDB\Kernel\ControllerInterface;
 use Src\BaseTheme\BaseTheme;
-use Src\Entity\Variable;
-use Src\Views\Navbar;
 
-class AppTheme extends BaseTheme
+class EcommerceAdminTheme extends BaseTheme
 {
-    public ?Navbar $categoryNavbar;
-    public BasketDrawer $basketDrawer;
-
     public static function getTemplateDirectories(): array
     {
         $directories = parent::getTemplateDirectories();

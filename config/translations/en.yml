@@ -170,7 +170,7 @@ db_user: 'Database username'
 db_password: 'Database password'
 cant_connect_to_database: 'Can''t connect to database.'
 all_configuration_imported: 'All configuration created successfully.'
-mainpage_welcome_message: "<div class=\"text-center\">\r\n    <h2 class=\"text-primary\">Welcome to CoreDB</h2>\r\n    <blockquote class=\"blockquote\">You see this page because you didn't override main page in your custom theme yet.</blockquote><p>CoreDB is functional CMS that allows developers to look the system birds eye view.</p>\r\n    <p>You can override every view you want in your custom theme.</p>\r\n    <p>You can create your own entity types.</p>\r\n    <p>In CoreDB every class is a module.</p>\r\n    <p>CoreDB designed to provide a highly readable and easy manageable code.</p>\r\n    <p>Documentation will provided soon.</p>\r\n</div>"
+mainpage_welcome_message: "<div class=\"text-center\">\r\n<h2 class=\"text-primary\">Welcome to CoreDB</h2>\r\n<blockquote class=\"blockquote\">You see this page because you didn't override main page in your custom theme yet.</blockquote>\r\n<p>CoreDB is functional CMS that allows developers to look the system birds eye view.</p>\r\n<p>You can override every view you want in your custom theme.</p>\r\n<p>You can create your own entity types.</p>\r\n<p>In CoreDB every class is a module.</p>\r\n<p>CoreDB designed to provide a highly readable and easy manageable code.</p>\r\n<p><a title=\"CoreDB documentation\" href=\"https://coredb.sonbellek.com/\" target=\"_blank\" rel=\"noopener\">Check out documentation</a></p>\r\n</div>\r\n<div id=\"gtx-trans\" style=\"position: absolute; left: 63px; top: 325.349px;\">\r\n<div class=\"gtx-trans-icon\">&nbsp;</div>\r\n</div>"
 add_admin: 'Create an administrator user.'
 enter_valid_mail: 'Please enter a valid email address.'
 'on': Active
@@ -622,3 +622,27 @@ navbar: 'Header menu'
 dark-mode: 'Dark Mode'
 banners: Banners
 comment_saved: 'Comment saved'
+states: States
+push_notification_welcome_title: 'Welcome to %s'
+notification_welcome_text: 'You have successfully registered for our notifications. Wait for exciting news.'
+push_notification_subscriptions: 'Push Notification Subscriptions'
+expirationTime: 'Expiration Time'
+endpoint: Endpoint
+keys: Keys
+send_push_notifications: 'Send waiting push notifications to subscribers.'
+push_notifications: 'Push Notifications'
+subscription: Subscription
+icon: Icon
+all_notifications_pushed: 'All notifications pushed.'
+load_async: 'Load Async'
+'Load data async.': 'Load data async.'
+filter: Filter
+no_result_found: 'No Result Found'
+subscribe_notifications: 'Subscribe Notification'
+allow_notifications: 'Allow Notifications'
+subscribe_notifications_message: "<div class=\"d-flex flex-column text-center\">\r\n<div><span class=\"fa fa-bell display-4 text-warning\"></span></div>\r\n<div class=\"fw-bolder fs-4 mt-3\">Subscribe our notifications and don't miss any updates.</div>\r\n</div>"
+thanks: Thanks
+big_integer: 'Big Integer (Unsigned)'
+db_driver: 'Database Driver'
+user_details: 'User Details'
+install: Install

@@ -2,6 +2,7 @@
 
 use Src\BaseTheme\BaseTheme;
 
+define("DB_DRIVER", "%db_driver");
 define("DB_SERVER", "%db_server");
 define("DB_NAME", "%db_name");
 define("DB_USER", "%db_user");
@@ -12,7 +13,7 @@ define("TIMEZONE", "Europe/Istanbul");
 
 define("LANGUAGE", "tr");
 
-define("TRUSTED_HOSTS", "localhost,127.0.0.1");
+define("TRUSTED_HOSTS", "localhost,localhost:8000");
 
 /**
  * production  -> Twig cache enabled, Mails send to exact location.
@@ -44,6 +45,7 @@ define("REMEMBER_ME_TIMEOUT", "1 week");
 // To configure PWA feature use the section below.
 if (!IS_CLI) {
     define("PWA_ENABLED", true);
+    define("NOTIFICATIONS_ENABLED", false);
     define(
         "PWA_MANIFEST",
         [
@@ -69,6 +71,12 @@ if (!IS_CLI) {
         ]
     );
 }
+// Frontend app url
+define("FRONTEND_URL", "http://localhost:3000");
+// Configure push notifications id notifications enabled otherwise no need to configure.
+define("VAPID_SUBJECT", "");
+define("PUBLIC_VAPID_KEY", "");
+define("PRIVATE_VAPID_KEY", "");
 
 
 /**
@@ -91,3 +99,7 @@ define("OMNIPAY_CURRENCY", "TRY");
  */
 define("FOLLOWUP_URL", null);
 define("THEME", BaseTheme::class);
+
+define("HTTP_AUTH_ENABLED", false);
+define("HTTP_AUTH_USERNAME", "core_user");
+define("HTTP_AUTH_PASSWORD", "core_1234");

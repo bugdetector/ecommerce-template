@@ -17,8 +17,8 @@ use PDOStatement;
 
 interface DatabaseDriverInterface
 {
-
     public const INTEGER = "integer";
+    public const UNSIGNED_BIG_INTEGER  = "big_integer";
     public const FLOAT = "float";
     public const CHECKBOX = "checkbox";
     public const SHORT_TEXT = "short_text";
@@ -115,7 +115,7 @@ interface DatabaseDriverInterface
      *  Delete query preparer
      */
     public function delete(string $table_name): DeleteQueryPreparerAbstract;
-    
+
     /**
      * Truncate a table
      * @param string $table_name
@@ -221,7 +221,7 @@ interface DatabaseDriverInterface
      *  Table Description
      */
     public static function getTableDescription(string $table_name): array;
-    
+
 
     /**
      * Returns foreign keys referenced to table

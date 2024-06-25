@@ -1,7 +1,7 @@
 $(function(){
     $(document).on("change", "input[type='file'].asyncronous", function(e){
         var form = $(this).closest("form");
-        var fileId = $( document.getElementById($(this).data("file-for")) );
+        var fileId = $(`[id='${$(this).data("file-for")}']`);
         var formData = new FormData();
         formData.append('file', this.files[0]);
         formData.append("form_build_id", form.find("#input_form_build_id").val());
@@ -22,11 +22,14 @@ $(function(){
     }).on("click", ".image-preview", function(e){
         e.preventDefault();
         let img = $(this).children("img");
-        openModal(
-            $(this).data("field-name"),
-            img.clone(),
-            `<button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">${_t("close")}</button>`,
-            "modal-lg"
-        );
+        let imageSource = "";
+        if(img.length == 0){
+            imageSource = $(this).attr("href");
+        } else {
+            imageSource = img.attr("src");
+        }
+        var lightbox = new FsLightbox();
+        lightbox.props.sources = [imageSource];
+        lightbox.open();
     })
 })

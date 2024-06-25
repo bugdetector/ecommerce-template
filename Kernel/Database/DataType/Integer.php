@@ -8,7 +8,6 @@ use Src\Form\Widget\InputWidget;
 
 class Integer extends DataTypeAbstract
 {
-
     public $length;
     /**
      * @inheritdoc
@@ -40,7 +39,7 @@ class Integer extends DataTypeAbstract
 
     public function getValue()
     {
-        return intval($this->value);
+        return $this->value !== null ? intval($this->value) : null;
     }
 
     /**

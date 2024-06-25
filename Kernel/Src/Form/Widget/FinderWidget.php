@@ -8,7 +8,6 @@ use Src\JWT;
 
 class FinderWidget extends FormWidget
 {
-
     /**
      * @property string $finderClass
      *  This class must be implements \CoreDB\Kernel\FilterableInterface
@@ -23,7 +22,10 @@ class FinderWidget extends FormWidget
     {
         parent::__construct($name);
         $this->addClass("finder-input");
-        \CoreDB::controller()->addJsFiles("assets/js/components/finder_widget.js");
+        \CoreDB::controller()->addJsFiles([
+            "assets/js/forms/search_form.js",
+            "assets/js/components/finder_widget.js"
+        ]);
     }
 
     public static function create(string $name): FinderWidget

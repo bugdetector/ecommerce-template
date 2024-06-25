@@ -13,7 +13,6 @@ use Src\Form\Widget\SelectWidget;
 
 class EntityReference extends DataTypeAbstract
 {
-
     public const CONNECTION_MANY_TO_MANY = "manyToMany";
     public const CONNECTION_MANY_TO_ONE = "manyToOne";
     public const CONNECTION_ONE_TO_MANY = "oneToMany";
@@ -60,7 +59,7 @@ class EntityReference extends DataTypeAbstract
      */
     public function setValue($value)
     {
-        $this->value = $value;
+        $this->value = is_array($value) ? array_filter($value) : $value;
     }
 
     /**
@@ -100,7 +99,7 @@ class EntityReference extends DataTypeAbstract
             }
             $widget = SelectWidget::create("")
             ->setNullElement(null)
-            ->addAttribute("multiple", "true")
+            ->addAttribute("multiple", "multiple")
             ->setOptions($options)
             ->setAutoComplete($referenceClass::getTableName(), array_keys(
                 (new $referenceClass())->toArray()
@@ -229,6 +228,7 @@ class EntityReference extends DataTypeAbstract
             if ($this->value) {
                 foreach ($this->value as $data) {
                     if (!empty($existing)) {
+                        /** @var Model */
                         $object = array_shift($existing);
                     } else {
                         /** @var Model */

@@ -20,7 +20,7 @@ $(document).on("click", ".clear-cache", function (e) {
             location.assign(url);
         }
     }
-});;
+});
 $(function () {
     setTimeout(function () {
         if (darkMode) {
@@ -120,31 +120,10 @@ $(document).ajaxSuccess(function (evt, request, settings) {
 $(document).on("submit", function () {
     swal.showLoading();
 });
-var loadingShown = false;
-var isModalVisible = false;
-$(document).ajaxSend(function () {
-    setTimeout(function () {
-        if ($.active > 0 && !loadingShown) {
-            loadingShown = true;
-            isModalVisible = swal.isVisible();
-            swal.showLoading();
-        }
-    }, 300);
-});
-$(document).ajaxComplete(function () {
-    if ($.active == 1 && loadingShown) {
-        if (isModalVisible) {
-            swal.hideLoading();
-        } else {
-            swal.closeModal();
-        }
-        loadingShown = false;
-    }
-})
 
 
 const modalTemplate = `<div class="modal fade" tabindex="-1">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"></h5>
@@ -160,9 +139,11 @@ function openModal(
     title,
     body,
     footer,
-    size
+    size = "modal-lg",
+    backdrop = "static",
 ) {
     let modalContent = $(modalTemplate);
+    modalContent.attr("data-bs-backdrop", backdrop);
     modalContent.find(".modal-title").text(title);
     modalContent.find(".modal-body").append(body);
     modalContent.find(".modal-footer").append(footer);
@@ -189,6 +170,9 @@ function openModal(
             modalContent.find('.html-editor').each(function(i,el){
                 loadHtmlEditor(el);
             })
+        }
+        if (typeof window.initializeMultipleFileInput === "function") {
+            initializeMultipleFileInput();
         }
     })
     return [modal, modalContent];

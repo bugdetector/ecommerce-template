@@ -138,6 +138,8 @@ voucher_code:
       foreignKey: "voucher_code"
 voucher_codes_user:
   class: App\Entity\Basket\VoucherCodesUser
+states:
+  class: Src\Entity\State
 sidebar:
   class: Src\Entity\Sidebar
   manyToMany:
@@ -154,3 +156,7 @@ navbar:
       selfKey: "navbar_id"
       foreignKey: "role_id"
       createIfNotExist: false
+push_notifications:
+  class: Src\Entity\PushNotification
+push_notification_subscriptions:
+  class: Src\Entity\PushNotificationSubscription

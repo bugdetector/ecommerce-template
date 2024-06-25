@@ -10,7 +10,6 @@ use Src\Form\Widget\SelectWidget;
 
 class TableReference extends DataTypeAbstract
 {
-
     public string $reference_table = "";
     /**
      * @inheritdoc
@@ -92,6 +91,7 @@ class TableReference extends DataTypeAbstract
      */
     public function equals(DataTypeAbstract $dataType): bool
     {
+        /** @var TableReference $dataType */
         return parent::equals($dataType) &&
             (isset($dataType->reference_table) ? $dataType->reference_table == $this->reference_table : false);
     }

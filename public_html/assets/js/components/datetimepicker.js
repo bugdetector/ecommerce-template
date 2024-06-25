@@ -10,7 +10,7 @@ window.loadTimeInput = function () {
         el = $(el);
         let default_value = el.val();
         el.val("");
-        flatpickr(el, {
+        let instance = flatpickr(el, {
             enableTime: true,
             noCalendar: true,
             dateFormat: "H:i",
@@ -19,6 +19,12 @@ window.loadTimeInput = function () {
             locale: language,
             allowInput: true
         });
+        el.on("input", function(e){
+            let dateMoment = moment(el.val(), "HH:mm", true);
+            if(dateMoment.isValid()){
+                instance.setDate(el.val());
+            }
+        })
         el.val(default_value);
     });
 }
@@ -28,12 +34,20 @@ window.loadDateInput = function () {
         el = $(el);
         let default_value = el.val();
         el.val("");
-        flatpickr(el, {
+        let instance = flatpickr(el, {
             dateFormat: "d-m-Y",
-            locale: language,
+            locale: { 
+                firstDayOfWeek: 1
+            },
             defaultDate: default_value,
             allowInput: true,
         });
+        el.on("input", function(e){
+            let dateMoment = moment(el.val(), "DD-MM-YYYY", true);
+            if(dateMoment.isValid()){
+                instance.setDate(el.val());
+            }
+        })
         el.val(default_value);
     });
 }
@@ -43,17 +57,25 @@ window.loadDateTimeInput = function () {
         el = $(el);
         let default_value = el.val();
         el.val("");
-        flatpickr(el, {
+        let instance = flatpickr(el, {
             dateFormat: "d-m-Y H:i",
             enableTime: true,
             time_24hr: true,
-            locale: language,
+            locale: { 
+                firstDayOfWeek: 1
+            },
             defaultDate: default_value,
             icons: {
                 time: "fa fa-clock"
             },
             allowInput: true
         });
+        el.on("input", function(e){
+            let dateMoment = moment(el.val(), "DD-MM-YYYY HH:mm", true);
+            if(dateMoment.isValid()){
+                instance.setDate(el.val());
+            }
+        })
         el.val(default_value);
     });
 }
@@ -65,7 +87,12 @@ window.loadDateRangeInput = function(){
         el.val("");
         flatpickr(el, {
             dateFormat: "Y-m-d",
-            locale: { rangeSeparator: ' & ' },
+            altInput: true,
+            altFormat: "d-m-Y",
+            locale: { 
+                rangeSeparator: ' & ',
+                firstDayOfWeek: 1
+            },
             defaultDate: default_value,
             mode: "range",
             allowInput: true

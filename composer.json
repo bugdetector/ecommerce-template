@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "twig/twig": "^3.0",
+        "twig/twig": "^3",
         "squizlabs/php_codesniffer": "*",
         "phpmailer/phpmailer": "^6.1",
         "symfony/yaml": "^5.1",
@@ -38,6 +38,11 @@
             "Payment fix":"patches/3d_pay_hosting.patch"
             }
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "cweagans/composer-patches": true,
+            "php-http/discovery": true
+        }
     }
-    
 }
